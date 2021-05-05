@@ -29,7 +29,7 @@ namespace ChapooDAL
                 Account logintemp = new Account();
                 logintemp.UserName = (String)(dr["username"].ToString());
                 logintemp.Password = (String)(dr["password"].ToString());
-                //logintemp.Type = (String)(dr["adminStatus"].ToString());
+                logintemp.Type = (String)(dr["type"].ToString());
                 login = logintemp;
             }
             return login;

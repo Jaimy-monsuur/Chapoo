@@ -13,9 +13,23 @@ namespace ChapooUI
 {
     public partial class ChapooUI : Form
     {
-        public ChapooUI()
+        public ChapooUI(string type)
         {
             InitializeComponent();
+            /*
+            if (type == "bar")
+            {
+
+            }
+            else if (type == "keuken")
+            {
+
+            }
+            else if (type == "restaurant")
+            {
+
+            }
+            */
         }
     }
 }
