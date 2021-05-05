@@ -51,9 +51,9 @@ namespace ChapooUI
             this.lbl_Username.AutoSize = true;
             this.lbl_Username.Location = new System.Drawing.Point(41, 63);
             this.lbl_Username.Name = "lbl_Username";
-            this.lbl_Username.Size = new System.Drawing.Size(131, 17);
+            this.lbl_Username.Size = new System.Drawing.Size(83, 17);
             this.lbl_Username.TabIndex = 9;
-            this.lbl_Username.Text = "User Name (Email):";
+            this.lbl_Username.Text = "User Name:";
             // 
             // tbx_Password
             // 
