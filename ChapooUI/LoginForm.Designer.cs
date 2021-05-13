@@ -46,7 +46,7 @@ namespace ChapooUI
             this.lbl_errormessagebox.AutoSize = true;
             this.lbl_errormessagebox.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_errormessagebox.ForeColor = System.Drawing.Color.Red;
-            this.lbl_errormessagebox.Location = new System.Drawing.Point(128, 625);
+            this.lbl_errormessagebox.Location = new System.Drawing.Point(97, 624);
             this.lbl_errormessagebox.Name = "lbl_errormessagebox";
             this.lbl_errormessagebox.Size = new System.Drawing.Size(0, 28);
             this.lbl_errormessagebox.TabIndex = 14;
@@ -56,7 +56,7 @@ namespace ChapooUI
             this.lbl_Username.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lbl_Username.AutoSize = true;
             this.lbl_Username.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Username.Location = new System.Drawing.Point(128, 502);
+            this.lbl_Username.Location = new System.Drawing.Point(97, 501);
             this.lbl_Username.Name = "lbl_Username";
             this.lbl_Username.Size = new System.Drawing.Size(118, 28);
             this.lbl_Username.TabIndex = 9;
@@ -66,17 +66,17 @@ namespace ChapooUI
             // 
             this.tbx_Password.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.tbx_Password.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbx_Password.Location = new System.Drawing.Point(284, 575);
+            this.tbx_Password.Location = new System.Drawing.Point(253, 574);
             this.tbx_Password.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbx_Password.Name = "tbx_Password";
-            this.tbx_Password.Size = new System.Drawing.Size(215, 34);
+            this.tbx_Password.Size = new System.Drawing.Size(275, 34);
             this.tbx_Password.TabIndex = 12;
             // 
             // btn_login
             // 
             this.btn_login.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btn_login.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_login.Location = new System.Drawing.Point(126, 682);
+            this.btn_login.Location = new System.Drawing.Point(95, 681);
             this.btn_login.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_login.Name = "btn_login";
             this.btn_login.Size = new System.Drawing.Size(103, 42);
@@ -89,10 +89,10 @@ namespace ChapooUI
             // 
             this.tbx_Username.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.tbx_Username.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbx_Username.Location = new System.Drawing.Point(284, 502);
+            this.tbx_Username.Location = new System.Drawing.Point(253, 501);
             this.tbx_Username.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbx_Username.Name = "tbx_Username";
-            this.tbx_Username.Size = new System.Drawing.Size(215, 34);
+            this.tbx_Username.Size = new System.Drawing.Size(275, 34);
             this.tbx_Username.TabIndex = 11;
             // 
             // lbl_Password
@@ -100,7 +100,7 @@ namespace ChapooUI
             this.lbl_Password.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lbl_Password.AutoSize = true;
             this.lbl_Password.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Password.Location = new System.Drawing.Point(128, 580);
+            this.lbl_Password.Location = new System.Drawing.Point(97, 579);
             this.lbl_Password.Name = "lbl_Password";
             this.lbl_Password.Size = new System.Drawing.Size(102, 28);
             this.lbl_Password.TabIndex = 10;
