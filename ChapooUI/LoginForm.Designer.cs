@@ -29,6 +29,7 @@ namespace ChapooUI
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.lbl_errormessagebox = new System.Windows.Forms.Label();
             this.lbl_Username = new System.Windows.Forms.Label();
             this.tbx_Password = new System.Windows.Forms.TextBox();
@@ -41,36 +42,44 @@ namespace ChapooUI
             // 
             // lbl_errormessagebox
             // 
+            this.lbl_errormessagebox.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lbl_errormessagebox.AutoSize = true;
+            this.lbl_errormessagebox.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_errormessagebox.ForeColor = System.Drawing.Color.Red;
-            this.lbl_errormessagebox.Location = new System.Drawing.Point(35, 462);
+            this.lbl_errormessagebox.Location = new System.Drawing.Point(128, 625);
             this.lbl_errormessagebox.Name = "lbl_errormessagebox";
-            this.lbl_errormessagebox.Size = new System.Drawing.Size(0, 17);
+            this.lbl_errormessagebox.Size = new System.Drawing.Size(0, 28);
             this.lbl_errormessagebox.TabIndex = 14;
             // 
             // lbl_Username
             // 
+            this.lbl_Username.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lbl_Username.AutoSize = true;
-            this.lbl_Username.Location = new System.Drawing.Point(35, 363);
+            this.lbl_Username.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Username.Location = new System.Drawing.Point(128, 502);
             this.lbl_Username.Name = "lbl_Username";
-            this.lbl_Username.Size = new System.Drawing.Size(83, 17);
+            this.lbl_Username.Size = new System.Drawing.Size(118, 28);
             this.lbl_Username.TabIndex = 9;
             this.lbl_Username.Text = "User Name:";
             // 
             // tbx_Password
             // 
-            this.tbx_Password.Location = new System.Drawing.Point(191, 420);
+            this.tbx_Password.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.tbx_Password.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbx_Password.Location = new System.Drawing.Point(284, 575);
             this.tbx_Password.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbx_Password.Name = "tbx_Password";
-            this.tbx_Password.Size = new System.Drawing.Size(187, 22);
+            this.tbx_Password.Size = new System.Drawing.Size(215, 34);
             this.tbx_Password.TabIndex = 12;
             // 
             // btn_login
             // 
-            this.btn_login.Location = new System.Drawing.Point(38, 500);
+            this.btn_login.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btn_login.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_login.Location = new System.Drawing.Point(126, 682);
             this.btn_login.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_login.Name = "btn_login";
-            this.btn_login.Size = new System.Drawing.Size(75, 27);
+            this.btn_login.Size = new System.Drawing.Size(103, 42);
             this.btn_login.TabIndex = 8;
             this.btn_login.Text = "Log in";
             this.btn_login.UseVisualStyleBackColor = true;
@@ -78,27 +87,32 @@ namespace ChapooUI
             // 
             // tbx_Username
             // 
-            this.tbx_Username.Location = new System.Drawing.Point(191, 363);
+            this.tbx_Username.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.tbx_Username.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbx_Username.Location = new System.Drawing.Point(284, 502);
             this.tbx_Username.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbx_Username.Name = "tbx_Username";
-            this.tbx_Username.Size = new System.Drawing.Size(187, 22);
+            this.tbx_Username.Size = new System.Drawing.Size(215, 34);
             this.tbx_Username.TabIndex = 11;
             // 
             // lbl_Password
             // 
+            this.lbl_Password.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lbl_Password.AutoSize = true;
-            this.lbl_Password.Location = new System.Drawing.Point(35, 425);
+            this.lbl_Password.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Password.Location = new System.Drawing.Point(128, 580);
             this.lbl_Password.Name = "lbl_Password";
-            this.lbl_Password.Size = new System.Drawing.Size(73, 17);
+            this.lbl_Password.Size = new System.Drawing.Size(102, 28);
             this.lbl_Password.TabIndex = 10;
             this.lbl_Password.Text = "Password:";
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pictureBox1.Image = global::ChapooUI.Properties.Resources.Capture;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(-53, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(492, 315);
+            this.pictureBox1.Size = new System.Drawing.Size(753, 460);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 15;
             this.pictureBox1.TabStop = false;
@@ -107,7 +121,8 @@ namespace ChapooUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(516, 557);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(643, 742);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lbl_errormessagebox);
             this.Controls.Add(this.lbl_Username);
@@ -115,8 +130,10 @@ namespace ChapooUI
             this.Controls.Add(this.btn_login);
             this.Controls.Add(this.tbx_Username);
             this.Controls.Add(this.lbl_Password);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "LoginForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginForm";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
