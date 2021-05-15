@@ -53,6 +53,12 @@
     <Compile Include="ChapooUI.Designer.cs">
       <DependentUpon>ChapooUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tafel_overzicht.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tafel_overzicht.Designer.cs">
+      <DependentUpon>Tafel_overzicht.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,6 +69,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ChapooUI.resx">
       <DependentUpon>ChapooUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tafel_overzicht.resx">
+      <DependentUpon>Tafel_overzicht.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -99,6 +108,9 @@
       <Project>{93076218-323d-4a03-855f-1a1191320d2e}</Project>
       <Name>ChapooModel</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imageonline-co-split-image %282%29.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
