@@ -39,7 +39,8 @@ namespace ChapooUI
 
         private void keukenSelectBtn_Click(object sender, EventArgs e)
         {
-
+            KeukenBarSysteemForm keukenBarScherm = new KeukenBarSysteemForm();
+            keukenBarScherm.ShowDialog();
         }
     }
 }

@@ -53,6 +53,12 @@
     <Compile Include="ChapooUI.Designer.cs">
       <DependentUpon>ChapooUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="KeukenBarSysteemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KeukenBarSysteemForm.Designer.cs">
+      <DependentUpon>KeukenBarSysteemForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,6 +69,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ChapooUI.resx">
       <DependentUpon>ChapooUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KeukenBarSysteemForm.resx">
+      <DependentUpon>KeukenBarSysteemForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -99,6 +108,12 @@
       <Project>{93076218-323d-4a03-855f-1a1191320d2e}</Project>
       <Name>ChapooModel</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keuken foto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keuken foto1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
