@@ -112,5 +112,8 @@
   <ItemGroup>
     <None Include="Resources\imageonline-co-split-image %282%29.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\table.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

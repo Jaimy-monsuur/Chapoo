@@ -16,7 +16,7 @@ namespace ChapooUI
     public partial class Tafel_overzicht : Form
     {
         public Tafel_Service Tafel_Service = new Tafel_Service();
-        public List<GroupBox> TafelBox = new List<GroupBox>();
+        public List<Panel> TafelPanel = new List<Panel>();
         public Tafel_overzicht()
         {
             InitializeComponent();
@@ -28,40 +28,45 @@ namespace ChapooUI
         public void UpdateTafels()
         {
             List<Tafel> tafels = Tafel_Service.Tafels();
-            for (int i = 0; i < TafelBox.Count; i++)
+            for (int i = 0; i < TafelPanel.Count; i++)
             {
                 if (tafels[i].bezeting != 0)
                 {
-                    TafelBox[i].BackColor = Color.Red;
-                    Label l = new Label();
-                    l.Location = new Point(5, 110);
-                    TafelBox[i].Controls.Add(l);
-                    l.Text = $"Tafelnummer: {tafels[1].tafelnummer}\nZitplaatsen: {tafels[1].zitplekken}\n kaas";
+                    TafelPanel[i].BackColor = Color.Red;
+                    foreach (Control c in TafelPanel[i].Controls)
+                    {
+                        c.Text = $"Tafelnummer: {tafels[i].tafelnummer}\nZitplaatsen: {tafels[1].zitplekken}\nBezeting: {tafels[i].bezeting}";
+                    }
                 }
                 else if (tafels[i].bezeting == 0)
                 {
-                    TafelBox[i].BackColor = Color.Green;
+                    TafelPanel[i].BackColor = Color.Green;
+                    foreach (Control c in TafelPanel[i].Controls)
+                    {
+                        c.Text = $"Tafelnummer: {tafels[i].tafelnummer}\nZitplaatsen: {tafels[1].zitplekken}\nBezeting: {tafels[i].bezeting}";
+                    }
                 }
             }
         }
 
         public void GroupBox_TO_tables()
         {
-            TafelBox.Add(GB_tafel1);
-            TafelBox.Add(GB_tafel2);
-            TafelBox.Add(GB_tafel3);
-            TafelBox.Add(GB_tafel4);
-            TafelBox.Add(GB_tafel5);
-            TafelBox.Add(GB_tafel6);
-            TafelBox.Add(GB_tafel7);
-            TafelBox.Add(GB_tafel8);
-            TafelBox.Add(GB_tafel9);
-            TafelBox.Add(GB_tafel10);
+            TafelPanel.Add(PNL_tafel1);
+            TafelPanel.Add(PNL_tafel2);
+            TafelPanel.Add(PNL_tafel3);
+            TafelPanel.Add(PNL_tafel4);
+            TafelPanel.Add(PNL_tafel5);
+            TafelPanel.Add(PNL_tafel6);
+            TafelPanel.Add(PNL_tafel7);
+            TafelPanel.Add(PNL_tafel8);
+            TafelPanel.Add(PNL_tafel9);
+            TafelPanel.Add(PNL_tafel10);
         }
 
         private void BTN_terug_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
     }
 }
