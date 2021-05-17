@@ -73,9 +73,9 @@ namespace ChapooUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap imageonline_co_split_image__2_ {
+        internal static System.Drawing.Bitmap keuken_foto {
             get {
-                object obj = ResourceManager.GetObject("imageonline-co-split-image (2)", resourceCulture);
+                object obj = ResourceManager.GetObject("keuken foto", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace ChapooUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap table {
+        internal static System.Drawing.Bitmap keuken_foto1 {
             get {
-                object obj = ResourceManager.GetObject("table", resourceCulture);
+                object obj = ResourceManager.GetObject("keuken foto1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
