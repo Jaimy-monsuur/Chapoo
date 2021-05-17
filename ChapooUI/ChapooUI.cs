@@ -42,13 +42,13 @@ namespace ChapooUI
 
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+       /* private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Hide();
             Tafel_overzicht tafel_Overzicht = new Tafel_overzicht();
             tafel_Overzicht.ShowDialog();
             this.Show();
 
-        }
+        }*/
     }
 }
