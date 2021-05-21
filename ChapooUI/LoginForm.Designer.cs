@@ -37,6 +37,7 @@ namespace ChapooUI
             this.tbx_Username = new System.Windows.Forms.TextBox();
             this.lbl_Password = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.BTN_Afsluiten = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,6 +76,7 @@ namespace ChapooUI
             // btn_login
             // 
             this.btn_login.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btn_login.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btn_login.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_login.Location = new System.Drawing.Point(95, 681);
             this.btn_login.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -117,6 +119,17 @@ namespace ChapooUI
             this.pictureBox1.TabIndex = 15;
             this.pictureBox1.TabStop = false;
             // 
+            // BTN_Afsluiten
+            // 
+            this.BTN_Afsluiten.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BTN_Afsluiten.Location = new System.Drawing.Point(548, -2);
+            this.BTN_Afsluiten.Name = "BTN_Afsluiten";
+            this.BTN_Afsluiten.Size = new System.Drawing.Size(96, 29);
+            this.BTN_Afsluiten.TabIndex = 16;
+            this.BTN_Afsluiten.Text = "Afsluiten";
+            this.BTN_Afsluiten.UseVisualStyleBackColor = true;
+            this.BTN_Afsluiten.Click += new System.EventHandler(this.BTN_Afsluiten_Click);
+            // 
             // LoginForm
             // 
             this.AcceptButton = this.btn_login;
@@ -124,6 +137,7 @@ namespace ChapooUI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(643, 742);
+            this.Controls.Add(this.BTN_Afsluiten);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lbl_errormessagebox);
             this.Controls.Add(this.lbl_Username);
@@ -131,6 +145,7 @@ namespace ChapooUI
             this.Controls.Add(this.btn_login);
             this.Controls.Add(this.tbx_Username);
             this.Controls.Add(this.lbl_Password);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "LoginForm";
@@ -151,5 +166,6 @@ namespace ChapooUI
         private System.Windows.Forms.TextBox tbx_Username;
         private System.Windows.Forms.Label lbl_Password;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button BTN_Afsluiten;
     }
 }
