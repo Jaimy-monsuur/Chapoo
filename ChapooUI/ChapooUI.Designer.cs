@@ -39,10 +39,10 @@
             this.barSelectTxtLbl = new System.Windows.Forms.Label();
             this.BTN_ = new System.Windows.Forms.Button();
             this.LBL_userdata = new System.Windows.Forms.Label();
-            this.bedieningSelectBtn = new System.Windows.Forms.Button();
-            this.keukenSelectBtn = new System.Windows.Forms.Button();
             this.T_klok = new System.Windows.Forms.Timer(this.components);
             this.LBL_klok = new System.Windows.Forms.Label();
+            this.bedieningSelectBtn = new System.Windows.Forms.Button();
+            this.keukenSelectBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // dashboardToolStripMenuItem
@@ -111,9 +111,9 @@
             // BTN_
             // 
             this.BTN_.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BTN_.Location = new System.Drawing.Point(1188, -3);
+            this.BTN_.Location = new System.Drawing.Point(1162, -3);
             this.BTN_.Name = "BTN_";
-            this.BTN_.Size = new System.Drawing.Size(96, 29);
+            this.BTN_.Size = new System.Drawing.Size(122, 36);
             this.BTN_.TabIndex = 8;
             this.BTN_.Text = "Uitloggen";
             this.BTN_.UseVisualStyleBackColor = true;
@@ -129,9 +129,22 @@
             this.LBL_userdata.TabIndex = 9;
             this.LBL_userdata.Text = "user data";
             // 
+            // T_klok
+            // 
+            this.T_klok.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // LBL_klok
+            // 
+            this.LBL_klok.AutoSize = true;
+            this.LBL_klok.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LBL_klok.Location = new System.Drawing.Point(1050, -1);
+            this.LBL_klok.Name = "LBL_klok";
+            this.LBL_klok.Size = new System.Drawing.Size(45, 23);
+            this.LBL_klok.TabIndex = 10;
+            this.LBL_klok.Text = "klok";
+            // 
             // bedieningSelectBtn
             // 
-            this.bedieningSelectBtn.BackgroundImage = global::ChapooUI.Properties.Resources.bediening_removebg_preview;
             this.bedieningSelectBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.bedieningSelectBtn.Location = new System.Drawing.Point(515, 159);
             this.bedieningSelectBtn.Margin = new System.Windows.Forms.Padding(4);
@@ -143,7 +156,6 @@
             // 
             // keukenSelectBtn
             // 
-            this.keukenSelectBtn.Image = global::ChapooUI.Properties.Resources.keuken_foto1;
             this.keukenSelectBtn.Location = new System.Drawing.Point(85, 159);
             this.keukenSelectBtn.Margin = new System.Windows.Forms.Padding(4);
             this.keukenSelectBtn.Name = "keukenSelectBtn";
@@ -151,20 +163,6 @@
             this.keukenSelectBtn.TabIndex = 2;
             this.keukenSelectBtn.UseVisualStyleBackColor = true;
             this.keukenSelectBtn.Click += new System.EventHandler(this.keukenSelectBtn_Click);
-            // 
-            // T_klok
-            // 
-            this.T_klok.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // LBL_klok
-            // 
-            this.LBL_klok.AutoSize = true;
-            this.LBL_klok.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBL_klok.Location = new System.Drawing.Point(1096, -1);
-            this.LBL_klok.Name = "LBL_klok";
-            this.LBL_klok.Size = new System.Drawing.Size(45, 23);
-            this.LBL_klok.TabIndex = 10;
-            this.LBL_klok.Text = "klok";
             // 
             // ChapooUI
             // 

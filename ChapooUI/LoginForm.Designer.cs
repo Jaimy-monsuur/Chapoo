@@ -124,7 +124,7 @@ namespace ChapooUI
             this.BTN_Afsluiten.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BTN_Afsluiten.Location = new System.Drawing.Point(548, -2);
             this.BTN_Afsluiten.Name = "BTN_Afsluiten";
-            this.BTN_Afsluiten.Size = new System.Drawing.Size(96, 29);
+            this.BTN_Afsluiten.Size = new System.Drawing.Size(122, 36);
             this.BTN_Afsluiten.TabIndex = 16;
             this.BTN_Afsluiten.Text = "Afsluiten";
             this.BTN_Afsluiten.UseVisualStyleBackColor = true;
