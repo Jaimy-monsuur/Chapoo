@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BarBestelMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BarBestelMenu.Designer.cs">
+      <DependentUpon>BarBestelMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChapooUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +73,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="BarBestelMenu.resx">
+      <DependentUpon>BarBestelMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChapooUI.resx">
       <DependentUpon>ChapooUI.cs</DependentUpon>
     </EmbeddedResource>
