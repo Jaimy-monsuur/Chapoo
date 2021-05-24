@@ -79,17 +79,17 @@
     <Compile Include="SelectTable.Designer.cs">
       <DependentUpon>SelectTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="TableReservations.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TableReservations.Designer.cs">
-      <DependentUpon>TableReservations.cs</DependentUpon>
-    </Compile>
     <Compile Include="TableOverview.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="TableOverview.Designer.cs">
       <DependentUpon>TableOverview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TableReservations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TableReservations.Designer.cs">
+      <DependentUpon>TableReservations.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="ChapooUI.resx">
       <DependentUpon>ChapooUI.cs</DependentUpon>
