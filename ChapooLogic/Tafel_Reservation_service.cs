@@ -12,9 +12,19 @@ namespace ChapooLogic
     {
         Tafel_Reservering_DAO Tafel_Reservering_DAO = new Tafel_Reservering_DAO();
 
-        public List<Tafel_Reservering> GetTableReservations()
+        public List<Tafel_Reservering> Get_All_Table_reservationsfortoday()
         {
-            return Tafel_Reservering_DAO.GetTafelReservering();
+            return Tafel_Reservering_DAO.Get_All_Table_reservationsfortoday();
+        }
+
+        public List<Tafel_Reservering> Get_Current_Futere_Reservations_ForTable(int tafelnummer)
+        {
+            return Tafel_Reservering_DAO.Get_Current_Futere_Reservations_ForTable(tafelnummer);
+        }
+
+        public void Deletereservation(int reserveringsnummer)
+        {
+            Tafel_Reservering_DAO.Deletereservation(reserveringsnummer);
         }
     }
 }

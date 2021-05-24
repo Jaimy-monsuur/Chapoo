@@ -8,6 +8,7 @@ namespace ChapooModel
 {
     public class Tafel_Reservering
     {
+        public int reserveringsnummer;
         public string naam;
         public int tafelnummer;
         public DateTime Datum;

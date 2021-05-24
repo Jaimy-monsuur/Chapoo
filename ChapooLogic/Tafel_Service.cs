@@ -16,5 +16,15 @@ namespace ChapooLogic
         {
             return Tafel_DAO.GetTafels();
         }
+
+        public void ClearTafel(int tafelnummer)
+        {
+            Tafel_DAO.ClearTafel(tafelnummer);
+        }
+
+        public void AlterBezetting(int tafelnummer, int Personen)
+        {
+            Tafel_DAO.AlterBezetting(tafelnummer, Personen);
+        }
     }
 }

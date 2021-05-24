@@ -28,9 +28,16 @@ namespace ChapooUI
         public LoginForm()
         {
             InitializeComponent();
+            this.ControlBox = false;
+            this.Text = "";
         }
 
-        private void btn_login_Click(object sender, EventArgs e)
+        private void afsluitenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void BTN_Login_Click_1(object sender, EventArgs e)
         {
             lbl_errormessagebox.Text = "";
             if (tbx_Username.Text == "" || tbx_Password.Text == "")
@@ -55,11 +62,6 @@ namespace ChapooUI
                     lbl_errormessagebox.Text = "Wrong Username or Password!";
                 }
             }
-        }
-
-        private void BTN_Afsluiten_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

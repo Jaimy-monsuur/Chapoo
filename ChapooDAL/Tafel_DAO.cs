@@ -32,5 +32,19 @@ namespace ChapooDAL
             }
             return Tafels;
         }
+
+        public void ClearTafel(int tafelnummer)
+        {
+            string query = $"UPDATE Tafels SET bezeting = '0' WHERE tafelnummer = '{tafelnummer}'";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            ExecuteEditQuery(query, sqlParameters);
+        }
+
+        public void AlterBezetting(int tafelnummer,int Personen)
+        {
+            string query = $"UPDATE Tafels SET bezeting = '{Personen}' WHERE tafelnummer = '{tafelnummer}'";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            ExecuteEditQuery(query, sqlParameters);
+        }
     }
 }

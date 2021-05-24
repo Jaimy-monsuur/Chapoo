@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace ChapooUI
 {
-    public partial class Tafel_overzicht : Form
+    public partial class TableOverview : Form
     {
         public string Type;
         public string Username;
@@ -34,9 +34,11 @@ namespace ChapooUI
         public Tafel_Reservation_service tafel_Reservation_Service = new Tafel_Reservation_service();// tafel reservation service
         //lijst van tafels
         public List<Panel> TafelPanels = new List<Panel>();
-        public Tafel_overzicht(string type, string username)
+        public TableOverview(string type, string username)
         {
             InitializeComponent();//start form
+            this.ControlBox = false;
+            this.Text = "";
 
             this.Type = type;
             this.Username = username;
@@ -56,7 +58,7 @@ namespace ChapooUI
             int occupiedTables = 0;
 
             List<Tafel> tafels = Tafel_Service.Tafels();
-            List<Tafel_Reservering> reserveringen = tafel_Reservation_Service.GetTableReservations();
+            List<Tafel_Reservering> reserveringen = tafel_Reservation_Service.Get_All_Table_reservationsfortoday();
             for (int i = 0; i < TafelPanels.Count; i++)
             {
                 foreach (Tafel_Reservering TF in reserveringen)//3 keer loop in elkaar. niet erg mooi.!!!!!
@@ -104,7 +106,7 @@ namespace ChapooUI
                     }
                 }
             }
-            LBL_Tableinfo.Text = $"Free tables: {TafelPanels.Count - occupiedTables - reservedTables}\nReserved tables: {reservedTables}\nOccupied tables: {occupiedTables}";
+            LBL_Tableinfo.Text = $"vrije tafels: {TafelPanels.Count - occupiedTables - reservedTables}\nGereserveerde tafels: {reservedTables}\ntafels in gebruik: {occupiedTables}";
         }
 
         public void GroupBox_TO_tables()// tafels toevoegen aan lijst
@@ -129,6 +131,123 @@ namespace ChapooUI
         private void T_klok_Tick(object sender, EventArgs e)
         {
             LBL_klok.Text = DateTime.Now.ToString(("HH:mm:ss"));
+        }
+
+        private void BTN_Loguit_Click(object sender, EventArgs e)
+        {
+            ConfirmLogout confirmLogout = new ConfirmLogout();
+            confirmLogout.ShowDialog();
+        }
+
+        public void Managetable(int tafelnummer, string status)
+        {
+            Managetafel managetafel = new Managetafel(tafelnummer, status);
+            managetafel.ShowDialog();
+            UpdateTafels();
+;        }
+
+        private void PNL_tafel1_Click(object sender, EventArgs e)
+        {
+            string status = "";
+            int tafelnummer = 1;
+            if (PNL_tafel1.BackColor == Color.Green)
+            {
+                status = "vrij";
+            }
+            else if (PNL_tafel1.BackColor == Color.DarkOrange)
+            {
+                status = "gereserveerd";
+            }
+            else// color is red
+            {
+                status = "bezet";
+            }
+            Managetable(tafelnummer, status);
+        }
+
+        private void PNL_tafel3_Click(object sender, EventArgs e)
+        {
+            string status = "";
+            int tafelnummer = 3;
+            if (PNL_tafel3.BackColor == Color.Green)
+            {
+                status = "vrij";
+            }
+            else if (PNL_tafel3.BackColor == Color.DarkOrange)
+            {
+                status = "gereserveerd";
+            }
+            else// color is red
+            {
+                status = "bezet";
+            }
+            Managetable(tafelnummer, status);
+        }
+
+        private void PNL_tafel2_Click(object sender, EventArgs e)
+        {
+            string status = "";
+            int tafelnummer = 2;
+            if (PNL_tafel2.BackColor == Color.Green)
+            {
+                status = "vrij";
+            }
+            else if (PNL_tafel2.BackColor == Color.DarkOrange)
+            {
+                status = "gereserveerd";
+            }
+            else// color is red
+            {
+                status = "bezet";
+            }
+            Managetable(tafelnummer, status);
+        }
+
+        private void PNL_tafel4_Click(object sender, EventArgs e)
+        {
+            string status = "";
+            int tafelnummer = 4;
+            if (PNL_tafel4.BackColor == Color.Green)
+            {
+                status = "vrij";
+            }
+            else if (PNL_tafel4.BackColor == Color.DarkOrange)
+            {
+                status = "gereserveerd";
+            }
+            else// color is red
+            {
+                status = "bezet";
+            }
+            Managetable(tafelnummer, status);
+        }
+
+        private void terugToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void UitloggenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConfirmLogout confirmLogout = new ConfirmLogout();
+            confirmLogout.ShowDialog();
+        }
+
+        private void PNL_tafel5_Paint(object sender, PaintEventArgs e)//work in progress
+        {
+
+        }
+
+        private void BTN_ManageReservations_Click(object sender, EventArgs e)//work in progress
+        {
+            SelectTable selectTable = new SelectTable();
+            selectTable.ShowDialog();
+            UpdateTafels();
+        }
+
+        private void BTN_Update_Click(object sender, EventArgs e)
+        {
+            UpdateTafels();
         }
     }
 }

@@ -29,6 +29,9 @@ namespace ChapooUI
         public ChapooUI(string type,string username)
         {
             InitializeComponent();
+            this.ControlBox = false;
+            this.Text = "";
+
             this.Type = type;
             this.Username = username;
             LBL_userdata.Text = $"{Username}, {Type}";
@@ -62,19 +65,26 @@ namespace ChapooUI
         private void bedieningSelectBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Tafel_overzicht tafel_Overzicht = new Tafel_overzicht(Type, Username);
+            TableOverview tafel_Overzicht = new TableOverview(Type, Username);
             tafel_Overzicht.ShowDialog();
             this.Show();
         }
 
         private void BTN__Click(object sender, EventArgs e)
         {
-            this.Close();
+            ConfirmLogout confirmLogout = new ConfirmLogout();
+            confirmLogout.ShowDialog();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             LBL_klok.Text = DateTime.Now.ToString(("HH:mm:ss"));
+        }
+
+        private void afsluitenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConfirmLogout confirmLogout = new ConfirmLogout();
+            confirmLogout.ShowDialog();
         }
     }
 }
