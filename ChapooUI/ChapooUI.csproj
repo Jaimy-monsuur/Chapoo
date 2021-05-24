@@ -47,11 +47,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BarBestelMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BarBestelMenu.Designer.cs">
+      <DependentUpon>BarBestelMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChapooUI.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ChapooUI.Designer.cs">
       <DependentUpon>ChapooUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KeukenBarSysteemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KeukenBarSysteemForm.Designer.cs">
+      <DependentUpon>KeukenBarSysteemForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ConfirmLogout.cs">
       <SubType>Form</SubType>
@@ -93,12 +105,6 @@
     </Compile>
     <EmbeddedResource Include="ChapooUI.resx">
       <DependentUpon>ChapooUI.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ConfirmLogout.resx">
-      <DependentUpon>ConfirmLogout.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Managetafel.resx">
-      <DependentUpon>Managetafel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -144,15 +150,6 @@
       <Project>{93076218-323d-4a03-855f-1a1191320d2e}</Project>
       <Name>ChapooModel</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\tafel.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\tafel1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\bediening-removebg-preview.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
