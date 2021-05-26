@@ -43,7 +43,8 @@ namespace ChapooDAL
                     opmerking = (string)dr["opmerking"],
                     itemNaam = (string)dr["naam"],
                     itemPrijs = (decimal)dr["prijs"],
-                    type = (string)dr["type"]
+                    type = (string)dr["type"],
+                    aantal = (int)dr["aantal"]
                 };
                 orders.Add(order);
             }
