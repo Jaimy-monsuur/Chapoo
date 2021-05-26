@@ -32,6 +32,13 @@ namespace ChapooDAL
             ExecuteEditQuery(query, sqlParameters);
         }
 
+        public void Newreseration(int Klantnummer,int tafelnummer, string date, string begin, string eind)
+        {
+            string query = $"INSERT INTO [TafelReservering] VALUES({Klantnummer}, {tafelnummer}, '{date}', '{begin}', '{eind}'); ";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            ExecuteEditQuery(query, sqlParameters);
+        }
+
         private List<Tafel_Reservering> ReadTables(DataTable dataTable)
         {
             List<Tafel_Reservering> reservations = new List<Tafel_Reservering>();

@@ -97,5 +97,18 @@ namespace ChapooUI
             this.Close();
         }
 
+        private void BTN_ManageReservations_Click(object sender, EventArgs e)
+        {
+            if (TXB_klantennummer.Text != "")
+            {               
+                int klantennummer = int.Parse(TXB_klantennummer.Text);
+                string date = RDatepicker.Value.ToString("dd-MM-yyyy");
+                string start = RStarttimePicker.Value.ToString("HH:mm");
+                string eind = REndTimePicker.Value.ToString("HH:mm");
+                tafel_Reservation_Service.Newreseration(klantennummer,Tafelnummer,date,start,eind);
+                GetReservations();
+            }
+
+        }
     }
 }
