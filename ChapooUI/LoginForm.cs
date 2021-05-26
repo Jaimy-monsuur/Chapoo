@@ -15,13 +15,31 @@ namespace ChapooUI
 {
     public partial class LoginForm : Form
     {
+        //maakt form movable vanaf elk punt.
+        private const int WM_NCHITTEST = 0x84;
+        private const int HT_CLIENT = 0x1;
+        private const int HT_CAPTION = 0x2;
+        protected override void WndProc(ref Message m)
+        {
+            base.WndProc(ref m);
+            if (m.Msg == WM_NCHITTEST)
+                m.Result = (IntPtr)(HT_CAPTION);
+        }
         public LoginForm()
         {
             InitializeComponent();
+            this.ControlBox = false;
+            this.Text = "";
         }
 
-        private void btn_login_Click(object sender, EventArgs e)
+        private void afsluitenToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.Close();
+        }
+
+        private void BTN_Login_Click_1(object sender, EventArgs e)
+        {
+            lbl_errormessagebox.Text = "";
             if (tbx_Username.Text == "" || tbx_Password.Text == "")
             {
                 lbl_errormessagebox.Text = "Enter Username and Password!";
@@ -33,9 +51,11 @@ namespace ChapooUI
                 if (login.UserName == tbx_Username.Text && login.Password == tbx_Password.Text)
                 {
                     this.Hide();
-                    ChapooUI ui = new ChapooUI(login.Type);
+                    ChapooUI ui = new ChapooUI(login.Type, login.UserName);
                     ui.ShowDialog();
-                    this.Close();
+                    tbx_Username.Clear();
+                    tbx_Password.Clear();
+                    this.Show();
                 }
                 else
                 {
@@ -43,6 +63,5 @@ namespace ChapooUI
                 }
             }
         }
-
     }
 }
