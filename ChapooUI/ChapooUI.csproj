@@ -47,11 +47,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BarBestelMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BarBestelMenu.Designer.cs">
+      <DependentUpon>BarBestelMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChapooUI.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ChapooUI.Designer.cs">
       <DependentUpon>ChapooUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KeukenBarSysteemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KeukenBarSysteemForm.Designer.cs">
+      <DependentUpon>KeukenBarSysteemForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConfirmLogout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfirmLogout.Designer.cs">
+      <DependentUpon>ConfirmLogout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Managetafel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Managetafel.Designer.cs">
+      <DependentUpon>Managetafel.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
@@ -61,6 +85,24 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SelectTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SelectTable.Designer.cs">
+      <DependentUpon>SelectTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TableOverview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TableOverview.Designer.cs">
+      <DependentUpon>TableOverview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TableReservations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TableReservations.Designer.cs">
+      <DependentUpon>TableReservations.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="ChapooUI.resx">
       <DependentUpon>ChapooUI.cs</DependentUpon>
     </EmbeddedResource>
@@ -77,6 +119,15 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SelectTable.resx">
+      <DependentUpon>SelectTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TableReservations.resx">
+      <DependentUpon>TableReservations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TableOverview.resx">
+      <DependentUpon>TableOverview.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

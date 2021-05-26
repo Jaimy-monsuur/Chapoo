@@ -43,7 +43,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account_Service.cs" />
+    <Compile Include="Order_Service.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tafel_Reservation_service.cs" />
+    <Compile Include="Tafel_Service.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ChapooDAL\ChapooDAL.csproj">
