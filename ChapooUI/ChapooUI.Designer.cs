@@ -40,11 +40,12 @@
             this.LBL_userdata = new System.Windows.Forms.Label();
             this.T_klok = new System.Windows.Forms.Timer(this.components);
             this.LBL_klok = new System.Windows.Forms.Label();
-            this.bedieningSelectBtn = new System.Windows.Forms.Button();
-            this.keukenSelectBtn = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.afsluitenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bedieningSelectBtn = new System.Windows.Forms.Button();
+            this.keukenSelectBtn = new System.Windows.Forms.Button();
+            this.beheerHomeBtn = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,6 +79,7 @@
             this.barSelectBtn.Size = new System.Drawing.Size(260, 235);
             this.barSelectBtn.TabIndex = 4;
             this.barSelectBtn.UseVisualStyleBackColor = true;
+            this.barSelectBtn.Click += new System.EventHandler(this.barSelectBtn_Click);
             // 
             // keukenSelectTxtLbl
             // 
@@ -141,6 +143,34 @@
             this.LBL_klok.TabIndex = 10;
             this.LBL_klok.Text = "klok";
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.menuStrip1.BackColor = System.Drawing.Color.LightCoral;
+            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.afsluitenToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(1187, -1);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(97, 27);
+            this.menuStrip1.TabIndex = 18;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // afsluitenToolStripMenuItem
+            // 
+            this.afsluitenToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
+            this.afsluitenToolStripMenuItem.Name = "afsluitenToolStripMenuItem";
+            this.afsluitenToolStripMenuItem.Size = new System.Drawing.Size(89, 23);
+            this.afsluitenToolStripMenuItem.Text = "Uitloggen";
+            this.afsluitenToolStripMenuItem.Click += new System.EventHandler(this.afsluitenToolStripMenuItem_Click);
+            // 
             // bedieningSelectBtn
             // 
             this.bedieningSelectBtn.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -167,39 +197,23 @@
             this.keukenSelectBtn.UseVisualStyleBackColor = true;
             this.keukenSelectBtn.Click += new System.EventHandler(this.keukenSelectBtn_Click);
             // 
-            // contextMenuStrip1
+            // beheerHomeBtn
             // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.menuStrip1.BackColor = System.Drawing.Color.LightCoral;
-            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.afsluitenToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(1185, -1);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(99, 30);
-            this.menuStrip1.TabIndex = 18;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // afsluitenToolStripMenuItem
-            // 
-            this.afsluitenToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
-            this.afsluitenToolStripMenuItem.Name = "afsluitenToolStripMenuItem";
-            this.afsluitenToolStripMenuItem.Size = new System.Drawing.Size(89, 26);
-            this.afsluitenToolStripMenuItem.Text = "Uitloggen";
-            this.afsluitenToolStripMenuItem.Click += new System.EventHandler(this.afsluitenToolStripMenuItem_Click);
+            this.beheerHomeBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.beheerHomeBtn.Location = new System.Drawing.Point(543, 482);
+            this.beheerHomeBtn.Name = "beheerHomeBtn";
+            this.beheerHomeBtn.Size = new System.Drawing.Size(198, 63);
+            this.beheerHomeBtn.TabIndex = 19;
+            this.beheerHomeBtn.Text = "Beheer";
+            this.beheerHomeBtn.UseVisualStyleBackColor = true;
+            this.beheerHomeBtn.Click += new System.EventHandler(this.beheerHomeBtn_Click);
             // 
             // ChapooUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1283, 622);
+            this.Controls.Add(this.beheerHomeBtn);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.LBL_klok);
             this.Controls.Add(this.LBL_userdata);
@@ -239,6 +253,7 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem afsluitenToolStripMenuItem;
+        private System.Windows.Forms.Button beheerHomeBtn;
     }
 }
 

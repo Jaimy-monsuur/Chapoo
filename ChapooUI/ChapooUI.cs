@@ -59,8 +59,20 @@ namespace ChapooUI
 
         private void keukenSelectBtn_Click(object sender, EventArgs e)
         {
+            this.Hide();
             KeukenBarSysteemForm keukenBarScherm = new KeukenBarSysteemForm();
+            keukenBarScherm.showListView("keuken");
             keukenBarScherm.ShowDialog();
+            this.Show();
+        }
+
+        private void barSelectBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            KeukenBarSysteemForm keukenBarScherm = new KeukenBarSysteemForm();
+            keukenBarScherm.showListView("bar");
+            keukenBarScherm.ShowDialog();
+            this.Show();
         }
 
         private void bedieningSelectBtn_Click(object sender, EventArgs e)
@@ -86,6 +98,14 @@ namespace ChapooUI
         {
             ConfirmLogout confirmLogout = new ConfirmLogout();
             confirmLogout.ShowDialog();
+        }
+
+        private void beheerHomeBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            BeheerHome beheer = new BeheerHome();
+            beheer.ShowDialog();
+            this.Show();
         }
     }
 }
