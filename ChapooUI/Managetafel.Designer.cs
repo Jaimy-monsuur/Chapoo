@@ -34,16 +34,16 @@ namespace ChapooUI
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.UitloggenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.GBX_verandeStatus = new System.Windows.Forms.GroupBox();
-            this.TXB_Aantalmensen = new System.Windows.Forms.TextBox();
             this.LBL_aantalmensen = new System.Windows.Forms.Label();
             this.BTN_Eddit = new System.Windows.Forms.Button();
             this.LBL_Managetafel = new System.Windows.Forms.Label();
             this.GBX_ViewOrders = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.BTN_Delete_reservation = new System.Windows.Forms.Button();
             this.LF_Reservations = new System.Windows.Forms.ListView();
             this.LBL_Tafelstatus = new System.Windows.Forms.Label();
             this.LBL_tafelnummer = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.CB_Aantalmensen = new System.Windows.Forms.ComboBox();
             this.menuStrip2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.GBX_verandeStatus.SuspendLayout();
@@ -59,7 +59,7 @@ namespace ChapooUI
             this.TerugtoolStripMenuItem});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(69, 27);
+            this.menuStrip2.Size = new System.Drawing.Size(71, 30);
             this.menuStrip2.TabIndex = 26;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -67,7 +67,7 @@ namespace ChapooUI
             // 
             this.TerugtoolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
             this.TerugtoolStripMenuItem.Name = "TerugtoolStripMenuItem";
-            this.TerugtoolStripMenuItem.Size = new System.Drawing.Size(61, 24);
+            this.TerugtoolStripMenuItem.Size = new System.Drawing.Size(61, 26);
             this.TerugtoolStripMenuItem.Text = "Terug";
             this.TerugtoolStripMenuItem.Click += new System.EventHandler(this.TerugtoolStripMenuItem_Click);
             // 
@@ -79,9 +79,9 @@ namespace ChapooUI
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.UitloggenToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(631, 0);
+            this.menuStrip1.Location = new System.Drawing.Point(629, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(97, 27);
+            this.menuStrip1.Size = new System.Drawing.Size(99, 30);
             this.menuStrip1.TabIndex = 25;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -89,13 +89,13 @@ namespace ChapooUI
             // 
             this.UitloggenToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
             this.UitloggenToolStripMenuItem.Name = "UitloggenToolStripMenuItem";
-            this.UitloggenToolStripMenuItem.Size = new System.Drawing.Size(89, 24);
+            this.UitloggenToolStripMenuItem.Size = new System.Drawing.Size(89, 26);
             this.UitloggenToolStripMenuItem.Text = "Uitloggen";
             this.UitloggenToolStripMenuItem.Click += new System.EventHandler(this.UitloggenToolStripMenuItem_Click);
             // 
             // GBX_verandeStatus
             // 
-            this.GBX_verandeStatus.Controls.Add(this.TXB_Aantalmensen);
+            this.GBX_verandeStatus.Controls.Add(this.CB_Aantalmensen);
             this.GBX_verandeStatus.Controls.Add(this.LBL_aantalmensen);
             this.GBX_verandeStatus.Controls.Add(this.BTN_Eddit);
             this.GBX_verandeStatus.Controls.Add(this.LBL_Managetafel);
@@ -106,13 +106,6 @@ namespace ChapooUI
             this.GBX_verandeStatus.TabIndex = 24;
             this.GBX_verandeStatus.TabStop = false;
             this.GBX_verandeStatus.Text = "groupBox1";
-            // 
-            // TXB_Aantalmensen
-            // 
-            this.TXB_Aantalmensen.Location = new System.Drawing.Point(186, 75);
-            this.TXB_Aantalmensen.Name = "TXB_Aantalmensen";
-            this.TXB_Aantalmensen.Size = new System.Drawing.Size(45, 30);
-            this.TXB_Aantalmensen.TabIndex = 23;
             // 
             // LBL_aantalmensen
             // 
@@ -157,6 +150,16 @@ namespace ChapooUI
             this.GBX_ViewOrders.TabStop = false;
             this.GBX_ViewOrders.Text = "Orders";
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.button1.Location = new System.Drawing.Point(221, 315);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(186, 47);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Order toevoegen";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // BTN_Delete_reservation
             // 
             this.BTN_Delete_reservation.BackColor = System.Drawing.Color.LightCoral;
@@ -198,15 +201,14 @@ namespace ChapooUI
             this.LBL_tafelnummer.TabIndex = 21;
             this.LBL_tafelnummer.Text = "Tafel nummer:";
             // 
-            // button1
+            // CB_Aantalmensen
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.button1.Location = new System.Drawing.Point(221, 315);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(186, 47);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Order toevoegen";
-            this.button1.UseVisualStyleBackColor = false;
+            this.CB_Aantalmensen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_Aantalmensen.FormattingEnabled = true;
+            this.CB_Aantalmensen.Location = new System.Drawing.Point(167, 75);
+            this.CB_Aantalmensen.Name = "CB_Aantalmensen";
+            this.CB_Aantalmensen.Size = new System.Drawing.Size(42, 31);
+            this.CB_Aantalmensen.TabIndex = 24;
             // 
             // Managetafel
             // 
@@ -242,7 +244,6 @@ namespace ChapooUI
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem UitloggenToolStripMenuItem;
         private System.Windows.Forms.GroupBox GBX_verandeStatus;
-        private System.Windows.Forms.TextBox TXB_Aantalmensen;
         private System.Windows.Forms.Label LBL_aantalmensen;
         private System.Windows.Forms.Button BTN_Eddit;
         private System.Windows.Forms.Label LBL_Managetafel;
@@ -252,5 +253,6 @@ namespace ChapooUI
         private System.Windows.Forms.Label LBL_Tafelstatus;
         private System.Windows.Forms.Label LBL_tafelnummer;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox CB_Aantalmensen;
     }
 }

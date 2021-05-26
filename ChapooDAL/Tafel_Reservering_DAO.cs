@@ -32,10 +32,16 @@ namespace ChapooDAL
             ExecuteEditQuery(query, sqlParameters);
         }
 
-        public void Newreseration(int Klantnummer,int tafelnummer, string date, string begin, string eind)
+        public void Newreseration(int Klantnummer, int tafelnummer, string date, string begin, string eind)
         {
-            string query = $"INSERT INTO [TafelReservering] VALUES({Klantnummer}, {tafelnummer}, '{date}', '{begin}', '{eind}'); ";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
+            string query = $"INSERT INTO [TafelReservering] VALUES(@KlantID, @TafelID, @Date, CAST(@Start AS TIME(0)), CAST(@Eind AS TIME(0)));";
+            SqlParameter[] sqlParameters = {
+                new SqlParameter("@KlantID", SqlDbType.Int) {Value = Klantnummer},
+                new SqlParameter("@TafelID", SqlDbType.Int){Value = tafelnummer},
+                new SqlParameter("@Date", SqlDbType.Date){Value = date},
+                new SqlParameter("@Start", SqlDbType.DateTime2){Value = begin},
+                new SqlParameter("@Eind",SqlDbType.DateTime2){Value = eind},
+            };
             ExecuteEditQuery(query, sqlParameters);
         }
 

@@ -50,7 +50,7 @@ namespace ChapooUI
                 BTN_Eddit.BackColor = Color.LightCoral;
 
                 LBL_aantalmensen.Hide();
-                TXB_Aantalmensen.Hide();
+                CB_Aantalmensen.Hide();
                 GetOrders();
             }
             else if (Status == "gereserveerd")
@@ -60,7 +60,7 @@ namespace ChapooUI
                 BTN_Eddit.Enabled = false;
 
                 LBL_aantalmensen.Hide();
-                TXB_Aantalmensen.Hide();
+                CB_Aantalmensen.Hide();
                 GBX_ViewOrders.Hide();
             }
             else
@@ -68,6 +68,10 @@ namespace ChapooUI
                 LBL_Managetafel.Text = "Tafel Toewijzen aan klant";
                 BTN_Eddit.Text = "Toewijzen";
                 GBX_ViewOrders.Hide();
+                CB_Aantalmensen.Items.Add("1");
+                CB_Aantalmensen.Items.Add("2");
+                CB_Aantalmensen.Items.Add("3");
+                CB_Aantalmensen.Items.Add("4");
             }
         }
 
@@ -88,9 +92,9 @@ namespace ChapooUI
             {
                 Tafel_Service.ClearTafel(Tafelnummer);
             }
-            else if (Status == "vrij" && TXB_Aantalmensen.Text != "")
+            else if (Status == "vrij" && CB_Aantalmensen.Text != "")
             {
-                Tafel_Service.AlterBezetting(Tafelnummer, int.Parse(TXB_Aantalmensen.Text));
+                Tafel_Service.AlterBezetting(Tafelnummer, int.Parse(CB_Aantalmensen.Text));
             }
             Status = "bezet";
             this.Close();

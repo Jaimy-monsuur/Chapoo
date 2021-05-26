@@ -34,19 +34,19 @@ namespace ChapooUI
             this.BTN_Delete_reservation = new System.Windows.Forms.Button();
             this.LF_Reservations = new System.Windows.Forms.ListView();
             this.GBX_verandeStatus = new System.Windows.Forms.GroupBox();
+            this.TXB_klantennummer = new System.Windows.Forms.TextBox();
+            this.REndTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.RStarttimePicker = new System.Windows.Forms.DateTimePicker();
+            this.RDatepicker = new System.Windows.Forms.DateTimePicker();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.BTN_ManageReservations = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.UitloggenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.TerugtoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.RDatepicker = new System.Windows.Forms.DateTimePicker();
-            this.RStarttimePicker = new System.Windows.Forms.DateTimePicker();
-            this.REndTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.TXB_klantennummer = new System.Windows.Forms.TextBox();
             this.GBX_ViewReservations.SuspendLayout();
             this.GBX_verandeStatus.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -116,6 +116,82 @@ namespace ChapooUI
             this.GBX_verandeStatus.TabStop = false;
             this.GBX_verandeStatus.Text = "Reservering toevoegen";
             // 
+            // TXB_klantennummer
+            // 
+            this.TXB_klantennummer.Location = new System.Drawing.Point(169, 48);
+            this.TXB_klantennummer.Name = "TXB_klantennummer";
+            this.TXB_klantennummer.Size = new System.Drawing.Size(74, 30);
+            this.TXB_klantennummer.TabIndex = 43;
+            // 
+            // REndTimePicker
+            // 
+            this.REndTimePicker.CustomFormat = "HH:mm";
+            this.REndTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.REndTimePicker.Location = new System.Drawing.Point(169, 166);
+            this.REndTimePicker.Name = "REndTimePicker";
+            this.REndTimePicker.ShowUpDown = true;
+            this.REndTimePicker.Size = new System.Drawing.Size(313, 30);
+            this.REndTimePicker.TabIndex = 41;
+            // 
+            // RStarttimePicker
+            // 
+            this.RStarttimePicker.CustomFormat = "HH:mm";
+            this.RStarttimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.RStarttimePicker.Location = new System.Drawing.Point(169, 130);
+            this.RStarttimePicker.Name = "RStarttimePicker";
+            this.RStarttimePicker.ShowUpDown = true;
+            this.RStarttimePicker.Size = new System.Drawing.Size(313, 30);
+            this.RStarttimePicker.TabIndex = 40;
+            // 
+            // RDatepicker
+            // 
+            this.RDatepicker.CustomFormat = "dd-MM-yyyy";
+            this.RDatepicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.RDatepicker.Location = new System.Drawing.Point(169, 89);
+            this.RDatepicker.Name = "RDatepicker";
+            this.RDatepicker.Size = new System.Drawing.Size(313, 30);
+            this.RDatepicker.TabIndex = 39;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(6, 168);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(142, 23);
+            this.label5.TabIndex = 38;
+            this.label5.Text = "Klantennummer: ";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(6, 130);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(91, 23);
+            this.label4.TabIndex = 37;
+            this.label4.Text = "Begintijd:  ";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(6, 89);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(66, 23);
+            this.label3.TabIndex = 36;
+            this.label3.Text = "Datum:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(6, 51);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(142, 23);
+            this.label1.TabIndex = 34;
+            this.label1.Text = "Klantennummer: ";
+            // 
             // BTN_ManageReservations
             // 
             this.BTN_ManageReservations.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
@@ -169,82 +245,6 @@ namespace ChapooUI
             this.TerugtoolStripMenuItem.Size = new System.Drawing.Size(61, 23);
             this.TerugtoolStripMenuItem.Text = "Terug";
             this.TerugtoolStripMenuItem.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 51);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(142, 23);
-            this.label1.TabIndex = 34;
-            this.label1.Text = "Klantennummer: ";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(6, 89);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(66, 23);
-            this.label3.TabIndex = 36;
-            this.label3.Text = "Datum:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(6, 130);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(91, 23);
-            this.label4.TabIndex = 37;
-            this.label4.Text = "Begintijd:  ";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(6, 168);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(142, 23);
-            this.label5.TabIndex = 38;
-            this.label5.Text = "Klantennummer: ";
-            // 
-            // RDatepicker
-            // 
-            this.RDatepicker.CustomFormat = "dd-MM-yyyy";
-            this.RDatepicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.RDatepicker.Location = new System.Drawing.Point(169, 89);
-            this.RDatepicker.Name = "RDatepicker";
-            this.RDatepicker.Size = new System.Drawing.Size(313, 30);
-            this.RDatepicker.TabIndex = 39;
-            // 
-            // RStarttimePicker
-            // 
-            this.RStarttimePicker.CustomFormat = "HH:mm";
-            this.RStarttimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.RStarttimePicker.Location = new System.Drawing.Point(169, 130);
-            this.RStarttimePicker.Name = "RStarttimePicker";
-            this.RStarttimePicker.ShowUpDown = true;
-            this.RStarttimePicker.Size = new System.Drawing.Size(313, 30);
-            this.RStarttimePicker.TabIndex = 40;
-            // 
-            // REndTimePicker
-            // 
-            this.REndTimePicker.CustomFormat = "HH:mm";
-            this.REndTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.REndTimePicker.Location = new System.Drawing.Point(169, 166);
-            this.REndTimePicker.Name = "REndTimePicker";
-            this.REndTimePicker.ShowUpDown = true;
-            this.REndTimePicker.Size = new System.Drawing.Size(313, 30);
-            this.REndTimePicker.TabIndex = 41;
-            // 
-            // TXB_klantennummer
-            // 
-            this.TXB_klantennummer.Location = new System.Drawing.Point(169, 48);
-            this.TXB_klantennummer.Name = "TXB_klantennummer";
-            this.TXB_klantennummer.Size = new System.Drawing.Size(74, 30);
-            this.TXB_klantennummer.TabIndex = 43;
             // 
             // TableReservations
             // 

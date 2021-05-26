@@ -103,8 +103,8 @@ namespace ChapooUI
             {               
                 int klantennummer = int.Parse(TXB_klantennummer.Text);
                 string date = RDatepicker.Value.ToString("dd-MM-yyyy");
-                string start = RStarttimePicker.Value.ToString("HH:mm");
-                string eind = REndTimePicker.Value.ToString("HH:mm");
+                string start = RStarttimePicker.Value.ToString("yyyy-MM-dd HH:mm:ss");
+                string eind = REndTimePicker.Value.ToString("yyyy-MM-dd HH:mm:ss");
                 tafel_Reservation_Service.Newreseration(klantennummer,Tafelnummer,date,start,eind);
                 GetReservations();
             }
