@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Globalization;
 
 namespace ChapooUI
 {
@@ -102,7 +102,7 @@ namespace ChapooUI
             if (TXB_klantennummer.Text != "")
             {               
                 int klantennummer = int.Parse(TXB_klantennummer.Text);
-                string date = RDatepicker.Value.ToString("dd-MM-yyyy");
+                string date = RDatepicker.Value.ToString("yyyy-MM-dd");
                 string start = RStarttimePicker.Value.ToString("yyyy-MM-dd HH:mm:ss");
                 string eind = REndTimePicker.Value.ToString("yyyy-MM-dd HH:mm:ss");
                 tafel_Reservation_Service.Newreseration(klantennummer,Tafelnummer,date,start,eind);

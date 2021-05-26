@@ -34,13 +34,13 @@ namespace ChapooDAL
 
         public void Newreseration(int Klantnummer, int tafelnummer, string date, string begin, string eind)
         {
-            string query = $"INSERT INTO [TafelReservering] VALUES(@KlantID, @TafelID, @Date, CAST(@Start AS TIME(0)), CAST(@Eind AS TIME(0)));";
+            string query = $"INSERT INTO [TafelReservering] VALUES(@KlantID, @TafelID, @Date, CAST(@Start AS smalldatetime), CAST(@Eind AS smalldatetime));;";
             SqlParameter[] sqlParameters = {
                 new SqlParameter("@KlantID", SqlDbType.Int) {Value = Klantnummer},
                 new SqlParameter("@TafelID", SqlDbType.Int){Value = tafelnummer},
                 new SqlParameter("@Date", SqlDbType.Date){Value = date},
-                new SqlParameter("@Start", SqlDbType.DateTime2){Value = begin},
-                new SqlParameter("@Eind",SqlDbType.DateTime2){Value = eind},
+                new SqlParameter("@Start", SqlDbType.SmallDateTime){Value = begin},
+                new SqlParameter("@Eind",SqlDbType.SmallDateTime){Value = eind},
             };
             ExecuteEditQuery(query, sqlParameters);
         }
@@ -55,8 +55,10 @@ namespace ChapooDAL
                 t.naam = (string)(dr["voornaam"]) + (string)(dr["achternaam"]);
                 t.tafelnummer = (int)(dr["tafelnummer"]);
                 t.Datum = (DateTime)(dr["datum"]);
-                t.startTijd = (TimeSpan)(dr["vanaf(tijd)"]);
-                t.eindTijd = (TimeSpan)(dr["tot(tijd)"]);
+                DateTime temp1 = (DateTime)(dr["vanaf(tijd)"]);
+                DateTime temp2 = (DateTime)(dr["tot(tijd)"]);
+                t.startTijd = TimeSpan.Parse(temp1.ToString("HH:mm"));
+                t.eindTijd = TimeSpan.Parse(temp2.ToString("HH:mm"));
                 reservations.Add(t);
             }
             return reservations;
