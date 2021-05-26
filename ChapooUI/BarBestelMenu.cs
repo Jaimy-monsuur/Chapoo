@@ -13,9 +13,22 @@ namespace ChapooUI
 {
     public partial class BarBestelMenu : Form
     {
+        //maakt form movable vanaf elk punt.
+        private const int WM_NCHITTEST = 0x84;
+        private const int HT_CLIENT = 0x1;
+        private const int HT_CAPTION = 0x2;
+        protected override void WndProc(ref Message m)
+        {
+            base.WndProc(ref m);
+            if (m.Msg == WM_NCHITTEST)
+                m.Result = (IntPtr)(HT_CAPTION);
+        }
+
         public BarBestelMenu()
         {
             InitializeComponent();
+            this.ControlBox = false;
+            this.Text = "";
         }
 
         private void BarBestelMenu_Load(object sender, EventArgs e)
@@ -55,6 +68,27 @@ namespace ChapooUI
         private void plaatsOrderBarBtn_Click(object sender, EventArgs e)
         {
             
-        }      
+        }
+
+        private void TerugtoolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void UitloggenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConfirmLogout confirm = new ConfirmLogout();
+            confirm.ShowDialog();
+        }
+
+        private void plusOrderBarBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void minusOrderBarBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
