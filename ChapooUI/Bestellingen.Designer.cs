@@ -35,11 +35,9 @@ namespace ChapooUI
             this.LvDrankenMenu = new System.Windows.Forms.ListView();
             this.Dranken = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.PrijsDr = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.AantalDr = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.LvEtenMenu = new System.Windows.Forms.ListView();
             this.Gerecht = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Prijs = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Aantal = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblTafelnr = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblTafelNummerIn = new System.Windows.Forms.Label();
@@ -50,9 +48,17 @@ namespace ChapooUI
             this.afsluitenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.MI_terug = new System.Windows.Forms.ToolStripMenuItem();
+            this.GbOrderDetails = new System.Windows.Forms.GroupBox();
+            this.btnDeleteItem = new System.Windows.Forms.Button();
+            this.btnAddItem = new System.Windows.Forms.Button();
+            this.LvOrderDetails = new System.Windows.Forms.ListView();
+            this.GererchtOrDe = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.DrankOrDe = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.OpmerkingOrDe = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1.SuspendLayout();
             this.btn_Uitlog.SuspendLayout();
             this.menuStrip2.SuspendLayout();
+            this.GbOrderDetails.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblDrankTxt
@@ -78,7 +84,7 @@ namespace ChapooUI
             // plaatsOrderBarBtn
             // 
             this.plaatsOrderBarBtn.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.plaatsOrderBarBtn.Location = new System.Drawing.Point(74, 359);
+            this.plaatsOrderBarBtn.Location = new System.Drawing.Point(476, 125);
             this.plaatsOrderBarBtn.Name = "plaatsOrderBarBtn";
             this.plaatsOrderBarBtn.Size = new System.Drawing.Size(142, 50);
             this.plaatsOrderBarBtn.TabIndex = 10;
@@ -90,15 +96,14 @@ namespace ChapooUI
             // 
             this.LvDrankenMenu.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Dranken,
-            this.PrijsDr,
-            this.AantalDr});
+            this.PrijsDr});
             this.LvDrankenMenu.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LvDrankenMenu.FullRowSelect = true;
             this.LvDrankenMenu.GridLines = true;
             this.LvDrankenMenu.HideSelection = false;
             this.LvDrankenMenu.Location = new System.Drawing.Point(397, 42);
             this.LvDrankenMenu.Name = "LvDrankenMenu";
-            this.LvDrankenMenu.Size = new System.Drawing.Size(318, 304);
+            this.LvDrankenMenu.Size = new System.Drawing.Size(318, 178);
             this.LvDrankenMenu.TabIndex = 8;
             this.LvDrankenMenu.UseCompatibleStateImageBehavior = false;
             this.LvDrankenMenu.View = System.Windows.Forms.View.Details;
@@ -107,51 +112,38 @@ namespace ChapooUI
             // Dranken
             // 
             this.Dranken.Text = "Dranken:";
-            this.Dranken.Width = 218;
+            this.Dranken.Width = 208;
             // 
             // PrijsDr
             // 
             this.PrijsDr.Text = "Prijs:";
-            this.PrijsDr.Width = 46;
-            // 
-            // AantalDr
-            // 
-            this.AantalDr.Text = "Aantal:";
-            this.AantalDr.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.AantalDr.Width = 50;
+            this.PrijsDr.Width = 43;
             // 
             // LvEtenMenu
             // 
             this.LvEtenMenu.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Gerecht,
-            this.Prijs,
-            this.Aantal});
+            this.Prijs});
             this.LvEtenMenu.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LvEtenMenu.FullRowSelect = true;
             this.LvEtenMenu.GridLines = true;
             this.LvEtenMenu.HideSelection = false;
             this.LvEtenMenu.Location = new System.Drawing.Point(74, 42);
             this.LvEtenMenu.Name = "LvEtenMenu";
-            this.LvEtenMenu.Size = new System.Drawing.Size(318, 304);
+            this.LvEtenMenu.Size = new System.Drawing.Size(318, 178);
             this.LvEtenMenu.TabIndex = 7;
             this.LvEtenMenu.UseCompatibleStateImageBehavior = false;
             this.LvEtenMenu.View = System.Windows.Forms.View.Details;
-            this.LvEtenMenu.SelectedIndexChanged += new System.EventHandler(this.LvEtenMenu_SelectedIndexChanged);
             // 
             // Gerecht
             // 
             this.Gerecht.Text = "Gerecht:";
-            this.Gerecht.Width = 218;
+            this.Gerecht.Width = 271;
             // 
             // Prijs
             // 
             this.Prijs.Text = "Prijs:";
-            this.Prijs.Width = 46;
-            // 
-            // Aantal
-            // 
-            this.Aantal.Text = "Aantal:";
-            this.Aantal.Width = 50;
+            this.Prijs.Width = 43;
             // 
             // lblTafelnr
             // 
@@ -187,7 +179,7 @@ namespace ChapooUI
             // 
             // txtOpmerkingBestelling
             // 
-            this.txtOpmerkingBestelling.Location = new System.Drawing.Point(397, 359);
+            this.txtOpmerkingBestelling.Location = new System.Drawing.Point(397, 226);
             this.txtOpmerkingBestelling.Name = "txtOpmerkingBestelling";
             this.txtOpmerkingBestelling.Size = new System.Drawing.Size(318, 20);
             this.txtOpmerkingBestelling.TabIndex = 15;
@@ -261,20 +253,83 @@ namespace ChapooUI
             this.MI_terug.Size = new System.Drawing.Size(48, 20);
             this.MI_terug.Text = "Terug";
             // 
+            // GbOrderDetails
+            // 
+            this.GbOrderDetails.Controls.Add(this.btnDeleteItem);
+            this.GbOrderDetails.Controls.Add(this.btnAddItem);
+            this.GbOrderDetails.Controls.Add(this.LvOrderDetails);
+            this.GbOrderDetails.Controls.Add(this.plaatsOrderBarBtn);
+            this.GbOrderDetails.Location = new System.Drawing.Point(74, 252);
+            this.GbOrderDetails.Name = "GbOrderDetails";
+            this.GbOrderDetails.Size = new System.Drawing.Size(641, 181);
+            this.GbOrderDetails.TabIndex = 32;
+            this.GbOrderDetails.TabStop = false;
+            this.GbOrderDetails.Text = "Order Details";
+            // 
+            // btnDeleteItem
+            // 
+            this.btnDeleteItem.BackColor = System.Drawing.Color.LightCoral;
+            this.btnDeleteItem.Location = new System.Drawing.Point(476, 69);
+            this.btnDeleteItem.Name = "btnDeleteItem";
+            this.btnDeleteItem.Size = new System.Drawing.Size(142, 39);
+            this.btnDeleteItem.TabIndex = 18;
+            this.btnDeleteItem.Text = "Verwijderen";
+            this.btnDeleteItem.UseVisualStyleBackColor = false;
+            // 
+            // btnAddItem
+            // 
+            this.btnAddItem.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnAddItem.Location = new System.Drawing.Point(476, 24);
+            this.btnAddItem.Name = "btnAddItem";
+            this.btnAddItem.Size = new System.Drawing.Size(142, 39);
+            this.btnAddItem.TabIndex = 17;
+            this.btnAddItem.Text = "Toevoegen";
+            this.btnAddItem.UseVisualStyleBackColor = false;
+            // 
+            // LvOrderDetails
+            // 
+            this.LvOrderDetails.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.GererchtOrDe,
+            this.DrankOrDe,
+            this.OpmerkingOrDe});
+            this.LvOrderDetails.FullRowSelect = true;
+            this.LvOrderDetails.GridLines = true;
+            this.LvOrderDetails.HideSelection = false;
+            this.LvOrderDetails.Location = new System.Drawing.Point(12, 24);
+            this.LvOrderDetails.Name = "LvOrderDetails";
+            this.LvOrderDetails.Size = new System.Drawing.Size(404, 111);
+            this.LvOrderDetails.TabIndex = 16;
+            this.LvOrderDetails.UseCompatibleStateImageBehavior = false;
+            this.LvOrderDetails.View = System.Windows.Forms.View.Details;
+            // 
+            // GererchtOrDe
+            // 
+            this.GererchtOrDe.Text = "Gerecht:";
+            this.GererchtOrDe.Width = 106;
+            // 
+            // DrankOrDe
+            // 
+            this.DrankOrDe.Text = "Drank:";
+            // 
+            // OpmerkingOrDe
+            // 
+            this.OpmerkingOrDe.Text = "Opmerking:";
+            this.OpmerkingOrDe.Width = 234;
+            // 
             // Bestellingen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.GbOrderDetails);
             this.Controls.Add(this.menuStrip2);
+            this.Controls.Add(this.txtOpmerkingBestelling);
             this.Controls.Add(this.btn_Uitlog);
             this.Controls.Add(this.LBL_klokOr);
             this.Controls.Add(this.LBL_UserDataOr);
-            this.Controls.Add(this.txtOpmerkingBestelling);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblDrankTxt);
             this.Controls.Add(this.lblEtenTxt);
-            this.Controls.Add(this.plaatsOrderBarBtn);
             this.Controls.Add(this.LvDrankenMenu);
             this.Controls.Add(this.LvEtenMenu);
             this.Name = "Bestellingen";
@@ -285,6 +340,7 @@ namespace ChapooUI
             this.btn_Uitlog.PerformLayout();
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
+            this.GbOrderDetails.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -302,10 +358,8 @@ namespace ChapooUI
         private System.Windows.Forms.Label lblTafelNummerIn;
         private System.Windows.Forms.ColumnHeader Gerecht;
         private System.Windows.Forms.ColumnHeader Prijs;
-        private System.Windows.Forms.ColumnHeader Aantal;
         private System.Windows.Forms.ColumnHeader Dranken;
         private System.Windows.Forms.ColumnHeader PrijsDr;
-        private System.Windows.Forms.ColumnHeader AantalDr;
         private System.Windows.Forms.TextBox txtOpmerkingBestelling;
         private System.Windows.Forms.Label LBL_UserDataOr;
         private System.Windows.Forms.Label LBL_klokOr;
@@ -313,5 +367,12 @@ namespace ChapooUI
         private System.Windows.Forms.ToolStripMenuItem afsluitenToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip2;
         private System.Windows.Forms.ToolStripMenuItem MI_terug;
+        private System.Windows.Forms.GroupBox GbOrderDetails;
+        private System.Windows.Forms.Button btnDeleteItem;
+        private System.Windows.Forms.Button btnAddItem;
+        private System.Windows.Forms.ListView LvOrderDetails;
+        private System.Windows.Forms.ColumnHeader GererchtOrDe;
+        private System.Windows.Forms.ColumnHeader DrankOrDe;
+        private System.Windows.Forms.ColumnHeader OpmerkingOrDe;
     }
 }

@@ -16,6 +16,14 @@ namespace ChapooUI
         public Bestellingen()
         {
             InitializeComponent();
+
+            ChapooLogic.Order_Service orderServ = new ChapooLogic.Order_Service();
+            List<Order> OrderList = orderServ.GetOrders();
+            LvEtenMenu.View = View.Details;
+            foreach (ChapooModel.Order order in OrderList)
+            {
+                LvEtenMenu.Items.Add(new ListViewItem(new string[] { $"{order.itemNaam}", $"{order.itemPrijs}", $"{order.aantal}" }));
+            }
         }
 
         private void btn_Uitlog_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -38,18 +46,7 @@ namespace ChapooUI
         private void terugKeukenBarBtn_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void LvEtenMenu_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ChapooLogic.Order_Service orderServ = new ChapooLogic.Order_Service();
-            List<Order> OrderList = orderServ.GetOrders();
-            LvEtenMenu.View = View.Details;
-            foreach (ChapooModel.Order order in OrderList)
-            {
-               LvEtenMenu.Items.Add(new ListViewItem(new string[] { $"{order.itemNaam}", $"{order.itemPrijs}", $"{order.aantal}" }));
-            }
-        }
+        }        
 
         private void lblEtenTxt_Click(object sender, EventArgs e)
         {
