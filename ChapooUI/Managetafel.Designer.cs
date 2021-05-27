@@ -39,7 +39,7 @@ namespace ChapooUI
             this.BTN_Eddit = new System.Windows.Forms.Button();
             this.LBL_Managetafel = new System.Windows.Forms.Label();
             this.GBX_ViewOrders = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.BTN_ordertoevoegen = new System.Windows.Forms.Button();
             this.BTN_Delete_reservation = new System.Windows.Forms.Button();
             this.LF_Reservations = new System.Windows.Forms.ListView();
             this.LBL_Tafelstatus = new System.Windows.Forms.Label();
@@ -148,7 +148,7 @@ namespace ChapooUI
             // 
             // GBX_ViewOrders
             // 
-            this.GBX_ViewOrders.Controls.Add(this.button1);
+            this.GBX_ViewOrders.Controls.Add(this.BTN_ordertoevoegen);
             this.GBX_ViewOrders.Controls.Add(this.BTN_Delete_reservation);
             this.GBX_ViewOrders.Controls.Add(this.LF_Reservations);
             this.GBX_ViewOrders.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -159,15 +159,16 @@ namespace ChapooUI
             this.GBX_ViewOrders.TabStop = false;
             this.GBX_ViewOrders.Text = "Orders";
             // 
-            // button1
+            // BTN_ordertoevoegen
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.button1.Location = new System.Drawing.Point(221, 315);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(186, 47);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Order toevoegen";
-            this.button1.UseVisualStyleBackColor = false;
+            this.BTN_ordertoevoegen.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.BTN_ordertoevoegen.Location = new System.Drawing.Point(221, 315);
+            this.BTN_ordertoevoegen.Name = "BTN_ordertoevoegen";
+            this.BTN_ordertoevoegen.Size = new System.Drawing.Size(186, 47);
+            this.BTN_ordertoevoegen.TabIndex = 5;
+            this.BTN_ordertoevoegen.Text = "Order toevoegen";
+            this.BTN_ordertoevoegen.UseVisualStyleBackColor = false;
+            this.BTN_ordertoevoegen.Click += new System.EventHandler(this.BTN_ordertoevoegen_Click);
             // 
             // BTN_Delete_reservation
             // 
@@ -252,7 +253,7 @@ namespace ChapooUI
         private System.Windows.Forms.ListView LF_Reservations;
         private System.Windows.Forms.Label LBL_Tafelstatus;
         private System.Windows.Forms.Label LBL_tafelnummer;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BTN_ordertoevoegen;
         private System.Windows.Forms.ComboBox CB_Aantalmensen;
     }
 }
