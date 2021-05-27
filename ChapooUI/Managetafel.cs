@@ -60,8 +60,7 @@ namespace ChapooUI
                 LBL_Managetafel.Text = "Tafel is gereserveerd";
                 BTN_Eddit.Text = "Toewijzen";
 
-                LBL_aantalmensen.Hide();
-                CB_Aantalmensen.Hide();
+
                 GBX_ViewOrders.Hide();
             }
             else
@@ -69,11 +68,11 @@ namespace ChapooUI
                 LBL_Managetafel.Text = "Tafel Toewijzen aan klant";
                 BTN_Eddit.Text = "Toewijzen";
                 GBX_ViewOrders.Hide();
-                CB_Aantalmensen.Items.Add("1");
-                CB_Aantalmensen.Items.Add("2");
-                CB_Aantalmensen.Items.Add("3");
-                CB_Aantalmensen.Items.Add("4");
             }
+            CB_Aantalmensen.Items.Add("1");
+            CB_Aantalmensen.Items.Add("2");
+            CB_Aantalmensen.Items.Add("3");
+            CB_Aantalmensen.Items.Add("4");
         }
 
         private void UitloggenToolStripMenuItem_Click(object sender, EventArgs e)
@@ -93,7 +92,7 @@ namespace ChapooUI
             {
                 Tafel_Service.ClearTafel(Tafelnummer);
             }
-            else if (Status == "vrij" && CB_Aantalmensen.Text != "")
+            else if (Status == "vrij" && CB_Aantalmensen.Text != "" || Status == "gereserveerd" && CB_Aantalmensen.Text != "")
             {
                 Tafel_Service.AlterBezetting(Tafelnummer, int.Parse(CB_Aantalmensen.Text));
             }
