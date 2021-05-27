@@ -74,6 +74,7 @@ namespace ChapooUI
             this.PNL_tafel1 = new System.Windows.Forms.Panel();
             this.label = new System.Windows.Forms.Label();
             this.LBL_tafel1 = new System.Windows.Forms.Label();
+            this.TUpdateTimer = new System.Windows.Forms.Timer(this.components);
             this.menuStrip2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.PNL_tafel10.SuspendLayout();
@@ -167,7 +168,7 @@ namespace ChapooUI
             this.MI_terug});
             this.menuStrip2.Location = new System.Drawing.Point(-1, 0);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(71, 30);
+            this.menuStrip2.Size = new System.Drawing.Size(69, 27);
             this.menuStrip2.TabIndex = 30;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -175,7 +176,7 @@ namespace ChapooUI
             // 
             this.MI_terug.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
             this.MI_terug.Name = "MI_terug";
-            this.MI_terug.Size = new System.Drawing.Size(61, 26);
+            this.MI_terug.Size = new System.Drawing.Size(61, 23);
             this.MI_terug.Text = "Terug";
             this.MI_terug.Click += new System.EventHandler(this.terugToolStripMenuItem_Click);
             // 
@@ -187,9 +188,9 @@ namespace ChapooUI
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.afsluitenToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(1193, 0);
+            this.menuStrip1.Location = new System.Drawing.Point(1195, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(99, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(97, 27);
             this.menuStrip1.TabIndex = 29;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -197,7 +198,7 @@ namespace ChapooUI
             // 
             this.afsluitenToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
             this.afsluitenToolStripMenuItem.Name = "afsluitenToolStripMenuItem";
-            this.afsluitenToolStripMenuItem.Size = new System.Drawing.Size(89, 26);
+            this.afsluitenToolStripMenuItem.Size = new System.Drawing.Size(89, 23);
             this.afsluitenToolStripMenuItem.Text = "Uitloggen";
             this.afsluitenToolStripMenuItem.Click += new System.EventHandler(this.UitloggenToolStripMenuItem_Click);
             // 
@@ -584,6 +585,11 @@ namespace ChapooUI
             this.LBL_tafel1.TabIndex = 22;
             this.LBL_tafel1.Text = "tafel1";
             // 
+            // TUpdateTimer
+            // 
+            this.TUpdateTimer.Interval = 1200;
+            this.TUpdateTimer.Tick += new System.EventHandler(this.TUpdateTimer_Tick);
+            // 
             // TableOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -687,5 +693,6 @@ namespace ChapooUI
         private System.Windows.Forms.ToolStripMenuItem afsluitenToolStripMenuItem;
         private System.Windows.Forms.Button BTN_Update;
         private System.Windows.Forms.Button BTN_ManageReservations;
+        private System.Windows.Forms.Timer TUpdateTimer;
     }
 }

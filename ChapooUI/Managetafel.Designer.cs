@@ -105,7 +105,7 @@ namespace ChapooUI
             this.GBX_verandeStatus.Size = new System.Drawing.Size(698, 196);
             this.GBX_verandeStatus.TabIndex = 24;
             this.GBX_verandeStatus.TabStop = false;
-            this.GBX_verandeStatus.Text = "groupBox1";
+            this.GBX_verandeStatus.Text = "Beheer tafel";
             // 
             // CB_Aantalmensen
             // 
@@ -130,7 +130,7 @@ namespace ChapooUI
             this.BTN_Eddit.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.BTN_Eddit.Location = new System.Drawing.Point(14, 151);
             this.BTN_Eddit.Name = "BTN_Eddit";
-            this.BTN_Eddit.Size = new System.Drawing.Size(156, 39);
+            this.BTN_Eddit.Size = new System.Drawing.Size(195, 39);
             this.BTN_Eddit.TabIndex = 21;
             this.BTN_Eddit.Text = "button1";
             this.BTN_Eddit.UseVisualStyleBackColor = false;
