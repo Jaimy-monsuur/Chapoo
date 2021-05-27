@@ -16,5 +16,6 @@ namespace ChapooModel
         public decimal itemPrijs;
         public string type;
         public int aantal;
+        public bool gereed;
     }
 }
