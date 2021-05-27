@@ -133,7 +133,10 @@ namespace ChapooUI
 
         private void BTN_ordertoevoegen_Click(object sender, EventArgs e)
         {
-
+            this.Close();
+            Bestellingen bestellingen = new Bestellingen();
+            bestellingen.ShowDialog();
+            this.Show();
         }
     }
 }
