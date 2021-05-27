@@ -25,5 +25,12 @@ namespace ChapooLogic
             // Stuurt de aangevraagde dranken order naar de database
             order_db.AddDrinkOrder(drankenOrder);
         }
+        public List<Order> Db_Get_All_Orders_FORTable(int tafelnummer)
+        {
+            // Vraagt de order lijst aan de DAL laag
+            return order_db.Db_Get_All_Orders_FORTable(tafelnummer);
+        }
+
+
     }
 }

@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Globalization;
 
 namespace ChapooUI
 {
@@ -29,6 +29,8 @@ namespace ChapooUI
 
         public int Tafelnummer { get; set; }
         public Tafel_Reservation_service tafel_Reservation_Service = new Tafel_Reservation_service();// tafel reservation service
+        public Customer_Service Customer_Service = new Customer_Service();
+        public List<Customer> customers;
         public TableReservations(int tafelnummer)
         {
             InitializeComponent();
@@ -41,6 +43,17 @@ namespace ChapooUI
             GBX_ViewReservations.Text = $"Huidige en komende reserveringen voor tafel: {Tafelnummer}";
 
             GetReservations();// haalt alle huidige en toekomstige reserveringen voor een tafel op
+            GETcustomers();
+        }
+        public void GETcustomers()
+        {
+            CB_Klanten.Items.Clear();
+            customers = Customer_Service.GetALLCUstomers();
+
+            foreach (Customer c in customers)
+            {
+                CB_Klanten.Items.Add(c.name);
+            }
         }
 
         public void GetReservations()
@@ -97,5 +110,34 @@ namespace ChapooUI
             this.Close();
         }
 
+        private void BTN_ManageReservations_Click(object sender, EventArgs e)
+        {
+            if (CB_Klanten.Text != "")
+            {
+                int klantennummer = 0;
+                string klantnaam = CB_Klanten.Text;
+                foreach (Customer c in customers)
+                {
+                    if (klantnaam == c.name)
+                    {
+                        klantennummer = c.klantennummer;
+                    }
+                }
+
+                string date = RDatepicker.Value.ToString("yyyy-MM-dd");
+                string start = RStarttimePicker.Value.ToString("yyyy-MM-dd HH:mm:ss");
+                string eind = REndTimePicker.Value.ToString("yyyy-MM-dd HH:mm:ss");
+                tafel_Reservation_Service.Newreseration(klantennummer,Tafelnummer,date,start,eind);
+                GetReservations();
+            }
+
+        }
+
+        private void BTN_newcustomer_Click(object sender, EventArgs e)
+        {
+            AddCustomers addCustomers = new AddCustomers();
+            addCustomers.ShowDialog();
+            GETcustomers();
+        }
     }
 }

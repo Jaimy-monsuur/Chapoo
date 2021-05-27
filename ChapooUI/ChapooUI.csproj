@@ -47,11 +47,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddCustomers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddCustomers.Designer.cs">
+      <DependentUpon>AddCustomers.cs</DependentUpon>
+    </Compile>
     <Compile Include="BarBestelMenu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="BarBestelMenu.Designer.cs">
       <DependentUpon>BarBestelMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BeheerHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BeheerHome.Designer.cs">
+      <DependentUpon>BeheerHome.cs</DependentUpon>
     </Compile>
     <Compile Include="ChapooUI.cs">
       <SubType>Form</SubType>
@@ -103,11 +115,32 @@
     <Compile Include="TableReservations.Designer.cs">
       <DependentUpon>TableReservations.cs</DependentUpon>
     </Compile>
+    <Compile Include="VoorraadWijzigenWeergeven.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VoorraadWijzigenWeergeven.Designer.cs">
+      <DependentUpon>VoorraadWijzigenWeergeven.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AddCustomers.resx">
+      <DependentUpon>AddCustomers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BarBestelMenu.resx">
+      <DependentUpon>BarBestelMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BeheerHome.resx">
+      <DependentUpon>BeheerHome.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChapooUI.resx">
       <DependentUpon>ChapooUI.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="KeukenBarSysteemForm.resx">
+      <DependentUpon>KeukenBarSysteemForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Managetafel.resx">
+      <DependentUpon>Managetafel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -127,6 +160,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TableOverview.resx">
       <DependentUpon>TableOverview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VoorraadWijzigenWeergeven.resx">
+      <DependentUpon>VoorraadWijzigenWeergeven.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -150,6 +186,12 @@
       <Project>{93076218-323d-4a03-855f-1a1191320d2e}</Project>
       <Name>ChapooModel</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keuken.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
