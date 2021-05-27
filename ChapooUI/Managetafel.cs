@@ -26,6 +26,7 @@ namespace ChapooUI
                 m.Result = (IntPtr)(HT_CAPTION);
         }
         public Tafel_Service Tafel_Service = new Tafel_Service();
+        public Order_Service Order_Service = new Order_Service();
         public int Tafelnummer { get; set; }
         public string Status { get; set; }
         public Managetafel(int tafelnummer, string status)
@@ -37,11 +38,13 @@ namespace ChapooUI
             //tafel gegevens
             this.Tafelnummer = tafelnummer;
             this.Status = status;
-            Eddittafel();
+            FormSetings();
         }
 
-        public void Eddittafel()
+        public void FormSetings()
         {
+            LBL_tafelnummer.Text = Tafelnummer.ToString();
+            LBL_Tafelstatus.Text = Status;
             if (Status == "bezet")
             {
                 LBL_Managetafel.Text = "Tafel is momenteel bezet";
@@ -49,16 +52,16 @@ namespace ChapooUI
                 BTN_Eddit.BackColor = Color.LightCoral;
 
                 LBL_aantalmensen.Hide();
-                TXB_Aantalmensen.Hide();
+                CB_Aantalmensen.Hide();
+                GetOrders();
             }
             else if (Status == "gereserveerd")
             {
                 LBL_Managetafel.Text = "Tafel is gereserveerd";
-                BTN_Eddit.Text = "";
-                BTN_Eddit.Enabled = false;
+                BTN_Eddit.Text = "Toewijzen";
 
                 LBL_aantalmensen.Hide();
-                TXB_Aantalmensen.Hide();
+                CB_Aantalmensen.Hide();
                 GBX_ViewOrders.Hide();
             }
             else
@@ -66,6 +69,10 @@ namespace ChapooUI
                 LBL_Managetafel.Text = "Tafel Toewijzen aan klant";
                 BTN_Eddit.Text = "Toewijzen";
                 GBX_ViewOrders.Hide();
+                CB_Aantalmensen.Items.Add("1");
+                CB_Aantalmensen.Items.Add("2");
+                CB_Aantalmensen.Items.Add("3");
+                CB_Aantalmensen.Items.Add("4");
             }
         }
 
@@ -86,11 +93,43 @@ namespace ChapooUI
             {
                 Tafel_Service.ClearTafel(Tafelnummer);
             }
-            else if (Status == "vrij" && TXB_Aantalmensen.Text != "")
+            else if (Status == "vrij" && CB_Aantalmensen.Text != "")
             {
-                Tafel_Service.AlterBezetting(Tafelnummer, int.Parse(TXB_Aantalmensen.Text));
+                Tafel_Service.AlterBezetting(Tafelnummer, int.Parse(CB_Aantalmensen.Text));
             }
+            Status = "bezet";
             this.Close();
+        }
+
+        public void GetOrders()
+        {
+            List<Order> orderList = Order_Service.Db_Get_All_Orders_FORTable(Tafelnummer);
+
+            // Maak grid
+            LF_Reservations.Clear();
+            LF_Reservations.View = View.Details;
+            LF_Reservations.GridLines = true;
+            LF_Reservations.FullRowSelect = true;
+
+            // Voeg column header toe
+            LF_Reservations.Columns.Add("Ordernummer:", 100);
+            LF_Reservations.Columns.Add("Menu item:", 200);
+            LF_Reservations.Columns.Add("prijs:", 100);
+            LF_Reservations.Columns.Add("Bediende:", 100);
+
+            string[] item = new string[4];
+            foreach (ChapooModel.Order order in orderList)
+            {
+                // Zet de items, in dit geval de naam en prijs van de openstaande gerechten in de listview
+                item[0] = order.orderNummer.ToString();
+                item[1] = order.itemNaam;
+                item[2] = order.itemPrijs.ToString(); ;
+                item[3] = order.personeelNummer.ToString(); ;
+                ListViewItem li = new ListViewItem(item);
+                LF_Reservations.Items.Add(li);
+            }
+
+
         }
     }
 }

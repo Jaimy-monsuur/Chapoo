@@ -38,6 +38,12 @@ namespace ChapooUI
             this.LBL_legenda1 = new System.Windows.Forms.Label();
             this.LBL_legenda2 = new System.Windows.Forms.Label();
             this.LBL_legenda3 = new System.Windows.Forms.Label();
+            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
+            this.MI_terug = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.afsluitenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.BTN_Update = new System.Windows.Forms.Button();
+            this.BTN_ManageReservations = new System.Windows.Forms.Button();
             this.PNL_tafel10 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.LBL_tafel10 = new System.Windows.Forms.Label();
@@ -68,12 +74,8 @@ namespace ChapooUI
             this.PNL_tafel1 = new System.Windows.Forms.Panel();
             this.label = new System.Windows.Forms.Label();
             this.LBL_tafel1 = new System.Windows.Forms.Label();
-            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
-            this.MI_terug = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.afsluitenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.BTN_Update = new System.Windows.Forms.Button();
-            this.BTN_ManageReservations = new System.Windows.Forms.Button();
+            this.menuStrip2.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.PNL_tafel10.SuspendLayout();
             this.PNL_tafel8.SuspendLayout();
             this.PNL_tafel6.SuspendLayout();
@@ -84,8 +86,6 @@ namespace ChapooUI
             this.PNL_tafel5.SuspendLayout();
             this.PNL_tafel3.SuspendLayout();
             this.PNL_tafel1.SuspendLayout();
-            this.menuStrip2.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // LBL_Tableinfo
@@ -158,6 +158,71 @@ namespace ChapooUI
             this.LBL_legenda3.TabIndex = 28;
             this.LBL_legenda3.Text = "Bezet";
             // 
+            // menuStrip2
+            // 
+            this.menuStrip2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.menuStrip2.Dock = System.Windows.Forms.DockStyle.None;
+            this.menuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MI_terug});
+            this.menuStrip2.Location = new System.Drawing.Point(-1, 0);
+            this.menuStrip2.Name = "menuStrip2";
+            this.menuStrip2.Size = new System.Drawing.Size(71, 30);
+            this.menuStrip2.TabIndex = 30;
+            this.menuStrip2.Text = "menuStrip2";
+            // 
+            // MI_terug
+            // 
+            this.MI_terug.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
+            this.MI_terug.Name = "MI_terug";
+            this.MI_terug.Size = new System.Drawing.Size(61, 26);
+            this.MI_terug.Text = "Terug";
+            this.MI_terug.Click += new System.EventHandler(this.terugToolStripMenuItem_Click);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.menuStrip1.BackColor = System.Drawing.Color.LightCoral;
+            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.afsluitenToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(1193, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(99, 30);
+            this.menuStrip1.TabIndex = 29;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // afsluitenToolStripMenuItem
+            // 
+            this.afsluitenToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
+            this.afsluitenToolStripMenuItem.Name = "afsluitenToolStripMenuItem";
+            this.afsluitenToolStripMenuItem.Size = new System.Drawing.Size(89, 26);
+            this.afsluitenToolStripMenuItem.Text = "Uitloggen";
+            this.afsluitenToolStripMenuItem.Click += new System.EventHandler(this.UitloggenToolStripMenuItem_Click);
+            // 
+            // BTN_Update
+            // 
+            this.BTN_Update.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.BTN_Update.Location = new System.Drawing.Point(1132, 571);
+            this.BTN_Update.Name = "BTN_Update";
+            this.BTN_Update.Size = new System.Drawing.Size(141, 39);
+            this.BTN_Update.TabIndex = 31;
+            this.BTN_Update.Text = "Update";
+            this.BTN_Update.UseVisualStyleBackColor = false;
+            this.BTN_Update.Click += new System.EventHandler(this.BTN_Update_Click);
+            // 
+            // BTN_ManageReservations
+            // 
+            this.BTN_ManageReservations.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.BTN_ManageReservations.Location = new System.Drawing.Point(951, 571);
+            this.BTN_ManageReservations.Name = "BTN_ManageReservations";
+            this.BTN_ManageReservations.Size = new System.Drawing.Size(141, 39);
+            this.BTN_ManageReservations.TabIndex = 32;
+            this.BTN_ManageReservations.Text = "Reserveringen";
+            this.BTN_ManageReservations.UseVisualStyleBackColor = false;
+            this.BTN_ManageReservations.Click += new System.EventHandler(this.BTN_ManageReservations_Click);
+            // 
             // PNL_tafel10
             // 
             this.PNL_tafel10.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -169,6 +234,7 @@ namespace ChapooUI
             this.PNL_tafel10.Name = "PNL_tafel10";
             this.PNL_tafel10.Size = new System.Drawing.Size(250, 200);
             this.PNL_tafel10.TabIndex = 21;
+            this.PNL_tafel10.Click += new System.EventHandler(this.PNL_tafel10_Click);
             // 
             // label9
             // 
@@ -204,6 +270,7 @@ namespace ChapooUI
             this.PNL_tafel8.Name = "PNL_tafel8";
             this.PNL_tafel8.Size = new System.Drawing.Size(250, 200);
             this.PNL_tafel8.TabIndex = 18;
+            this.PNL_tafel8.Click += new System.EventHandler(this.PNL_tafel8_Click);
             // 
             // label8
             // 
@@ -239,6 +306,7 @@ namespace ChapooUI
             this.PNL_tafel6.Name = "PNL_tafel6";
             this.PNL_tafel6.Size = new System.Drawing.Size(250, 200);
             this.PNL_tafel6.TabIndex = 19;
+            this.PNL_tafel6.Click += new System.EventHandler(this.PNL_tafel6_Click);
             // 
             // label7
             // 
@@ -347,6 +415,7 @@ namespace ChapooUI
             this.PNL_tafel9.Name = "PNL_tafel9";
             this.PNL_tafel9.Size = new System.Drawing.Size(250, 200);
             this.PNL_tafel9.TabIndex = 15;
+            this.PNL_tafel9.Click += new System.EventHandler(this.PNL_tafel9_Click);
             // 
             // label4
             // 
@@ -382,6 +451,7 @@ namespace ChapooUI
             this.PNL_tafel7.Name = "PNL_tafel7";
             this.PNL_tafel7.Size = new System.Drawing.Size(250, 200);
             this.PNL_tafel7.TabIndex = 14;
+            this.PNL_tafel7.Click += new System.EventHandler(this.PNL_tafel7_Click);
             // 
             // label3
             // 
@@ -417,7 +487,7 @@ namespace ChapooUI
             this.PNL_tafel5.Name = "PNL_tafel5";
             this.PNL_tafel5.Size = new System.Drawing.Size(250, 200);
             this.PNL_tafel5.TabIndex = 14;
-            this.PNL_tafel5.Paint += new System.Windows.Forms.PaintEventHandler(this.PNL_tafel5_Paint);
+            this.PNL_tafel5.Click += new System.EventHandler(this.PNL_tafel5_Click);
             // 
             // label2
             // 
@@ -514,71 +584,6 @@ namespace ChapooUI
             this.LBL_tafel1.TabIndex = 22;
             this.LBL_tafel1.Text = "tafel1";
             // 
-            // menuStrip2
-            // 
-            this.menuStrip2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.menuStrip2.Dock = System.Windows.Forms.DockStyle.None;
-            this.menuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MI_terug});
-            this.menuStrip2.Location = new System.Drawing.Point(-1, 0);
-            this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(69, 27);
-            this.menuStrip2.TabIndex = 30;
-            this.menuStrip2.Text = "menuStrip2";
-            // 
-            // MI_terug
-            // 
-            this.MI_terug.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
-            this.MI_terug.Name = "MI_terug";
-            this.MI_terug.Size = new System.Drawing.Size(61, 23);
-            this.MI_terug.Text = "Terug";
-            this.MI_terug.Click += new System.EventHandler(this.terugToolStripMenuItem_Click);
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.menuStrip1.BackColor = System.Drawing.Color.LightCoral;
-            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.afsluitenToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(1195, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(97, 27);
-            this.menuStrip1.TabIndex = 29;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // afsluitenToolStripMenuItem
-            // 
-            this.afsluitenToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
-            this.afsluitenToolStripMenuItem.Name = "afsluitenToolStripMenuItem";
-            this.afsluitenToolStripMenuItem.Size = new System.Drawing.Size(89, 23);
-            this.afsluitenToolStripMenuItem.Text = "Uitloggen";
-            this.afsluitenToolStripMenuItem.Click += new System.EventHandler(this.UitloggenToolStripMenuItem_Click);
-            // 
-            // BTN_Update
-            // 
-            this.BTN_Update.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.BTN_Update.Location = new System.Drawing.Point(1132, 571);
-            this.BTN_Update.Name = "BTN_Update";
-            this.BTN_Update.Size = new System.Drawing.Size(141, 39);
-            this.BTN_Update.TabIndex = 31;
-            this.BTN_Update.Text = "Update";
-            this.BTN_Update.UseVisualStyleBackColor = false;
-            this.BTN_Update.Click += new System.EventHandler(this.BTN_Update_Click);
-            // 
-            // BTN_ManageReservations
-            // 
-            this.BTN_ManageReservations.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.BTN_ManageReservations.Location = new System.Drawing.Point(951, 571);
-            this.BTN_ManageReservations.Name = "BTN_ManageReservations";
-            this.BTN_ManageReservations.Size = new System.Drawing.Size(141, 39);
-            this.BTN_ManageReservations.TabIndex = 32;
-            this.BTN_ManageReservations.Text = "Reserveringen";
-            this.BTN_ManageReservations.UseVisualStyleBackColor = false;
-            this.BTN_ManageReservations.Click += new System.EventHandler(this.BTN_ManageReservations_Click);
-            // 
             // TableOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -609,6 +614,10 @@ namespace ChapooUI
             this.Name = "TableOverview";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "table info";
+            this.menuStrip2.ResumeLayout(false);
+            this.menuStrip2.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.PNL_tafel10.ResumeLayout(false);
             this.PNL_tafel10.PerformLayout();
             this.PNL_tafel8.ResumeLayout(false);
@@ -629,10 +638,6 @@ namespace ChapooUI
             this.PNL_tafel3.PerformLayout();
             this.PNL_tafel1.ResumeLayout(false);
             this.PNL_tafel1.PerformLayout();
-            this.menuStrip2.ResumeLayout(false);
-            this.menuStrip2.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

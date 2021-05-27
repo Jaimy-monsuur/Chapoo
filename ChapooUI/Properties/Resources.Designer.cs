@@ -63,6 +63,16 @@ namespace ChapooUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bar {
+            get {
+                object obj = ResourceManager.GetObject("bar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bediening_removebg_preview {
             get {
                 object obj = ResourceManager.GetObject("bediening-removebg-preview", resourceCulture);
@@ -76,6 +86,16 @@ namespace ChapooUI.Properties {
         internal static System.Drawing.Bitmap Capture {
             get {
                 object obj = ResourceManager.GetObject("Capture", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keuken {
+            get {
+                object obj = ResourceManager.GetObject("keuken", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -26,5 +26,10 @@ namespace ChapooLogic
         {
             Tafel_Reservering_DAO.Deletereservation(reserveringsnummer);
         }
+
+        public void Newreseration(int Klantnummer, int tafelnummer, string date, string begin, string eind)
+        {
+            Tafel_Reservering_DAO.Newreseration(Klantnummer, tafelnummer, date, begin, eind);
+        }
     }
 }
