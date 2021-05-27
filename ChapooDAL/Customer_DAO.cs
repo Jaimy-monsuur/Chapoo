@@ -19,6 +19,29 @@ namespace ChapooDAL
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
 
+        public void AddCustomer(string naam, string achternaam, string email, string telefoonnummer)
+        {
+            string query = "";
+            if (email == "" && telefoonnummer == "")
+            {
+                query = $"INSERT INTO [klant] ([voornaam], [achternaam]) VALUES ('{naam}', '{achternaam}')";
+            }
+            else if (email == "" && telefoonnummer != "")
+            {
+                query = $"INSERT INTO [klant] ([voornaam], [achternaam], [telefoonnummer]) VALUES ('{naam}', '{achternaam}', '{telefoonnummer}')";
+            }
+            else if (telefoonnummer == "" && email != "")
+            {
+                query = $"INSERT INTO [klant] ([voornaam], [achternaam], [email]) VALUES ('{naam}', '{achternaam}', '{email}')";
+            }
+            else
+            {
+                query = $"INSERT INTO [klant] VALUES ({naam}, {achternaam}, {email}, {telefoonnummer})";
+            }
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            ExecuteEditQuery(query, sqlParameters);
+        }
+
         private List<Customer> ReadTables(DataTable dataTable)
         {
             List<Customer> customers = new List<Customer>();

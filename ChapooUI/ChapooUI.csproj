@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddCustomers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddCustomers.Designer.cs">
+      <DependentUpon>AddCustomers.cs</DependentUpon>
+    </Compile>
     <Compile Include="BarBestelMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +121,9 @@
     <Compile Include="VoorraadWijzigenWeergeven.Designer.cs">
       <DependentUpon>VoorraadWijzigenWeergeven.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddCustomers.resx">
+      <DependentUpon>AddCustomers.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BarBestelMenu.resx">
       <DependentUpon>BarBestelMenu.cs</DependentUpon>
     </EmbeddedResource>
@@ -177,6 +186,12 @@
       <Project>{93076218-323d-4a03-855f-1a1191320d2e}</Project>
       <Name>ChapooModel</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keuken.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -47,6 +47,7 @@ namespace ChapooUI
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.TerugtoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CB_Klanten = new System.Windows.Forms.ComboBox();
+            this.BTN_newcustomer = new System.Windows.Forms.Button();
             this.GBX_ViewReservations.SuspendLayout();
             this.GBX_verandeStatus.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -99,6 +100,7 @@ namespace ChapooUI
             // 
             // GBX_verandeStatus
             // 
+            this.GBX_verandeStatus.Controls.Add(this.BTN_newcustomer);
             this.GBX_verandeStatus.Controls.Add(this.CB_Klanten);
             this.GBX_verandeStatus.Controls.Add(this.REndTimePicker);
             this.GBX_verandeStatus.Controls.Add(this.RStarttimePicker);
@@ -151,9 +153,9 @@ namespace ChapooUI
             this.label5.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(6, 168);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(142, 23);
+            this.label5.Size = new System.Drawing.Size(76, 23);
             this.label5.TabIndex = 38;
-            this.label5.Text = "Klantennummer: ";
+            this.label5.Text = "Eindtijd: ";
             // 
             // label4
             // 
@@ -249,6 +251,18 @@ namespace ChapooUI
             this.CB_Klanten.Size = new System.Drawing.Size(195, 31);
             this.CB_Klanten.TabIndex = 42;
             // 
+            // BTN_newcustomer
+            // 
+            this.BTN_newcustomer.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.BTN_newcustomer.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BTN_newcustomer.Location = new System.Drawing.Point(546, 52);
+            this.BTN_newcustomer.Name = "BTN_newcustomer";
+            this.BTN_newcustomer.Size = new System.Drawing.Size(146, 34);
+            this.BTN_newcustomer.TabIndex = 43;
+            this.BTN_newcustomer.Text = "Klant toevoegen";
+            this.BTN_newcustomer.UseVisualStyleBackColor = false;
+            this.BTN_newcustomer.Click += new System.EventHandler(this.BTN_newcustomer_Click);
+            // 
             // TableReservations
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -295,5 +309,6 @@ namespace ChapooUI
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox CB_Klanten;
+        private System.Windows.Forms.Button BTN_newcustomer;
     }
 }

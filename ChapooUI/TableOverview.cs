@@ -233,11 +233,6 @@ namespace ChapooUI
             confirmLogout.ShowDialog();
         }
 
-        private void PNL_tafel5_Paint(object sender, PaintEventArgs e)//work in progress
-        {
-
-        }
-
         private void BTN_ManageReservations_Click(object sender, EventArgs e)//work in progress
         {
             SelectTable selectTable = new SelectTable();
@@ -248,6 +243,120 @@ namespace ChapooUI
         private void BTN_Update_Click(object sender, EventArgs e)
         {
             UpdateTafels();
+        }
+
+        private void PNL_tafel5_Click(object sender, EventArgs e)
+        {
+            string status = "";
+            int tafelnummer = 5;
+            if (PNL_tafel5.BackColor == Color.Green)
+            {
+                status = "vrij";
+            }
+            else if (PNL_tafel5.BackColor == Color.DarkOrange)
+            {
+                status = "gereserveerd";
+            }
+            else// color is red
+            {
+                status = "bezet";
+            }
+            Managetable(tafelnummer, status);
+        }
+
+        private void PNL_tafel6_Click(object sender, EventArgs e)
+        {
+            string status = "";
+            int tafelnummer = 6;
+            if (PNL_tafel6.BackColor == Color.Green)
+            {
+                status = "vrij";
+            }
+            else if (PNL_tafel6.BackColor == Color.DarkOrange)
+            {
+                status = "gereserveerd";
+            }
+            else// color is red
+            {
+                status = "bezet";
+            }
+            Managetable(tafelnummer, status);
+        }
+
+        private void PNL_tafel7_Click(object sender, EventArgs e)
+        {
+            string status = "";
+            int tafelnummer = 7;
+            if (PNL_tafel7.BackColor == Color.Green)
+            {
+                status = "vrij";
+            }
+            else if (PNL_tafel7.BackColor == Color.DarkOrange)
+            {
+                status = "gereserveerd";
+            }
+            else// color is red
+            {
+                status = "bezet";
+            }
+            Managetable(tafelnummer, status);
+        }
+
+        private void PNL_tafel8_Click(object sender, EventArgs e)
+        {
+            string status = "";
+            int tafelnummer = 8;
+            if (PNL_tafel8.BackColor == Color.Green)
+            {
+                status = "vrij";
+            }
+            else if (PNL_tafel8.BackColor == Color.DarkOrange)
+            {
+                status = "gereserveerd";
+            }
+            else// color is red
+            {
+                status = "bezet";
+            }
+            Managetable(tafelnummer, status);
+        }
+
+        private void PNL_tafel9_Click(object sender, EventArgs e)
+        {
+            string status = "";
+            int tafelnummer = 9;
+            if (PNL_tafel9.BackColor == Color.Green)
+            {
+                status = "vrij";
+            }
+            else if (PNL_tafel9.BackColor == Color.DarkOrange)
+            {
+                status = "gereserveerd";
+            }
+            else// color is red
+            {
+                status = "bezet";
+            }
+            Managetable(tafelnummer, status);
+        }
+
+        private void PNL_tafel10_Click(object sender, EventArgs e)
+        {
+            string status = "";
+            int tafelnummer = 10;
+            if (PNL_tafel10.BackColor == Color.Green)
+            {
+                status = "vrij";
+            }
+            else if (PNL_tafel10.BackColor == Color.DarkOrange)
+            {
+                status = "gereserveerd";
+            }
+            else// color is red
+            {
+                status = "bezet";
+            }
+            Managetable(tafelnummer, status);
         }
     }
 }

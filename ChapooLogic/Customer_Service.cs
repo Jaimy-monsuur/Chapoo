@@ -15,6 +15,10 @@ namespace ChapooLogic
         {
             return Customer_DAO.GetALLCUstomers();
         }
+        public void AddCustomer(string naam, string achternaam, string email, string telefoonnummer)
+        {
+            Customer_DAO.AddCustomer(naam, achternaam, email, telefoonnummer);
+        }
 
     }
 }

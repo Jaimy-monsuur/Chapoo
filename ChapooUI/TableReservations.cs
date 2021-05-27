@@ -47,6 +47,7 @@ namespace ChapooUI
         }
         public void GETcustomers()
         {
+            CB_Klanten.Items.Clear();
             customers = Customer_Service.GetALLCUstomers();
 
             foreach (Customer c in customers)
@@ -130,6 +131,13 @@ namespace ChapooUI
                 GetReservations();
             }
 
+        }
+
+        private void BTN_newcustomer_Click(object sender, EventArgs e)
+        {
+            AddCustomers addCustomers = new AddCustomers();
+            addCustomers.ShowDialog();
+            GETcustomers();
         }
     }
 }
