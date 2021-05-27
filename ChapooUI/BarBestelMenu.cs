@@ -38,9 +38,8 @@ namespace ChapooUI
 
         private void showListView()
         {
-            
-            ChapooLogic.Order_Service orderService = new ChapooLogic.Order_Service();
-            List<Order> orderList = orderService.GetOrders();
+            ChapooLogic.Voorraad_Service voorraadService = new ChapooLogic.Voorraad_Service();
+            List <Voorraad> voorraadList = voorraadService.GetVoorraad();
 
             // Maak grid
             drankenKaartListView.Clear();
@@ -48,17 +47,19 @@ namespace ChapooUI
             drankenKaartListView.GridLines = true;
             drankenKaartListView.FullRowSelect = true;
             // Voeg column header toe
-            drankenKaartListView.Columns.Add("Drank:", 320);
-            drankenKaartListView.Columns.Add("Prijs:", 61);
+            drankenKaartListView.Columns.Add("Drank:", 310);
+            drankenKaartListView.Columns.Add("Prijs:", 60);
+            drankenKaartListView.Columns.Add("Aantal:", 60);
 
-            string[] item = new string[2];
-            foreach (ChapooModel.Order order in orderList)
+            string[] item = new string[3];
+            foreach (Voorraad voorraad in voorraadList)
             {
-                if (order.type == "Drank")
+                if (voorraad.itemType == "Drank")
                 {
                     // Zet de items, in dit geval de naam en prijs van de openstaande gerechten in de listview
-                    item[0] = order.itemNaam;
-                    item[1] = order.itemPrijs.ToString();
+                    item[0] = voorraad.itemNaam;
+                    item[1] = voorraad.itemPrijs.ToString();
+                    item[2] = voorraad.voorraadAantal.ToString();
                     ListViewItem li = new ListViewItem(item);
                     drankenKaartListView.Items.Add(li);
                 }

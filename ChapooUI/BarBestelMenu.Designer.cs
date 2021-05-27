@@ -47,30 +47,27 @@ namespace ChapooUI
             // drankenKaartListView
             // 
             this.drankenKaartListView.HideSelection = false;
-            this.drankenKaartListView.Location = new System.Drawing.Point(144, 106);
-            this.drankenKaartListView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.drankenKaartListView.Location = new System.Drawing.Point(30, 86);
             this.drankenKaartListView.Name = "drankenKaartListView";
-            this.drankenKaartListView.Size = new System.Drawing.Size(495, 414);
+            this.drankenKaartListView.Size = new System.Drawing.Size(450, 337);
             this.drankenKaartListView.TabIndex = 0;
             this.drankenKaartListView.UseCompatibleStateImageBehavior = false;
             // 
             // orderDrankenListView
             // 
             this.orderDrankenListView.HideSelection = false;
-            this.orderDrankenListView.Location = new System.Drawing.Point(647, 104);
-            this.orderDrankenListView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.orderDrankenListView.Location = new System.Drawing.Point(486, 86);
             this.orderDrankenListView.Name = "orderDrankenListView";
-            this.orderDrankenListView.Size = new System.Drawing.Size(495, 414);
+            this.orderDrankenListView.Size = new System.Drawing.Size(450, 337);
             this.orderDrankenListView.TabIndex = 1;
             this.orderDrankenListView.UseCompatibleStateImageBehavior = false;
             // 
             // plaatsOrderBarBtn
             // 
             this.plaatsOrderBarBtn.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.plaatsOrderBarBtn.Location = new System.Drawing.Point(144, 528);
-            this.plaatsOrderBarBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.plaatsOrderBarBtn.Location = new System.Drawing.Point(108, 429);
             this.plaatsOrderBarBtn.Name = "plaatsOrderBarBtn";
-            this.plaatsOrderBarBtn.Size = new System.Drawing.Size(188, 62);
+            this.plaatsOrderBarBtn.Size = new System.Drawing.Size(141, 50);
             this.plaatsOrderBarBtn.TabIndex = 4;
             this.plaatsOrderBarBtn.Text = "Plaats order";
             this.plaatsOrderBarBtn.UseVisualStyleBackColor = false;
@@ -80,10 +77,9 @@ namespace ChapooUI
             // 
             this.drankenKaartTxtLbl.AutoSize = true;
             this.drankenKaartTxtLbl.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.drankenKaartTxtLbl.Location = new System.Drawing.Point(138, 68);
-            this.drankenKaartTxtLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.drankenKaartTxtLbl.Location = new System.Drawing.Point(25, 55);
             this.drankenKaartTxtLbl.Name = "drankenKaartTxtLbl";
-            this.drankenKaartTxtLbl.Size = new System.Drawing.Size(164, 32);
+            this.drankenKaartTxtLbl.Size = new System.Drawing.Size(130, 25);
             this.drankenKaartTxtLbl.TabIndex = 5;
             this.drankenKaartTxtLbl.Text = "Dranken kaart";
             // 
@@ -91,10 +87,9 @@ namespace ChapooUI
             // 
             this.orderTxtLbl.AutoSize = true;
             this.orderTxtLbl.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.orderTxtLbl.Location = new System.Drawing.Point(641, 68);
-            this.orderTxtLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.orderTxtLbl.Location = new System.Drawing.Point(480, 55);
             this.orderTxtLbl.Name = "orderTxtLbl";
-            this.orderTxtLbl.Size = new System.Drawing.Size(76, 32);
+            this.orderTxtLbl.Size = new System.Drawing.Size(61, 25);
             this.orderTxtLbl.TabIndex = 6;
             this.orderTxtLbl.Text = "Order";
             // 
@@ -107,7 +102,8 @@ namespace ChapooUI
             this.TerugtoolStripMenuItem});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(69, 27);
+            this.menuStrip2.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip2.Size = new System.Drawing.Size(54, 24);
             this.menuStrip2.TabIndex = 28;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -115,7 +111,7 @@ namespace ChapooUI
             // 
             this.TerugtoolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
             this.TerugtoolStripMenuItem.Name = "TerugtoolStripMenuItem";
-            this.TerugtoolStripMenuItem.Size = new System.Drawing.Size(61, 23);
+            this.TerugtoolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.TerugtoolStripMenuItem.Text = "Terug";
             this.TerugtoolStripMenuItem.Click += new System.EventHandler(this.TerugtoolStripMenuItem_Click);
             // 
@@ -127,9 +123,10 @@ namespace ChapooUI
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.UitloggenToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(1192, 0);
+            this.menuStrip1.Location = new System.Drawing.Point(890, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(97, 27);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(77, 24);
             this.menuStrip1.TabIndex = 27;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -137,7 +134,7 @@ namespace ChapooUI
             // 
             this.UitloggenToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
             this.UitloggenToolStripMenuItem.Name = "UitloggenToolStripMenuItem";
-            this.UitloggenToolStripMenuItem.Size = new System.Drawing.Size(89, 23);
+            this.UitloggenToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.UitloggenToolStripMenuItem.Text = "Uitloggen";
             this.UitloggenToolStripMenuItem.Click += new System.EventHandler(this.UitloggenToolStripMenuItem_Click);
             // 
@@ -145,9 +142,10 @@ namespace ChapooUI
             // 
             this.plusOrderBarBtn.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.plusOrderBarBtn.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.plusOrderBarBtn.Location = new System.Drawing.Point(549, 525);
+            this.plusOrderBarBtn.Location = new System.Drawing.Point(412, 427);
+            this.plusOrderBarBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.plusOrderBarBtn.Name = "plusOrderBarBtn";
-            this.plusOrderBarBtn.Size = new System.Drawing.Size(90, 90);
+            this.plusOrderBarBtn.Size = new System.Drawing.Size(68, 73);
             this.plusOrderBarBtn.TabIndex = 29;
             this.plusOrderBarBtn.Text = "+";
             this.plusOrderBarBtn.UseVisualStyleBackColor = false;
@@ -157,9 +155,10 @@ namespace ChapooUI
             // 
             this.minusOrderBarBtn.BackColor = System.Drawing.Color.LightCoral;
             this.minusOrderBarBtn.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minusOrderBarBtn.Location = new System.Drawing.Point(647, 525);
+            this.minusOrderBarBtn.Location = new System.Drawing.Point(485, 427);
+            this.minusOrderBarBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.minusOrderBarBtn.Name = "minusOrderBarBtn";
-            this.minusOrderBarBtn.Size = new System.Drawing.Size(90, 90);
+            this.minusOrderBarBtn.Size = new System.Drawing.Size(68, 73);
             this.minusOrderBarBtn.TabIndex = 30;
             this.minusOrderBarBtn.Text = "-";
             this.minusOrderBarBtn.UseVisualStyleBackColor = false;
@@ -167,9 +166,9 @@ namespace ChapooUI
             // 
             // BarBestelMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1283, 622);
+            this.ClientSize = new System.Drawing.Size(962, 505);
             this.Controls.Add(this.minusOrderBarBtn);
             this.Controls.Add(this.plusOrderBarBtn);
             this.Controls.Add(this.menuStrip2);
@@ -180,7 +179,6 @@ namespace ChapooUI
             this.Controls.Add(this.orderDrankenListView);
             this.Controls.Add(this.drankenKaartListView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "BarBestelMenu";
             this.Text = "BarBestelMenu";
             this.Load += new System.EventHandler(this.BarBestelMenu_Load);
