@@ -65,6 +65,12 @@
     <Compile Include="BeheerHome.Designer.cs">
       <DependentUpon>BeheerHome.cs</DependentUpon>
     </Compile>
+    <Compile Include="Bestellingen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bestellingen.Designer.cs">
+      <DependentUpon>Bestellingen.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChapooUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BeheerHome.resx">
       <DependentUpon>BeheerHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bestellingen.resx">
+      <DependentUpon>Bestellingen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ChapooUI.resx">
       <DependentUpon>ChapooUI.cs</DependentUpon>
