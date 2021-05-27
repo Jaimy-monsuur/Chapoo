@@ -10,6 +10,8 @@ namespace ChapooModel
     {
         public int itemNummer;
         public string itemNaam;
+        public decimal itemPrijs;
         public int voorraadAantal;
+        public string itemType;
     }
 }
