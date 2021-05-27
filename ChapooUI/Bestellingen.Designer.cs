@@ -32,7 +32,6 @@ namespace ChapooUI
             this.lblDrankTxt = new System.Windows.Forms.Label();
             this.lblEtenTxt = new System.Windows.Forms.Label();
             this.plaatsOrderBarBtn = new System.Windows.Forms.Button();
-            this.terugKeukenBarBtn = new System.Windows.Forms.Button();
             this.LvDrankenMenu = new System.Windows.Forms.ListView();
             this.Dranken = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.PrijsDr = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -45,51 +44,47 @@ namespace ChapooUI
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblTafelNummerIn = new System.Windows.Forms.Label();
             this.txtOpmerkingBestelling = new System.Windows.Forms.TextBox();
-            this.LBL_UserData = new System.Windows.Forms.Label();
-            this.LBL_klok = new System.Windows.Forms.Label();
+            this.LBL_UserDataOr = new System.Windows.Forms.Label();
+            this.LBL_klokOr = new System.Windows.Forms.Label();
             this.btn_Uitlog = new System.Windows.Forms.MenuStrip();
             this.afsluitenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
+            this.MI_terug = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.btn_Uitlog.SuspendLayout();
+            this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblDrankTxt
             // 
             this.lblDrankTxt.AutoSize = true;
-            this.lblDrankTxt.Location = new System.Drawing.Point(394, 55);
+            this.lblDrankTxt.Location = new System.Drawing.Point(394, 26);
             this.lblDrankTxt.Name = "lblDrankTxt";
             this.lblDrankTxt.Size = new System.Drawing.Size(48, 13);
             this.lblDrankTxt.TabIndex = 12;
             this.lblDrankTxt.Text = "Dranken";
+            this.lblDrankTxt.Click += new System.EventHandler(this.lblDrankTxt_Click);
             // 
             // lblEtenTxt
             // 
             this.lblEtenTxt.AutoSize = true;
-            this.lblEtenTxt.Location = new System.Drawing.Point(71, 55);
+            this.lblEtenTxt.Location = new System.Drawing.Point(71, 26);
             this.lblEtenTxt.Name = "lblEtenTxt";
             this.lblEtenTxt.Size = new System.Drawing.Size(29, 13);
             this.lblEtenTxt.TabIndex = 11;
             this.lblEtenTxt.Text = "Eten";
+            this.lblEtenTxt.Click += new System.EventHandler(this.lblEtenTxt_Click);
             // 
             // plaatsOrderBarBtn
             // 
             this.plaatsOrderBarBtn.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.plaatsOrderBarBtn.Location = new System.Drawing.Point(74, 388);
+            this.plaatsOrderBarBtn.Location = new System.Drawing.Point(74, 359);
             this.plaatsOrderBarBtn.Name = "plaatsOrderBarBtn";
             this.plaatsOrderBarBtn.Size = new System.Drawing.Size(142, 50);
             this.plaatsOrderBarBtn.TabIndex = 10;
             this.plaatsOrderBarBtn.Text = "Plaats order";
             this.plaatsOrderBarBtn.UseVisualStyleBackColor = false;
-            // 
-            // terugKeukenBarBtn
-            // 
-            this.terugKeukenBarBtn.BackColor = System.Drawing.Color.LightCoral;
-            this.terugKeukenBarBtn.Location = new System.Drawing.Point(71, 12);
-            this.terugKeukenBarBtn.Name = "terugKeukenBarBtn";
-            this.terugKeukenBarBtn.Size = new System.Drawing.Size(101, 36);
-            this.terugKeukenBarBtn.TabIndex = 9;
-            this.terugKeukenBarBtn.Text = "Terug naar home menu";
-            this.terugKeukenBarBtn.UseVisualStyleBackColor = false;
+            this.plaatsOrderBarBtn.Click += new System.EventHandler(this.plaatsOrderBarBtn_Click);
             // 
             // LvDrankenMenu
             // 
@@ -101,25 +96,29 @@ namespace ChapooUI
             this.LvDrankenMenu.FullRowSelect = true;
             this.LvDrankenMenu.GridLines = true;
             this.LvDrankenMenu.HideSelection = false;
-            this.LvDrankenMenu.Location = new System.Drawing.Point(397, 71);
+            this.LvDrankenMenu.Location = new System.Drawing.Point(397, 42);
             this.LvDrankenMenu.Name = "LvDrankenMenu";
             this.LvDrankenMenu.Size = new System.Drawing.Size(318, 304);
             this.LvDrankenMenu.TabIndex = 8;
             this.LvDrankenMenu.UseCompatibleStateImageBehavior = false;
+            this.LvDrankenMenu.View = System.Windows.Forms.View.Details;
+            this.LvDrankenMenu.SelectedIndexChanged += new System.EventHandler(this.LvDrankenMenu_SelectedIndexChanged);
             // 
             // Dranken
             // 
-            this.Dranken.Text = "Dranken";
+            this.Dranken.Text = "Dranken:";
+            this.Dranken.Width = 218;
             // 
             // PrijsDr
             // 
-            this.PrijsDr.Text = "Prijs";
-            this.PrijsDr.Width = 30;
+            this.PrijsDr.Text = "Prijs:";
+            this.PrijsDr.Width = 46;
             // 
             // AantalDr
             // 
-            this.AantalDr.Text = "Aantal";
-            this.AantalDr.Width = 30;
+            this.AantalDr.Text = "Aantal:";
+            this.AantalDr.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.AantalDr.Width = 50;
             // 
             // LvEtenMenu
             // 
@@ -131,26 +130,28 @@ namespace ChapooUI
             this.LvEtenMenu.FullRowSelect = true;
             this.LvEtenMenu.GridLines = true;
             this.LvEtenMenu.HideSelection = false;
-            this.LvEtenMenu.Location = new System.Drawing.Point(71, 71);
+            this.LvEtenMenu.Location = new System.Drawing.Point(74, 42);
             this.LvEtenMenu.Name = "LvEtenMenu";
             this.LvEtenMenu.Size = new System.Drawing.Size(318, 304);
             this.LvEtenMenu.TabIndex = 7;
             this.LvEtenMenu.UseCompatibleStateImageBehavior = false;
+            this.LvEtenMenu.View = System.Windows.Forms.View.Details;
+            this.LvEtenMenu.SelectedIndexChanged += new System.EventHandler(this.LvEtenMenu_SelectedIndexChanged);
             // 
             // Gerecht
             // 
-            this.Gerecht.Text = "Gerecht";
-            this.Gerecht.Width = 120;
+            this.Gerecht.Text = "Gerecht:";
+            this.Gerecht.Width = 218;
             // 
             // Prijs
             // 
-            this.Prijs.Text = "Prijs";
-            this.Prijs.Width = 30;
+            this.Prijs.Text = "Prijs:";
+            this.Prijs.Width = 46;
             // 
             // Aantal
             // 
-            this.Aantal.Text = "Aantal";
-            this.Aantal.Width = 30;
+            this.Aantal.Text = "Aantal:";
+            this.Aantal.Width = 50;
             // 
             // lblTafelnr
             // 
@@ -168,51 +169,53 @@ namespace ChapooUI
             this.panel1.Controls.Add(this.lblTafelNummerIn);
             this.panel1.Controls.Add(this.lblTafelnr);
             this.panel1.ForeColor = System.Drawing.Color.Black;
-            this.panel1.Location = new System.Drawing.Point(13, 12);
+            this.panel1.Location = new System.Drawing.Point(13, 24);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(52, 56);
             this.panel1.TabIndex = 14;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // lblTafelNummerIn
             // 
             this.lblTafelNummerIn.AutoSize = true;
-            this.lblTafelNummerIn.Location = new System.Drawing.Point(16, 32);
+            this.lblTafelNummerIn.Location = new System.Drawing.Point(4, 29);
             this.lblTafelNummerIn.Name = "lblTafelNummerIn";
-            this.lblTafelNummerIn.Size = new System.Drawing.Size(16, 13);
+            this.lblTafelNummerIn.Size = new System.Drawing.Size(44, 13);
             this.lblTafelNummerIn.TabIndex = 14;
-            this.lblTafelNummerIn.Text = "...";
+            this.lblTafelNummerIn.Text = "nummer";
             this.lblTafelNummerIn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // txtOpmerkingBestelling
             // 
-            this.txtOpmerkingBestelling.Location = new System.Drawing.Point(397, 388);
+            this.txtOpmerkingBestelling.Location = new System.Drawing.Point(397, 359);
             this.txtOpmerkingBestelling.Name = "txtOpmerkingBestelling";
             this.txtOpmerkingBestelling.Size = new System.Drawing.Size(318, 20);
             this.txtOpmerkingBestelling.TabIndex = 15;
             this.txtOpmerkingBestelling.Text = "Opmerkingen:";
+            this.txtOpmerkingBestelling.TextChanged += new System.EventHandler(this.txtOpmerkingBestelling_TextChanged);
             // 
-            // LBL_UserData
+            // LBL_UserDataOr
             // 
-            this.LBL_UserData.AutoSize = true;
-            this.LBL_UserData.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBL_UserData.Location = new System.Drawing.Point(356, 5);
-            this.LBL_UserData.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.LBL_UserData.Name = "LBL_UserData";
-            this.LBL_UserData.Size = new System.Drawing.Size(74, 19);
-            this.LBL_UserData.TabIndex = 26;
-            this.LBL_UserData.Text = "User Data";
+            this.LBL_UserDataOr.AutoSize = true;
+            this.LBL_UserDataOr.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LBL_UserDataOr.Location = new System.Drawing.Point(356, 0);
+            this.LBL_UserDataOr.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.LBL_UserDataOr.Name = "LBL_UserDataOr";
+            this.LBL_UserDataOr.Size = new System.Drawing.Size(74, 19);
+            this.LBL_UserDataOr.TabIndex = 26;
+            this.LBL_UserDataOr.Text = "User Data";
             // 
-            // LBL_klok
+            // LBL_klokOr
             // 
-            this.LBL_klok.AutoSize = true;
-            this.LBL_klok.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBL_klok.Location = new System.Drawing.Point(611, 5);
-            this.LBL_klok.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.LBL_klok.Name = "LBL_klok";
-            this.LBL_klok.Size = new System.Drawing.Size(38, 19);
-            this.LBL_klok.TabIndex = 27;
-            this.LBL_klok.Text = "klok";
-            this.LBL_klok.Click += new System.EventHandler(this.LBL_klok_Click);
+            this.LBL_klokOr.AutoSize = true;
+            this.LBL_klokOr.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LBL_klokOr.Location = new System.Drawing.Point(611, 0);
+            this.LBL_klokOr.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.LBL_klokOr.Name = "LBL_klokOr";
+            this.LBL_klokOr.Size = new System.Drawing.Size(38, 19);
+            this.LBL_klokOr.TabIndex = 27;
+            this.LBL_klokOr.Text = "klok";
+            this.LBL_klokOr.Click += new System.EventHandler(this.LBL_klok_Click);
             // 
             // btn_Uitlog
             // 
@@ -222,7 +225,7 @@ namespace ChapooUI
             this.btn_Uitlog.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.btn_Uitlog.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.afsluitenToolStripMenuItem});
-            this.btn_Uitlog.Location = new System.Drawing.Point(724, 5);
+            this.btn_Uitlog.Location = new System.Drawing.Point(724, 0);
             this.btn_Uitlog.Name = "btn_Uitlog";
             this.btn_Uitlog.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
             this.btn_Uitlog.Size = new System.Drawing.Size(77, 24);
@@ -237,20 +240,41 @@ namespace ChapooUI
             this.afsluitenToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.afsluitenToolStripMenuItem.Text = "Uitloggen";
             // 
+            // menuStrip2
+            // 
+            this.menuStrip2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.menuStrip2.Dock = System.Windows.Forms.DockStyle.None;
+            this.menuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MI_terug});
+            this.menuStrip2.Location = new System.Drawing.Point(-2, -2);
+            this.menuStrip2.Name = "menuStrip2";
+            this.menuStrip2.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip2.Size = new System.Drawing.Size(54, 24);
+            this.menuStrip2.TabIndex = 31;
+            this.menuStrip2.Text = "menuStrip2";
+            // 
+            // MI_terug
+            // 
+            this.MI_terug.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
+            this.MI_terug.Name = "MI_terug";
+            this.MI_terug.Size = new System.Drawing.Size(48, 20);
+            this.MI_terug.Text = "Terug";
+            // 
             // Bestellingen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.menuStrip2);
             this.Controls.Add(this.btn_Uitlog);
-            this.Controls.Add(this.LBL_klok);
-            this.Controls.Add(this.LBL_UserData);
+            this.Controls.Add(this.LBL_klokOr);
+            this.Controls.Add(this.LBL_UserDataOr);
             this.Controls.Add(this.txtOpmerkingBestelling);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblDrankTxt);
             this.Controls.Add(this.lblEtenTxt);
             this.Controls.Add(this.plaatsOrderBarBtn);
-            this.Controls.Add(this.terugKeukenBarBtn);
             this.Controls.Add(this.LvDrankenMenu);
             this.Controls.Add(this.LvEtenMenu);
             this.Name = "Bestellingen";
@@ -259,6 +283,8 @@ namespace ChapooUI
             this.panel1.PerformLayout();
             this.btn_Uitlog.ResumeLayout(false);
             this.btn_Uitlog.PerformLayout();
+            this.menuStrip2.ResumeLayout(false);
+            this.menuStrip2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -269,7 +295,6 @@ namespace ChapooUI
         private System.Windows.Forms.Label lblDrankTxt;
         private System.Windows.Forms.Label lblEtenTxt;
         private System.Windows.Forms.Button plaatsOrderBarBtn;
-        private System.Windows.Forms.Button terugKeukenBarBtn;
         private System.Windows.Forms.ListView LvDrankenMenu;
         private System.Windows.Forms.ListView LvEtenMenu;
         private System.Windows.Forms.Label lblTafelnr;
@@ -282,9 +307,11 @@ namespace ChapooUI
         private System.Windows.Forms.ColumnHeader PrijsDr;
         private System.Windows.Forms.ColumnHeader AantalDr;
         private System.Windows.Forms.TextBox txtOpmerkingBestelling;
-        private System.Windows.Forms.Label LBL_UserData;
-        private System.Windows.Forms.Label LBL_klok;
+        private System.Windows.Forms.Label LBL_UserDataOr;
+        private System.Windows.Forms.Label LBL_klokOr;
         private System.Windows.Forms.MenuStrip btn_Uitlog;
         private System.Windows.Forms.ToolStripMenuItem afsluitenToolStripMenuItem;
+        private System.Windows.Forms.MenuStrip menuStrip2;
+        private System.Windows.Forms.ToolStripMenuItem MI_terug;
     }
 }
