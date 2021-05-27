@@ -12,8 +12,12 @@ using System.Windows.Forms;
 namespace ChapooUI
 {
     public partial class Bestellingen : Form
-    {      
-        
+    {
+        public Bestellingen()
+        {
+            InitializeComponent();
+        }
+
         private void btn_Uitlog_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
             ConfirmLogout confirmLogout = new ConfirmLogout();
@@ -25,8 +29,7 @@ namespace ChapooUI
            LBL_klokOr.Text = DateTime.Now.ToString(("HH:mm:ss"));
         }
 
-        
-
+       
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
