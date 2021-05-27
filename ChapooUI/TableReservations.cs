@@ -29,6 +29,8 @@ namespace ChapooUI
 
         public int Tafelnummer { get; set; }
         public Tafel_Reservation_service tafel_Reservation_Service = new Tafel_Reservation_service();// tafel reservation service
+        public Customer_Service Customer_Service = new Customer_Service();
+        public List<Customer> customers;
         public TableReservations(int tafelnummer)
         {
             InitializeComponent();
@@ -41,6 +43,16 @@ namespace ChapooUI
             GBX_ViewReservations.Text = $"Huidige en komende reserveringen voor tafel: {Tafelnummer}";
 
             GetReservations();// haalt alle huidige en toekomstige reserveringen voor een tafel op
+            GETcustomers();
+        }
+        public void GETcustomers()
+        {
+            customers = Customer_Service.GetALLCUstomers();
+
+            foreach (Customer c in customers)
+            {
+                CB_Klanten.Items.Add(c.name);
+            }
         }
 
         public void GetReservations()
@@ -99,9 +111,18 @@ namespace ChapooUI
 
         private void BTN_ManageReservations_Click(object sender, EventArgs e)
         {
-            if (TXB_klantennummer.Text != "")
-            {               
-                int klantennummer = int.Parse(TXB_klantennummer.Text);
+            if (CB_Klanten.Text != "")
+            {
+                int klantennummer = 0;
+                string klantnaam = CB_Klanten.Text;
+                foreach (Customer c in customers)
+                {
+                    if (klantnaam == c.name)
+                    {
+                        klantennummer = c.klantennummer;
+                    }
+                }
+
                 string date = RDatepicker.Value.ToString("yyyy-MM-dd");
                 string start = RStarttimePicker.Value.ToString("yyyy-MM-dd HH:mm:ss");
                 string eind = REndTimePicker.Value.ToString("yyyy-MM-dd HH:mm:ss");

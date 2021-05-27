@@ -56,8 +56,7 @@ namespace ChapooUI
             else if (Status == "gereserveerd")
             {
                 LBL_Managetafel.Text = "Tafel is gereserveerd";
-                BTN_Eddit.Text = "";
-                BTN_Eddit.Enabled = false;
+                BTN_Eddit.Text = "Toewijzen";
 
                 LBL_aantalmensen.Hide();
                 CB_Aantalmensen.Hide();

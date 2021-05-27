@@ -34,7 +34,6 @@ namespace ChapooUI
             this.BTN_Delete_reservation = new System.Windows.Forms.Button();
             this.LF_Reservations = new System.Windows.Forms.ListView();
             this.GBX_verandeStatus = new System.Windows.Forms.GroupBox();
-            this.TXB_klantennummer = new System.Windows.Forms.TextBox();
             this.REndTimePicker = new System.Windows.Forms.DateTimePicker();
             this.RStarttimePicker = new System.Windows.Forms.DateTimePicker();
             this.RDatepicker = new System.Windows.Forms.DateTimePicker();
@@ -47,6 +46,7 @@ namespace ChapooUI
             this.UitloggenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.TerugtoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.CB_Klanten = new System.Windows.Forms.ComboBox();
             this.GBX_ViewReservations.SuspendLayout();
             this.GBX_verandeStatus.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -99,7 +99,7 @@ namespace ChapooUI
             // 
             // GBX_verandeStatus
             // 
-            this.GBX_verandeStatus.Controls.Add(this.TXB_klantennummer);
+            this.GBX_verandeStatus.Controls.Add(this.CB_Klanten);
             this.GBX_verandeStatus.Controls.Add(this.REndTimePicker);
             this.GBX_verandeStatus.Controls.Add(this.RStarttimePicker);
             this.GBX_verandeStatus.Controls.Add(this.RDatepicker);
@@ -115,13 +115,6 @@ namespace ChapooUI
             this.GBX_verandeStatus.TabIndex = 6;
             this.GBX_verandeStatus.TabStop = false;
             this.GBX_verandeStatus.Text = "Reservering toevoegen";
-            // 
-            // TXB_klantennummer
-            // 
-            this.TXB_klantennummer.Location = new System.Drawing.Point(169, 48);
-            this.TXB_klantennummer.Name = "TXB_klantennummer";
-            this.TXB_klantennummer.Size = new System.Drawing.Size(74, 30);
-            this.TXB_klantennummer.TabIndex = 43;
             // 
             // REndTimePicker
             // 
@@ -246,6 +239,16 @@ namespace ChapooUI
             this.TerugtoolStripMenuItem.Text = "Terug";
             this.TerugtoolStripMenuItem.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
+            // CB_Klanten
+            // 
+            this.CB_Klanten.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_Klanten.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CB_Klanten.FormattingEnabled = true;
+            this.CB_Klanten.Location = new System.Drawing.Point(169, 52);
+            this.CB_Klanten.Name = "CB_Klanten";
+            this.CB_Klanten.Size = new System.Drawing.Size(195, 31);
+            this.CB_Klanten.TabIndex = 42;
+            // 
             // TableReservations
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -291,6 +294,6 @@ namespace ChapooUI
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox TXB_klantennummer;
+        private System.Windows.Forms.ComboBox CB_Klanten;
     }
 }

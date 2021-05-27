@@ -34,6 +34,7 @@ namespace ChapooUI
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.UitloggenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.GBX_verandeStatus = new System.Windows.Forms.GroupBox();
+            this.CB_Aantalmensen = new System.Windows.Forms.ComboBox();
             this.LBL_aantalmensen = new System.Windows.Forms.Label();
             this.BTN_Eddit = new System.Windows.Forms.Button();
             this.LBL_Managetafel = new System.Windows.Forms.Label();
@@ -43,7 +44,6 @@ namespace ChapooUI
             this.LF_Reservations = new System.Windows.Forms.ListView();
             this.LBL_Tafelstatus = new System.Windows.Forms.Label();
             this.LBL_tafelnummer = new System.Windows.Forms.Label();
-            this.CB_Aantalmensen = new System.Windows.Forms.ComboBox();
             this.menuStrip2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.GBX_verandeStatus.SuspendLayout();
@@ -59,7 +59,7 @@ namespace ChapooUI
             this.TerugtoolStripMenuItem});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(71, 30);
+            this.menuStrip2.Size = new System.Drawing.Size(69, 27);
             this.menuStrip2.TabIndex = 26;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -67,7 +67,7 @@ namespace ChapooUI
             // 
             this.TerugtoolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
             this.TerugtoolStripMenuItem.Name = "TerugtoolStripMenuItem";
-            this.TerugtoolStripMenuItem.Size = new System.Drawing.Size(61, 26);
+            this.TerugtoolStripMenuItem.Size = new System.Drawing.Size(61, 23);
             this.TerugtoolStripMenuItem.Text = "Terug";
             this.TerugtoolStripMenuItem.Click += new System.EventHandler(this.TerugtoolStripMenuItem_Click);
             // 
@@ -79,9 +79,9 @@ namespace ChapooUI
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.UitloggenToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(629, 0);
+            this.menuStrip1.Location = new System.Drawing.Point(631, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(99, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(97, 27);
             this.menuStrip1.TabIndex = 25;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -89,7 +89,7 @@ namespace ChapooUI
             // 
             this.UitloggenToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
             this.UitloggenToolStripMenuItem.Name = "UitloggenToolStripMenuItem";
-            this.UitloggenToolStripMenuItem.Size = new System.Drawing.Size(89, 26);
+            this.UitloggenToolStripMenuItem.Size = new System.Drawing.Size(89, 23);
             this.UitloggenToolStripMenuItem.Text = "Uitloggen";
             this.UitloggenToolStripMenuItem.Click += new System.EventHandler(this.UitloggenToolStripMenuItem_Click);
             // 
@@ -107,6 +107,15 @@ namespace ChapooUI
             this.GBX_verandeStatus.TabStop = false;
             this.GBX_verandeStatus.Text = "groupBox1";
             // 
+            // CB_Aantalmensen
+            // 
+            this.CB_Aantalmensen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_Aantalmensen.FormattingEnabled = true;
+            this.CB_Aantalmensen.Location = new System.Drawing.Point(167, 75);
+            this.CB_Aantalmensen.Name = "CB_Aantalmensen";
+            this.CB_Aantalmensen.Size = new System.Drawing.Size(42, 31);
+            this.CB_Aantalmensen.TabIndex = 24;
+            // 
             // LBL_aantalmensen
             // 
             this.LBL_aantalmensen.AutoSize = true;
@@ -121,7 +130,7 @@ namespace ChapooUI
             this.BTN_Eddit.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.BTN_Eddit.Location = new System.Drawing.Point(14, 151);
             this.BTN_Eddit.Name = "BTN_Eddit";
-            this.BTN_Eddit.Size = new System.Drawing.Size(109, 39);
+            this.BTN_Eddit.Size = new System.Drawing.Size(156, 39);
             this.BTN_Eddit.TabIndex = 21;
             this.BTN_Eddit.Text = "button1";
             this.BTN_Eddit.UseVisualStyleBackColor = false;
@@ -200,15 +209,6 @@ namespace ChapooUI
             this.LBL_tafelnummer.Size = new System.Drawing.Size(149, 28);
             this.LBL_tafelnummer.TabIndex = 21;
             this.LBL_tafelnummer.Text = "Tafel nummer:";
-            // 
-            // CB_Aantalmensen
-            // 
-            this.CB_Aantalmensen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CB_Aantalmensen.FormattingEnabled = true;
-            this.CB_Aantalmensen.Location = new System.Drawing.Point(167, 75);
-            this.CB_Aantalmensen.Name = "CB_Aantalmensen";
-            this.CB_Aantalmensen.Size = new System.Drawing.Size(42, 31);
-            this.CB_Aantalmensen.TabIndex = 24;
             // 
             // Managetafel
             // 
