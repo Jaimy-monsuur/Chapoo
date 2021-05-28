@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ChapooLogic
 {
-    class Personeel_Service
+    public class Personeel_Service
     {
     }
 }

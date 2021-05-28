@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace ChapooModel
 {
-    class Personeels_Lid
+    public class Personeels_Lid
     {
+        public int Nummer;
+        public string naam;
+        public string functie;
     }
 }
