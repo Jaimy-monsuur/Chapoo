@@ -130,7 +130,7 @@ namespace ChapooUI
             this.BTN_Eddit.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.BTN_Eddit.Location = new System.Drawing.Point(14, 151);
             this.BTN_Eddit.Name = "BTN_Eddit";
-            this.BTN_Eddit.Size = new System.Drawing.Size(156, 39);
+            this.BTN_Eddit.Size = new System.Drawing.Size(195, 39);
             this.BTN_Eddit.TabIndex = 21;
             this.BTN_Eddit.Text = "button1";
             this.BTN_Eddit.UseVisualStyleBackColor = false;

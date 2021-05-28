@@ -44,6 +44,7 @@ namespace ChapooUI
             this.Username = username;
             LBL_UserData.Text = $"{Username}, {Type}";
 
+            TUpdateTimer.Start();// zorgd er voor dat het overzicht elke minuut updated!
             T_klok.Start();//start de klok
             GroupBox_TO_tables();// tafels toevoegen aan lijst
             UpdateTafels();//status van tafels ophalen/updaten
@@ -357,6 +358,11 @@ namespace ChapooUI
                 status = "bezet";
             }
             Managetable(tafelnummer, status);
+        }
+
+        private void TUpdateTimer_Tick(object sender, EventArgs e)
+        {
+            UpdateTafels();
         }
     }
 }
