@@ -16,7 +16,7 @@ namespace ChapooDAL
 
         public Account DB_Login(string username, string password)
         {
-            string query = $"SELECT username, password, type FROM [Account] WHERE username = '{username}' AND password = '{password}'";
+            string query = $"SELECT personeelnummer, username, password, type FROM [Account] WHERE username = '{username}' AND password = '{password}'";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -27,6 +27,7 @@ namespace ChapooDAL
             foreach (DataRow dr in dataTable.Rows)
             {
                 Account logintemp = new Account();
+                logintemp.personeelsNummer = (int)(dr["personeelnummer"]);
                 logintemp.UserName = (String)(dr["username"].ToString());
                 logintemp.Password = (String)(dr["password"].ToString());
                 logintemp.Type = (String)(dr["type"].ToString());
