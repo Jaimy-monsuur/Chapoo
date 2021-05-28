@@ -20,9 +20,21 @@ namespace ChapooLogic
             return orders;
         }
 
-        public void AddDrinkOrder(List<Order> drankenOrder)
+        public void MeldGereed(int orderNummer)
         {
-            // Stuurt de aangevraagde dranken order naar de database
+            // Stuurt het itemnummer wat gereed gemeld moet worden naar de DAL laag
+            order_db.MeldGereed(orderNummer);
+        }
+
+        public void MeldOngereed(int orderNummer)
+        {
+            // Stuurt het itemnummer wat ongereed gemeld moet worden naar de DAL laag
+            order_db.MeldOngereed(orderNummer);
+        }
+
+        public void AddDrinkOrder(List<string> drankenOrder)
+        {
+            // Stuurt de aangevraagde dranken order naar de DAL laag
             order_db.AddDrinkOrder(drankenOrder);
         }
     }

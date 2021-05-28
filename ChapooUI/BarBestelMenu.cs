@@ -34,6 +34,8 @@ namespace ChapooUI
             this.Text = "";
         }
 
+        private List<string> drankenOrder; // De lijst waar alle itemnummer staan voor de order
+
         private void BarBestelMenu_Load(object sender, EventArgs e)
         {
             showListView();
@@ -50,8 +52,8 @@ namespace ChapooUI
             drankenKaartListView.GridLines = true;
             drankenKaartListView.FullRowSelect = true;
             // Voeg column header toe
-            drankenKaartListView.Columns.Add("Itemnr:", 60);
             drankenKaartListView.Columns.Add("Drank:", 255);
+            drankenKaartListView.Columns.Add("Itemnr:", 60);            
             drankenKaartListView.Columns.Add("Prijs:", 60);
             drankenKaartListView.Columns.Add("Aantal:", 60);
 
@@ -61,19 +63,30 @@ namespace ChapooUI
                 if (voorraad.itemType == "Drank")
                 {
                     // Zet de items, in dit geval de naam en prijs van de openstaande gerechten in de listview
-                    item[0] = voorraad.itemNummer.ToString();
-                    item[1] = voorraad.itemNaam;
+                    item[0] = voorraad.itemNaam;
+                    item[1] = voorraad.itemNummer.ToString();                   
                     item[2] = voorraad.itemPrijs.ToString();
                     item[3] = voorraad.voorraadAantal.ToString();
                     ListViewItem li = new ListViewItem(item);
                     drankenKaartListView.Items.Add(li);
                 }
             }
+
+            string[] item2 = new string[1];
+            foreach (String drankNaam in drankenOrder)
+            {
+                // Zet de items, in dit geval de toegevoegde drankenorder items toe aan de listview
+                item2[0] = drankNaam;
+                ListViewItem li = new ListViewItem(item2);
+                drankenKaartListView.Items.Add(li);
+            }
         }
+
+        
 
         private void plaatsOrderBarBtn_Click(object sender, EventArgs e)
         {
-            
+            orderService.AddDrinkOrder(drankenOrder);
         }
 
         private void TerugtoolStripMenuItem_Click(object sender, EventArgs e)
@@ -91,9 +104,8 @@ namespace ChapooUI
         {
             if (drankenKaartListView.SelectedItems.Count != 0)
             {
-                int itemNummer = int.Parse(drankenKaartListView.SelectedItems[0].Text);
-                //orderService.AddDrinkOrder();
-                //showListView();
+                string itemNaam = drankenKaartListView.SelectedItems[0].Text;
+                drankenOrder.Add(itemNaam);        
             }
         }
 

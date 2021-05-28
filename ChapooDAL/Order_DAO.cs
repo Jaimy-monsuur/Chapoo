@@ -45,7 +45,21 @@ namespace ChapooDAL
             return orders;
         }
 
-        public void AddDrinkOrder(List<Order> drankenOrder)
+        public void MeldGereed(int orderNummer)
+        {
+            string query = $"UPDATE Orders SET gereed = 1 WHERE Orders.ordernummer = {orderNummer}";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            ExecuteEditQuery(query, sqlParameters);
+        }
+
+        public void MeldOngereed(int orderNummer)
+        {
+            string query = $"UPDATE Orders SET gereed = 0 WHERE Orders.ordernummer = {orderNummer}";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            ExecuteEditQuery(query, sqlParameters);
+        }
+
+        public void AddDrinkOrder(List<string> drankenOrder)
         {
 
         }

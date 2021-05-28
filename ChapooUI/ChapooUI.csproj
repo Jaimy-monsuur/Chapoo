@@ -65,6 +65,12 @@
     <Compile Include="ChapooUI.Designer.cs">
       <DependentUpon>ChapooUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="ConfirmOngereedMelden.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfirmOngereedMelden.Designer.cs">
+      <DependentUpon>ConfirmOngereedMelden.cs</DependentUpon>
+    </Compile>
     <Compile Include="KeukenBarSysteemForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ChapooUI.resx">
       <DependentUpon>ChapooUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfirmOngereedMelden.resx">
+      <DependentUpon>ConfirmOngereedMelden.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KeukenBarSysteemForm.resx">
       <DependentUpon>KeukenBarSysteemForm.cs</DependentUpon>
