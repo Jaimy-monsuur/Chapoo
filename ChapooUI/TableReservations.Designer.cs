@@ -34,6 +34,8 @@ namespace ChapooUI
             this.BTN_Delete_reservation = new System.Windows.Forms.Button();
             this.LF_Reservations = new System.Windows.Forms.ListView();
             this.GBX_verandeStatus = new System.Windows.Forms.GroupBox();
+            this.BTN_newcustomer = new System.Windows.Forms.Button();
+            this.CB_Klanten = new System.Windows.Forms.ComboBox();
             this.REndTimePicker = new System.Windows.Forms.DateTimePicker();
             this.RStarttimePicker = new System.Windows.Forms.DateTimePicker();
             this.RDatepicker = new System.Windows.Forms.DateTimePicker();
@@ -46,8 +48,7 @@ namespace ChapooUI
             this.UitloggenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.TerugtoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.CB_Klanten = new System.Windows.Forms.ComboBox();
-            this.BTN_newcustomer = new System.Windows.Forms.Button();
+            this.LBL_error = new System.Windows.Forms.Label();
             this.GBX_ViewReservations.SuspendLayout();
             this.GBX_verandeStatus.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -100,6 +101,7 @@ namespace ChapooUI
             // 
             // GBX_verandeStatus
             // 
+            this.GBX_verandeStatus.Controls.Add(this.LBL_error);
             this.GBX_verandeStatus.Controls.Add(this.BTN_newcustomer);
             this.GBX_verandeStatus.Controls.Add(this.CB_Klanten);
             this.GBX_verandeStatus.Controls.Add(this.REndTimePicker);
@@ -117,6 +119,28 @@ namespace ChapooUI
             this.GBX_verandeStatus.TabIndex = 6;
             this.GBX_verandeStatus.TabStop = false;
             this.GBX_verandeStatus.Text = "Reservering toevoegen";
+            // 
+            // BTN_newcustomer
+            // 
+            this.BTN_newcustomer.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.BTN_newcustomer.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BTN_newcustomer.Location = new System.Drawing.Point(546, 52);
+            this.BTN_newcustomer.Name = "BTN_newcustomer";
+            this.BTN_newcustomer.Size = new System.Drawing.Size(146, 34);
+            this.BTN_newcustomer.TabIndex = 43;
+            this.BTN_newcustomer.Text = "Klant toevoegen";
+            this.BTN_newcustomer.UseVisualStyleBackColor = false;
+            this.BTN_newcustomer.Click += new System.EventHandler(this.BTN_newcustomer_Click);
+            // 
+            // CB_Klanten
+            // 
+            this.CB_Klanten.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_Klanten.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CB_Klanten.FormattingEnabled = true;
+            this.CB_Klanten.Location = new System.Drawing.Point(169, 52);
+            this.CB_Klanten.Name = "CB_Klanten";
+            this.CB_Klanten.Size = new System.Drawing.Size(195, 31);
+            this.CB_Klanten.TabIndex = 42;
             // 
             // REndTimePicker
             // 
@@ -146,6 +170,7 @@ namespace ChapooUI
             this.RDatepicker.Name = "RDatepicker";
             this.RDatepicker.Size = new System.Drawing.Size(313, 30);
             this.RDatepicker.TabIndex = 39;
+            this.RDatepicker.Value = new System.DateTime(2021, 5, 28, 13, 28, 38, 0);
             // 
             // label5
             // 
@@ -241,27 +266,13 @@ namespace ChapooUI
             this.TerugtoolStripMenuItem.Text = "Terug";
             this.TerugtoolStripMenuItem.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
-            // CB_Klanten
+            // LBL_error
             // 
-            this.CB_Klanten.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CB_Klanten.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CB_Klanten.FormattingEnabled = true;
-            this.CB_Klanten.Location = new System.Drawing.Point(169, 52);
-            this.CB_Klanten.Name = "CB_Klanten";
-            this.CB_Klanten.Size = new System.Drawing.Size(195, 31);
-            this.CB_Klanten.TabIndex = 42;
-            // 
-            // BTN_newcustomer
-            // 
-            this.BTN_newcustomer.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.BTN_newcustomer.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BTN_newcustomer.Location = new System.Drawing.Point(546, 52);
-            this.BTN_newcustomer.Name = "BTN_newcustomer";
-            this.BTN_newcustomer.Size = new System.Drawing.Size(146, 34);
-            this.BTN_newcustomer.TabIndex = 43;
-            this.BTN_newcustomer.Text = "Klant toevoegen";
-            this.BTN_newcustomer.UseVisualStyleBackColor = false;
-            this.BTN_newcustomer.Click += new System.EventHandler(this.BTN_newcustomer_Click);
+            this.LBL_error.AutoSize = true;
+            this.LBL_error.Location = new System.Drawing.Point(225, 258);
+            this.LBL_error.Name = "LBL_error";
+            this.LBL_error.Size = new System.Drawing.Size(0, 23);
+            this.LBL_error.TabIndex = 21;
             // 
             // TableReservations
             // 
@@ -310,5 +321,6 @@ namespace ChapooUI
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox CB_Klanten;
         private System.Windows.Forms.Button BTN_newcustomer;
+        private System.Windows.Forms.Label LBL_error;
     }
 }

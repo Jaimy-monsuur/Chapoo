@@ -587,7 +587,7 @@ namespace ChapooUI
             // 
             // TUpdateTimer
             // 
-            this.TUpdateTimer.Interval = 1200;
+            this.TUpdateTimer.Interval = 60000;
             this.TUpdateTimer.Tick += new System.EventHandler(this.TUpdateTimer_Tick);
             // 
             // TableOverview

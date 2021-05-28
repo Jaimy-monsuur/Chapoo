@@ -44,7 +44,7 @@ namespace ChapooUI
         public void FormSetings()
         {
             LBL_tafelnummer.Text = "Tafelnummer: " + Tafelnummer.ToString();
-            LBL_Tafelstatus.Text = "Tafel Status: " + Status;
+            LBL_Tafelstatus.Text = "Tafel status: " + Status;
             if (Status == "bezet")
             {
                 LBL_Managetafel.Text = "Tafel is momenteel bezet";

@@ -105,7 +105,7 @@ namespace ChapooUI
             this.GBX_verandeStatus.Size = new System.Drawing.Size(698, 196);
             this.GBX_verandeStatus.TabIndex = 24;
             this.GBX_verandeStatus.TabStop = false;
-            this.GBX_verandeStatus.Text = "Beheer tafel";
+            this.GBX_verandeStatus.Text = "Manage tafel";
             // 
             // CB_Aantalmensen
             // 

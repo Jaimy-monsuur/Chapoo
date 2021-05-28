@@ -42,6 +42,7 @@ namespace ChapooUI
             LBL_tafelnummer.Text = $"Tafel nummer: {Tafelnummer}";
             GBX_ViewReservations.Text = $"Huidige en komende reserveringen voor tafel: {Tafelnummer}";
 
+            RDatepicker.MinDate = DateTime.Now;// je kan naturlijk geen reservering maken voor t verleden.
             GetReservations();// haalt alle huidige en toekomstige reserveringen voor een tafel op
             GETcustomers();
         }
@@ -112,7 +113,7 @@ namespace ChapooUI
 
         private void BTN_ManageReservations_Click(object sender, EventArgs e)
         {
-            if (CB_Klanten.Text != "")
+            if (CB_Klanten.Text != "" && DateTime.Parse(RStarttimePicker.Text).TimeOfDay < DateTime.Parse(REndTimePicker.Text).TimeOfDay)
             {
                 int klantennummer = 0;
                 string klantnaam = CB_Klanten.Text;
@@ -129,6 +130,14 @@ namespace ChapooUI
                 string eind = REndTimePicker.Value.ToString("yyyy-MM-dd HH:mm:ss");
                 tafel_Reservation_Service.Newreseration(klantennummer,Tafelnummer,date,start,eind);
                 GetReservations();
+            }
+            else if (DateTime.Parse(RStarttimePicker.Text).TimeOfDay > DateTime.Parse(REndTimePicker.Text).TimeOfDay)
+            {
+                LBL_error.Text = "Begin tijd kan niet later zijn dan eind tijd!";
+            }
+            else
+            {
+                LBL_error.Text = "Selecteer een klant!";
             }
 
         }
