@@ -146,9 +146,9 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.afsluitenToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(1185, -1);
+            this.menuStrip1.Location = new System.Drawing.Point(1187, -1);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(99, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(97, 27);
             this.menuStrip1.TabIndex = 18;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -156,7 +156,7 @@
             // 
             this.afsluitenToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
             this.afsluitenToolStripMenuItem.Name = "afsluitenToolStripMenuItem";
-            this.afsluitenToolStripMenuItem.Size = new System.Drawing.Size(89, 26);
+            this.afsluitenToolStripMenuItem.Size = new System.Drawing.Size(89, 23);
             this.afsluitenToolStripMenuItem.Text = "Uitloggen";
             this.afsluitenToolStripMenuItem.Click += new System.EventHandler(this.afsluitenToolStripMenuItem_Click);
             // 
@@ -201,7 +201,7 @@
             // 
             this.keukenSelectBtn.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.keukenSelectBtn.BackgroundImage = global::ChapooUI.Properties.Resources.keuken;
-            this.keukenSelectBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.keukenSelectBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.keukenSelectBtn.Location = new System.Drawing.Point(85, 159);
             this.keukenSelectBtn.Margin = new System.Windows.Forms.Padding(4);
             this.keukenSelectBtn.Name = "keukenSelectBtn";
