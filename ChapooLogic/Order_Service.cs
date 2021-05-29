@@ -42,5 +42,15 @@ namespace ChapooLogic
         {          
             return order_db.NewOrder(order);
         }
+        public List<Order> Db_Get_All_Orders_FORTable(int tafelnummer)
+        {
+            // Vraagt de order lijst aan de DAL laag
+            return order_db.Db_Get_All_Orders_FORTable(tafelnummer);
+        }
+
+        public void DeleteOrderitem(int ordernummer, int itemnummer)
+        {
+            order_db.DeleteOrderitem(ordernummer, itemnummer);
+        }
     }
 }

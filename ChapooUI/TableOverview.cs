@@ -34,16 +34,16 @@ namespace ChapooUI
         public Tafel_Reservation_service tafel_Reservation_Service = new Tafel_Reservation_service();// tafel reservation service
         //lijst van tafels
         public List<Panel> TafelPanels = new List<Panel>();
-        public TableOverview(string type, string username)
+        public TableOverview()
         {
             InitializeComponent();//start form
             this.ControlBox = false;
             this.Text = "";
 
-            this.Type = type;
-            this.Username = username;
-            LBL_UserData.Text = $"{Username}, {Type}";
-
+            //haalt de gegevens van de ingelugde gebruiker
+            CurrentUser user = CurrentUser.Getlnstance();
+            LBL_UserData.Text = user.ToString();
+            TUpdateTimer.Start();// zorgd er voor dat het overzicht elke minuut updated!
             T_klok.Start();//start de klok
             GroupBox_TO_tables();// tafels toevoegen aan lijst
             UpdateTafels();//status van tafels ophalen/updaten
@@ -77,9 +77,6 @@ namespace ChapooUI
                         }
                     }
                 }
-            }
-            for (int i = 0; i < TafelPanels.Count; i++)
-            {
                 if (tafels[i].bezeting != 0)// tafel is bezet
                 {
                     occupiedTables++;
@@ -88,7 +85,7 @@ namespace ChapooUI
                     {
                         if (c.Name == "LBL_tafel1" || c.Name == "LBL_tafel2" || c.Name == "LBL_tafel3" || c.Name == "LBL_tafel4" || c.Name == "LBL_tafel5" || c.Name == "LBL_tafel6" || c.Name == "LBL_tafel7" || c.Name == "LBL_tafel8" || c.Name == "LBL_tafel9" || c.Name == "LBL_tafel10")
                         {
-                            c.Text = $"Tafelnummer: {tafels[i].tafelnummer}\nZitplaatsen: {tafels[1].zitplekken}\nBezeting: {tafels[i].bezeting}";
+                            c.Text = $"Tafelnummer: {tafels[i].tafelnummer}\nZitplaatsen: {tafels[1].zitplekken}\nBezetting: {tafels[i].bezeting}";
                             break;
                         }
                     }
@@ -128,7 +125,7 @@ namespace ChapooUI
             this.Close();// sluit form
         }
 
-        private void T_klok_Tick(object sender, EventArgs e)
+        private void Timer_klok_Tick(object sender, EventArgs e)
         {
             LBL_klok.Text = DateTime.Now.ToString(("HH:mm:ss"));
         }
@@ -139,8 +136,21 @@ namespace ChapooUI
             confirmLogout.ShowDialog();
         }
 
-        public void Managetable(int tafelnummer, string status)
+        public void Managetable(int tafelnummer, Panel p)
         {
+            string status;
+            if (p.BackColor == Color.Green)
+            {
+                status = "vrij";
+            }
+            else if (p.BackColor == Color.DarkOrange)
+            {
+                status = "gereserveerd";
+            }
+            else// color is red
+            {
+                status = "bezet";
+            }
             Managetafel managetafel = new Managetafel(tafelnummer, status);
             managetafel.ShowDialog();
             UpdateTafels();
@@ -148,81 +158,25 @@ namespace ChapooUI
 
         private void PNL_tafel1_Click(object sender, EventArgs e)
         {
-            string status = "";
-            int tafelnummer = 1;
-            if (PNL_tafel1.BackColor == Color.Green)
-            {
-                status = "vrij";
-            }
-            else if (PNL_tafel1.BackColor == Color.DarkOrange)
-            {
-                status = "gereserveerd";
-            }
-            else// color is red
-            {
-                status = "bezet";
-            }
-            Managetable(tafelnummer, status);
+            Managetable(1, PNL_tafel1);
         }
 
         private void PNL_tafel3_Click(object sender, EventArgs e)
         {
-            string status = "";
-            int tafelnummer = 3;
-            if (PNL_tafel3.BackColor == Color.Green)
-            {
-                status = "vrij";
-            }
-            else if (PNL_tafel3.BackColor == Color.DarkOrange)
-            {
-                status = "gereserveerd";
-            }
-            else// color is red
-            {
-                status = "bezet";
-            }
-            Managetable(tafelnummer, status);
+            Managetable(3, PNL_tafel3);
         }
 
         private void PNL_tafel2_Click(object sender, EventArgs e)
         {
-            string status = "";
-            int tafelnummer = 2;
-            if (PNL_tafel2.BackColor == Color.Green)
-            {
-                status = "vrij";
-            }
-            else if (PNL_tafel2.BackColor == Color.DarkOrange)
-            {
-                status = "gereserveerd";
-            }
-            else// color is red
-            {
-                status = "bezet";
-            }
-            Managetable(tafelnummer, status);
+            Managetable(2, PNL_tafel2);
         }
 
         private void PNL_tafel4_Click(object sender, EventArgs e)
         {
-            string status = "";
-            int tafelnummer = 4;
-            if (PNL_tafel4.BackColor == Color.Green)
-            {
-                status = "vrij";
-            }
-            else if (PNL_tafel4.BackColor == Color.DarkOrange)
-            {
-                status = "gereserveerd";
-            }
-            else// color is red
-            {
-                status = "bezet";
-            }
-            Managetable(tafelnummer, status);
+            Managetable(4, PNL_tafel4);
         }
 
-        private void terugToolStripMenuItem_Click(object sender, EventArgs e)
+        private void TerugToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -233,11 +187,6 @@ namespace ChapooUI
             confirmLogout.ShowDialog();
         }
 
-        private void PNL_tafel5_Paint(object sender, PaintEventArgs e)//work in progress
-        {
-
-        }
-
         private void BTN_ManageReservations_Click(object sender, EventArgs e)//work in progress
         {
             SelectTable selectTable = new SelectTable();
@@ -246,6 +195,40 @@ namespace ChapooUI
         }
 
         private void BTN_Update_Click(object sender, EventArgs e)
+        {
+            UpdateTafels();
+        }
+
+        private void PNL_tafel5_Click(object sender, EventArgs e)
+        {
+            Managetable(5, PNL_tafel5);
+        }
+
+        private void PNL_tafel6_Click(object sender, EventArgs e)
+        {
+            Managetable(6, PNL_tafel6);
+        }
+
+        private void PNL_tafel7_Click(object sender, EventArgs e)
+        {
+            Managetable(7, PNL_tafel7);
+        }
+
+        private void PNL_tafel8_Click(object sender, EventArgs e)
+        {
+            Managetable(8, PNL_tafel8);
+        }
+
+        private void PNL_tafel9_Click(object sender, EventArgs e)
+        {
+            Managetable(9, PNL_tafel9);
+        }
+
+        private void PNL_tafel10_Click(object sender, EventArgs e)
+        {
+            Managetable(10, PNL_tafel10);
+        }
+        private void TUpdateTimer_Tick(object sender, EventArgs e)
         {
             UpdateTafels();
         }
