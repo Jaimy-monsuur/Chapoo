@@ -126,7 +126,7 @@ namespace ChapooUI
             this.Close();// sluit form
         }
 
-        private void T_klok_Tick(object sender, EventArgs e)
+        private void Timer_klok_Tick(object sender, EventArgs e)
         {
             LBL_klok.Text = DateTime.Now.ToString(("HH:mm:ss"));
         }
@@ -139,7 +139,7 @@ namespace ChapooUI
 
         public void Managetable(int tafelnummer, Panel p)
         {
-            string status = "";
+            string status;
             if (p.BackColor == Color.Green)
             {
                 status = "vrij";
@@ -177,7 +177,7 @@ namespace ChapooUI
             Managetable(4, PNL_tafel4);
         }
 
-        private void terugToolStripMenuItem_Click(object sender, EventArgs e)
+        private void TerugToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
         }

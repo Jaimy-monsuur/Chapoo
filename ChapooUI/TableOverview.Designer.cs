@@ -111,7 +111,7 @@ namespace ChapooUI
             // 
             // T_klok
             // 
-            this.T_klok.Tick += new System.EventHandler(this.T_klok_Tick);
+            this.T_klok.Tick += new System.EventHandler(this.Timer_klok_Tick);
             // 
             // LBL_UserData
             // 
@@ -178,7 +178,7 @@ namespace ChapooUI
             this.MI_terug.Name = "MI_terug";
             this.MI_terug.Size = new System.Drawing.Size(61, 23);
             this.MI_terug.Text = "Terug";
-            this.MI_terug.Click += new System.EventHandler(this.terugToolStripMenuItem_Click);
+            this.MI_terug.Click += new System.EventHandler(this.TerugToolStripMenuItem_Click);
             // 
             // menuStrip1
             // 
