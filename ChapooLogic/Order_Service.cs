@@ -48,6 +48,9 @@ namespace ChapooLogic
             return order_db.Db_Get_All_Orders_FORTable(tafelnummer);
         }
 
-
+        public void DeleteOrderitem(int ordernummer, int itemnummer)
+        {
+            order_db.DeleteOrderitem(ordernummer, itemnummer);
+        }
     }
 }

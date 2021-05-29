@@ -101,9 +101,10 @@ namespace ChapooUI
             // 
             // LBL_klok
             // 
+            this.LBL_klok.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.LBL_klok.AutoSize = true;
             this.LBL_klok.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBL_klok.Location = new System.Drawing.Point(1024, 0);
+            this.LBL_klok.Location = new System.Drawing.Point(1096, 0);
             this.LBL_klok.Name = "LBL_klok";
             this.LBL_klok.Size = new System.Drawing.Size(45, 23);
             this.LBL_klok.TabIndex = 24;
@@ -117,7 +118,7 @@ namespace ChapooUI
             // 
             this.LBL_UserData.AutoSize = true;
             this.LBL_UserData.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBL_UserData.Location = new System.Drawing.Point(610, 0);
+            this.LBL_UserData.Location = new System.Drawing.Point(71, 0);
             this.LBL_UserData.Name = "LBL_UserData";
             this.LBL_UserData.Size = new System.Drawing.Size(88, 23);
             this.LBL_UserData.TabIndex = 25;

@@ -14,9 +14,6 @@ namespace ChapooUI
 {
     public partial class ChapooUI : Form
     {
-        public string Type;
-        public string Username;
-
         //maakt form movable vanaf elk punt.
         private const int WM_NCHITTEST = 0x84;
         private const int HT_CLIENT = 0x1;
@@ -30,34 +27,42 @@ namespace ChapooUI
         public ChapooUI()
         {
             InitializeComponent();
+            //zorg er voor dat er geen border is
             this.ControlBox = false;
             this.Text = "";
 
+            //haalt de gegevens van de ingelugde gebruiker
             CurrentUser user = CurrentUser.Getlnstance();
             LBL_userdata.Text = user.ToString();
             T_klok.Start();
-            /*
-            if (type == "bar")
+            
+            if (user.Type == "bar")//blokeer alle onderdelen behalve bar
             {
-
+                beheerHomeBtn.Enabled = false;
+                bedieningSelectBtn.Enabled = false;
+                keukenSelectBtn.Enabled = false;
             }
-            else if (type == "keuken")
+            else if (user.Type == "keuken")//blokeer alle onderdelen behalve keuken
             {
-
+                beheerHomeBtn.Enabled = false;
+                bedieningSelectBtn.Enabled = false;
+                barSelectBtn.Enabled = false;
             }
-            else if (type == "restaurant")
+            else if (user.Type == "restaurant")//blokeer alle onderdelen behalve restaurnat/bediening
             {
-
+                keukenSelectBtn.Enabled = false;
+                beheerHomeBtn.Enabled = false;
+                barSelectBtn.Enabled = false;
             }
-            */
+
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Close();//sluit huidige form
         }
 
-        private void keukenSelectBtn_Click(object sender, EventArgs e)
+        private void keukenSelectBtn_Click(object sender, EventArgs e)//opent het keuken overzicht
         {
             this.Hide();
             KeukenBarSysteemForm keukenBarScherm = new KeukenBarSysteemForm();
@@ -66,7 +71,7 @@ namespace ChapooUI
             this.Show();
         }
 
-        private void barSelectBtn_Click(object sender, EventArgs e)
+        private void barSelectBtn_Click(object sender, EventArgs e)//opent het bar overzicht
         {
             this.Hide();
             KeukenBarSysteemForm keukenBarScherm = new KeukenBarSysteemForm();
@@ -75,7 +80,7 @@ namespace ChapooUI
             this.Show();
         }
 
-        private void bedieningSelectBtn_Click(object sender, EventArgs e)
+        private void bedieningSelectBtn_Click(object sender, EventArgs e)//opent het tafel overezicht
         {
             this.Hide();
             TableOverview tafel_Overzicht = new TableOverview();
@@ -83,24 +88,18 @@ namespace ChapooUI
             this.Show();
         }
 
-        private void BTN__Click(object sender, EventArgs e)
-        {
-            ConfirmLogout confirmLogout = new ConfirmLogout();
-            confirmLogout.ShowDialog();
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
+        private void timer1_Tick(object sender, EventArgs e)// een timer voor de klok. elke seconde
         {
             LBL_klok.Text = DateTime.Now.ToString(("HH:mm:ss"));
         }
 
-        private void afsluitenToolStripMenuItem_Click(object sender, EventArgs e)
+        private void afsluitenToolStripMenuItem_Click(object sender, EventArgs e)//open uitlog bevestiging voor het uitloggen
         {
             ConfirmLogout confirmLogout = new ConfirmLogout();
             confirmLogout.ShowDialog();
         }
 
-        private void beheerHomeBtn_Click(object sender, EventArgs e)
+        private void beheerHomeBtn_Click(object sender, EventArgs e)// opent restaurant beheer. kan alleen een admin of de eigenaar.
         {
             this.Hide();
             BeheerHome beheer = new BeheerHome();

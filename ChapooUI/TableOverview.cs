@@ -40,7 +40,9 @@ namespace ChapooUI
             this.ControlBox = false;
             this.Text = "";
 
-
+            //haalt de gegevens van de ingelugde gebruiker
+            CurrentUser user = CurrentUser.Getlnstance();
+            LBL_UserData.Text = user.ToString();
             TUpdateTimer.Start();// zorgd er voor dat het overzicht elke minuut updated!
             T_klok.Start();//start de klok
             GroupBox_TO_tables();// tafels toevoegen aan lijst
@@ -75,9 +77,6 @@ namespace ChapooUI
                         }
                     }
                 }
-            }
-            for (int i = 0; i < TafelPanels.Count; i++)
-            {
                 if (tafels[i].bezeting != 0)// tafel is bezet
                 {
                     occupiedTables++;
