@@ -51,7 +51,7 @@ namespace ChapooUI
                 if (login.UserName == tbx_Username.Text && login.Password == tbx_Password.Text)
                 {
                     this.Hide();
-                    ChapooUI ui = new ChapooUI(login.Type, login.UserName);
+                    ChapooUI ui = new ChapooUI();
                     ui.ShowDialog();
                     tbx_Username.Clear();
                     tbx_Password.Clear();

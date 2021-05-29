@@ -26,14 +26,12 @@ namespace ChapooUI
             if (m.Msg == WM_NCHITTEST)
                 m.Result = (IntPtr)(HT_CAPTION);
         }
-        public ChapooUI(string type,string username)
+        public ChapooUI()
         {
             InitializeComponent();
             this.ControlBox = false;
             this.Text = "";
 
-            this.Type = type;
-            this.Username = username;
             LBL_userdata.Text = $"{Username}, {Type}";
             T_klok.Start();
             /*
@@ -78,7 +76,7 @@ namespace ChapooUI
         private void bedieningSelectBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
-            TableOverview tafel_Overzicht = new TableOverview(Type, Username);
+            TableOverview tafel_Overzicht = new TableOverview();
             tafel_Overzicht.ShowDialog();
             this.Show();
         }

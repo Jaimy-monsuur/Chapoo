@@ -83,11 +83,11 @@
     <Compile Include="ConfirmLogout.Designer.cs">
       <DependentUpon>ConfirmLogout.cs</DependentUpon>
     </Compile>
-    <Compile Include="ManageAccounts.cs">
+    <Compile Include="ManageWerknemers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ManageAccounts.Designer.cs">
-      <DependentUpon>ManageAccounts.cs</DependentUpon>
+    <Compile Include="ManageWerknemers.Designer.cs">
+      <DependentUpon>ManageWerknemers.cs</DependentUpon>
     </Compile>
     <Compile Include="Managetafel.cs">
       <SubType>Form</SubType>
@@ -145,8 +145,8 @@
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ManageAccounts.resx">
-      <DependentUpon>ManageAccounts.cs</DependentUpon>
+    <EmbeddedResource Include="ManageWerknemers.resx">
+      <DependentUpon>ManageWerknemers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Managetafel.resx">
       <DependentUpon>Managetafel.cs</DependentUpon>

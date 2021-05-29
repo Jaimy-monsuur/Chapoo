@@ -32,7 +32,10 @@ namespace ChapooUI
 
         private void AccountpersoneelBtn_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            ManageWerknemers manageWerknemers = new ManageWerknemers();
+            manageWerknemers.ShowDialog();
+            this.Show();
         }
 
         private void voorraadSelectBtn_Click(object sender, EventArgs e)

@@ -79,9 +79,9 @@ namespace ChapooUI
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.UitloggenToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(631, 0);
+            this.menuStrip1.Location = new System.Drawing.Point(481, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(97, 27);
+            this.menuStrip1.Size = new System.Drawing.Size(247, 28);
             this.menuStrip1.TabIndex = 25;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -89,7 +89,7 @@ namespace ChapooUI
             // 
             this.UitloggenToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
             this.UitloggenToolStripMenuItem.Name = "UitloggenToolStripMenuItem";
-            this.UitloggenToolStripMenuItem.Size = new System.Drawing.Size(89, 23);
+            this.UitloggenToolStripMenuItem.Size = new System.Drawing.Size(89, 24);
             this.UitloggenToolStripMenuItem.Text = "Uitloggen";
             this.UitloggenToolStripMenuItem.Click += new System.EventHandler(this.UitloggenToolStripMenuItem_Click);
             // 
