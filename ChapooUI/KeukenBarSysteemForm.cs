@@ -7,7 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ChapooModel; 
+using ChapooModel;
+using ChapooLogic;
 
 namespace ChapooUI
 {
@@ -31,6 +32,9 @@ namespace ChapooUI
             this.Text = "";
         }
 
+        // Order sevice waar elke button/method mee kan
+        Order_Service orderService = new ChapooLogic.Order_Service();
+
         public void showListView(string listName)
         {
             if (listName == "keuken")
@@ -48,8 +52,8 @@ namespace ChapooUI
                 listViewKeukenBarOpenstaand.FullRowSelect = true;
 
                 // Voeg column header toe
-                listViewKeukenBarOpenstaand.Columns.Add("Tafelnr:", 60);
                 listViewKeukenBarOpenstaand.Columns.Add("Ordernr:", 60);
+                listViewKeukenBarOpenstaand.Columns.Add("Tafelnr:", 60);
                 listViewKeukenBarOpenstaand.Columns.Add("Gerecht:", 300);
                 listViewKeukenBarOpenstaand.Columns.Add("Prijs:", 60);
                 listViewKeukenBarOpenstaand.Columns.Add("Aantal:", 60);
@@ -60,8 +64,8 @@ namespace ChapooUI
                     if (order.type == "Avond" || order.type == "Middag")
                     {
                         // Zet de items, in dit geval de naam en prijs van de openstaande gerechten in de listview
-                        item[0] = order.tafelNummer.ToString();
-                        item[1] = order.orderNummer.ToString();
+                        item[0] = order.orderNummer.ToString();
+                        item[1] = order.tafelNummer.ToString();                      
                         item[2] = order.itemNaam;
                         item[3] = order.itemPrijs.ToString();
                         item[4] = order.aantal.ToString();
@@ -93,8 +97,7 @@ namespace ChapooUI
                 }
             }
             else if (listName == "bar")
-            {
-                ChapooLogic.Order_Service orderService = new ChapooLogic.Order_Service();
+            {              
                 List<Order> orderList = orderService.GetOrders();
 
                 // Maak grid
@@ -103,8 +106,8 @@ namespace ChapooUI
                 listViewKeukenBarOpenstaand.GridLines = true;
                 listViewKeukenBarOpenstaand.FullRowSelect = true;
                 // Voeg column header toe
-                listViewKeukenBarOpenstaand.Columns.Add("Tafelnr:", 60);
                 listViewKeukenBarOpenstaand.Columns.Add("Ordernr:", 60);
+                listViewKeukenBarOpenstaand.Columns.Add("Tafelnr:", 60);
                 listViewKeukenBarOpenstaand.Columns.Add("Drank:", 300);
                 listViewKeukenBarOpenstaand.Columns.Add("Prijs:", 60);
                 listViewKeukenBarOpenstaand.Columns.Add("Aantal:", 60);
@@ -115,8 +118,8 @@ namespace ChapooUI
                     if (order.type == "Drank")
                     {
                         // Zet de items, in dit geval de naam en prijs van de openstaande gerechten in de listview
-                        item[0] = order.tafelNummer.ToString();
-                        item[1] = order.orderNummer.ToString();
+                        item[0] = order.orderNummer.ToString();
+                        item[1] = order.tafelNummer.ToString();                       
                         item[2] = order.itemNaam;
                         item[3] = order.itemPrijs.ToString();
                         item[4] = order.aantal.ToString();
@@ -150,13 +153,26 @@ namespace ChapooUI
         }
 
         private void gereedKeukenBarBtn_Click(object sender, EventArgs e)
-        {
-
+        {      
+            if (listViewKeukenBarOpenstaand.SelectedItems.Count != 0)
+            {
+                int orderNummer = int.Parse(listViewKeukenBarOpenstaand.SelectedItems[0].Text);
+                orderService.MeldGereed(orderNummer);
+            }
         }
 
         private void annulerenKeukenBarBtn_Click(object sender, EventArgs e)
         {
-
+            if (listViewKeukenBarOpenstaand.SelectedItems.Count != 0)
+            {
+                int orderNummer = int.Parse(listViewKeukenBarOpenstaand.SelectedItems[0].Text);
+                ConfirmOngereedMelden confirm = new ConfirmOngereedMelden();
+                confirm.ShowDialog();
+                if (confirm.confirmOngereed() == true)
+                {
+                    orderService.MeldOngereed(orderNummer);
+                }          
+            }
         }
 
         private void terugKeukenBarBtn_Click(object sender, EventArgs e)

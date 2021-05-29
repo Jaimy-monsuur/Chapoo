@@ -71,6 +71,12 @@
     <Compile Include="ChapooUI.Designer.cs">
       <DependentUpon>ChapooUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="ConfirmOngereedMelden.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfirmOngereedMelden.Designer.cs">
+      <DependentUpon>ConfirmOngereedMelden.cs</DependentUpon>
+    </Compile>
     <Compile Include="KeukenBarSysteemForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +115,12 @@
     <Compile Include="SelectTable.Designer.cs">
       <DependentUpon>SelectTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="SelectTableBar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SelectTableBar.Designer.cs">
+      <DependentUpon>SelectTableBar.cs</DependentUpon>
+    </Compile>
     <Compile Include="TableOverview.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +151,9 @@
     <EmbeddedResource Include="ChapooUI.resx">
       <DependentUpon>ChapooUI.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ConfirmOngereedMelden.resx">
+      <DependentUpon>ConfirmOngereedMelden.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="KeukenBarSysteemForm.resx">
       <DependentUpon>KeukenBarSysteemForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -163,6 +178,9 @@
     </Compile>
     <EmbeddedResource Include="SelectTable.resx">
       <DependentUpon>SelectTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelectTableBar.resx">
+      <DependentUpon>SelectTableBar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TableReservations.resx">
       <DependentUpon>TableReservations.cs</DependentUpon>
