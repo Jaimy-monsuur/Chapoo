@@ -23,7 +23,7 @@ namespace ChapooDAL
         public List<Order> Db_Get_All_Orders_FORTable(int tafelnummer)
         {
             // Hier staat de query die naar de database gaat voor het ophalen van de juiste gegevens
-            string query = $"SELECT Orders.[ordernummer],Orders.tafelnummer,Orders.[personeelnummer],Orders.[opmerking],Menuitems.naam,Menuitems.prijs, aantal, gereed FROM Orders JOIN Orderitems ON Orderitems.ordernummer = Orders.ordernummer JOIN Menuitems ON Orderitems.itemnummer = Menuitems.itemnummer WHERE Orders.tafelnummer = '{tafelnummer}'";
+            string query = $"SELECT Orders.[ordernummer],Orders.tafelnummer,Orders.[personeelnummer],Orders.[opmerking],Menuitems.naam,Menuitems.prijs,type , aantal, gereed FROM Orders JOIN Orderitems ON Orderitems.ordernummer = Orders.ordernummer JOIN Menuitems ON Orderitems.itemnummer = Menuitems.itemnummer WHERE Orders.tafelnummer = '{tafelnummer}'";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
