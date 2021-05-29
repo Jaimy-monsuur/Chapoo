@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ChapooModel;
 
 
 namespace ChapooUI
@@ -32,7 +33,8 @@ namespace ChapooUI
             this.ControlBox = false;
             this.Text = "";
 
-            LBL_userdata.Text = $"{Username}, {Type}";
+            CurrentUser user = CurrentUser.Getlnstance();
+            LBL_userdata.Text = user.ToString();
             T_klok.Start();
             /*
             if (type == "bar")

@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.cs" />
+    <Compile Include="CurrentUser.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="Personeels_Lid.cs" />

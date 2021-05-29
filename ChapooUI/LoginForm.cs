@@ -50,6 +50,8 @@ namespace ChapooUI
                 Account login = logIn_Service.Login(tbx_Username.Text, tbx_Password.Text);
                 if (login.UserName == tbx_Username.Text && login.Password == tbx_Password.Text)
                 {
+                    CurrentUser user = CurrentUser.Getlnstance();
+                    user.SetUser(login);
                     this.Hide();
                     ChapooUI ui = new ChapooUI();
                     ui.ShowDialog();
