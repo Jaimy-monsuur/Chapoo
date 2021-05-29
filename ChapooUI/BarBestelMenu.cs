@@ -34,16 +34,17 @@ namespace ChapooUI
             this.Text = "";
         }
 
-        private List<string> drankenOrder; // De lijst waar alle itemnummer staan voor de order
+        private List<string> drankenOrder = new List<string>(); // De lijst waar alle itemnummer staan voor de order
+        private int tafelnummer;
 
         private void BarBestelMenu_Load(object sender, EventArgs e)
         {
             showListView();
         }
 
-        private void showListView(/*string actienaam*/)
+        private void showListView()
         {
-            ChapooLogic.Voorraad_Service voorraadService = new ChapooLogic.Voorraad_Service();
+            Voorraad_Service voorraadService = new Voorraad_Service();
             List <Voorraad> voorraadList = voorraadService.GetVoorraad();
 
             // Maak grid
@@ -72,13 +73,21 @@ namespace ChapooUI
                 }
             }
 
+            // Maak grid
+            orderDrankenListView.Clear();
+            orderDrankenListView.View = View.Details;
+            orderDrankenListView.GridLines = true;
+            orderDrankenListView.FullRowSelect = true;
+            // Voeg column header toe
+            orderDrankenListView.Columns.Add("Drank:", 300);
+
             string[] item2 = new string[1];
             foreach (String drankNaam in drankenOrder)
             {
                 // Zet de items, in dit geval de toegevoegde drankenorder items toe aan de listview
                 item2[0] = drankNaam;
                 ListViewItem li = new ListViewItem(item2);
-                drankenKaartListView.Items.Add(li);
+                orderDrankenListView.Items.Add(li);
             }
         }
 
@@ -86,7 +95,34 @@ namespace ChapooUI
 
         private void plaatsOrderBarBtn_Click(object sender, EventArgs e)
         {
-            orderService.AddDrinkOrder(drankenOrder);
+            Order order = new Order()
+            {
+                tafelNummer = tafelnummer,
+                itemNaam = drankenOrder[0],
+                opmerking = opmerkingBox.Text,
+                personeelNummer = 501
+            };
+
+            int ordernummer = orderService.NewOrder(order);
+
+            foreach (string itemnaam in drankenOrder)
+            {
+                order = new Order()
+                {
+                    orderNummer = ordernummer,
+                    tafelNummer = tafelnummer,
+                    itemNaam = itemnaam,
+                    opmerking = opmerkingBox.Text,
+                    personeelNummer = 501
+                };
+
+                orderService.AddDrinkOrderitem(order);
+            }          
+
+            
+            orderDrankenListView.Clear();            
+            drankenOrder = new List<string>();
+            showListView();
         }
 
         private void TerugtoolStripMenuItem_Click(object sender, EventArgs e)
@@ -104,14 +140,24 @@ namespace ChapooUI
         {
             if (drankenKaartListView.SelectedItems.Count != 0)
             {
-                string itemNaam = drankenKaartListView.SelectedItems[0].Text;
-                drankenOrder.Add(itemNaam);        
+                drankenOrder.Add(drankenKaartListView.SelectedItems[0].Text);        
             }
+            showListView();
         }
 
         private void minusOrderBarBtn_Click(object sender, EventArgs e)
         {
+            if (orderDrankenListView.SelectedItems.Count != 0)
+            {
+                drankenOrder.Remove(orderDrankenListView.SelectedItems[0].Text);
+            }
+            showListView();
+        }
 
+        private void selectTafelBtn_Click(object sender, EventArgs e)
+        {
+            SelectTableBar selectTable = new SelectTableBar();
+            tafelnummer = selectTable.tafelNummer;
         }
     }
 }

@@ -40,6 +40,9 @@ namespace ChapooUI
             this.UitloggenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.plusOrderBarBtn = new System.Windows.Forms.Button();
             this.minusOrderBarBtn = new System.Windows.Forms.Button();
+            this.opmerkingBox = new System.Windows.Forms.TextBox();
+            this.opmerkingTxtLbl = new System.Windows.Forms.Label();
+            this.selectTafelBtn = new System.Windows.Forms.Button();
             this.menuStrip2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -65,7 +68,7 @@ namespace ChapooUI
             // plaatsOrderBarBtn
             // 
             this.plaatsOrderBarBtn.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.plaatsOrderBarBtn.Location = new System.Drawing.Point(108, 429);
+            this.plaatsOrderBarBtn.Location = new System.Drawing.Point(30, 429);
             this.plaatsOrderBarBtn.Name = "plaatsOrderBarBtn";
             this.plaatsOrderBarBtn.Size = new System.Drawing.Size(141, 50);
             this.plaatsOrderBarBtn.TabIndex = 4;
@@ -143,7 +146,7 @@ namespace ChapooUI
             this.plusOrderBarBtn.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.plusOrderBarBtn.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.plusOrderBarBtn.Location = new System.Drawing.Point(412, 427);
-            this.plusOrderBarBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.plusOrderBarBtn.Margin = new System.Windows.Forms.Padding(2);
             this.plusOrderBarBtn.Name = "plusOrderBarBtn";
             this.plusOrderBarBtn.Size = new System.Drawing.Size(68, 73);
             this.plusOrderBarBtn.TabIndex = 29;
@@ -156,7 +159,7 @@ namespace ChapooUI
             this.minusOrderBarBtn.BackColor = System.Drawing.Color.LightCoral;
             this.minusOrderBarBtn.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.minusOrderBarBtn.Location = new System.Drawing.Point(485, 427);
-            this.minusOrderBarBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.minusOrderBarBtn.Margin = new System.Windows.Forms.Padding(2);
             this.minusOrderBarBtn.Name = "minusOrderBarBtn";
             this.minusOrderBarBtn.Size = new System.Drawing.Size(68, 73);
             this.minusOrderBarBtn.TabIndex = 30;
@@ -164,11 +167,41 @@ namespace ChapooUI
             this.minusOrderBarBtn.UseVisualStyleBackColor = false;
             this.minusOrderBarBtn.Click += new System.EventHandler(this.minusOrderBarBtn_Click);
             // 
+            // opmerkingBox
+            // 
+            this.opmerkingBox.Location = new System.Drawing.Point(578, 445);
+            this.opmerkingBox.Name = "opmerkingBox";
+            this.opmerkingBox.Size = new System.Drawing.Size(358, 20);
+            this.opmerkingBox.TabIndex = 31;
+            // 
+            // opmerkingTxtLbl
+            // 
+            this.opmerkingTxtLbl.AutoSize = true;
+            this.opmerkingTxtLbl.Location = new System.Drawing.Point(575, 429);
+            this.opmerkingTxtLbl.Name = "opmerkingTxtLbl";
+            this.opmerkingTxtLbl.Size = new System.Drawing.Size(61, 13);
+            this.opmerkingTxtLbl.TabIndex = 32;
+            this.opmerkingTxtLbl.Text = "Opmerking:";
+            // 
+            // selectTafelBtn
+            // 
+            this.selectTafelBtn.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.selectTafelBtn.Location = new System.Drawing.Point(177, 429);
+            this.selectTafelBtn.Name = "selectTafelBtn";
+            this.selectTafelBtn.Size = new System.Drawing.Size(141, 50);
+            this.selectTafelBtn.TabIndex = 33;
+            this.selectTafelBtn.Text = "Selecteer tafel";
+            this.selectTafelBtn.UseVisualStyleBackColor = false;
+            this.selectTafelBtn.Click += new System.EventHandler(this.selectTafelBtn_Click);
+            // 
             // BarBestelMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(962, 505);
+            this.Controls.Add(this.selectTafelBtn);
+            this.Controls.Add(this.opmerkingTxtLbl);
+            this.Controls.Add(this.opmerkingBox);
             this.Controls.Add(this.minusOrderBarBtn);
             this.Controls.Add(this.plusOrderBarBtn);
             this.Controls.Add(this.menuStrip2);
@@ -204,5 +237,8 @@ namespace ChapooUI
         private System.Windows.Forms.ToolStripMenuItem UitloggenToolStripMenuItem;
         private System.Windows.Forms.Button plusOrderBarBtn;
         private System.Windows.Forms.Button minusOrderBarBtn;
+        private System.Windows.Forms.TextBox opmerkingBox;
+        private System.Windows.Forms.Label opmerkingTxtLbl;
+        private System.Windows.Forms.Button selectTafelBtn;
     }
 }

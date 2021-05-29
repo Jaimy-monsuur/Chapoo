@@ -18,5 +18,11 @@ namespace ChapooLogic
             List<Voorraad> voorraadItems = voorraad_db.Db_Get_Voorraad();
             return voorraadItems;
         }
+
+        public void ChangeVoorraad(int itemNummer, int nieuwAantal)
+        {
+            // Stuurt itemnummer en het nieuwe aantal door naar de DAL laag
+            voorraad_db.ChangeVoorraad(itemNummer, nieuwAantal);
+        }
     }
 }

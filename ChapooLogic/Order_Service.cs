@@ -32,10 +32,15 @@ namespace ChapooLogic
             order_db.MeldOngereed(orderNummer);
         }
 
-        public void AddDrinkOrder(List<string> drankenOrder)
+        public void AddDrinkOrderitem(Order order)
         {
             // Stuurt de aangevraagde dranken order naar de DAL laag
-            order_db.AddDrinkOrder(drankenOrder);
+            order_db.AddDrinkOrderitem(order);
+        }
+
+        public int NewOrder(Order order)
+        {          
+            return order_db.NewOrder(order);
         }
     }
 }
