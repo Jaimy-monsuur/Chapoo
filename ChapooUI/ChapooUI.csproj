@@ -77,6 +77,12 @@
     <Compile Include="ChapooUI.Designer.cs">
       <DependentUpon>ChapooUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="ConfirmOngereedMelden.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfirmOngereedMelden.Designer.cs">
+      <DependentUpon>ConfirmOngereedMelden.cs</DependentUpon>
+    </Compile>
     <Compile Include="KeukenBarSysteemForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +94,12 @@
     </Compile>
     <Compile Include="ConfirmLogout.Designer.cs">
       <DependentUpon>ConfirmLogout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageWerknemers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageWerknemers.Designer.cs">
+      <DependentUpon>ManageWerknemers.cs</DependentUpon>
     </Compile>
     <Compile Include="Managetafel.cs">
       <SubType>Form</SubType>
@@ -108,6 +120,12 @@
     </Compile>
     <Compile Include="SelectTable.Designer.cs">
       <DependentUpon>SelectTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SelectTableBar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SelectTableBar.Designer.cs">
+      <DependentUpon>SelectTableBar.cs</DependentUpon>
     </Compile>
     <Compile Include="TableOverview.cs">
       <SubType>Form</SubType>
@@ -142,11 +160,17 @@
     <EmbeddedResource Include="ChapooUI.resx">
       <DependentUpon>ChapooUI.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ConfirmOngereedMelden.resx">
+      <DependentUpon>ConfirmOngereedMelden.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="KeukenBarSysteemForm.resx">
       <DependentUpon>KeukenBarSysteemForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageWerknemers.resx">
+      <DependentUpon>ManageWerknemers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Managetafel.resx">
       <DependentUpon>Managetafel.cs</DependentUpon>
@@ -163,6 +187,9 @@
     </Compile>
     <EmbeddedResource Include="SelectTable.resx">
       <DependentUpon>SelectTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelectTableBar.resx">
+      <DependentUpon>SelectTableBar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TableReservations.resx">
       <DependentUpon>TableReservations.cs</DependentUpon>

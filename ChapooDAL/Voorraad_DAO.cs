@@ -40,5 +40,13 @@ namespace ChapooDAL
 
             return voorraadItems;
         }
+
+        public void ChangeVoorraad(int itemNummer, int nieuwAantal)
+        {
+            // Verandert de voorraad in de database
+            string query = $"UPDATE Voorraad SET voorraadaantal={nieuwAantal} WHERE itemnummer={itemNummer}";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            ExecuteEditQuery(query, sqlParameters);
+        }
     }
 }

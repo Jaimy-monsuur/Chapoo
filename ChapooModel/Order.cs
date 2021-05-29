@@ -13,6 +13,7 @@ namespace ChapooModel
         public int personeelNummer;
         public string opmerking;
         public string itemNaam;
+        public int itemnummer;
         public decimal itemPrijs;
         public string type;
         public int aantal;
