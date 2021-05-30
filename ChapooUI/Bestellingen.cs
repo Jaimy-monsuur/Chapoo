@@ -27,24 +27,24 @@ namespace ChapooUI
 
             //Vul de listview met gerechten.
 
-            ChapooLogic.Order_Service orderServ = new ChapooLogic.Order_Service();
-            List<Order> OrderList = orderServ.GetOrders();
+            ChapooLogic.Menuitems_Service menuServ = new ChapooLogic.Menuitems_Service();
+            List<Menuitems> MenuServ = menuServ.GetMenuitems();
             LvEtenMenu.View = View.Details;
-            foreach (ChapooModel.Order order in OrderList)
+            foreach (ChapooModel.Menuitems menuitems in MenuServ)
             {
-                LvEtenMenu.Items.Add(new ListViewItem(new string[] { $"{order.itemNaam}", $"{order.itemPrijs}", $"{order.aantal}" }));
+                LvEtenMenu.Items.Add(new ListViewItem(new string[] { $"{menuitems.naam}", $"{menuitems.prijs}", $"{menuitems.type}" }));
             }
 
             //Vul de listview met dranken.
 
-            ChapooLogic.Order_Service orderServ1 = new ChapooLogic.Order_Service();
+            /*ChapooLogic.Order_Service orderServ1 = new ChapooLogic.Order_Service();
             List<Order> OrderList1 = orderServ.GetOrders();
             LvDrankenMenu.View = View.Details;
             foreach (ChapooModel.Order order1 in OrderList1)
             {
                 LvDrankenMenu.Items.Add(new ListViewItem(new string[] { $"{order1.itemNaam}", $"{order1.itemPrijs}", $"{order1.aantal}" }));
             }
-
+            */
             //Zorgt voor een placeholder "Opmerking:" in de textbox opmerking.
 
             SendMessage(txtOpmerkingBestelling.Handle, EM_SETCUEBANNER, 0, "Opmerking:");
@@ -125,12 +125,12 @@ namespace ChapooUI
         private void btnAddItem_Click(object sender, EventArgs e)
         {
             //
-            Order order = new Order();
-            order.itemNaam = txtGerechtIn.Text;
-            order.itemNaam = txtDrankIn.Text;
-            order.opmerking = txtOpmerkingBestelling.Text;
+            Menuitems menuItem = new Menuitems();
+            menuItem.naam = txtGerechtIn.Text;
+            menuItem.prijs = int.Parse(txtDrankIn.Text);
+            menuItem.type = txtOpmerkingBestelling.Text;
 
-            LvOrderDetails.Items.Add(new ListViewItem(new string[] { $"{order.itemNaam}", $"{order.itemNaam}", $"{order.opmerking}" }));
+            LvOrderDetails.Items.Add(new ListViewItem(new string[] { $"{menuItem.naam}", $"{menuItem.prijs}", $"{menuItem.type}" }));
         }
     }
 }

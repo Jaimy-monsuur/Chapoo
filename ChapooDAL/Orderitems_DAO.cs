@@ -40,7 +40,7 @@ namespace ChapooDAL
 
         public void AddDrinkOrderitem(Orderitems orderitem)
         {
-            string query = $"SELECT Menuitems.itemnummer FROM Menuitems JOIN Menuitems ON {orderitem.itemNaam} = menuitems.naam"; // werkt niet
+            string query = $"SELECT Menuitems.itemnummer FROM Menuitems JOIN Menuitems ON {orderitem.ItemName} = menuitems.naam"; // werkt niet
             SqlParameter[] sqlParameters = new SqlParameter[0];
             DataTable dataTable = ExecuteSelectQuery(query, sqlParameters);
 
