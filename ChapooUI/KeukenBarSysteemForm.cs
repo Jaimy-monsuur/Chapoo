@@ -83,7 +83,6 @@ namespace ChapooUI
                 listViewKeukenBarOpmerkingen.Columns.Add("Ordernr:", 50);
                 listViewKeukenBarOpmerkingen.Columns.Add("Opmerkingen:", 250);
 
-                List<Order> orders = orderService.GetOrders();
                 foreach (Order order in orderList)
                 {
                     string[] item = new string[5];

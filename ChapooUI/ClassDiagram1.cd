@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ChapooUI.AddCustomers" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAQADABABAAIgCAAAACAABQAAAAAAAABOAAAAA=</HashCode>
+      <FileName>AddCustomers.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChapooUI.BarBestelMenu" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQBAAIQBA+AICxBCQCSBAAACAAIAAAAABAAgRAAACIA=</HashCode>
+      <FileName>BarBestelMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChapooUI.BeheerHome" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAIAAAARiAAARBAQASiBAADAAAAABAgAAAAUAAAAIA=</HashCode>
+      <FileName>BeheerHome.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChapooUI.Bestellingen" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QBAAAAQQADIAAABAACCJEAgCJhICICALQAEKAwBkiIA=</HashCode>
+      <FileName>Bestellingen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChapooUI.ChapooUI" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EQSAEAEAAiAAADGEAgaBABACBBgAIAAAAAEAwAAAAAQ=</HashCode>
+      <FileName>ChapooUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChapooUI.ConfirmLogout" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAACgAAAAAAACAAAACCAAAAAgAAAAAAAQAAAA=</HashCode>
+      <FileName>ConfirmLogout.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChapooUI.ConfirmOngereedMelden" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAgAAACAAAAgAAACAAAASAACAAAAAAAAAgAIAAAA=</HashCode>
+      <FileName>ConfirmOngereedMelden.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChapooUI.KeukenBarSysteemForm" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AREEAAIQAyAIDhBAQAaAAQACAAIAAAAAAAAgQAAAAIA=</HashCode>
+      <FileName>KeukenBarSysteemForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChapooUI.LoginForm" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAgIiABATJACASAAAACBAAAAAAAAAAAQABAAAA=</HashCode>
+      <FileName>LoginForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChapooUI.Managetafel" Collapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAEQAEFyAIApBAQASIAACDIAAAAAAAMCBqQACAAYA=</HashCode>
+      <FileName>Managetafel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChapooUI.ManageWerknemers" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gQAAAAABAiAAAhBAQASAAAACAAAAAAAAAAAgQAAAAIA=</HashCode>
+      <FileName>ManageWerknemers.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChapooUI.Program" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChapooUI.SelectTable" Collapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAACAAAAAAwL+AAADKQD8EAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SelectTable.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChapooUI.SelectTableBar" Collapsed="true">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAACAAAAAAwL+AAADKQD8EAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SelectTableBar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChapooUI.TableOverview" Collapsed="true">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>+wYQAED+AyEUAhAAAQSAAP0fBoAABAIgHUAiQAEAAIQ=</HashCode>
+      <FileName>TableOverview.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChapooUI.TableReservations" Collapsed="true">
+    <Position X="4" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AUAAAEABBjEAALBAQASAEDECJACAAQABECQCQAABAIg=</HashCode>
+      <FileName>TableReservations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChapooUI.VoorraadWijzigenWeergeven" Collapsed="true">
+    <Position X="5.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQABAAAAAiAAChBQQCaAAAACAAAAAAhAAABkQAAAAIA=</HashCode>
+      <FileName>VoorraadWijzigenWeergeven.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChapooUI.Properties.Resources" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAQAAABEAAEAQAAAQAAABAAAAAAAMA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChapooUI.Properties.Settings" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

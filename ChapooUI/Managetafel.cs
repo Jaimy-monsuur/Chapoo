@@ -27,6 +27,7 @@ namespace ChapooUI
         }
         public Tafel_Service Tafel_Service = new Tafel_Service();
         public Order_Service Order_Service = new Order_Service();
+        public Orderitems_Service Orderitems_Service = new Orderitems_Service();
         public int Tafelnummer { get; set; }
         public string Status { get; set; }
         public Managetafel(int tafelnummer, string status)
@@ -102,9 +103,7 @@ namespace ChapooUI
 
         public void GetOrders()
         {
-            //List<Orderitems> orderList = Order_Service.Db_Get_All_Orders_FORTable(Tafelnummer);
-
-            // Maak grid
+           // Maak grid
             LF_Orders.Clear();
             LF_Orders.View = View.Details;
             LF_Orders.GridLines = true;
@@ -116,25 +115,22 @@ namespace ChapooUI
             LF_Orders.Columns.Add("Menu item:", 200);
             LF_Orders.Columns.Add("prijs:", 100);
             LF_Orders.Columns.Add("Aantal:", 70);
-            LF_Orders.Columns.Add("Bediende:", 100);
 
-
-            /*string[] item = new string[6];
-            foreach (ChapooModel.Order order in orderList)
+            List<Order> orders = Order_Service.GetOrders();
+            foreach (Order order in orders)
             {
-                // Zet de items, in dit geval de naam en prijs van de openstaande gerechten in de listview
-                item[0] = order.orderNummer.ToString();
-                item[1] = order.itemnummer.ToString();
-                item[2] = order.itemNaam;
-                item[3] = order.itemPrijs.ToString();
-                item[4] = order.aantal.ToString();
-                item[5] = order.personeelNummer.ToString();
-
-                ListViewItem li = new ListViewItem(item);
-                LF_Orders.Items.Add(li);
-            }*/
-
-
+                string[] item = new string[5];
+                foreach (Orderitems orderitem in order.orderItemList)
+                {
+                    item[0] = orderitem.orderNummer.ToString();
+                    item[1] = orderitem.itemnummer.ToString();
+                    item[2] = orderitem.itemNaam;
+                    item[3] = orderitem.TotalPrice.ToString();
+                    item[4] = orderitem.aantal.ToString();
+                    ListViewItem li = new ListViewItem(item);
+                    LF_Orders.Items.Add(li);
+                }
+            }
         }
 
         private void BTN_ordertoevoegen_Click(object sender, EventArgs e)
@@ -151,8 +147,9 @@ namespace ChapooUI
             {
                 int ordernummer = int.Parse(LF_Orders.SelectedItems[0].SubItems[0].Text);
                 int itemnummer = int.Parse(LF_Orders.SelectedItems[0].SubItems[1].Text);
-                //Order_Service.DeleteOrderitem(ordernummer, itemnummer);
+                Orderitems_Service.DeleteOrderitem(ordernummer, itemnummer);
             }
+            GetOrders();
         }
     }
 }

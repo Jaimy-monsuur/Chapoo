@@ -24,6 +24,17 @@ namespace ChapooDAL
             }
             return orders;
         }
+        public List<Order> GetOrders_For_Table(int tafelnummer)
+        {
+            string query = $"SELECT [ordernummer], [tafelnummer], [personeelnummer], [opmerking], [gereed] FROM [Orders] WHERE [tafelnummer] = '{tafelnummer}'";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            List<Order> orders = ReadTables(ExecuteSelectQuery(query, sqlParameters));
+            foreach (Order O in orders)
+            {
+                O.orderItemList = Orderitems_DAO.Db_Get_All_Orderitems_for_Order(O.orderNummer);
+            }
+            return orders;
+        }
 
         private List<Order> ReadTables(DataTable dataTable)
         {
