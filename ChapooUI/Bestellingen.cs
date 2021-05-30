@@ -132,5 +132,13 @@ namespace ChapooUI
 
             LvOrderDetails.Items.Add(new ListViewItem(new string[] { $"{menuItem.naam}", $"{menuItem.prijs}", $"{menuItem.type}" }));
         }
+
+        private List<Menuitems> Menuitems;
+
+        private void btnDeleteItem_Click(object sender, EventArgs e)
+        {
+            int index = LvOrderDetails.SelectedIndices[0];
+            Menuitems.RemoveAt(index);
+        }
     }
 }
