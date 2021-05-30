@@ -21,11 +21,11 @@ namespace ChapooLogic
             return orderitems;
         }
 
-        public void AddDrinkOrderitem(Orderitems orderitem)
+       /* public void AddDrinkOrderitem(Orderitems orderitem)
         {
             // Stuurt de aangevraagde dranken order naar de DAL laag
             orderitem_db.AddDrinkOrderitem(orderitem);
-        }
+        }*/
 
         public void DeleteOrderitem(int ordernummer, int itemnummer)
         {

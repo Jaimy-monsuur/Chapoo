@@ -102,7 +102,7 @@ namespace ChapooUI
 
         public void GetOrders()
         {
-            List<Order> orderList = Order_Service.Db_Get_All_Orders_FORTable(Tafelnummer);
+            //List<Orderitems> orderList = Order_Service.Db_Get_All_Orders_FORTable(Tafelnummer);
 
             // Maak grid
             LF_Orders.Clear();
@@ -119,7 +119,7 @@ namespace ChapooUI
             LF_Orders.Columns.Add("Bediende:", 100);
 
 
-            string[] item = new string[6];
+            /*string[] item = new string[6];
             foreach (ChapooModel.Order order in orderList)
             {
                 // Zet de items, in dit geval de naam en prijs van de openstaande gerechten in de listview
@@ -132,7 +132,7 @@ namespace ChapooUI
 
                 ListViewItem li = new ListViewItem(item);
                 LF_Orders.Items.Add(li);
-            }
+            }*/
 
 
         }
@@ -151,7 +151,7 @@ namespace ChapooUI
             {
                 int ordernummer = int.Parse(LF_Orders.SelectedItems[0].SubItems[0].Text);
                 int itemnummer = int.Parse(LF_Orders.SelectedItems[0].SubItems[1].Text);
-                Order_Service.DeleteOrderitem(ordernummer, itemnummer);
+                //Order_Service.DeleteOrderitem(ordernummer, itemnummer);
             }
         }
     }
