@@ -95,7 +95,7 @@ namespace ChapooUI
 
         private void plaatsOrderBarBtn_Click(object sender, EventArgs e)
         {
-            Order order = new Order()
+           /* Order order = new Order()
             {
                 tafelNummer = tafelnummer,
                 itemNaam = drankenOrder[0],
@@ -117,12 +117,12 @@ namespace ChapooUI
                 };
 
                 orderService.AddDrinkOrderitem(order);
-            }          
+            }        
 
             
             orderDrankenListView.Clear();            
             drankenOrder = new List<string>();
-            showListView();
+            showListView();*/
         }
 
         private void TerugtoolStripMenuItem_Click(object sender, EventArgs e)

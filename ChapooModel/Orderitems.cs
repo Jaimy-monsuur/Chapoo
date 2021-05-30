@@ -9,7 +9,7 @@ namespace ChapooModel
     public class Orderitems
     {
         public int orderNummer;
-        public int itemNummer;
+        public int itemnummer;
         public int aantal;
     }
 }

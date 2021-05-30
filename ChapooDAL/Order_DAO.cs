@@ -19,14 +19,6 @@ namespace ChapooDAL
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
-
-        public List<Order> Db_Get_All_Orders_FORTable(int tafelnummer)
-        {
-            // Hier staat de query die naar de database gaat voor het ophalen van de juiste gegevens
-            string query = $"SELECT Orders.[ordernummer],Orders.tafelnummer,Orders.[personeelnummer],Orders.[opmerking],Orderitems.[itemnummer],Menuitems.naam,Menuitems.prijs,type , aantal, gereed FROM Orders JOIN Orderitems ON Orderitems.ordernummer = Orders.ordernummer JOIN Menuitems ON Orderitems.itemnummer = Menuitems.itemnummer WHERE Orders.tafelnummer = '{tafelnummer}'";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
-        }
      
         private List<Order> ReadTables(DataTable dataTable)
         {
@@ -41,11 +33,6 @@ namespace ChapooDAL
                     tafelNummer = (int)dr["tafelnummer"],
                     personeelNummer = (int)dr["personeelnummer"],
                     opmerking = (string)dr["opmerking"],
-                    itemNaam = (string)dr["naam"],
-                    itemnummer = (int)dr["itemnummer"],
-                    itemPrijs = (decimal)dr["prijs"],
-                    type = (string)dr["type"],
-                    aantal = (int)dr["aantal"],
                     gereed = (bool)dr["gereed"]
                 };
                 orders.Add(order);
@@ -86,7 +73,7 @@ namespace ChapooDAL
             return ordernummer;
         }
 
-        public void AddDrinkOrderitem(Order order)
+        /*public void AddDrinkOrderitem(Order order)
         {
             string query = $"SELECT Menuitems.itemnummer FROM Menuitems JOIN Menuitems ON {order.itemNaam} = menuitems.naam";
             SqlParameter[] sqlParameters = new SqlParameter[0];
@@ -101,7 +88,7 @@ namespace ChapooDAL
             string query2 = $"INSERT INTO Orderitems (ordernummer, itemnummer, aantal) VALUES ({order.orderNummer}, {itemNummer}), 1)";
             SqlParameter[] sqlParameters2 = new SqlParameter[0];
             ExecuteSelectQuery(query2, sqlParameters2);
-        }
+        }*/
         public void DeleteOrderitem(int ordernummer, int itemnummer)// delete order
         {
             string query = $"DELETE FROM [Orderitems] WHERE [ordernummer] = '{ordernummer}' AND itemnummer = '{itemnummer}'";
