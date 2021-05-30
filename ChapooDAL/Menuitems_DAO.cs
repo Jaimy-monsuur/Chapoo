@@ -29,7 +29,7 @@ namespace ChapooDAL
 
         public List<Menuitems> ReadMenuItemMiddagMenu()
         {
-            string query = "SELECT itemnummer, naam, prijs, btw, type FROM Menuitems WHERE type='Middag' AND itemnummer IN (SELECT itemnummer FROM Voorraad WHERE voorraadaantal > 0)";
+            string query = "SELECT itemnummer, naam, prijs, btw, type FROM Menuitems WHERE type='Lunch' AND itemnummer IN (SELECT itemnummer FROM Voorraad WHERE voorraadaantal > 0)";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
