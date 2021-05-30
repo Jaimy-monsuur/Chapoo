@@ -25,26 +25,47 @@ namespace ChapooUI
         {
             InitializeComponent();
 
-            //Vul de listview met gerechten.
+            //DateTime start = new DateTime(2009, 12, 9, 18, 0, 0); //12 uur 's middags
+            //DateTime end = new DateTime(2009, 12, 10, 23, 59, 0); //12 uur 's avonds
+            //DateTime now = DateTime.Now;
 
-            ChapooLogic.Menuitems_Service menuServ = new ChapooLogic.Menuitems_Service();
-            List<Menuitems> MenuServ = menuServ.GetMenuitems();
-            LvEtenMenu.View = View.Details;
-            foreach (ChapooModel.Menuitems menuitems in MenuServ)
-            {
-                LvEtenMenu.Items.Add(new ListViewItem(new string[] { $"{menuitems.naam}", $"{menuitems.prijs}", $"{menuitems.type}" }));
-            }
+           // if ((now < start) && (now < end))
+           // {
+                //Vul de listview met middag menu.
+
+            /*    ChapooLogic.Menuitems_Service menuServMid = new ChapooLogic.Menuitems_Service();
+                List<Menuitems> MenuMiddag = menuServMid.GetMenuMiddag();
+                LvEtenMenu.View = View.Details;
+                foreach (ChapooModel.Menuitems menuitems in MenuMiddag)
+                {
+                    LvEtenMenu.Items.Add(new ListViewItem(new string[] { $"{menuitems.naam}", $"{menuitems.prijs}", $"{menuitems.type}" }));
+                } */
+           // }
+           // else
+          //  {
+                //Vul de listview met middag menu.
+
+                ChapooLogic.Menuitems_Service menuServAvo = new ChapooLogic.Menuitems_Service();
+                List<Menuitems> MenuAvond = menuServAvo.GetMenuAvond();
+                LvEtenMenu.View = View.Details;
+                foreach (ChapooModel.Menuitems menuitems in MenuAvond)
+                {
+                    LvEtenMenu.Items.Add(new ListViewItem(new string[] { $"{menuitems.naam}", $"{menuitems.prijs}", $"{menuitems.type}" }));
+                }
+           // }
+
+            
 
             //Vul de listview met dranken.
 
-            /*ChapooLogic.Order_Service orderServ1 = new ChapooLogic.Order_Service();
-            List<Order> OrderList1 = orderServ.GetOrders();
+            ChapooLogic.Menuitems_Service menuItems = new ChapooLogic.Menuitems_Service();
+            List<Menuitems> drankitems = menuItems.GetMenuDrankItems();
             LvDrankenMenu.View = View.Details;
-            foreach (ChapooModel.Order order1 in OrderList1)
+            foreach (ChapooModel.Menuitems drankItems in drankitems)
             {
-                LvDrankenMenu.Items.Add(new ListViewItem(new string[] { $"{order1.itemNaam}", $"{order1.itemPrijs}", $"{order1.aantal}" }));
+                LvDrankenMenu.Items.Add(new ListViewItem(new string[] { $"{drankItems.naam}", $"{drankItems.prijs}", $"{drankItems.type}" }));
             }
-            */
+            
             //Zorgt voor een placeholder "Opmerking:" in de textbox opmerking.
 
             SendMessage(txtOpmerkingBestelling.Handle, EM_SETCUEBANNER, 0, "Opmerking:");
@@ -127,10 +148,24 @@ namespace ChapooUI
             //
             Menuitems menuItem = new Menuitems();
             menuItem.naam = txtGerechtIn.Text;
-            menuItem.prijs = int.Parse(txtDrankIn.Text);
+            menuItem.naam = txtDrankIn.Text;
             menuItem.type = txtOpmerkingBestelling.Text;
 
-            LvOrderDetails.Items.Add(new ListViewItem(new string[] { $"{menuItem.naam}", $"{menuItem.prijs}", $"{menuItem.type}" }));
+            LvOrderDetails.Items.Add(new ListViewItem(new string[] { $"{menuItem.naam}", $"{menuItem.naam}", $"{menuItem.type}" }));
+        }
+
+        private List<Menuitems> Menuitems;
+
+        private void btnDeleteItem_Click(object sender, EventArgs e)
+        {
+            int index = LvOrderDetails.SelectedIndices[0];
+            Menuitems.RemoveAt(index);
+            MenuItems();        
+        }
+
+        private void MenuItems()
+        {
+            LvOrderDetails.Items.Clear();            
         }
     }
 }

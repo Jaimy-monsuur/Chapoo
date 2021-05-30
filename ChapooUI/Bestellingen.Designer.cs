@@ -277,6 +277,7 @@ namespace ChapooUI
             this.btnDeleteItem.TabIndex = 18;
             this.btnDeleteItem.Text = "Verwijderen";
             this.btnDeleteItem.UseVisualStyleBackColor = false;
+            this.btnDeleteItem.Click += new System.EventHandler(this.btnDeleteItem_Click);
             // 
             // btnAddItem
             // 
