@@ -45,7 +45,7 @@ namespace ChapooUI
         private void showListView()
         {
             Voorraad_Service voorraadService = new Voorraad_Service();
-            List <Voorraad> voorraadList = voorraadService.GetVoorraad();
+            List<Voorraad> voorraadList = voorraadService.GetVoorraad();
 
             // Maak grid
             drankenKaartListView.Clear();
@@ -95,7 +95,7 @@ namespace ChapooUI
 
         private void plaatsOrderBarBtn_Click(object sender, EventArgs e)
         {
-            Order order = new Order()
+            /*Order order = new Order()
             {
                 tafelNummer = tafelnummer,
                 itemNaam = drankenOrder[0],
@@ -122,7 +122,7 @@ namespace ChapooUI
             
             orderDrankenListView.Clear();            
             drankenOrder = new List<string>();
-            showListView();
+            showListView();*/
         }
 
         private void TerugtoolStripMenuItem_Click(object sender, EventArgs e)
