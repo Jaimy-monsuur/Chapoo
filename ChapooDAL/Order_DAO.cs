@@ -12,14 +12,30 @@ namespace ChapooDAL
 {
     public class Order_DAO : Base
     {
-        public List<Order> Db_Get_All_Orders()
+        Orderitems_DAO Orderitems_DAO = new Orderitems_DAO();// voor nu. is misschien niet zo mooi
+        public List<Order> GetOrders()
         {
-            // Hier staat de query die naar de database gaat voor het ophalen van de juiste gegevens
-            string query = "SELECT * FROM Orders JOIN Orderitems ON Orderitems.ordernummer = Orders.ordernummer JOIN Menuitems ON Orderitems.itemnummer = Menuitems.itemnummer";// geen select * gebruiken
+            string query = $"SELECT [ordernummer], [tafelnummer], [personeelnummer], [opmerking], [gereed] FROM [Orders]";
             SqlParameter[] sqlParameters = new SqlParameter[0];
-            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+            List<Order> orders = ReadTables(ExecuteSelectQuery(query, sqlParameters));
+            foreach (Order O in orders)
+            {
+              O.orderItemList = Orderitems_DAO.Db_Get_All_Orderitems_for_Order(O.orderNummer);
+            }
+            return orders;
         }
-     
+        public List<Order> GetOrders_For_Table(int tafelnummer)
+        {
+            string query = $"SELECT [ordernummer], [tafelnummer], [personeelnummer], [opmerking], [gereed] FROM [Orders] WHERE [tafelnummer] = '{tafelnummer}'";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            List<Order> orders = ReadTables(ExecuteSelectQuery(query, sqlParameters));
+            foreach (Order O in orders)
+            {
+                O.orderItemList = Orderitems_DAO.Db_Get_All_Orderitems_for_Order(O.orderNummer);
+            }
+            return orders;
+        }
+
         private List<Order> ReadTables(DataTable dataTable)
         {
             List<Order> orders = new List<Order>();
@@ -55,7 +71,16 @@ namespace ChapooDAL
             ExecuteEditQuery(query, sqlParameters);
         }
 
-        public int NewOrder(Order order)
+
+       /*public List<Order> Db_Get_All_Orders()
+        {
+            // Hier staat de query die naar de database gaat voor het ophalen van de juiste gegevens
+            string query = "SELECT * FROM Orders JOIN Orderitems ON Orderitems.ordernummer = Orders.ordernummer JOIN Menuitems ON Orderitems.itemnummer = Menuitems.itemnummer";// geen select * gebruiken
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+        }*/
+
+        /*public int NewOrder(Order order)
         {
             string query = $"INSERT INTO Orders (tafelnummer, personeelnummer, opmerking, gereed) VALUES ({order.tafelNummer}, {order.personeelNummer}, {order.opmerking}, gereed = 0);";
             SqlParameter[] sqlParameters = new SqlParameter[0];
@@ -71,7 +96,7 @@ namespace ChapooDAL
                 ordernummer = (int)dr["ordernummer"];
             }
             return ordernummer;
-        }
+        }*/
 
         /*public void AddDrinkOrderitem(Order order)
         {
@@ -89,11 +114,6 @@ namespace ChapooDAL
             SqlParameter[] sqlParameters2 = new SqlParameter[0];
             ExecuteSelectQuery(query2, sqlParameters2);
         }*/
-        public void DeleteOrderitem(int ordernummer, int itemnummer)// delete order
-        {
-            string query = $"DELETE FROM [Orderitems] WHERE [ordernummer] = '{ordernummer}' AND itemnummer = '{itemnummer}'";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-            ExecuteEditQuery(query, sqlParameters);
-        }
+
     }
 }

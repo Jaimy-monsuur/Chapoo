@@ -40,9 +40,9 @@ namespace ChapooUI
         public void showListView(string listName) // Kan makkelijker met current user
         {
             List<Order> orderList = orderService.GetOrders();
-            List<Orderitems> orderitems = orderitemService.GetOrderitems();
+            //List<Orderitems> orderitems = orderitemService.GetOrderitems();
 
-            foreach (Order order in orderList)
+           /* foreach (Order order in orderList)
             {
                 foreach (Orderitems orderitem in orderitems)
                 {
@@ -52,7 +52,7 @@ namespace ChapooUI
                         order.orderItems.Add(orderitem);
                     }
                 }
-            }
+            }*/
 
             List<Menuitems> menuitems = menuitemService.GetMenuitems();
 
@@ -69,9 +69,9 @@ namespace ChapooUI
 
                 // Voeg column header toe
                 listViewKeukenBarOpenstaand.Columns.Add("Ordernr:", 60);
-                listViewKeukenBarOpenstaand.Columns.Add("Tafelnr:", 60);
+                listViewKeukenBarOpenstaand.Columns.Add("itemnummer HIDDEN:", 0);
                 listViewKeukenBarOpenstaand.Columns.Add("Gerecht:", 300);
-                listViewKeukenBarOpenstaand.Columns.Add("Prijs:", 60);
+                listViewKeukenBarOpenstaand.Columns.Add("Totaal prijs:", 60);
                 listViewKeukenBarOpenstaand.Columns.Add("Aantal:", 60);
 
                 // Maak grid opmerkingen
@@ -83,35 +83,49 @@ namespace ChapooUI
                 listViewKeukenBarOpmerkingen.Columns.Add("Ordernr:", 50);
                 listViewKeukenBarOpmerkingen.Columns.Add("Opmerkingen:", 250);
 
-                string[] item = new string[5];
-                string[] itemopmerkingen = new string[2];
                 foreach (Order order in orderList)
                 {
-                    foreach (Orderitems orderitem in order.orderItems)
+                    string[] item = new string[5];
+                    foreach (Orderitems orderitem in order.orderItemList)
                     {
-                        foreach (Menuitems menuitem in menuitems)
+                        item[0] = orderitem.orderNummer.ToString();
+                        item[1] = orderitem.itemnummer.ToString();
+                        item[2] = orderitem.itemNaam;
+                        item[3] = orderitem.TotalPrice.ToString();
+                        item[4] = orderitem.aantal.ToString();
+                        ListViewItem li = new ListViewItem(item);
+                        listViewKeukenBarOpenstaand.Items.Add(li);
+                    }
+                }
+                        /*string[] item = new string[5];
+                        string[] itemopmerkingen = new string[2];
+                        foreach (Order order in orderList)
                         {
-                            if (orderitem.itemnummer == menuitem.itemNummer && (menuitem.type == "Avond" || menuitem.type == "Middag"))
+                            foreach (Orderitems orderitem in order.orderItems)
                             {
-                                // Zet de items, in dit geval de naam en prijs van de openstaande gerechten in de listview
-                                item[0] = order.orderNummer.ToString();
-                                item[1] = order.tafelNummer.ToString();
-                                item[2] = menuitem.naam;
-                                item[3] = menuitem.prijs.ToString();
-                                item[4] = orderitem.aantal.ToString();
-                                ListViewItem li = new ListViewItem(item);
-                                listViewKeukenBarOpenstaand.Items.Add(li);
+                                foreach (Menuitems menuitem in menuitems)
+                                {
+                                    if (orderitem.itemnummer == menuitem.itemNummer && (menuitem.type == "Avond" || menuitem.type == "Middag"))
+                                    {
+                                        // Zet de items, in dit geval de naam en prijs van de openstaande gerechten in de listview
+                                        item[0] = order.orderNummer.ToString();
+                                        item[1] = order.tafelNummer.ToString();
+                                        item[2] = menuitem.naam;
+                                        item[3] = menuitem.prijs.ToString();
+                                        item[4] = orderitem.aantal.ToString();
+                                        ListViewItem li = new ListViewItem(item);
+                                        listViewKeukenBarOpenstaand.Items.Add(li);
 
-                                // Zet de opermkingen in de opmerkingen listview
-                                itemopmerkingen[0] = order.orderNummer.ToString();
-                                itemopmerkingen[1] = order.opmerking;
-                                ListViewItem li2 = new ListViewItem(itemopmerkingen);
-                                listViewKeukenBarOpmerkingen.Items.Add(li2);
-                            }
-                        }
-                    }    
-                }              
-            }
+                                        // Zet de opermkingen in de opmerkingen listview
+                                        itemopmerkingen[0] = order.orderNummer.ToString();
+                                        itemopmerkingen[1] = order.opmerking;
+                                        ListViewItem li2 = new ListViewItem(itemopmerkingen);
+                                        listViewKeukenBarOpmerkingen.Items.Add(li2);
+                                    }
+                                }
+                            }    
+                        }*/
+                    }
             else if (listName == "bar")
             {              
 
@@ -136,7 +150,7 @@ namespace ChapooUI
                 listViewKeukenBarOpmerkingen.Columns.Add("Ordernr:", 50);
                 listViewKeukenBarOpmerkingen.Columns.Add("Opmerkingen:", 250);
 
-                string[] item = new string[5];
+                /*string[] item = new string[5];
                 string[] itemopmerkingen = new string[2];
                 foreach (Order order in orderList)
                 {
@@ -163,7 +177,7 @@ namespace ChapooUI
                             }
                         }
                     }
-                }
+                }*/
             }
         }
 
