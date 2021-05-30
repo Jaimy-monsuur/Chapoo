@@ -6,9 +6,14 @@ using System.Threading.Tasks;
 
 namespace ChapooModel
 {
-    public class Account
+    public class Personeels_Lid
     {
-        public int personeelsNummer { get; set; }
+        public int Nummer;
+        public string Voornaam;
+        public string Achternaam;
+        public string functie;
+
+        // een personeels lid heeft account gegevens
         public string UserName { get; set; }
         public string Password { get; set; }
         public string Type { get; set; }
