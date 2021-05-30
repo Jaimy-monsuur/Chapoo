@@ -55,6 +55,8 @@ namespace ChapooUI
             this.GererchtOrDe = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.DrankOrDe = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.OpmerkingOrDe = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.txtGerechtIn = new System.Windows.Forms.TextBox();
+            this.txtDrankIn = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.btn_Uitlog.SuspendLayout();
             this.menuStrip2.SuspendLayout();
@@ -134,6 +136,7 @@ namespace ChapooUI
             this.LvEtenMenu.TabIndex = 7;
             this.LvEtenMenu.UseCompatibleStateImageBehavior = false;
             this.LvEtenMenu.View = System.Windows.Forms.View.Details;
+            this.LvEtenMenu.SelectedIndexChanged += new System.EventHandler(this.LvEtenMenu_SelectedIndexChanged);
             // 
             // Gerecht
             // 
@@ -183,7 +186,6 @@ namespace ChapooUI
             this.txtOpmerkingBestelling.Name = "txtOpmerkingBestelling";
             this.txtOpmerkingBestelling.Size = new System.Drawing.Size(318, 20);
             this.txtOpmerkingBestelling.TabIndex = 15;
-            this.txtOpmerkingBestelling.Text = "Opmerkingen:";
             this.txtOpmerkingBestelling.TextChanged += new System.EventHandler(this.txtOpmerkingBestelling_TextChanged);
             // 
             // LBL_UserDataOr
@@ -259,9 +261,9 @@ namespace ChapooUI
             this.GbOrderDetails.Controls.Add(this.btnAddItem);
             this.GbOrderDetails.Controls.Add(this.LvOrderDetails);
             this.GbOrderDetails.Controls.Add(this.plaatsOrderBarBtn);
-            this.GbOrderDetails.Location = new System.Drawing.Point(74, 252);
+            this.GbOrderDetails.Location = new System.Drawing.Point(74, 256);
             this.GbOrderDetails.Name = "GbOrderDetails";
-            this.GbOrderDetails.Size = new System.Drawing.Size(641, 181);
+            this.GbOrderDetails.Size = new System.Drawing.Size(641, 192);
             this.GbOrderDetails.TabIndex = 32;
             this.GbOrderDetails.TabStop = false;
             this.GbOrderDetails.Text = "Order Details";
@@ -285,6 +287,7 @@ namespace ChapooUI
             this.btnAddItem.TabIndex = 17;
             this.btnAddItem.Text = "Toevoegen";
             this.btnAddItem.UseVisualStyleBackColor = false;
+            this.btnAddItem.Click += new System.EventHandler(this.btnAddItem_Click);
             // 
             // LvOrderDetails
             // 
@@ -316,11 +319,33 @@ namespace ChapooUI
             this.OpmerkingOrDe.Text = "Opmerking:";
             this.OpmerkingOrDe.Width = 234;
             // 
+            // txtGerechtIn
+            // 
+            this.txtGerechtIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGerechtIn.Location = new System.Drawing.Point(74, 226);
+            this.txtGerechtIn.Name = "txtGerechtIn";
+            this.txtGerechtIn.ReadOnly = true;
+            this.txtGerechtIn.Size = new System.Drawing.Size(173, 22);
+            this.txtGerechtIn.TabIndex = 34;
+            this.txtGerechtIn.Text = "Gerecht:";
+            // 
+            // txtDrankIn
+            // 
+            this.txtDrankIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDrankIn.Location = new System.Drawing.Point(265, 226);
+            this.txtDrankIn.Name = "txtDrankIn";
+            this.txtDrankIn.ReadOnly = true;
+            this.txtDrankIn.Size = new System.Drawing.Size(127, 22);
+            this.txtDrankIn.TabIndex = 35;
+            this.txtDrankIn.Text = "Drank:";
+            // 
             // Bestellingen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txtDrankIn);
+            this.Controls.Add(this.txtGerechtIn);
             this.Controls.Add(this.GbOrderDetails);
             this.Controls.Add(this.menuStrip2);
             this.Controls.Add(this.txtOpmerkingBestelling);
@@ -374,5 +399,7 @@ namespace ChapooUI
         private System.Windows.Forms.ColumnHeader GererchtOrDe;
         private System.Windows.Forms.ColumnHeader DrankOrDe;
         private System.Windows.Forms.ColumnHeader OpmerkingOrDe;
+        private System.Windows.Forms.TextBox txtGerechtIn;
+        private System.Windows.Forms.TextBox txtDrankIn;
     }
 }
