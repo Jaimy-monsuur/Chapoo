@@ -16,7 +16,7 @@ namespace ChapooDAL
 
         public Account DB_Login(string username, string password)
         {
-            string query = $"SELECT personeelnummer, username, password, type FROM [Account] WHERE username = '{username}' AND password = '{password}'";
+            string query = $"SELECT personeelnummer, username, password, type FROM [Personeel] WHERE username = '{username}' AND password = '{password}'";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }

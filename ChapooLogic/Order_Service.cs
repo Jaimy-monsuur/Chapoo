@@ -20,10 +20,21 @@ namespace ChapooLogic
             return orders;
         }
 
-        public void AddDrinkOrder(List<Order> drankenOrder)
+        public void MeldGereed(int orderNummer)
         {
-            // Stuurt de aangevraagde dranken order naar de database
-            order_db.AddDrinkOrder(drankenOrder);
+            // Stuurt het itemnummer wat gereed gemeld moet worden naar de DAL laag
+            order_db.MeldGereed(orderNummer);
+        }
+
+        public void MeldOngereed(int orderNummer)
+        {
+            // Stuurt het itemnummer wat ongereed gemeld moet worden naar de DAL laag
+            order_db.MeldOngereed(orderNummer);
+        }       
+
+        public int NewOrder(Order order)
+        {          
+            return order_db.NewOrder(order);
         }
         public List<Order> Db_Get_All_Orders_FORTable(int tafelnummer)
         {
@@ -31,6 +42,6 @@ namespace ChapooLogic
             return order_db.Db_Get_All_Orders_FORTable(tafelnummer);
         }
 
-
+        
     }
 }

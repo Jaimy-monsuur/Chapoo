@@ -60,8 +60,7 @@ namespace ChapooUI
                 LBL_Managetafel.Text = "Tafel is gereserveerd";
                 BTN_Eddit.Text = "Toewijzen";
 
-                LBL_aantalmensen.Hide();
-                CB_Aantalmensen.Hide();
+
                 GBX_ViewOrders.Hide();
             }
             else
@@ -69,11 +68,11 @@ namespace ChapooUI
                 LBL_Managetafel.Text = "Tafel Toewijzen aan klant";
                 BTN_Eddit.Text = "Toewijzen";
                 GBX_ViewOrders.Hide();
-                CB_Aantalmensen.Items.Add("1");
-                CB_Aantalmensen.Items.Add("2");
-                CB_Aantalmensen.Items.Add("3");
-                CB_Aantalmensen.Items.Add("4");
             }
+            CB_Aantalmensen.Items.Add("1");
+            CB_Aantalmensen.Items.Add("2");
+            CB_Aantalmensen.Items.Add("3");
+            CB_Aantalmensen.Items.Add("4");
         }
 
         private void UitloggenToolStripMenuItem_Click(object sender, EventArgs e)
@@ -93,7 +92,7 @@ namespace ChapooUI
             {
                 Tafel_Service.ClearTafel(Tafelnummer);
             }
-            else if (Status == "vrij" && CB_Aantalmensen.Text != "")
+            else if (Status == "vrij" && CB_Aantalmensen.Text != "" || Status == "gereserveerd" && CB_Aantalmensen.Text != "")
             {
                 Tafel_Service.AlterBezetting(Tafelnummer, int.Parse(CB_Aantalmensen.Text));
             }
@@ -106,30 +105,54 @@ namespace ChapooUI
             List<Order> orderList = Order_Service.Db_Get_All_Orders_FORTable(Tafelnummer);
 
             // Maak grid
-            LF_Reservations.Clear();
-            LF_Reservations.View = View.Details;
-            LF_Reservations.GridLines = true;
-            LF_Reservations.FullRowSelect = true;
+            LF_Orders.Clear();
+            LF_Orders.View = View.Details;
+            LF_Orders.GridLines = true;
+            LF_Orders.FullRowSelect = true;
 
             // Voeg column header toe
-            LF_Reservations.Columns.Add("Ordernummer:", 100);
-            LF_Reservations.Columns.Add("Menu item:", 200);
-            LF_Reservations.Columns.Add("prijs:", 100);
-            LF_Reservations.Columns.Add("Bediende:", 100);
+            LF_Orders.Columns.Add("Ordernummer:", 100);
+            LF_Orders.Columns.Add("hidden itemnummer:", 0);
+            LF_Orders.Columns.Add("Menu item:", 200);
+            LF_Orders.Columns.Add("prijs:", 100);
+            LF_Orders.Columns.Add("Aantal:", 70);
+            LF_Orders.Columns.Add("Bediende:", 100);
 
-            string[] item = new string[4];
+
+            string[] item = new string[6];
             foreach (ChapooModel.Order order in orderList)
             {
                 // Zet de items, in dit geval de naam en prijs van de openstaande gerechten in de listview
                 item[0] = order.orderNummer.ToString();
-                item[1] = order.itemNaam;
-                item[2] = order.itemPrijs.ToString(); ;
-                item[3] = order.personeelNummer.ToString(); ;
+                item[1] = order.itemnummer.ToString();
+                item[2] = order.itemNaam;
+                item[3] = order.itemPrijs.ToString();
+                item[4] = order.aantal.ToString();
+                item[5] = order.personeelNummer.ToString();
+
                 ListViewItem li = new ListViewItem(item);
-                LF_Reservations.Items.Add(li);
+                LF_Orders.Items.Add(li);
             }
 
 
+        }
+
+        private void BTN_ordertoevoegen_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Bestellingen bestellingen = new Bestellingen();
+            bestellingen.ShowDialog();
+            this.Show();
+        }
+
+        private void BTN_Delete_reservation_Click(object sender, EventArgs e)
+        {
+            if (LF_Orders.SelectedItems.Count != 0)
+            {
+                int ordernummer = int.Parse(LF_Orders.SelectedItems[0].SubItems[0].Text);
+                int itemnummer = int.Parse(LF_Orders.SelectedItems[0].SubItems[1].Text);
+                Order_Service.DeleteOrderitem(ordernummer, itemnummer);
+            }
         }
     }
 }

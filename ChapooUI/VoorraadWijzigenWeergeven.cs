@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ChapooModel;
+using ChapooLogic;
 
 namespace ChapooUI
 {
@@ -24,13 +25,19 @@ namespace ChapooUI
                 m.Result = (IntPtr)(HT_CAPTION);
         }
 
+        private Voorraad_Service voorraadService = new Voorraad_Service(); // Voorraad service voor het aanpassen van de voorraad
+
         public VoorraadWijzigenWeergeven()
         {
             InitializeComponent();
             this.ControlBox = false;
             this.Text = "";
 
-            ChapooLogic.Voorraad_Service voorraadService = new ChapooLogic.Voorraad_Service();
+            showListView();
+        }
+
+        private void showListView()
+        {
             List<Voorraad> voorraadItems = voorraadService.GetVoorraad();
 
             // Maak grid
@@ -52,7 +59,6 @@ namespace ChapooUI
                 item[2] = voorraad.voorraadAantal.ToString();
                 ListViewItem li = new ListViewItem(item);
                 listViewVoorraad.Items.Add(li);
-
             }
         }
 
@@ -69,7 +75,24 @@ namespace ChapooUI
 
         private void wijzigVoorraadBtn_Click(object sender, EventArgs e)
         {
+            // Haalt de textbox leeg als button wordt ingedrukt, en haalt de eventuele error weg         
+            errorAantalLbl.Text = "";
 
+            // Haalt de itemnummer en nieuwe aantal uit de form en stuurt ze naar de Voorraad_Service
+            if (listViewVoorraad.SelectedItems.Count != 0 && nieuwAantalBox.Text != "")
+            {
+                int itemNummer = int.Parse(listViewVoorraad.SelectedItems[0].Text);
+                int nieuwAantal = int.Parse(nieuwAantalBox.Text);
+                voorraadService.ChangeVoorraad(itemNummer, nieuwAantal);
+            }
+            else
+            {
+                errorAantalLbl.Text = "Voer een nieuw aantal in!";
+            }
+
+            // Refresh de pagina
+            nieuwAantalBox.Clear();
+            showListView();            
         }
     }
 }

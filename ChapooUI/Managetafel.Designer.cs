@@ -39,9 +39,9 @@ namespace ChapooUI
             this.BTN_Eddit = new System.Windows.Forms.Button();
             this.LBL_Managetafel = new System.Windows.Forms.Label();
             this.GBX_ViewOrders = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.BTN_ordertoevoegen = new System.Windows.Forms.Button();
             this.BTN_Delete_reservation = new System.Windows.Forms.Button();
-            this.LF_Reservations = new System.Windows.Forms.ListView();
+            this.LF_Orders = new System.Windows.Forms.ListView();
             this.LBL_Tafelstatus = new System.Windows.Forms.Label();
             this.LBL_tafelnummer = new System.Windows.Forms.Label();
             this.menuStrip2.SuspendLayout();
@@ -79,7 +79,7 @@ namespace ChapooUI
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.UitloggenToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(631, 0);
+            this.menuStrip1.Location = new System.Drawing.Point(691, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(97, 27);
             this.menuStrip1.TabIndex = 25;
@@ -102,7 +102,7 @@ namespace ChapooUI
             this.GBX_verandeStatus.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.GBX_verandeStatus.Location = new System.Drawing.Point(17, 131);
             this.GBX_verandeStatus.Name = "GBX_verandeStatus";
-            this.GBX_verandeStatus.Size = new System.Drawing.Size(698, 196);
+            this.GBX_verandeStatus.Size = new System.Drawing.Size(757, 196);
             this.GBX_verandeStatus.TabIndex = 24;
             this.GBX_verandeStatus.TabStop = false;
             this.GBX_verandeStatus.Text = "Manage tafel";
@@ -148,26 +148,27 @@ namespace ChapooUI
             // 
             // GBX_ViewOrders
             // 
-            this.GBX_ViewOrders.Controls.Add(this.button1);
+            this.GBX_ViewOrders.Controls.Add(this.BTN_ordertoevoegen);
             this.GBX_ViewOrders.Controls.Add(this.BTN_Delete_reservation);
-            this.GBX_ViewOrders.Controls.Add(this.LF_Reservations);
+            this.GBX_ViewOrders.Controls.Add(this.LF_Orders);
             this.GBX_ViewOrders.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GBX_ViewOrders.Location = new System.Drawing.Point(17, 343);
             this.GBX_ViewOrders.Name = "GBX_ViewOrders";
-            this.GBX_ViewOrders.Size = new System.Drawing.Size(698, 373);
+            this.GBX_ViewOrders.Size = new System.Drawing.Size(757, 373);
             this.GBX_ViewOrders.TabIndex = 23;
             this.GBX_ViewOrders.TabStop = false;
             this.GBX_ViewOrders.Text = "Orders";
             // 
-            // button1
+            // BTN_ordertoevoegen
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.button1.Location = new System.Drawing.Point(221, 315);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(186, 47);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Order toevoegen";
-            this.button1.UseVisualStyleBackColor = false;
+            this.BTN_ordertoevoegen.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.BTN_ordertoevoegen.Location = new System.Drawing.Point(221, 315);
+            this.BTN_ordertoevoegen.Name = "BTN_ordertoevoegen";
+            this.BTN_ordertoevoegen.Size = new System.Drawing.Size(186, 47);
+            this.BTN_ordertoevoegen.TabIndex = 5;
+            this.BTN_ordertoevoegen.Text = "Order toevoegen";
+            this.BTN_ordertoevoegen.UseVisualStyleBackColor = false;
+            this.BTN_ordertoevoegen.Click += new System.EventHandler(this.BTN_ordertoevoegen_Click);
             // 
             // BTN_Delete_reservation
             // 
@@ -178,17 +179,18 @@ namespace ChapooUI
             this.BTN_Delete_reservation.TabIndex = 4;
             this.BTN_Delete_reservation.Text = "Verwijder";
             this.BTN_Delete_reservation.UseVisualStyleBackColor = false;
+            this.BTN_Delete_reservation.Click += new System.EventHandler(this.BTN_Delete_reservation_Click);
             // 
-            // LF_Reservations
+            // LF_Orders
             // 
-            this.LF_Reservations.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LF_Reservations.FullRowSelect = true;
-            this.LF_Reservations.HideSelection = false;
-            this.LF_Reservations.Location = new System.Drawing.Point(14, 42);
-            this.LF_Reservations.Name = "LF_Reservations";
-            this.LF_Reservations.Size = new System.Drawing.Size(665, 250);
-            this.LF_Reservations.TabIndex = 3;
-            this.LF_Reservations.UseCompatibleStateImageBehavior = false;
+            this.LF_Orders.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LF_Orders.FullRowSelect = true;
+            this.LF_Orders.HideSelection = false;
+            this.LF_Orders.Location = new System.Drawing.Point(14, 42);
+            this.LF_Orders.Name = "LF_Orders";
+            this.LF_Orders.Size = new System.Drawing.Size(727, 250);
+            this.LF_Orders.TabIndex = 3;
+            this.LF_Orders.UseCompatibleStateImageBehavior = false;
             // 
             // LBL_Tafelstatus
             // 
@@ -214,7 +216,7 @@ namespace ChapooUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(726, 794);
+            this.ClientSize = new System.Drawing.Size(786, 794);
             this.Controls.Add(this.menuStrip2);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.GBX_verandeStatus);
@@ -249,10 +251,10 @@ namespace ChapooUI
         private System.Windows.Forms.Label LBL_Managetafel;
         private System.Windows.Forms.GroupBox GBX_ViewOrders;
         private System.Windows.Forms.Button BTN_Delete_reservation;
-        private System.Windows.Forms.ListView LF_Reservations;
+        private System.Windows.Forms.ListView LF_Orders;
         private System.Windows.Forms.Label LBL_Tafelstatus;
         private System.Windows.Forms.Label LBL_tafelnummer;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BTN_ordertoevoegen;
         private System.Windows.Forms.ComboBox CB_Aantalmensen;
     }
 }

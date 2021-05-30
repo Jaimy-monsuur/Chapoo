@@ -72,7 +72,6 @@
             // 
             // keukenSelectTxtLbl
             // 
-            this.keukenSelectTxtLbl.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.keukenSelectTxtLbl.AutoSize = true;
             this.keukenSelectTxtLbl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.keukenSelectTxtLbl.Location = new System.Drawing.Point(161, 411);
@@ -84,7 +83,6 @@
             // 
             // bedieningSelectTxtLbl
             // 
-            this.bedieningSelectTxtLbl.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.bedieningSelectTxtLbl.AutoSize = true;
             this.bedieningSelectTxtLbl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bedieningSelectTxtLbl.Location = new System.Drawing.Point(592, 411);
@@ -96,7 +94,6 @@
             // 
             // barSelectTxtLbl
             // 
-            this.barSelectTxtLbl.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.barSelectTxtLbl.AutoSize = true;
             this.barSelectTxtLbl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.barSelectTxtLbl.Location = new System.Drawing.Point(1049, 411);
@@ -108,10 +105,10 @@
             // 
             // LBL_userdata
             // 
-            this.LBL_userdata.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.LBL_userdata.AutoSize = true;
+            this.LBL_userdata.Dock = System.Windows.Forms.DockStyle.Top;
             this.LBL_userdata.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBL_userdata.Location = new System.Drawing.Point(593, -1);
+            this.LBL_userdata.Location = new System.Drawing.Point(0, 0);
             this.LBL_userdata.Name = "LBL_userdata";
             this.LBL_userdata.Size = new System.Drawing.Size(84, 23);
             this.LBL_userdata.TabIndex = 9;
@@ -123,10 +120,10 @@
             // 
             // LBL_klok
             // 
-            this.LBL_klok.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.LBL_klok.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.LBL_klok.AutoSize = true;
             this.LBL_klok.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBL_klok.Location = new System.Drawing.Point(1050, -1);
+            this.LBL_klok.Location = new System.Drawing.Point(1093, -1);
             this.LBL_klok.Name = "LBL_klok";
             this.LBL_klok.Size = new System.Drawing.Size(45, 23);
             this.LBL_klok.TabIndex = 10;
@@ -173,7 +170,6 @@
             // 
             // barSelectBtn
             // 
-            this.barSelectBtn.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.barSelectBtn.BackgroundImage = global::ChapooUI.Properties.Resources.bar;
             this.barSelectBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.barSelectBtn.Location = new System.Drawing.Point(941, 159);
@@ -186,7 +182,6 @@
             // 
             // bedieningSelectBtn
             // 
-            this.bedieningSelectBtn.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.bedieningSelectBtn.BackgroundImage = global::ChapooUI.Properties.Resources.bediening_removebg_preview;
             this.bedieningSelectBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.bedieningSelectBtn.Location = new System.Drawing.Point(515, 159);
@@ -199,7 +194,6 @@
             // 
             // keukenSelectBtn
             // 
-            this.keukenSelectBtn.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.keukenSelectBtn.BackgroundImage = global::ChapooUI.Properties.Resources.keuken;
             this.keukenSelectBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.keukenSelectBtn.Location = new System.Drawing.Point(85, 159);
