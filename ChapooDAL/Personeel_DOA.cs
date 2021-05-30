@@ -18,7 +18,15 @@ namespace ChapooDAL
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
+         public void Addpersonle()
+        {
 
+        }
+
+        public void DeletePersonel()
+        {
+
+        }
         private List<Personeels_Lid> ReadTables(DataTable dataTable)
         {
             List<Personeels_Lid> personeels_Lid = new List<Personeels_Lid>();
