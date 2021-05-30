@@ -32,17 +32,33 @@ namespace ChapooUI
             this.Text = "";
         }
 
-        // Order sevice waar elke button/method mee kan
-        Order_Service orderService = new ChapooLogic.Order_Service();
+        // Alle service references die nodig zijn
+        Order_Service orderService = new Order_Service();
+        Orderitems_Service orderitemService = new Orderitems_Service();
+        Menuitems_Service menuitemService = new Menuitems_Service();
 
-        public void showListView(string listName)
+        public void showListView(string listName) // Kan makkelijker met current user
         {
-            if (listName == "keuken")
-            {
-                ChapooLogic.Order_Service orderService = new ChapooLogic.Order_Service();
-                List<Order> orderList = orderService.GetOrders();
+            List<Order> orderList = orderService.GetOrders();
+            List<Orderitems> orderitems = orderitemService.GetOrderitems();
 
-                // Hide order knop
+            foreach (Order order in orderList)
+            {
+                foreach (Orderitems orderitem in orderitems)
+                {
+                    if (orderitem.orderNummer == order.orderNummer)
+                    {
+                        // Sorteert de orderitems per order
+                        order.orderItems.Add(orderitem);
+                    }
+                }
+            }
+
+            List<Menuitems> menuitems = menuitemService.GetMenuitems();
+
+            if (listName == "keuken")
+            {                                              
+                // Hide bar order knop
                 maakOrderBarBtn.Hide();
 
                 // Maak grid
@@ -58,47 +74,46 @@ namespace ChapooUI
                 listViewKeukenBarOpenstaand.Columns.Add("Prijs:", 60);
                 listViewKeukenBarOpenstaand.Columns.Add("Aantal:", 60);
 
-                string[] item = new string[5];
-                foreach (ChapooModel.Order order in orderList)
-                {
-                    if (order.type == "Avond" || order.type == "Middag")
-                    {
-                        // Zet de items, in dit geval de naam en prijs van de openstaande gerechten in de listview
-                        item[0] = order.orderNummer.ToString();
-                        item[1] = order.tafelNummer.ToString();                      
-                        item[2] = order.itemNaam;
-                        item[3] = order.itemPrijs.ToString();
-                        item[4] = order.aantal.ToString();
-                        ListViewItem li = new ListViewItem(item);
-                        listViewKeukenBarOpenstaand.Items.Add(li);
-                    }
-                }
-
-                // Maak grid
+                // Maak grid opmerkingen
                 listViewKeukenBarOpmerkingen.Clear();
                 listViewKeukenBarOpmerkingen.View = View.Details;
                 listViewKeukenBarOpmerkingen.GridLines = true;
                 listViewKeukenBarOpmerkingen.FullRowSelect = true;
-                // Voeg column header toe
+                // Voeg column header toe opmerkingen
                 listViewKeukenBarOpmerkingen.Columns.Add("Ordernr:", 50);
                 listViewKeukenBarOpmerkingen.Columns.Add("Opmerkingen:", 250);
 
-                string[] item2 = new string[2];
-                foreach (ChapooModel.Order order in orderList)
+                string[] item = new string[5];
+                string[] itemopmerkingen = new string[2];
+                foreach (Order order in orderList)
                 {
-                    if (order.type == "Avond" || order.type == "Middag")
+                    foreach (Orderitems orderitem in order.orderItems)
                     {
-                        // Zet de opermkingen in de opmerkingen listview
-                        item2[0] = order.orderNummer.ToString();
-                        item2[1] = order.opmerking;
-                        ListViewItem li = new ListViewItem(item2);
-                        listViewKeukenBarOpmerkingen.Items.Add(li);
-                    }                        
-                }
+                        foreach (Menuitems menuitem in menuitems)
+                        {
+                            if (orderitem.itemNummer == menuitem.itemNummer && (menuitem.type == "Avond" || menuitem.type == "Middag"))
+                            {
+                                // Zet de items, in dit geval de naam en prijs van de openstaande gerechten in de listview
+                                item[0] = order.orderNummer.ToString();
+                                item[1] = order.tafelNummer.ToString();
+                                item[2] = menuitem.naam;
+                                item[3] = menuitem.prijs.ToString();
+                                item[4] = orderitem.aantal.ToString();
+                                ListViewItem li = new ListViewItem(item);
+                                listViewKeukenBarOpenstaand.Items.Add(li);
+
+                                // Zet de opermkingen in de opmerkingen listview
+                                itemopmerkingen[0] = order.orderNummer.ToString();
+                                itemopmerkingen[1] = order.opmerking;
+                                ListViewItem li2 = new ListViewItem(itemopmerkingen);
+                                listViewKeukenBarOpmerkingen.Items.Add(li2);
+                            }
+                        }
+                    }    
+                }              
             }
             else if (listName == "bar")
             {              
-                List<Order> orderList = orderService.GetOrders();
 
                 // Maak grid
                 listViewKeukenBarOpenstaand.Clear();
@@ -112,42 +127,42 @@ namespace ChapooUI
                 listViewKeukenBarOpenstaand.Columns.Add("Prijs:", 60);
                 listViewKeukenBarOpenstaand.Columns.Add("Aantal:", 60);
 
-                string[] item = new string[5];
-                foreach (ChapooModel.Order order in orderList)
-                {
-                    if (order.type == "Drank")
-                    {
-                        // Zet de items, in dit geval de naam en prijs van de openstaande gerechten in de listview
-                        item[0] = order.orderNummer.ToString();
-                        item[1] = order.tafelNummer.ToString();                       
-                        item[2] = order.itemNaam;
-                        item[3] = order.itemPrijs.ToString();
-                        item[4] = order.aantal.ToString();
-                        ListViewItem li = new ListViewItem(item);
-                        listViewKeukenBarOpenstaand.Items.Add(li);
-                    }
-                }
-
-                // Maak grid
+                // Maak grid opmerkingen
                 listViewKeukenBarOpmerkingen.Clear();
                 listViewKeukenBarOpmerkingen.View = View.Details;
                 listViewKeukenBarOpmerkingen.GridLines = true;
                 listViewKeukenBarOpmerkingen.FullRowSelect = true;
-                // Voeg column header toe
+                // Voeg column header toe opmerkingen
                 listViewKeukenBarOpmerkingen.Columns.Add("Ordernr:", 50);
                 listViewKeukenBarOpmerkingen.Columns.Add("Opmerkingen:", 250);
 
-                string[] item2 = new string[2];
-                foreach (ChapooModel.Order order in orderList)
+                string[] item = new string[5];
+                string[] itemopmerkingen = new string[2];
+                foreach (Order order in orderList)
                 {
-                    if (order.type == "Drank")
+                    foreach (Orderitems orderitem in order.orderItems)
                     {
-                        // Zet de opermkingen in de opmerkingen listview
-                        item2[0] = order.orderNummer.ToString();
-                        item2[1] = order.opmerking;
-                        ListViewItem li = new ListViewItem(item2);
-                        listViewKeukenBarOpmerkingen.Items.Add(li);
-                    }                      
+                        foreach (Menuitems menuitem in menuitems)
+                        {
+                            if (orderitem.itemNummer == menuitem.itemNummer && (menuitem.type == "Drank"))
+                            {
+                                // Zet de items, in dit geval de naam en prijs van de openstaande gerechten in de listview
+                                item[0] = order.orderNummer.ToString();
+                                item[1] = order.tafelNummer.ToString();
+                                item[2] = menuitem.naam;
+                                item[3] = menuitem.prijs.ToString();
+                                item[4] = orderitem.aantal.ToString();
+                                ListViewItem li = new ListViewItem(item);
+                                listViewKeukenBarOpenstaand.Items.Add(li);
+
+                                // Zet de opermkingen in de opmerkingen listview
+                                itemopmerkingen[0] = order.orderNummer.ToString();
+                                itemopmerkingen[1] = order.opmerking;
+                                ListViewItem li2 = new ListViewItem(itemopmerkingen);
+                                listViewKeukenBarOpmerkingen.Items.Add(li2);
+                            }
+                        }
+                    }
                 }
             }
         }

@@ -46,6 +46,8 @@
     <Compile Include="Account_DAO.cs" />
     <Compile Include="Base.cs" />
     <Compile Include="Customer_DAO.cs" />
+    <Compile Include="Menuitems_DAO.cs" />
+    <Compile Include="Orderitems_DAO.cs" />
     <Compile Include="Order_DAO.cs" />
     <Compile Include="Personeel_DOA.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
