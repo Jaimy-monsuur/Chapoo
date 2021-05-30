@@ -102,7 +102,7 @@ namespace ChapooDAL
             SqlParameter[] sqlParameters2 = new SqlParameter[0];
             ExecuteSelectQuery(query2, sqlParameters2);
         }
-        public void DeleteOrderitem(int ordernummer, int itemnummer)
+        public void DeleteOrderitem(int ordernummer, int itemnummer)// delete order
         {
             string query = $"DELETE FROM [Orderitems] WHERE [ordernummer] = '{ordernummer}' AND itemnummer = '{itemnummer}'";
             SqlParameter[] sqlParameters = new SqlParameter[0];
