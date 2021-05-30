@@ -18,13 +18,6 @@ namespace ChapooDAL
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
-        public List<Orderitems> Db_Get_All_Orders_FORTable(int tafelnummer)//werkt niet
-        {
-            // Hier staat de query die naar de database gaat voor het ophalen van de juiste gegevens
-            string query = $"SELECT Orderitems.[ordernummer],Orderitems.[itemnummer],Menuitems.naam,Menuitems.prijs,Menuitems.type , Orderitems.aantal, gereed FROM OrderitemsnJOIN Menuitems ON Orderitems.itemnummer = Menuitems.itemnummer WHERE Orders.tafelnummer = '{tafelnummer}'";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
-        }
         private List<Orderitems> ReadTables(DataTable dataTable)
         {
             List<Orderitems> orderitems = new List<Orderitems>();
