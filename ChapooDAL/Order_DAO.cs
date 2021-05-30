@@ -19,15 +19,7 @@ namespace ChapooDAL
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
-
-        public List<Order> Db_Get_All_Orders_FORTable(int tafelnummer)
-        {
-            // Hier staat de query die naar de database gaat voor het ophalen van de juiste gegevens
-            string query = $"SELECT Orders.[ordernummer],Orders.tafelnummer,Orders.[personeelnummer],Orders.[opmerking],Orderitems.[itemnummer],Menuitems.naam,Menuitems.prijs,type , aantal, gereed FROM Orders JOIN Orderitems ON Orderitems.ordernummer = Orders.ordernummer JOIN Menuitems ON Orderitems.itemnummer = Menuitems.itemnummer WHERE Orders.tafelnummer = '{tafelnummer}'";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
-        }
-
+     
         private List<Order> ReadTables(DataTable dataTable)
         {
             List<Order> orders = new List<Order>();
@@ -81,6 +73,27 @@ namespace ChapooDAL
             return ordernummer;
         }
 
-        
+        /*public void AddDrinkOrderitem(Order order)
+        {
+            string query = $"SELECT Menuitems.itemnummer FROM Menuitems JOIN Menuitems ON {order.itemNaam} = menuitems.naam";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            DataTable dataTable = ExecuteSelectQuery(query, sqlParameters);
+
+            int itemNummer = 0;
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                itemNummer = (int)dr["itemnummer"];
+            }
+            
+            string query2 = $"INSERT INTO Orderitems (ordernummer, itemnummer, aantal) VALUES ({order.orderNummer}, {itemNummer}), 1)";
+            SqlParameter[] sqlParameters2 = new SqlParameter[0];
+            ExecuteSelectQuery(query2, sqlParameters2);
+        }*/
+        public void DeleteOrderitem(int ordernummer, int itemnummer)// delete order
+        {
+            string query = $"DELETE FROM [Orderitems] WHERE [ordernummer] = '{ordernummer}' AND itemnummer = '{itemnummer}'";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            ExecuteEditQuery(query, sqlParameters);
+        }
     }
 }

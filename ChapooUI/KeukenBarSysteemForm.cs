@@ -91,7 +91,7 @@ namespace ChapooUI
                     {
                         foreach (Menuitems menuitem in menuitems)
                         {
-                            if (orderitem.itemNummer == menuitem.itemNummer && (menuitem.type == "Avond" || menuitem.type == "Middag"))
+                            if (orderitem.itemnummer == menuitem.itemNummer && (menuitem.type == "Avond" || menuitem.type == "Middag"))
                             {
                                 // Zet de items, in dit geval de naam en prijs van de openstaande gerechten in de listview
                                 item[0] = order.orderNummer.ToString();
@@ -144,7 +144,7 @@ namespace ChapooUI
                     {
                         foreach (Menuitems menuitem in menuitems)
                         {
-                            if (orderitem.itemNummer == menuitem.itemNummer && (menuitem.type == "Drank"))
+                            if (orderitem.itemnummer == menuitem.itemNummer && (menuitem.type == "Drank"))
                             {
                                 // Zet de items, in dit geval de naam en prijs van de openstaande gerechten in de listview
                                 item[0] = order.orderNummer.ToString();
