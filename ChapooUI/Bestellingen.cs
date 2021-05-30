@@ -33,13 +33,13 @@ namespace ChapooUI
            // {
                 //Vul de listview met middag menu.
 
-            /*    ChapooLogic.Menuitems_Service menuServMid = new ChapooLogic.Menuitems_Service();
+               ChapooLogic.Menuitems_Service menuServMid = new ChapooLogic.Menuitems_Service();
                 List<Menuitems> MenuMiddag = menuServMid.GetMenuMiddag();
                 LvEtenMenu.View = View.Details;
                 foreach (ChapooModel.Menuitems menuitems in MenuMiddag)
                 {
                     LvEtenMenu.Items.Add(new ListViewItem(new string[] { $"{menuitems.naam}", $"{menuitems.prijs}", $"{menuitems.type}" }));
-                } */
+                } 
            // }
            // else
           //  {
