@@ -44,6 +44,8 @@
   <ItemGroup>
     <Compile Include="Account_Service.cs" />
     <Compile Include="Customer_Service.cs" />
+    <Compile Include="Menuitems_Service.cs" />
+    <Compile Include="Orderitems_Service.cs" />
     <Compile Include="Order_Service.cs" />
     <Compile Include="Personeel_Service.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

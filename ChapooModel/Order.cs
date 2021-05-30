@@ -8,15 +8,11 @@ namespace ChapooModel
 {
     public class Order
     {
+        public List<Orderitems> orderItems;
         public int orderNummer;
         public int tafelNummer;
         public int personeelNummer;
         public string opmerking;
-        public string itemNaam;
-        public int itemnummer;
-        public decimal itemPrijs;
-        public string type;
-        public int aantal;
         public bool gereed;
     }
 }

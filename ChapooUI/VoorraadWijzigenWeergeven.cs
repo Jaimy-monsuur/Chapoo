@@ -75,12 +75,11 @@ namespace ChapooUI
 
         private void wijzigVoorraadBtn_Click(object sender, EventArgs e)
         {
-            // Haalt de textbox leeg als button wordt ingedrukt, en haalt de eventuele error weg
-            nieuwAantalBox.Clear();
+            // Haalt de textbox leeg als button wordt ingedrukt, en haalt de eventuele error weg         
             errorAantalLbl.Text = "";
 
             // Haalt de itemnummer en nieuwe aantal uit de form en stuurt ze naar de Voorraad_Service
-            if (listViewVoorraad.SelectedItems.Count != 0 && !String.IsNullOrEmpty(nieuwAantalBox.Text))
+            if (listViewVoorraad.SelectedItems.Count != 0 && nieuwAantalBox.Text != "")
             {
                 int itemNummer = int.Parse(listViewVoorraad.SelectedItems[0].Text);
                 int nieuwAantal = int.Parse(nieuwAantalBox.Text);
@@ -92,8 +91,8 @@ namespace ChapooUI
             }
 
             // Refresh de pagina
-            showListView();
-            
+            nieuwAantalBox.Clear();
+            showListView();            
         }
     }
 }
