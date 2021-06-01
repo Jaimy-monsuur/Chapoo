@@ -20,5 +20,26 @@ namespace ChapooLogic
             List<Menuitems> menuitems = menuitem_db.Db_Get_All_Menuitems();
             return menuitems;
         }
+
+        public List<Menuitems> GetMenuDrankItems()
+        {
+            // Vraagt de order lijst aan de DAL laag
+            List<Menuitems> menuDrankItems = menuitem_db.ReadMenuItemDrank();
+            return menuDrankItems;
+        }
+
+        public List<Menuitems> GetMenuMiddag()
+        {
+            // Vraagt de order lijst aan de DAL laag
+            List<Menuitems> menuMiddagItems = menuitem_db.ReadMenuItemMiddagMenu();
+            return menuMiddagItems;
+        }
+
+        public List<Menuitems> GetMenuAvond()
+        {
+            // Vraagt de order lijst aan de DAL laag
+            List<Menuitems> menuAvondItems = menuitem_db.ReadMenuItemAvondMenu();
+            return menuAvondItems;
+        }
     }
 }

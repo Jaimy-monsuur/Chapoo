@@ -8,7 +8,7 @@ namespace ChapooModel
 {
     public class Order
     {
-        public List<Orderitems> orderItems;
+        public List<Orderitems> orderItemList;
         public int orderNummer;
         public int tafelNummer;
         public int personeelNummer;
