@@ -21,6 +21,7 @@ namespace ChapooUI
             InitializeComponent();
             this.ControlBox = false;
             this.Text = "";
+            tbx_wachtwoord.MaxLength = 4;
             cb_type.Items.Add("keuken");
             cb_type.Items.Add("restaurant");
             cb_type.Items.Add("bar");
@@ -34,7 +35,7 @@ namespace ChapooUI
 
         private void BTN_Toevoegen_Click(object sender, EventArgs e)
         {
-            if (tbx_voornaam.Text != "" && tbx_achternaam.Text != "" && Tbx_functie.Text != "" && tbx_wachtwoord.Text != "" && cb_type.Text != "")
+            if (tbx_voornaam.Text != "" && tbx_achternaam.Text != "" && Tbx_functie.Text != "" && tbx_wachtwoord.Text != "" && cb_type.Text != "" && tbx_wachtwoord.Text.Length > 3)
             {
                 string voornaam = tbx_voornaam.Text;
                 string achternaam = tbx_achternaam.Text;
