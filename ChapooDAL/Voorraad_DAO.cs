@@ -15,7 +15,7 @@ namespace ChapooDAL
         public List<Voorraad> Db_Get_Voorraad()
         {
             // Hier staat de query die naar de database gaat voor het ophalen van de juiste gegevens
-            string query = "SELECT Voorraad.itemnummer, Voorraad.voorraadaantal, Menuitems.prijs, Menuitems.naam, Menuitems.[type] FROM Voorraad JOIN Menuitems ON Voorraad.itemnummer = Menuitems.itemnummer";
+            string query = "SELECT Voorraad.itemnummer, Voorraad.voorraadaantal, Menuitems.prijs, Menuitems.naam, Menuitems.[type] FROM Voorraad JOIN Menuitems ON Voorraad.itemnummer = Menuitems.itemnummer ORDER BY voorraadaantal ASC";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
