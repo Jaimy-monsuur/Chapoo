@@ -14,7 +14,7 @@ namespace ChapooDAL
     {
         public List<Customer> GetALLCUstomers()
         {
-            string query = $"SELECT [klantnummer], [voornaam], [achternaam] FROM [Klant]";
+            string query = $"SELECT [klantnummer], [voornaam], [achternaam] FROM [Klant] ORDER BY voornaam ASC;";// ordered op voornaam
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -41,7 +41,6 @@ namespace ChapooDAL
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(query, sqlParameters);
         }
-
         private List<Customer> ReadTables(DataTable dataTable)
         {
             List<Customer> customers = new List<Customer>();
