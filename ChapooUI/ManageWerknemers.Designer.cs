@@ -34,6 +34,8 @@ namespace ChapooUI
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.UitloggenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.LVW_Account = new System.Windows.Forms.ListView();
+            this.BTNtoevoegen = new System.Windows.Forms.Button();
+            this.BTNverwijder = new System.Windows.Forms.Button();
             this.menuStrip2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -90,16 +92,41 @@ namespace ChapooUI
             this.LVW_Account.TabIndex = 33;
             this.LVW_Account.UseCompatibleStateImageBehavior = false;
             // 
+            // BTNtoevoegen
+            // 
+            this.BTNtoevoegen.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.BTNtoevoegen.Location = new System.Drawing.Point(851, 481);
+            this.BTNtoevoegen.Name = "BTNtoevoegen";
+            this.BTNtoevoegen.Size = new System.Drawing.Size(163, 38);
+            this.BTNtoevoegen.TabIndex = 34;
+            this.BTNtoevoegen.Text = "Nieuwe werknemer";
+            this.BTNtoevoegen.UseVisualStyleBackColor = false;
+            this.BTNtoevoegen.Click += new System.EventHandler(this.BTNtoevoegen_Click);
+            // 
+            // BTNverwijder
+            // 
+            this.BTNverwijder.BackColor = System.Drawing.Color.LightCoral;
+            this.BTNverwijder.Location = new System.Drawing.Point(673, 481);
+            this.BTNverwijder.Name = "BTNverwijder";
+            this.BTNverwijder.Size = new System.Drawing.Size(163, 38);
+            this.BTNverwijder.TabIndex = 35;
+            this.BTNverwijder.Text = "Verwijder werknemer";
+            this.BTNverwijder.UseVisualStyleBackColor = false;
+            this.BTNverwijder.Click += new System.EventHandler(this.BTNverwijder_Click);
+            // 
             // ManageWerknemers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1026, 580);
+            this.Controls.Add(this.BTNverwijder);
+            this.Controls.Add(this.BTNtoevoegen);
             this.Controls.Add(this.LVW_Account);
             this.Controls.Add(this.menuStrip2);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "ManageWerknemers";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ManageAccounts";
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
@@ -116,5 +143,7 @@ namespace ChapooUI
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem UitloggenToolStripMenuItem;
         private System.Windows.Forms.ListView LVW_Account;
+        private System.Windows.Forms.Button BTNtoevoegen;
+        private System.Windows.Forms.Button BTNverwijder;
     }
 }

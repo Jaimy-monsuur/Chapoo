@@ -31,7 +31,7 @@ namespace ChapooDAL
             List<Order> orders = ReadTables(ExecuteSelectQuery(query, sqlParameters));
             foreach (Order O in orders)
             {
-                O.orderItemList = Orderitems_DAO.Db_Get_All_Orderitems_for_Order(O.orderNummer);
+                //O.orderItemList = Orderitems_DAO.
             }
             return orders;
         }
@@ -70,50 +70,5 @@ namespace ChapooDAL
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(query, sqlParameters);
         }
-
-
-       /*public List<Order> Db_Get_All_Orders()
-        {
-            // Hier staat de query die naar de database gaat voor het ophalen van de juiste gegevens
-            string query = "SELECT * FROM Orders JOIN Orderitems ON Orderitems.ordernummer = Orders.ordernummer JOIN Menuitems ON Orderitems.itemnummer = Menuitems.itemnummer";// geen select * gebruiken
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
-        }*/
-
-        /*public int NewOrder(Order order)
-        {
-            string query = $"INSERT INTO Orders (tafelnummer, personeelnummer, opmerking, gereed) VALUES ({order.tafelNummer}, {order.personeelNummer}, {order.opmerking}, gereed = 0);";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-            ExecuteEditQuery(query, sqlParameters);
-
-            string query2 = $"SELECT ordernummer FROM Orders ORDER BY ordernummer DESC LIMIT 1";
-            SqlParameter[] sqlParameters2 = new SqlParameter[0];
-            DataTable dataTable = ExecuteSelectQuery(query2, sqlParameters2);
-
-            int ordernummer = 0;
-            foreach (DataRow dr in dataTable.Rows)
-            {
-                ordernummer = (int)dr["ordernummer"];
-            }
-            return ordernummer;
-        }*/
-
-        /*public void AddDrinkOrderitem(Order order)
-        {
-            string query = $"SELECT Menuitems.itemnummer FROM Menuitems JOIN Menuitems ON {order.itemNaam} = menuitems.naam";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-            DataTable dataTable = ExecuteSelectQuery(query, sqlParameters);
-
-            int itemNummer = 0;
-            foreach (DataRow dr in dataTable.Rows)
-            {
-                itemNummer = (int)dr["itemnummer"];
-            }
-            
-            string query2 = $"INSERT INTO Orderitems (ordernummer, itemnummer, aantal) VALUES ({order.orderNummer}, {itemNummer}), 1)";
-            SqlParameter[] sqlParameters2 = new SqlParameter[0];
-            ExecuteSelectQuery(query2, sqlParameters2);
-        }*/
-
     }
 }

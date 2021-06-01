@@ -42,6 +42,8 @@ namespace ChapooUI
             LBL_tafelnummer.Text = $"Tafel nummer: {Tafelnummer}";
             GBX_ViewReservations.Text = $"Huidige en komende reserveringen voor tafel: {Tafelnummer}";
 
+            CB_Klanten.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            CB_Klanten.AutoCompleteSource = AutoCompleteSource.ListItems;
             RDatepicker.MinDate = DateTime.Now;// je kan naturlijk geen reservering maken voor t verleden.
             GetReservations();// haalt alle huidige en toekomstige reserveringen voor een tafel op
             GETcustomers();
@@ -113,7 +115,7 @@ namespace ChapooUI
 
         private void BTN_ManageReservations_Click(object sender, EventArgs e)
         {
-            if (CB_Klanten.Text != "" && DateTime.Parse(RStarttimePicker.Text).TimeOfDay < DateTime.Parse(REndTimePicker.Text).TimeOfDay)
+            if (CB_Klanten.Text != "" && DateTime.Parse(RStarttimePicker.Text).TimeOfDay < DateTime.Parse(REndTimePicker.Text).TimeOfDay && CB_Klanten.Items.Contains(CB_Klanten.Text))
             {
                 int klantennummer = 0;
                 string klantnaam = CB_Klanten.Text;

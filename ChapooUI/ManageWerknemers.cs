@@ -15,6 +15,7 @@ namespace ChapooUI
 {
     public partial class ManageWerknemers : Form
     {
+        public Personeel_Service personeel_Service = new Personeel_Service();
         //maakt form movable vanaf elk punt.
         private const int WM_NCHITTEST = 0x84;
         private const int HT_CLIENT = 0x1;
@@ -52,7 +53,6 @@ namespace ChapooUI
             LVW_Account.Columns.Add("Wachtwoord:", 100);
             LVW_Account.Columns.Add("Login type:", 100);
 
-            Personeel_Service personeel_Service = new Personeel_Service();
             List<Personeels_Lid> personeel = personeel_Service.GetPersoneel();
 
             string[] item = new string[7];
@@ -80,6 +80,22 @@ namespace ChapooUI
         {
             ConfirmLogout confirmLogout = new ConfirmLogout();
             confirmLogout.ShowDialog();
+        }
+
+        private void BTNverwijder_Click(object sender, EventArgs e)
+        {
+            if (LVW_Account.SelectedItems.Count != 0)
+            {
+                personeel_Service.DeletePersonel(int.Parse(LVW_Account.SelectedItems[0].SubItems[0].Text));
+                MakeGrid();
+            }
+        }
+
+        private void BTNtoevoegen_Click(object sender, EventArgs e)
+        {
+            NieuweWerknemer nieuweWerknemer = new NieuweWerknemer();
+            nieuweWerknemer.ShowDialog();
+            MakeGrid();
         }
     }
 }
