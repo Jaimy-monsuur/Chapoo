@@ -83,6 +83,12 @@
     <Compile Include="ConfirmOngereedMelden.Designer.cs">
       <DependentUpon>ConfirmOngereedMelden.cs</DependentUpon>
     </Compile>
+    <Compile Include="NieuweWerknemer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NieuweWerknemer.Designer.cs">
+      <DependentUpon>NieuweWerknemer.cs</DependentUpon>
+    </Compile>
     <Compile Include="KeukenBarSysteemForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,6 +168,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ConfirmOngereedMelden.resx">
       <DependentUpon>ConfirmOngereedMelden.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NieuweWerknemer.resx">
+      <DependentUpon>NieuweWerknemer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KeukenBarSysteemForm.resx">
       <DependentUpon>KeukenBarSysteemForm.cs</DependentUpon>

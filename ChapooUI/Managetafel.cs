@@ -116,7 +116,7 @@ namespace ChapooUI
             LF_Orders.Columns.Add("prijs:", 100);
             LF_Orders.Columns.Add("Aantal:", 70);
 
-            List<Order> orders = Order_Service.GetOrders();
+            List<Order> orders = Order_Service.GetOrders();// verander naar voor tafel
             foreach (Order order in orders)
             {
                 string[] item = new string[5];

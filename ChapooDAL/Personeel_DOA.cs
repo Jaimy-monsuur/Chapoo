@@ -18,14 +18,18 @@ namespace ChapooDAL
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
-         public void Addpersonle()
+        public void Addpersonle(string voornaam, string achternaam,string functie,string username,string password,string type)
         {
-
+            string query = $"INSERT INTO[Personeel] VALUES('{voornaam}', '{achternaam}', '{functie}', '{username}', '{password}', '{type}')";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            ExecuteEditQuery(query, sqlParameters);
         }
 
-        public void DeletePersonel()
+        public void DeletePersonel(int personeelnummer)
         {
-
+            string query = $"DELETE FROM [Personeel] WHERE [personeelnummer] = '{personeelnummer}'";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            ExecuteEditQuery(query, sqlParameters);
         }
         private List<Personeels_Lid> ReadTables(DataTable dataTable)
         {
