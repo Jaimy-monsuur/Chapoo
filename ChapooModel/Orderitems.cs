@@ -9,7 +9,15 @@ namespace ChapooModel
     public class Orderitems
     {
         public int orderNummer;
-        public int itemNummer;
+        public int itemnummer;
+        public string itemNaam;
         public int aantal;
+        public string type;
+        public decimal itemPrijs;
+        public decimal TotalPrice 
+        {
+            get { return itemPrijs * aantal; }
+                
+        }
     }
 }

@@ -14,5 +14,13 @@ namespace ChapooLogic
         {
             return Personeel_DOA.GetPersoneel();
         }
+        public void DeletePersonel(int personeelnummer)
+        {
+            Personeel_DOA.DeletePersonel(personeelnummer);
+        }
+        public void Addpersonle(string voornaam, string achternaam, string functie, string username, string password, string type)
+        {
+            Personeel_DOA.Addpersonle(voornaam, achternaam, functie, username, password, type);
+        }
     }
 }

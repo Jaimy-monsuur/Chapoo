@@ -16,7 +16,7 @@ namespace ChapooLogic
         public List<Order> GetOrders()
         {
             // Vraagt de order lijst aan de DAL laag
-            List<Order> orders = order_db.Db_Get_All_Orders();
+            List<Order> orders = order_db.GetOrders();
             return orders;
         }
 
@@ -32,15 +32,16 @@ namespace ChapooLogic
             order_db.MeldOngereed(orderNummer);
         }       
 
-        public int NewOrder(Order order)
+        /*public int NewOrder(Order order)
         {          
             return order_db.NewOrder(order);
-        }
-        public List<Order> Db_Get_All_Orders_FORTable(int tafelnummer)
+        }*/
+
+        /*public List<Order> Db_Get_All_Orders_FORTable(int tafelnummer)
         {
             // Vraagt de order lijst aan de DAL laag
             return order_db.Db_Get_All_Orders_FORTable(tafelnummer);
-        }
+        }*/
 
         
     }

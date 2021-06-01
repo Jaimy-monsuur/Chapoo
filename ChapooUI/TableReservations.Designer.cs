@@ -34,6 +34,7 @@ namespace ChapooUI
             this.BTN_Delete_reservation = new System.Windows.Forms.Button();
             this.LF_Reservations = new System.Windows.Forms.ListView();
             this.GBX_verandeStatus = new System.Windows.Forms.GroupBox();
+            this.LBL_error = new System.Windows.Forms.Label();
             this.BTN_newcustomer = new System.Windows.Forms.Button();
             this.CB_Klanten = new System.Windows.Forms.ComboBox();
             this.REndTimePicker = new System.Windows.Forms.DateTimePicker();
@@ -48,7 +49,6 @@ namespace ChapooUI
             this.UitloggenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.TerugtoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.LBL_error = new System.Windows.Forms.Label();
             this.GBX_ViewReservations.SuspendLayout();
             this.GBX_verandeStatus.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -120,6 +120,16 @@ namespace ChapooUI
             this.GBX_verandeStatus.TabStop = false;
             this.GBX_verandeStatus.Text = "Reservering toevoegen";
             // 
+            // LBL_error
+            // 
+            this.LBL_error.AutoSize = true;
+            this.LBL_error.BackColor = System.Drawing.Color.Chocolate;
+            this.LBL_error.ForeColor = System.Drawing.Color.Red;
+            this.LBL_error.Location = new System.Drawing.Point(225, 258);
+            this.LBL_error.Name = "LBL_error";
+            this.LBL_error.Size = new System.Drawing.Size(0, 23);
+            this.LBL_error.TabIndex = 21;
+            // 
             // BTN_newcustomer
             // 
             this.BTN_newcustomer.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
@@ -134,7 +144,6 @@ namespace ChapooUI
             // 
             // CB_Klanten
             // 
-            this.CB_Klanten.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CB_Klanten.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CB_Klanten.FormattingEnabled = true;
             this.CB_Klanten.Location = new System.Drawing.Point(169, 52);
@@ -208,9 +217,9 @@ namespace ChapooUI
             this.label1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(6, 51);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(142, 23);
+            this.label1.Size = new System.Drawing.Size(58, 23);
             this.label1.TabIndex = 34;
-            this.label1.Text = "Klantennummer: ";
+            this.label1.Text = "Klant: ";
             // 
             // BTN_ManageReservations
             // 
@@ -265,14 +274,6 @@ namespace ChapooUI
             this.TerugtoolStripMenuItem.Size = new System.Drawing.Size(61, 23);
             this.TerugtoolStripMenuItem.Text = "Terug";
             this.TerugtoolStripMenuItem.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
-            // 
-            // LBL_error
-            // 
-            this.LBL_error.AutoSize = true;
-            this.LBL_error.Location = new System.Drawing.Point(225, 258);
-            this.LBL_error.Name = "LBL_error";
-            this.LBL_error.Size = new System.Drawing.Size(0, 23);
-            this.LBL_error.TabIndex = 21;
             // 
             // TableReservations
             // 
