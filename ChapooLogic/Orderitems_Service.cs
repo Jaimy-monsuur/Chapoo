@@ -14,16 +14,37 @@ namespace ChapooLogic
     {
         Orderitems_DAO orderitem_db = new Orderitems_DAO();
 
+        public List<Orderitems> Db_Get_All_Orderitems_for_Order(int ordernummer)
+        {
+            return orderitem_db.Db_Get_All_Orderitems_for_Order(ordernummer);
+        }
 
-       /* public void AddDrinkOrderitem(Orderitems orderitem)
+        public List<Orderitems> Db_Get_All_Orderitems()
+        {
+            return orderitem_db.Db_Get_All_Orderitems();
+        }
+
+        public void AddDrinkOrderitem(Orderitems orderitem)
         {
             // Stuurt de aangevraagde dranken order naar de DAL laag
-            orderitem_db.AddDrinkOrderitem(orderitem);
-        }*/
+            //orderitem_db.AddDrinkOrderitem(orderitem);
+        }
 
         public void DeleteOrderitem(int ordernummer, int itemnummer)
         {
             orderitem_db.DeleteOrderitem(ordernummer, itemnummer);
+        }
+
+        public void MeldGereed(int orderNummer)
+        {
+            // Stuurt het itemnummer wat gereed gemeld moet worden naar de DAL laag
+            orderitem_db.MeldGereed(orderNummer);
+        }
+
+        public void MeldOngereed(int orderNummer)
+        {
+            // Stuurt het itemnummer wat ongereed gemeld moet worden naar de DAL laag
+            orderitem_db.MeldOngereed(orderNummer);
         }
     }
 }

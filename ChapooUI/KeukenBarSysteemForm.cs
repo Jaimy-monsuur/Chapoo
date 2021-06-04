@@ -40,19 +40,19 @@ namespace ChapooUI
         public void showListView(string listName) // Kan makkelijker met current user
         {
             List<Order> orderList = orderService.GetOrders();
-            //List<Orderitems> orderitems = orderitemService.GetOrderitems();
+            List<Orderitems> orderitems = orderitemService.Db_Get_All_Orderitems();
 
-           /* foreach (Order order in orderList)
+            foreach (Order order in orderList)
             {
                 foreach (Orderitems orderitem in orderitems)
                 {
                     if (orderitem.orderNummer == order.orderNummer)
                     {
                         // Sorteert de orderitems per order
-                        order.orderItems.Add(orderitem);
+                        orderitems.Add(orderitem);
                     }
                 }
-            }*/
+            }
 
             List<Menuitems> menuitems = menuitemService.GetMenuitems();
 
@@ -83,49 +83,35 @@ namespace ChapooUI
                 listViewKeukenBarOpmerkingen.Columns.Add("Ordernr:", 50);
                 listViewKeukenBarOpmerkingen.Columns.Add("Opmerkingen:", 250);
 
+                string[] item = new string[5];
+                string[] itemopmerkingen = new string[2];
                 foreach (Order order in orderList)
                 {
-                    string[] item = new string[5];
-                    foreach (Orderitems orderitem in order.orderItemList)
+                    foreach (Orderitems orderitem in orderitems)
                     {
-                        item[0] = orderitem.orderNummer.ToString();
-                        item[1] = orderitem.itemnummer.ToString();
-                        item[2] = orderitem.itemNaam;
-                        item[3] = orderitem.TotalPrice.ToString();
-                        item[4] = orderitem.aantal.ToString();
-                        ListViewItem li = new ListViewItem(item);
-                        listViewKeukenBarOpenstaand.Items.Add(li);
+                        foreach (Menuitems menuitem in menuitems)
+                        {
+                            if (orderitem.itemnummer == menuitem.itemNummer && (menuitem.type == "Avond" || menuitem.type == "Middag"))
+                            {
+                                // Zet de items, in dit geval de naam en prijs van de openstaande gerechten in de listview
+                                item[0] = order.orderNummer.ToString();
+                                item[1] = order.tafelNummer.ToString();
+                                item[2] = menuitem.naam;
+                                item[3] = menuitem.prijs.ToString();
+                                item[4] = orderitem.aantal.ToString();
+                                ListViewItem li = new ListViewItem(item);
+                                listViewKeukenBarOpenstaand.Items.Add(li);
+
+                                // Zet de opermkingen in de opmerkingen listview
+                                itemopmerkingen[0] = order.orderNummer.ToString();
+                                itemopmerkingen[1] = order.opmerking;
+                                ListViewItem li2 = new ListViewItem(itemopmerkingen);
+                                listViewKeukenBarOpmerkingen.Items.Add(li2);
+                            }
+                        }
                     }
                 }
-                        /*string[] item = new string[5];
-                        string[] itemopmerkingen = new string[2];
-                        foreach (Order order in orderList)
-                        {
-                            foreach (Orderitems orderitem in order.orderItems)
-                            {
-                                foreach (Menuitems menuitem in menuitems)
-                                {
-                                    if (orderitem.itemnummer == menuitem.itemNummer && (menuitem.type == "Avond" || menuitem.type == "Middag"))
-                                    {
-                                        // Zet de items, in dit geval de naam en prijs van de openstaande gerechten in de listview
-                                        item[0] = order.orderNummer.ToString();
-                                        item[1] = order.tafelNummer.ToString();
-                                        item[2] = menuitem.naam;
-                                        item[3] = menuitem.prijs.ToString();
-                                        item[4] = orderitem.aantal.ToString();
-                                        ListViewItem li = new ListViewItem(item);
-                                        listViewKeukenBarOpenstaand.Items.Add(li);
-
-                                        // Zet de opermkingen in de opmerkingen listview
-                                        itemopmerkingen[0] = order.orderNummer.ToString();
-                                        itemopmerkingen[1] = order.opmerking;
-                                        ListViewItem li2 = new ListViewItem(itemopmerkingen);
-                                        listViewKeukenBarOpmerkingen.Items.Add(li2);
-                                    }
-                                }
-                            }    
-                        }*/
-                    }
+            }
             else if (listName == "bar")
             {              
 
@@ -150,11 +136,11 @@ namespace ChapooUI
                 listViewKeukenBarOpmerkingen.Columns.Add("Ordernr:", 50);
                 listViewKeukenBarOpmerkingen.Columns.Add("Opmerkingen:", 250);
 
-                /*string[] item = new string[5];
+                string[] item = new string[5];
                 string[] itemopmerkingen = new string[2];
                 foreach (Order order in orderList)
                 {
-                    foreach (Orderitems orderitem in order.orderItems)
+                    foreach (Orderitems orderitem in orderitems)
                     {
                         foreach (Menuitems menuitem in menuitems)
                         {
@@ -177,7 +163,7 @@ namespace ChapooUI
                             }
                         }
                     }
-                }*/
+                }
             }
         }
 
@@ -186,7 +172,7 @@ namespace ChapooUI
             if (listViewKeukenBarOpenstaand.SelectedItems.Count != 0)
             {
                 int orderNummer = int.Parse(listViewKeukenBarOpenstaand.SelectedItems[0].Text);
-                orderService.MeldGereed(orderNummer);
+                orderitemService.MeldGereed(orderNummer);
             }
         }
 
@@ -199,7 +185,7 @@ namespace ChapooUI
                 confirm.ShowDialog();
                 if (confirm.confirmOngereed() == true)
                 {
-                    orderService.MeldOngereed(orderNummer);
+                    orderitemService.MeldOngereed(orderNummer);
                 }          
             }
         }

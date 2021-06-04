@@ -18,19 +18,7 @@ namespace ChapooLogic
             // Vraagt de order lijst aan de DAL laag
             List<Order> orders = order_db.GetOrders();
             return orders;
-        }
-
-        public void MeldGereed(int orderNummer)
-        {
-            // Stuurt het itemnummer wat gereed gemeld moet worden naar de DAL laag
-            order_db.MeldGereed(orderNummer);
-        }
-
-        public void MeldOngereed(int orderNummer)
-        {
-            // Stuurt het itemnummer wat ongereed gemeld moet worden naar de DAL laag
-            order_db.MeldOngereed(orderNummer);
-        }       
+        }        
 
         /*public int NewOrder(Order order)
         {          
