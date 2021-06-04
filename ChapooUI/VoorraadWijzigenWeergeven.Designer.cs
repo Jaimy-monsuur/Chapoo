@@ -45,10 +45,10 @@
             // listViewVoorraad
             // 
             this.listViewVoorraad.HideSelection = false;
-            this.listViewVoorraad.Location = new System.Drawing.Point(86, 76);
-            this.listViewVoorraad.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listViewVoorraad.Location = new System.Drawing.Point(115, 94);
+            this.listViewVoorraad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listViewVoorraad.Name = "listViewVoorraad";
-            this.listViewVoorraad.Size = new System.Drawing.Size(768, 327);
+            this.listViewVoorraad.Size = new System.Drawing.Size(1023, 402);
             this.listViewVoorraad.TabIndex = 0;
             this.listViewVoorraad.UseCompatibleStateImageBehavior = false;
             // 
@@ -59,10 +59,10 @@
             this.menuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.TerugtoolStripMenuItem});
-            this.menuStrip2.Location = new System.Drawing.Point(-4, 0);
+            this.menuStrip2.Location = new System.Drawing.Point(-5, 0);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip2.Size = new System.Drawing.Size(54, 24);
+            this.menuStrip2.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.menuStrip2.Size = new System.Drawing.Size(68, 27);
             this.menuStrip2.TabIndex = 34;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -70,7 +70,7 @@
             // 
             this.TerugtoolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
             this.TerugtoolStripMenuItem.Name = "TerugtoolStripMenuItem";
-            this.TerugtoolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.TerugtoolStripMenuItem.Size = new System.Drawing.Size(61, 23);
             this.TerugtoolStripMenuItem.Text = "Terug";
             this.TerugtoolStripMenuItem.Click += new System.EventHandler(this.TerugtoolStripMenuItem_Click);
             // 
@@ -82,10 +82,10 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.UitloggenToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(886, 0);
+            this.menuStrip1.Location = new System.Drawing.Point(1188, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(77, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(96, 27);
             this.menuStrip1.TabIndex = 33;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -93,7 +93,7 @@
             // 
             this.UitloggenToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
             this.UitloggenToolStripMenuItem.Name = "UitloggenToolStripMenuItem";
-            this.UitloggenToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.UitloggenToolStripMenuItem.Size = new System.Drawing.Size(89, 23);
             this.UitloggenToolStripMenuItem.Text = "Uitloggen";
             this.UitloggenToolStripMenuItem.Click += new System.EventHandler(this.UitloggenToolStripMenuItem_Click);
             // 
@@ -101,10 +101,9 @@
             // 
             this.voorraadTxtLbl.AutoSize = true;
             this.voorraadTxtLbl.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.voorraadTxtLbl.Location = new System.Drawing.Point(81, 47);
-            this.voorraadTxtLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.voorraadTxtLbl.Location = new System.Drawing.Point(108, 58);
             this.voorraadTxtLbl.Name = "voorraadTxtLbl";
-            this.voorraadTxtLbl.Size = new System.Drawing.Size(90, 25);
+            this.voorraadTxtLbl.Size = new System.Drawing.Size(110, 32);
             this.voorraadTxtLbl.TabIndex = 35;
             this.voorraadTxtLbl.Text = "Voorraad";
             // 
@@ -112,9 +111,10 @@
             // 
             this.wijzigVoorraadBtn.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.wijzigVoorraadBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.wijzigVoorraadBtn.Location = new System.Drawing.Point(86, 427);
+            this.wijzigVoorraadBtn.Location = new System.Drawing.Point(115, 526);
+            this.wijzigVoorraadBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.wijzigVoorraadBtn.Name = "wijzigVoorraadBtn";
-            this.wijzigVoorraadBtn.Size = new System.Drawing.Size(141, 50);
+            this.wijzigVoorraadBtn.Size = new System.Drawing.Size(188, 62);
             this.wijzigVoorraadBtn.TabIndex = 36;
             this.wijzigVoorraadBtn.Text = "Wijzig voorraad";
             this.wijzigVoorraadBtn.UseVisualStyleBackColor = false;
@@ -122,17 +122,20 @@
             // 
             // nieuwAantalBox
             // 
-            this.nieuwAantalBox.Location = new System.Drawing.Point(683, 427);
+            this.nieuwAantalBox.Location = new System.Drawing.Point(911, 526);
+            this.nieuwAantalBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.nieuwAantalBox.Name = "nieuwAantalBox";
-            this.nieuwAantalBox.Size = new System.Drawing.Size(171, 20);
+            this.nieuwAantalBox.Size = new System.Drawing.Size(227, 22);
             this.nieuwAantalBox.TabIndex = 37;
+            this.nieuwAantalBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nieuwAantalBox_KeyPress);
             // 
             // nieuwAantalTxtLbl
             // 
             this.nieuwAantalTxtLbl.AutoSize = true;
-            this.nieuwAantalTxtLbl.Location = new System.Drawing.Point(680, 411);
+            this.nieuwAantalTxtLbl.Location = new System.Drawing.Point(907, 506);
+            this.nieuwAantalTxtLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.nieuwAantalTxtLbl.Name = "nieuwAantalTxtLbl";
-            this.nieuwAantalTxtLbl.Size = new System.Drawing.Size(72, 13);
+            this.nieuwAantalTxtLbl.Size = new System.Drawing.Size(93, 17);
             this.nieuwAantalTxtLbl.TabIndex = 38;
             this.nieuwAantalTxtLbl.Text = "Nieuw aantal:";
             // 
@@ -140,16 +143,17 @@
             // 
             this.errorAantalLbl.AutoSize = true;
             this.errorAantalLbl.ForeColor = System.Drawing.Color.Red;
-            this.errorAantalLbl.Location = new System.Drawing.Point(680, 464);
+            this.errorAantalLbl.Location = new System.Drawing.Point(907, 571);
+            this.errorAantalLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.errorAantalLbl.Name = "errorAantalLbl";
-            this.errorAantalLbl.Size = new System.Drawing.Size(0, 13);
+            this.errorAantalLbl.Size = new System.Drawing.Size(0, 17);
             this.errorAantalLbl.TabIndex = 39;
             // 
             // VoorraadWijzigenWeergeven
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(962, 505);
+            this.ClientSize = new System.Drawing.Size(1283, 622);
             this.Controls.Add(this.errorAantalLbl);
             this.Controls.Add(this.nieuwAantalTxtLbl);
             this.Controls.Add(this.nieuwAantalBox);
@@ -159,7 +163,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.listViewVoorraad);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "VoorraadWijzigenWeergeven";
             this.Text = "VoorraadWijzigenWeergeven";
             this.menuStrip2.ResumeLayout(false);
