@@ -11,10 +11,11 @@ namespace ChapooModel
         public int orderNummer;
         public int aantal;
         public Menuitems menuItem;
+        public bool gereed;
+
         public decimal TotalPrice 
         {
             get { return menuItem.prijs * aantal; }
-                
         }
     }
 }
