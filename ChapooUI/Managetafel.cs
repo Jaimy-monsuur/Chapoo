@@ -123,8 +123,8 @@ namespace ChapooUI
                 foreach (Orderitems orderitem in order.orderItemList)
                 {
                     item[0] = orderitem.orderNummer.ToString();
-                    item[1] = orderitem.itemnummer.ToString();
-                    item[2] = orderitem.itemNaam;
+                    item[1] = orderitem.menuItem.itemNummer.ToString();
+                    item[2] = orderitem.menuItem.naam;
                     item[3] = orderitem.TotalPrice.ToString();
                     item[4] = orderitem.aantal.ToString();
                     ListViewItem li = new ListViewItem(item);

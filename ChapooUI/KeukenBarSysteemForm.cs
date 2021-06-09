@@ -58,9 +58,6 @@ namespace ChapooUI
 
             if (listName == "keuken")
             {                                              
-                // Hide bar order knop
-                maakOrderBarBtn.Hide();
-
                 // Maak grid
                 listViewKeukenBarOpenstaand.Clear();
                 listViewKeukenBarOpenstaand.View = View.Details;
@@ -91,11 +88,11 @@ namespace ChapooUI
                     {
                         foreach (Menuitems menuitem in menuitems)
                         {
-                            if (orderitem.itemnummer == menuitem.itemNummer && (menuitem.type == "Avond" || menuitem.type == "Middag"))
+                            if (orderitem.menuItem.itemNummer == menuitem.itemNummer && (menuitem.type == "Avond" || menuitem.type == "Middag"))
                             {
                                 // Zet de items, in dit geval de naam en prijs van de openstaande gerechten in de listview
                                 item[0] = order.orderNummer.ToString();
-                                item[1] = order.tafelNummer.ToString();
+                                item[1] = order.tafel.tafelnummer.ToString();
                                 item[2] = menuitem.naam;
                                 item[3] = menuitem.prijs.ToString();
                                 item[4] = orderitem.aantal.ToString();
@@ -144,11 +141,11 @@ namespace ChapooUI
                     {
                         foreach (Menuitems menuitem in menuitems)
                         {
-                            if (orderitem.itemnummer == menuitem.itemNummer && (menuitem.type == "Drank"))
+                            if (orderitem.menuItem.itemNummer == menuitem.itemNummer && (menuitem.type == "Drank"))
                             {
                                 // Zet de items, in dit geval de naam en prijs van de openstaande gerechten in de listview
                                 item[0] = order.orderNummer.ToString();
-                                item[1] = order.tafelNummer.ToString();
+                                item[1] = order.tafel.tafelnummer.ToString();
                                 item[2] = menuitem.naam;
                                 item[3] = menuitem.prijs.ToString();
                                 item[4] = orderitem.aantal.ToString();
