@@ -38,7 +38,7 @@ namespace ChapooUI
 
         private void showListView()
         {
-            List<Voorraad> voorraadItems = voorraadService.GetVoorraad();
+            List<Voorraad_item> voorraadItems = voorraadService.GetVoorraad();
 
             // Maak grid
             listViewVoorraad.Clear();
@@ -51,11 +51,11 @@ namespace ChapooUI
             listViewVoorraad.Columns.Add("Aantal:", 50);
 
             string[] item = new string[3];
-            foreach (Voorraad voorraad in voorraadItems)
+            foreach (Voorraad_item voorraad in voorraadItems)
             {
                 // Zet de items, in dit geval de naam en prijs van de openstaande gerechten in de listview
-                item[0] = voorraad.itemNummer.ToString();
-                item[1] = voorraad.itemNaam;
+                item[0] = voorraad.menuitem.itemNummer.ToString();
+                item[1] = voorraad.menuitem.naam;
                 item[2] = voorraad.voorraadAantal.ToString();
                 ListViewItem li = new ListViewItem(item);
                 listViewVoorraad.Items.Add(li);
