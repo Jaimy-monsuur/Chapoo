@@ -12,18 +12,29 @@ namespace ChapooDAL
 {
     public class Tafel_Reservering_DAO : Base
     {
+        public Tafel_DAO Tafel_DAO = new Tafel_DAO();
         public List<Tafel_Reservering> Get_All_Table_reservationsfortoday()
         {
             string query = $"SELECT [reserveringsnummer],voornaam,achternaam,tafelnummer,datum,[vanaf(tijd)],[tot(tijd)] FROM TafelReservering JOIN Klant ON Klant.klantnummer = TafelReservering.klantnummer WHERE datum = CAST (GETDATE() AS DATE)"; 
             SqlParameter[] sqlParameters = new SqlParameter[0];
-            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+            List<Tafel_Reservering> reserveringen = ReadTables(ExecuteSelectQuery(query, sqlParameters));
+            foreach (Tafel_Reservering reservering in reserveringen)
+            {
+                reservering.tafel = Tafel_DAO.GetTafels_by_tablenumber(reservering.tafelnummer);
+            }
+            return reserveringen;
         }
 
         public List<Tafel_Reservering> Get_Current_Futere_Reservations_ForTable(int tafelnummer)
         {
             string query = $"SELECT [reserveringsnummer],voornaam,achternaam,tafelnummer,datum,[vanaf(tijd)],[tot(tijd)] FROM TafelReservering JOIN Klant ON Klant.klantnummer = TafelReservering.klantnummer WHERE datum >= CAST (GETDATE() AS DATE) AND TafelReservering.tafelnummer = '{tafelnummer}'";
             SqlParameter[] sqlParameters = new SqlParameter[0];
-            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+            List<Tafel_Reservering> reserveringen = ReadTables(ExecuteSelectQuery(query, sqlParameters));
+            foreach (Tafel_Reservering reservering in reserveringen)
+            {
+                reservering.tafel = Tafel_DAO.GetTafels_by_tablenumber(reservering.tafelnummer);
+            }
+            return reserveringen;
         }
         public void Deletereservation(int reserveringsnummer)
         {
