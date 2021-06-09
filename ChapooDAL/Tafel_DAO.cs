@@ -24,6 +24,14 @@ namespace ChapooDAL
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTable(ExecuteSelectQuery(query, sqlParameters));
         }
+
+        public List<Tafel> GetTafel_for_Order(int tafelNummer)
+        {
+            string query = $"SELECT tafelnummer, zitplekken, bezeting FROM [Tafels] WHERE tafelnummer = {tafelNummer}";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+        }
+
         private List<Tafel> ReadTables(DataTable dataTable)
         {
             List<Tafel> Tafels = new List<Tafel>();

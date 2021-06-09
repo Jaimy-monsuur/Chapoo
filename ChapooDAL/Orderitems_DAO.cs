@@ -11,10 +11,12 @@ namespace ChapooDAL
 {
     public class Orderitems_DAO : Base
     {
+        Menuitems_DAO menuitems_db = new Menuitems_DAO();
+
         public List<Orderitems> Db_Get_All_Orderitems_for_Order(int ordernummer)
         {
             // Hier staat de query die naar de database gaat voor het ophalen van de juiste gegevens
-            string query = $"SELECT Orderitems.[ordernummer],Orderitems.[itemnummer],Menuitems.naam,Menuitems.prijs,Menuitems.[type],Orderitems.aantal FROM Orderitems JOIN Menuitems ON Orderitems.itemnummer = Menuitems.itemnummer WHERE Orderitems.[ordernummer] = '{ordernummer}'";
+            string query = $"SELECT ordernummer, itemnummer, aantal, gereed FROM Orderitems WHERE Orderitems.[ordernummer] = '{ordernummer}'";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -22,7 +24,7 @@ namespace ChapooDAL
         public List<Orderitems> Db_Get_All_Orderitems()
         {
             // Hier staat de query die naar de database gaat voor het ophalen van de juiste gegevens
-            string query = $"SELECT Orderitems.[ordernummer],Orderitems.[itemnummer],Menuitems.naam,Menuitems.prijs,Menuitems.[type],Orderitems.aantal FROM Orderitems JOIN Menuitems ON Orderitems.itemnummer = Menuitems.itemnummer ORDER BY besteltijd DESC";
+            string query = $"SELECT ordernummer, itemnummer, aantal, gereed, Orders.besteltijd FROM Orderitems JOIN Orders ON Orders.ordernummer = Orderitems.ordernummer ORDER BY besteltijd DESC";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -33,12 +35,17 @@ namespace ChapooDAL
 
             foreach (DataRow dr in dataTable.Rows)
             {
+                int itemNummer = (int)dr["itemnummer"];
+                List<Menuitems> menuitems = menuitems_db.Db_Get_All_Menuitems_for_Orderitem(itemNummer);
+                Menuitems menuitem = menuitems[0];
+
                 Orderitems orderitem = new Orderitems()
                 {
                     // Alle members van class order worden uit de database opgehaald uit de rijen
                     orderNummer = (int)dr["ordernummer"],
                     aantal = (int)dr["aantal"],
-                    gereed = (bool)dr["gereed"]
+                    gereed = (bool)dr["gereed"],
+                    menuItem = menuitem
                 };
                 orderitems.Add(orderitem);
             }
