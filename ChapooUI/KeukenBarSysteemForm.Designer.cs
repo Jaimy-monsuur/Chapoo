@@ -38,7 +38,6 @@ namespace ChapooUI
             this.TerugtoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.UitloggenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.annulerenKeukenBarBtn = new System.Windows.Forms.Button();
             this.menuStrip2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -64,7 +63,7 @@ namespace ChapooUI
             // gereedKeukenBarBtn
             // 
             this.gereedKeukenBarBtn.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.gereedKeukenBarBtn.Location = new System.Drawing.Point(590, 381);
+            this.gereedKeukenBarBtn.Location = new System.Drawing.Point(673, 382);
             this.gereedKeukenBarBtn.Name = "gereedKeukenBarBtn";
             this.gereedKeukenBarBtn.Size = new System.Drawing.Size(141, 50);
             this.gereedKeukenBarBtn.TabIndex = 3;
@@ -138,17 +137,6 @@ namespace ChapooUI
             this.UitloggenToolStripMenuItem.Text = "Uitloggen";
             this.UitloggenToolStripMenuItem.Click += new System.EventHandler(this.UitloggenToolStripMenuItem_Click);
             // 
-            // annulerenKeukenBarBtn
-            // 
-            this.annulerenKeukenBarBtn.BackColor = System.Drawing.Color.LightCoral;
-            this.annulerenKeukenBarBtn.Location = new System.Drawing.Point(764, 381);
-            this.annulerenKeukenBarBtn.Name = "annulerenKeukenBarBtn";
-            this.annulerenKeukenBarBtn.Size = new System.Drawing.Size(141, 50);
-            this.annulerenKeukenBarBtn.TabIndex = 4;
-            this.annulerenKeukenBarBtn.Text = "Gereed melden annuleren";
-            this.annulerenKeukenBarBtn.UseVisualStyleBackColor = false;
-            this.annulerenKeukenBarBtn.Click += new System.EventHandler(this.annulerenKeukenBarBtn_Click);
-            // 
             // KeukenBarSysteemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -158,7 +146,6 @@ namespace ChapooUI
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.maakOrderBarBtn);
             this.Controls.Add(this.openstaandeBestellingenTxtLbl);
-            this.Controls.Add(this.annulerenKeukenBarBtn);
             this.Controls.Add(this.gereedKeukenBarBtn);
             this.Controls.Add(this.listViewKeukenBarOpmerkingen);
             this.Controls.Add(this.listViewKeukenBarOpenstaand);
@@ -184,6 +171,5 @@ namespace ChapooUI
         private System.Windows.Forms.ToolStripMenuItem TerugtoolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem UitloggenToolStripMenuItem;
-        private System.Windows.Forms.Button annulerenKeukenBarBtn;
     }
 }

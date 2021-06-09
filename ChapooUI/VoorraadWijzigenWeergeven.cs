@@ -79,20 +79,37 @@ namespace ChapooUI
             errorAantalLbl.Text = "";
 
             // Haalt de itemnummer en nieuwe aantal uit de form en stuurt ze naar de Voorraad_Service
-            if (listViewVoorraad.SelectedItems.Count != 0 && nieuwAantalBox.Text != "")
+            if (listViewVoorraad.SelectedItems.Count != 0 && nieuwAantalBox.Text != "" && int.Parse(nieuwAantalBox.Text) < 5000)
             {
                 int itemNummer = int.Parse(listViewVoorraad.SelectedItems[0].Text);
                 int nieuwAantal = int.Parse(nieuwAantalBox.Text);
                 voorraadService.ChangeVoorraad(itemNummer, nieuwAantal);
             }
-            else
+            else if (nieuwAantalBox.Text == "")
             {
                 errorAantalLbl.Text = "Voer een nieuw aantal in!";
+            }
+            else if (listViewVoorraad.SelectedItems.Count == 0)
+            {
+                errorAantalLbl.Text = "Selecteer een voorraad item!";
+            }
+            else if (int.Parse(nieuwAantalBox.Text) > 5000)
+            {
+                errorAantalLbl.Text = "Voer een kleiner nieuw aantal in! (Onder 5000)";
             }
 
             // Refresh de pagina
             nieuwAantalBox.Clear();
             showListView();            
+        }
+
+        private void nieuwAantalBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verify that the pressed key isn't CTRL or any non-numeric digit
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
         }
     }
 }
