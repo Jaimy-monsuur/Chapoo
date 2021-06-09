@@ -21,7 +21,7 @@ namespace ChapooUI
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         private static extern Int32 SendMessage(IntPtr hWnd, int msg, int wParam, [MarshalAs(UnmanagedType.LPWStr)] string lParam);
 
-        public Bestellingen(int Ordernummer)
+        public Bestellingen(int Ordernummer, int tafelnummer)
         {
             InitializeComponent();
 
