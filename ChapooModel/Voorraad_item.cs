@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace ChapooModel
 {
-    public class Voorraad
+    public class Voorraad_item
     {
-        public int itemNummer;
-        public string itemNaam;
-        public decimal itemPrijs;
+        public Menuitems menuitem;
         public int voorraadAantal;
-        public string itemType;
     }
 }

@@ -12,10 +12,10 @@ namespace ChapooLogic
     {
         Voorraad_DAO voorraad_db = new Voorraad_DAO();
 
-        public List<Voorraad> GetVoorraad()
+        public List<Voorraad_item> GetVoorraad()
         {
             // Vraagt aan de DAL laag om de voorraad uit de database te halen
-            List<Voorraad> voorraadItems = voorraad_db.Db_Get_Voorraad();
+            List<Voorraad_item> voorraadItems = voorraad_db.Db_Get_Voorraad();
             return voorraadItems;
         }
 
