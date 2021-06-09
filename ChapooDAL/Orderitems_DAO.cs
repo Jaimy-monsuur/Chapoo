@@ -37,10 +37,8 @@ namespace ChapooDAL
                 {
                     // Alle members van class order worden uit de database opgehaald uit de rijen
                     orderNummer = (int)dr["ordernummer"],
-                    itemnummer = (int)dr["itemnummer"],
-                    itemNaam = (String)dr["naam"].ToString(),
                     aantal = (int)dr["aantal"],
-                    itemPrijs = (Decimal)dr["prijs"],
+                    gereed = (bool)dr["gereed"]
                 };
                 orderitems.Add(orderitem);
             }
