@@ -18,10 +18,6 @@ namespace ChapooDAL
             string query = $"SELECT [reserveringsnummer],voornaam,achternaam,tafelnummer,datum,[vanaf(tijd)],[tot(tijd)] FROM TafelReservering JOIN Klant ON Klant.klantnummer = TafelReservering.klantnummer WHERE datum = CAST (GETDATE() AS DATE)"; 
             SqlParameter[] sqlParameters = new SqlParameter[0];
             List<Tafel_Reservering> reserveringen = ReadTables(ExecuteSelectQuery(query, sqlParameters));
-            foreach (Tafel_Reservering reservering in reserveringen)
-            {
-                reservering.tafel = Tafel_DAO.GetTafels_by_tablenumber(reservering.tafelnummer);
-            }
             return reserveringen;
         }
 
@@ -30,10 +26,6 @@ namespace ChapooDAL
             string query = $"SELECT [reserveringsnummer],voornaam,achternaam,tafelnummer,datum,[vanaf(tijd)],[tot(tijd)] FROM TafelReservering JOIN Klant ON Klant.klantnummer = TafelReservering.klantnummer WHERE datum >= CAST (GETDATE() AS DATE) AND TafelReservering.tafelnummer = '{tafelnummer}'";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             List<Tafel_Reservering> reserveringen = ReadTables(ExecuteSelectQuery(query, sqlParameters));
-            foreach (Tafel_Reservering reservering in reserveringen)
-            {
-                reservering.tafel = Tafel_DAO.GetTafels_by_tablenumber(reservering.tafelnummer);
-            }
             return reserveringen;
         }
         public void Deletereservation(int reserveringsnummer)
@@ -61,10 +53,12 @@ namespace ChapooDAL
             List<Tafel_Reservering> reservations = new List<Tafel_Reservering>();
             foreach (DataRow dr in dataTable.Rows)
             {
+                int tafelnummer = (int)dr["tafelnummer"];
+
                 Tafel_Reservering t = new Tafel_Reservering();
                 t.reserveringsnummer = (int)(dr["reserveringsnummer"]);
                 t.naam = (string)(dr["voornaam"]) + (string)(dr["achternaam"]);
-                t.tafelnummer = (int)(dr["tafelnummer"]);
+                t.tafel = Tafel_DAO.GetTafels_by_tablenumber(tafelnummer);
                 t.Datum = (DateTime)(dr["datum"]);
                 DateTime temp1 = (DateTime)(dr["vanaf(tijd)"]);
                 DateTime temp2 = (DateTime)(dr["tot(tijd)"]);

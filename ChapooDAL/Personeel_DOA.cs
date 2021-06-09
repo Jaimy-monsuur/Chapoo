@@ -45,13 +45,14 @@ namespace ChapooDAL
             foreach (DataRow dr in dataTable.Rows)
             {
                 Personeels_Lid p = new Personeels_Lid();
+                p.account = new Account();//het account van personeels lid
                 p.Nummer = (int)(dr["personeelnummer"]);
                 p.Voornaam = (String)(dr["voornaam"].ToString());
                 p.Achternaam = (String)(dr["achternaam"].ToString());
                 p.functie = (String)(dr["functie"].ToString());
-                p.UserName = (String)(dr["username"].ToString());
-                p.Password = (String)(dr["password"].ToString());
-                p.Type = (String)(dr["type"].ToString());
+                p.account.UserName = (String)(dr["username"].ToString());
+                p.account.Password = (String)(dr["password"].ToString());
+                p.account.Type = (String)(dr["type"].ToString());
 
                 personeels_Lid.Add(p);
             }

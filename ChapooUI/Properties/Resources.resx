@@ -121,11 +121,20 @@
   <data name="tafel1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tafel1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="groupPeople" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\groupPeople.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="keuken foto1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keuken foto1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="imageonline-co-split-image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\imageonline-co-split-image.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Capture" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Capture.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tafel2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tafel1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="keuken foto" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keuken foto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -136,13 +145,16 @@
   <data name="keuken" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keuken.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="bar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="tafel" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tafel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="tafel2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\tafel1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="box_5124" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\box_5124.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="bar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="list" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\list.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

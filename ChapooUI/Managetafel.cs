@@ -122,7 +122,7 @@ namespace ChapooUI
             List<Order> orders = Order_Service.GetOrders();// verander naar voor tafel
             if (orders != null)
             {
-                Ordernummer = orders[0].orderNummer;
+                this.Ordernummer = orders[0].orderNummer;
                 foreach (Order order in orders)
                 {
                     string[] item = new string[5];
