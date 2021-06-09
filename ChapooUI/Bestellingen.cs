@@ -21,16 +21,12 @@ namespace ChapooUI
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         private static extern Int32 SendMessage(IntPtr hWnd, int msg, int wParam, [MarshalAs(UnmanagedType.LPWStr)] string lParam);
 
-        public Bestellingen()
+        public Bestellingen(int Ordernummer)
         {
             InitializeComponent();
 
-            //DateTime start = new DateTime(2009, 12, 9, 18, 0, 0); //12 uur 's middags
-            //DateTime end = new DateTime(2009, 12, 10, 23, 59, 0); //12 uur 's avonds
-            //DateTime now = DateTime.Now;
-
-           // if ((now < start) && (now < end))
-           // {
+            if (rBLunch.Checked)
+            {
                 //Vul de listview met middag menu.
 
                ChapooLogic.Menuitems_Service menuServMid = new ChapooLogic.Menuitems_Service();
@@ -40,9 +36,9 @@ namespace ChapooUI
                 {
                     LvEtenMenu.Items.Add(new ListViewItem(new string[] { $"{menuitems.naam}", $"{menuitems.prijs}", $"{menuitems.type}" }));
                 } 
-           // }
-           // else
-          //  {
+            }
+            else if (rBAvond.Checked)
+            {
                 //Vul de listview met middag menu.
 
                 ChapooLogic.Menuitems_Service menuServAvo = new ChapooLogic.Menuitems_Service();
@@ -52,19 +48,39 @@ namespace ChapooUI
                 {
                     LvEtenMenu.Items.Add(new ListViewItem(new string[] { $"{menuitems.naam}", $"{menuitems.prijs}", $"{menuitems.type}" }));
                 }
-           // }
-
-            
-
-            //Vul de listview met dranken.
-
-            ChapooLogic.Menuitems_Service menuItems = new ChapooLogic.Menuitems_Service();
-            List<Menuitems> drankitems = menuItems.GetMenuDrankItems();
-            LvDrankenMenu.View = View.Details;
-            foreach (ChapooModel.Menuitems drankItems in drankitems)
-            {
-                LvDrankenMenu.Items.Add(new ListViewItem(new string[] { $"{drankItems.naam}", $"{drankItems.prijs}", $"{drankItems.type}" }));
             }
+            else
+            {
+                //Vul de listview met drank menu.
+
+                ChapooLogic.Menuitems_Service menuServDra= new ChapooLogic.Menuitems_Service();
+                List<Menuitems> MenuDrank = menuServDra.GetMenuDrankItems();
+                LvEtenMenu.View = View.Details;
+                foreach (ChapooModel.Menuitems menuitems in MenuDrank)
+                {
+                    LvEtenMenu.Items.Add(new ListViewItem(new string[] { $"{menuitems.naam}", $"{menuitems.prijs}", $"{menuitems.type}" }));
+                }
+            }
+
+            if (Ordernummer > 0)
+            {
+                //Vul de listview met een order die al aanwezig is.
+
+                ChapooLogic.Order_Service OrderNummer = new ChapooLogic.Order_Service();
+                List<Order> ordernummer = OrderNummer.GetOrders();
+
+                LvOrderDetails.View = View.Details;
+                foreach (ChapooModel.Order OrdNumr in ordernummer)
+                {
+                    
+                    LvEtenMenu.Items.Add(new ListViewItem(new string[] { $"{OrdNumr}", $"{OrdNumr.opmerking}" }));
+                }
+            }
+            else
+            {
+                // Maakt hij gewoon een nieuwe aan.
+            }
+
             
             //Zorgt voor een placeholder "Opmerking:" in de textbox opmerking.
 
@@ -82,90 +98,131 @@ namespace ChapooUI
            LBL_klokOr.Text = DateTime.Now.ToString(("HH:mm:ss"));
         }
 
-       
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void btnAddItem_Click(object sender, EventArgs e)
         {
+            //Checked of er een item is geselecteerd zoniet dan geeft hij een waarschuwing
+                if (LvEtenMenu.SelectedItems.Count > 0)
+                {
+                    //De opmerkingen aan de orderdetails toevoegen
+                    Order opmerking = new Order();
 
+                    opmerking.opmerking = txtOpmerkingBestelling.Text;
+
+                    //listview geselecteerde items toevoegen aan de orderdetails
+                    ListViewItem item = LvEtenMenu.SelectedItems[0];
+                    Menuitems menuitem = new Menuitems()
+                    {
+                        naam = item.SubItems[0].Text,
+                        prijs = decimal.Parse(item.SubItems[1].Text),
+                    };
+
+                    LvOrderDetails.Items.Add(new ListViewItem(new string[] { $"{menuitem.naam}", $"{opmerking.opmerking}" }));
+
+                    lblErrorMenuBox.Text = "";
+                }
+                else
+                {
+                    btnDeleteItem.Enabled = false;
+
+                    lblErrorMenuBox.Text = "Klik eerst een item aan in de menulijst!";
+                }
+
+                btnDeleteItem.Enabled = true;
         }
 
-        private void terugKeukenBarBtn_Click(object sender, EventArgs e)
+
+        private void btnDeleteItem_Click(object sender, EventArgs e)
         {
+            //Checked of er een item is geselecteerd zoniet dan geeft hij een waarschuwing
+                if (LvOrderDetails.SelectedItems.Count > 0)
+                {
+                    LvOrderDetails.Items.RemoveAt(LvOrderDetails.SelectedIndices[0]);
+                    lblErrorBox.Text = "";
+                }
+                else
+                {
+                    btnDeleteItem.Enabled = false;
 
-        }        
-
-        private void lblEtenTxt_Click(object sender, EventArgs e)
-        {
-
+                    lblErrorBox.Text = "Klik eerst een item aan in de orderlijst!";                    
+                }
+                
+                btnDeleteItem.Enabled = true;
         }
 
-        private void lblDrankTxt_Click(object sender, EventArgs e)
+        private void rBLunch_CheckedChanged(object sender, EventArgs e)
         {
+            // Label boven de listview van naam veranderen
+            lblEtenTxt.Text = "Lunch(Menu)";
 
-        }
+            //opmerkingen tekstbox leegmaken
+            txtOpmerkingBestelling.Clear();
 
-        private void LvDrankenMenu_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //Wanneer een drankje wordt aangeklikt komt deze in textbox 'Drank:' te staan.
+            //Listview leegmaken
+            LvEtenMenu.Items.Clear();
 
-            if (LvDrankenMenu.SelectedItems.Count > 0)
+            //Vul de listview met middag menu.
+
+            ChapooLogic.Menuitems_Service menuServMid = new ChapooLogic.Menuitems_Service();
+            List<Menuitems> MenuMiddag = menuServMid.GetMenuMiddag();
+            LvEtenMenu.View = View.Details;
+            foreach (ChapooModel.Menuitems menuitems in MenuMiddag)
             {
-                ListViewItem item = LvDrankenMenu.SelectedItems[0];
-                txtDrankIn.Text = item.SubItems[0].Text;
-            }
-            else
-            {
-                txtDrankIn.Text = string.Empty;
+                LvEtenMenu.Items.Add(new ListViewItem(new string[] { $"{menuitems.naam}", $"{menuitems.prijs}", $"{menuitems.type}" }));
             }
         }
 
-        private void txtOpmerkingBestelling_TextChanged(object sender, EventArgs e)
+        private void rBAvond_CheckedChanged(object sender, EventArgs e)
         {
+            // Label boven de listview van naam veranderen
+            lblEtenTxt.Text = "Avond(Menu)";
 
+            //opmerkingen tekstbox leegmaken
+            txtOpmerkingBestelling.Clear();
+
+            //Listview leegmaken
+            LvEtenMenu.Items.Clear();
+
+            //Vul de listview met middag menu.
+
+            ChapooLogic.Menuitems_Service menuServAvo = new ChapooLogic.Menuitems_Service();
+            List<Menuitems> MenuAvond = menuServAvo.GetMenuAvond();
+            LvEtenMenu.View = View.Details;
+            foreach (ChapooModel.Menuitems menuitems in MenuAvond)
+            {
+                LvEtenMenu.Items.Add(new ListViewItem(new string[] { $"{menuitems.naam}", $"{menuitems.prijs}", $"{menuitems.type}" }));
+            }
+        }
+
+        private void rBDranken_CheckedChanged(object sender, EventArgs e)
+        {
+            // Label boven de listview van naam veranderen
+            lblEtenTxt.Text = "Dranken(Menu)";
+
+            //opmerkingen tekstbox leegmaken
+            txtOpmerkingBestelling.Clear();
+
+            //Listview leegmaken
+            LvEtenMenu.Items.Clear();
+
+            //Vul de listview met drank menu.
+
+            ChapooLogic.Menuitems_Service menuServDra = new ChapooLogic.Menuitems_Service();
+            List<Menuitems> MenuDrank = menuServDra.GetMenuDrankItems();
+            LvEtenMenu.View = View.Details;
+            foreach (ChapooModel.Menuitems menuitems in MenuDrank)
+            {
+                LvEtenMenu.Items.Add(new ListViewItem(new string[] { $"{menuitems.naam}", $"{menuitems.prijs}", $"{menuitems.type}" }));
+            }
+        }
+
+        private void MI_terug_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         private void plaatsOrderBarBtn_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void LvEtenMenu_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //Wanneer een gerecht wordt aangeklikt komt deze in textbox 'Gerecht:' te staan.
-
-            if (LvEtenMenu.SelectedItems.Count > 0)
-            {
-                ListViewItem item = LvEtenMenu.SelectedItems[0];
-                txtGerechtIn.Text = item.SubItems[0].Text;
-            }
-            else
-            {
-                txtGerechtIn.Text = string.Empty;
-            }
-        }
-
-        private void btnAddItem_Click(object sender, EventArgs e)
-        {
-            //
-            Menuitems menuItem = new Menuitems();
-            menuItem.naam = txtGerechtIn.Text;
-            menuItem.naam = txtDrankIn.Text;
-            menuItem.type = txtOpmerkingBestelling.Text;
-
-            LvOrderDetails.Items.Add(new ListViewItem(new string[] { $"{menuItem.naam}", $"{menuItem.naam}", $"{menuItem.type}" }));
-        }
-
-        private List<Menuitems> Menuitems;
-
-        private void btnDeleteItem_Click(object sender, EventArgs e)
-        {
-            int index = LvOrderDetails.SelectedIndices[0];
-            Menuitems.RemoveAt(index);
-            MenuItems();        
-        }
-
-        private void MenuItems()
-        {
-            LvOrderDetails.Items.Clear();            
         }
     }
 }

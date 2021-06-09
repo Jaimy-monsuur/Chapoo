@@ -15,7 +15,7 @@ namespace ChapooDAL
         Orderitems_DAO Orderitems_DAO = new Orderitems_DAO();// voor nu. is misschien niet zo mooi
         public List<Order> GetOrders()
         {
-            string query = $"SELECT [ordernummer], [tafelnummer], [personeelnummer], [opmerking], [gereed] FROM [Orders]";
+            string query = $"SELECT [ordernummer], [tafelnummer], [personeelnummer], [opmerking] FROM [Orders]";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             List<Order> orders = ReadTables(ExecuteSelectQuery(query, sqlParameters));
             foreach (Order O in orders)
@@ -26,7 +26,7 @@ namespace ChapooDAL
         }
         public List<Order> GetOrders_For_Table(int tafelnummer)
         {
-            string query = $"SELECT [ordernummer], [tafelnummer], [personeelnummer], [opmerking], [gereed] FROM [Orders] WHERE [tafelnummer] = '{tafelnummer}'";
+            string query = $"SELECT [ordernummer], [tafelnummer], [personeelnummer], [opmerking] FROM [Orders] WHERE [tafelnummer] = '{tafelnummer}'";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             List<Order> orders = ReadTables(ExecuteSelectQuery(query, sqlParameters));
             foreach (Order O in orders)
@@ -49,7 +49,6 @@ namespace ChapooDAL
                     tafelNummer = (int)dr["tafelnummer"],
                     personeelNummer = (int)dr["personeelnummer"],
                     opmerking = (string)dr["opmerking"],
-                    gereed = (bool)dr["gereed"]
                 };
                 orders.Add(order);
             }

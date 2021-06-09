@@ -29,12 +29,8 @@ namespace ChapooUI
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblDrankTxt = new System.Windows.Forms.Label();
             this.lblEtenTxt = new System.Windows.Forms.Label();
             this.plaatsOrderBarBtn = new System.Windows.Forms.Button();
-            this.LvDrankenMenu = new System.Windows.Forms.ListView();
-            this.Dranken = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.PrijsDr = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.LvEtenMenu = new System.Windows.Forms.ListView();
             this.Gerecht = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Prijs = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -49,29 +45,21 @@ namespace ChapooUI
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.MI_terug = new System.Windows.Forms.ToolStripMenuItem();
             this.GbOrderDetails = new System.Windows.Forms.GroupBox();
+            this.lblErrorMenuBox = new System.Windows.Forms.Label();
+            this.lblErrorBox = new System.Windows.Forms.Label();
             this.btnDeleteItem = new System.Windows.Forms.Button();
             this.btnAddItem = new System.Windows.Forms.Button();
             this.LvOrderDetails = new System.Windows.Forms.ListView();
             this.GererchtOrDe = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.DrankOrDe = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.OpmerkingOrDe = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.txtGerechtIn = new System.Windows.Forms.TextBox();
-            this.txtDrankIn = new System.Windows.Forms.TextBox();
+            this.rBLunch = new System.Windows.Forms.RadioButton();
+            this.rBAvond = new System.Windows.Forms.RadioButton();
+            this.rBDranken = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             this.btn_Uitlog.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             this.GbOrderDetails.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // lblDrankTxt
-            // 
-            this.lblDrankTxt.AutoSize = true;
-            this.lblDrankTxt.Location = new System.Drawing.Point(394, 26);
-            this.lblDrankTxt.Name = "lblDrankTxt";
-            this.lblDrankTxt.Size = new System.Drawing.Size(48, 13);
-            this.lblDrankTxt.TabIndex = 12;
-            this.lblDrankTxt.Text = "Dranken";
-            this.lblDrankTxt.Click += new System.EventHandler(this.lblDrankTxt_Click);
             // 
             // lblEtenTxt
             // 
@@ -81,7 +69,6 @@ namespace ChapooUI
             this.lblEtenTxt.Size = new System.Drawing.Size(29, 13);
             this.lblEtenTxt.TabIndex = 11;
             this.lblEtenTxt.Text = "Eten";
-            this.lblEtenTxt.Click += new System.EventHandler(this.lblEtenTxt_Click);
             // 
             // plaatsOrderBarBtn
             // 
@@ -94,33 +81,6 @@ namespace ChapooUI
             this.plaatsOrderBarBtn.UseVisualStyleBackColor = false;
             this.plaatsOrderBarBtn.Click += new System.EventHandler(this.plaatsOrderBarBtn_Click);
             // 
-            // LvDrankenMenu
-            // 
-            this.LvDrankenMenu.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Dranken,
-            this.PrijsDr});
-            this.LvDrankenMenu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.LvDrankenMenu.FullRowSelect = true;
-            this.LvDrankenMenu.GridLines = true;
-            this.LvDrankenMenu.HideSelection = false;
-            this.LvDrankenMenu.Location = new System.Drawing.Point(397, 42);
-            this.LvDrankenMenu.Name = "LvDrankenMenu";
-            this.LvDrankenMenu.Size = new System.Drawing.Size(318, 178);
-            this.LvDrankenMenu.TabIndex = 8;
-            this.LvDrankenMenu.UseCompatibleStateImageBehavior = false;
-            this.LvDrankenMenu.View = System.Windows.Forms.View.Details;
-            this.LvDrankenMenu.SelectedIndexChanged += new System.EventHandler(this.LvDrankenMenu_SelectedIndexChanged);
-            // 
-            // Dranken
-            // 
-            this.Dranken.Text = "Dranken:";
-            this.Dranken.Width = 208;
-            // 
-            // PrijsDr
-            // 
-            this.PrijsDr.Text = "Prijs:";
-            this.PrijsDr.Width = 43;
-            // 
             // LvEtenMenu
             // 
             this.LvEtenMenu.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -132,16 +92,15 @@ namespace ChapooUI
             this.LvEtenMenu.HideSelection = false;
             this.LvEtenMenu.Location = new System.Drawing.Point(74, 42);
             this.LvEtenMenu.Name = "LvEtenMenu";
-            this.LvEtenMenu.Size = new System.Drawing.Size(318, 178);
+            this.LvEtenMenu.Size = new System.Drawing.Size(641, 178);
             this.LvEtenMenu.TabIndex = 7;
             this.LvEtenMenu.UseCompatibleStateImageBehavior = false;
             this.LvEtenMenu.View = System.Windows.Forms.View.Details;
-            this.LvEtenMenu.SelectedIndexChanged += new System.EventHandler(this.LvEtenMenu_SelectedIndexChanged);
             // 
             // Gerecht
             // 
             this.Gerecht.Text = "Gerecht:";
-            this.Gerecht.Width = 271;
+            this.Gerecht.Width = 568;
             // 
             // Prijs
             // 
@@ -168,7 +127,6 @@ namespace ChapooUI
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(52, 56);
             this.panel1.TabIndex = 14;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // lblTafelNummerIn
             // 
@@ -182,11 +140,10 @@ namespace ChapooUI
             // 
             // txtOpmerkingBestelling
             // 
-            this.txtOpmerkingBestelling.Location = new System.Drawing.Point(397, 226);
+            this.txtOpmerkingBestelling.Location = new System.Drawing.Point(74, 226);
             this.txtOpmerkingBestelling.Name = "txtOpmerkingBestelling";
-            this.txtOpmerkingBestelling.Size = new System.Drawing.Size(318, 20);
+            this.txtOpmerkingBestelling.Size = new System.Drawing.Size(641, 20);
             this.txtOpmerkingBestelling.TabIndex = 15;
-            this.txtOpmerkingBestelling.TextChanged += new System.EventHandler(this.txtOpmerkingBestelling_TextChanged);
             // 
             // LBL_UserDataOr
             // 
@@ -254,9 +211,12 @@ namespace ChapooUI
             this.MI_terug.Name = "MI_terug";
             this.MI_terug.Size = new System.Drawing.Size(48, 20);
             this.MI_terug.Text = "Terug";
+            this.MI_terug.Click += new System.EventHandler(this.MI_terug_Click);
             // 
             // GbOrderDetails
             // 
+            this.GbOrderDetails.Controls.Add(this.lblErrorMenuBox);
+            this.GbOrderDetails.Controls.Add(this.lblErrorBox);
             this.GbOrderDetails.Controls.Add(this.btnDeleteItem);
             this.GbOrderDetails.Controls.Add(this.btnAddItem);
             this.GbOrderDetails.Controls.Add(this.LvOrderDetails);
@@ -267,6 +227,24 @@ namespace ChapooUI
             this.GbOrderDetails.TabIndex = 32;
             this.GbOrderDetails.TabStop = false;
             this.GbOrderDetails.Text = "Order Details";
+            // 
+            // lblErrorMenuBox
+            // 
+            this.lblErrorMenuBox.AutoSize = true;
+            this.lblErrorMenuBox.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorMenuBox.Location = new System.Drawing.Point(443, 8);
+            this.lblErrorMenuBox.Name = "lblErrorMenuBox";
+            this.lblErrorMenuBox.Size = new System.Drawing.Size(0, 13);
+            this.lblErrorMenuBox.TabIndex = 20;
+            // 
+            // lblErrorBox
+            // 
+            this.lblErrorBox.AutoSize = true;
+            this.lblErrorBox.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorBox.Location = new System.Drawing.Point(6, 161);
+            this.lblErrorBox.Name = "lblErrorBox";
+            this.lblErrorBox.Size = new System.Drawing.Size(0, 13);
+            this.lblErrorBox.TabIndex = 19;
             // 
             // btnDeleteItem
             // 
@@ -294,14 +272,13 @@ namespace ChapooUI
             // 
             this.LvOrderDetails.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.GererchtOrDe,
-            this.DrankOrDe,
             this.OpmerkingOrDe});
             this.LvOrderDetails.FullRowSelect = true;
             this.LvOrderDetails.GridLines = true;
             this.LvOrderDetails.HideSelection = false;
-            this.LvOrderDetails.Location = new System.Drawing.Point(12, 24);
+            this.LvOrderDetails.Location = new System.Drawing.Point(6, 24);
             this.LvOrderDetails.Name = "LvOrderDetails";
-            this.LvOrderDetails.Size = new System.Drawing.Size(404, 111);
+            this.LvOrderDetails.Size = new System.Drawing.Size(441, 111);
             this.LvOrderDetails.TabIndex = 16;
             this.LvOrderDetails.UseCompatibleStateImageBehavior = false;
             this.LvOrderDetails.View = System.Windows.Forms.View.Details;
@@ -309,44 +286,56 @@ namespace ChapooUI
             // GererchtOrDe
             // 
             this.GererchtOrDe.Text = "Gerecht:";
-            this.GererchtOrDe.Width = 106;
-            // 
-            // DrankOrDe
-            // 
-            this.DrankOrDe.Text = "Drank:";
+            this.GererchtOrDe.Width = 300;
             // 
             // OpmerkingOrDe
             // 
             this.OpmerkingOrDe.Text = "Opmerking:";
-            this.OpmerkingOrDe.Width = 234;
+            this.OpmerkingOrDe.Width = 135;
             // 
-            // txtGerechtIn
+            // rBLunch
             // 
-            this.txtGerechtIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGerechtIn.Location = new System.Drawing.Point(74, 226);
-            this.txtGerechtIn.Name = "txtGerechtIn";
-            this.txtGerechtIn.ReadOnly = true;
-            this.txtGerechtIn.Size = new System.Drawing.Size(173, 22);
-            this.txtGerechtIn.TabIndex = 34;
-            this.txtGerechtIn.Text = "Gerecht:";
+            this.rBLunch.AutoSize = true;
+            this.rBLunch.Location = new System.Drawing.Point(12, 97);
+            this.rBLunch.Name = "rBLunch";
+            this.rBLunch.Size = new System.Drawing.Size(55, 17);
+            this.rBLunch.TabIndex = 33;
+            this.rBLunch.Text = "Lunch";
+            this.rBLunch.UseVisualStyleBackColor = true;
+            this.rBLunch.CheckedChanged += new System.EventHandler(this.rBLunch_CheckedChanged);
             // 
-            // txtDrankIn
+            // rBAvond
             // 
-            this.txtDrankIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDrankIn.Location = new System.Drawing.Point(265, 226);
-            this.txtDrankIn.Name = "txtDrankIn";
-            this.txtDrankIn.ReadOnly = true;
-            this.txtDrankIn.Size = new System.Drawing.Size(127, 22);
-            this.txtDrankIn.TabIndex = 35;
-            this.txtDrankIn.Text = "Drank:";
+            this.rBAvond.AutoSize = true;
+            this.rBAvond.Location = new System.Drawing.Point(12, 120);
+            this.rBAvond.Name = "rBAvond";
+            this.rBAvond.Size = new System.Drawing.Size(56, 17);
+            this.rBAvond.TabIndex = 34;
+            this.rBAvond.Text = "Avond";
+            this.rBAvond.UseVisualStyleBackColor = true;
+            this.rBAvond.CheckedChanged += new System.EventHandler(this.rBAvond_CheckedChanged);
+            // 
+            // rBDranken
+            // 
+            this.rBDranken.AutoSize = true;
+            this.rBDranken.Checked = true;
+            this.rBDranken.Location = new System.Drawing.Point(12, 143);
+            this.rBDranken.Name = "rBDranken";
+            this.rBDranken.Size = new System.Drawing.Size(54, 17);
+            this.rBDranken.TabIndex = 35;
+            this.rBDranken.TabStop = true;
+            this.rBDranken.Text = "Drank";
+            this.rBDranken.UseVisualStyleBackColor = true;
+            this.rBDranken.CheckedChanged += new System.EventHandler(this.rBDranken_CheckedChanged);
             // 
             // Bestellingen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.txtDrankIn);
-            this.Controls.Add(this.txtGerechtIn);
+            this.Controls.Add(this.rBDranken);
+            this.Controls.Add(this.rBAvond);
+            this.Controls.Add(this.rBLunch);
             this.Controls.Add(this.GbOrderDetails);
             this.Controls.Add(this.menuStrip2);
             this.Controls.Add(this.txtOpmerkingBestelling);
@@ -354,9 +343,7 @@ namespace ChapooUI
             this.Controls.Add(this.LBL_klokOr);
             this.Controls.Add(this.LBL_UserDataOr);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.lblDrankTxt);
             this.Controls.Add(this.lblEtenTxt);
-            this.Controls.Add(this.LvDrankenMenu);
             this.Controls.Add(this.LvEtenMenu);
             this.Name = "Bestellingen";
             this.Text = "Bestellingen";
@@ -367,25 +354,21 @@ namespace ChapooUI
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
             this.GbOrderDetails.ResumeLayout(false);
+            this.GbOrderDetails.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblDrankTxt;
         private System.Windows.Forms.Label lblEtenTxt;
         private System.Windows.Forms.Button plaatsOrderBarBtn;
-        private System.Windows.Forms.ListView LvDrankenMenu;
         private System.Windows.Forms.ListView LvEtenMenu;
         private System.Windows.Forms.Label lblTafelnr;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblTafelNummerIn;
         private System.Windows.Forms.ColumnHeader Gerecht;
         private System.Windows.Forms.ColumnHeader Prijs;
-        private System.Windows.Forms.ColumnHeader Dranken;
-        private System.Windows.Forms.ColumnHeader PrijsDr;
         private System.Windows.Forms.TextBox txtOpmerkingBestelling;
         private System.Windows.Forms.Label LBL_UserDataOr;
         private System.Windows.Forms.Label LBL_klokOr;
@@ -398,9 +381,11 @@ namespace ChapooUI
         private System.Windows.Forms.Button btnAddItem;
         private System.Windows.Forms.ListView LvOrderDetails;
         private System.Windows.Forms.ColumnHeader GererchtOrDe;
-        private System.Windows.Forms.ColumnHeader DrankOrDe;
         private System.Windows.Forms.ColumnHeader OpmerkingOrDe;
-        private System.Windows.Forms.TextBox txtGerechtIn;
-        private System.Windows.Forms.TextBox txtDrankIn;
+        private System.Windows.Forms.RadioButton rBLunch;
+        private System.Windows.Forms.RadioButton rBAvond;
+        private System.Windows.Forms.RadioButton rBDranken;
+        private System.Windows.Forms.Label lblErrorBox;
+        private System.Windows.Forms.Label lblErrorMenuBox;
     }
 }

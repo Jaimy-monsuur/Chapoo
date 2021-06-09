@@ -13,7 +13,6 @@ namespace ChapooModel
         public int tafelNummer;
         public int personeelNummer;
         public string opmerking;
-        public bool gereed;
 
     }
 }

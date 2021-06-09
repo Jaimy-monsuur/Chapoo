@@ -30,6 +30,7 @@ namespace ChapooUI
         public Orderitems_Service Orderitems_Service = new Orderitems_Service();
         public int Tafelnummer { get; set; }
         public string Status { get; set; }
+
         public Managetafel(int tafelnummer, string status)
         {
             InitializeComponent();
@@ -136,7 +137,10 @@ namespace ChapooUI
         private void BTN_ordertoevoegen_Click(object sender, EventArgs e)
         {
             this.Close();
-            Bestellingen bestellingen = new Bestellingen();
+
+            Orderitems ordNr = new Orderitems();
+
+            Bestellingen bestellingen = new Bestellingen(ordNr.orderNummer);
             bestellingen.ShowDialog();
             this.Show();
         }
