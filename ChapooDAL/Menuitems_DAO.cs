@@ -20,6 +20,14 @@ namespace ChapooDAL
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
 
+        public List<Menuitems> Db_Get_All_Menuitems_for_Orderitem(int itemNummer)
+        {
+            // Hier staat de query die naar de database gaat voor het ophalen van de juiste gegevens
+            string query = $"SELECT itemnummer, naam, prijs, btw, type FROM Menuitems WHERE itemnummer = {itemNummer}";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+        }
+
         public List<Menuitems> ReadMenuItemDrank()
         {
             string query = "SELECT itemnummer, naam, prijs, btw, type FROM Menuitems WHERE type='Drank' AND itemnummer IN (SELECT itemnummer FROM Voorraad WHERE voorraadaantal > 0)";

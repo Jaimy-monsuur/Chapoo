@@ -11,6 +11,8 @@ namespace ChapooDAL
 {
     public class Orderitems_DAO : Base
     {
+        Menuitems_DAO menuitems_db = new Menuitems_DAO();
+
         public List<Orderitems> Db_Get_All_Orderitems_for_Order(int ordernummer)
         {
             // Hier staat de query die naar de database gaat voor het ophalen van de juiste gegevens
@@ -33,12 +35,17 @@ namespace ChapooDAL
 
             foreach (DataRow dr in dataTable.Rows)
             {
+                int itemNummer = (int)dr["itemnummer"];
+                List<Menuitems> menuitems = menuitems_db.Db_Get_All_Menuitems_for_Orderitem(itemNummer);
+                Menuitems menuitem = menuitems[0];
+
                 Orderitems orderitem = new Orderitems()
                 {
                     // Alle members van class order worden uit de database opgehaald uit de rijen
                     orderNummer = (int)dr["ordernummer"],
                     aantal = (int)dr["aantal"],
-                    gereed = (bool)dr["gereed"]
+                    gereed = (bool)dr["gereed"],
+                    menuItem = menuitem
                 };
                 orderitems.Add(orderitem);
             }

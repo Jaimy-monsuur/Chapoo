@@ -12,7 +12,10 @@ namespace ChapooDAL
 {
     public class Order_DAO : Base
     {
-        Orderitems_DAO Orderitems_DAO = new Orderitems_DAO();// voor nu. is misschien niet zo mooi
+        Tafel_DAO tafel_db = new Tafel_DAO();
+        Personeel_DOA personeel_db = new Personeel_DOA();
+        Orderitems_DAO Orderitems_DAO = new Orderitems_DAO();
+
         public List<Order> GetOrders()
         {
             string query = $"SELECT [ordernummer], [tafelnummer], [personeelnummer], [opmerking], [gereed] FROM [Orders]";
@@ -42,14 +45,20 @@ namespace ChapooDAL
 
             foreach (DataRow dr in dataTable.Rows)
             {
+                int tafelnummer = (int)dr["tafelnummer"];
+                int personeelnummer = (int)dr["personeelnummer"];
+                List<Tafel> tafels = tafel_db.GetTafel_for_Order(tafelnummer);
+                List<Personeels_Lid> personeelsleden = personeel_db.GetPersoneel_for_Order(personeelnummer);
+                Tafel Tafel = tafels[0];
+                Personeels_Lid Personeel = personeelsleden[0];
+
                 Order order = new Order()
                 {
                     // Alle members van class order worden uit de database opgehaald uit de rijen
                     orderNummer = (int)dr["ordernummer"],
-                    tafelNummer = (int)dr["tafelnummer"],
-                    personeelNummer = (int)dr["personeelnummer"],
                     opmerking = (string)dr["opmerking"],
-                    gereed = (bool)dr["gereed"]
+                    personeel = Personeel,
+                    tafel = Tafel
                 };
                 orders.Add(order);
             }
