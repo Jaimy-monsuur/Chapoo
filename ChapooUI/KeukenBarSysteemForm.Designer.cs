@@ -33,7 +33,6 @@ namespace ChapooUI
             this.listViewKeukenBarOpmerkingen = new System.Windows.Forms.ListView();
             this.gereedKeukenBarBtn = new System.Windows.Forms.Button();
             this.openstaandeBestellingenTxtLbl = new System.Windows.Forms.Label();
-            this.maakOrderBarBtn = new System.Windows.Forms.Button();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.TerugtoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -80,17 +79,6 @@ namespace ChapooUI
             this.openstaandeBestellingenTxtLbl.Size = new System.Drawing.Size(232, 25);
             this.openstaandeBestellingenTxtLbl.TabIndex = 5;
             this.openstaandeBestellingenTxtLbl.Text = "Openstaande bestellingen";
-            // 
-            // maakOrderBarBtn
-            // 
-            this.maakOrderBarBtn.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.maakOrderBarBtn.Location = new System.Drawing.Point(25, 444);
-            this.maakOrderBarBtn.Name = "maakOrderBarBtn";
-            this.maakOrderBarBtn.Size = new System.Drawing.Size(141, 50);
-            this.maakOrderBarBtn.TabIndex = 6;
-            this.maakOrderBarBtn.Text = "Maak order";
-            this.maakOrderBarBtn.UseVisualStyleBackColor = false;
-            this.maakOrderBarBtn.Click += new System.EventHandler(this.maakOrderBarBtn_Click);
             // 
             // menuStrip2
             // 
@@ -144,7 +132,6 @@ namespace ChapooUI
             this.ClientSize = new System.Drawing.Size(962, 505);
             this.Controls.Add(this.menuStrip2);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.maakOrderBarBtn);
             this.Controls.Add(this.openstaandeBestellingenTxtLbl);
             this.Controls.Add(this.gereedKeukenBarBtn);
             this.Controls.Add(this.listViewKeukenBarOpmerkingen);
@@ -166,7 +153,6 @@ namespace ChapooUI
         private System.Windows.Forms.ListView listViewKeukenBarOpmerkingen;
         private System.Windows.Forms.Button gereedKeukenBarBtn;
         private System.Windows.Forms.Label openstaandeBestellingenTxtLbl;
-        private System.Windows.Forms.Button maakOrderBarBtn;
         private System.Windows.Forms.MenuStrip menuStrip2;
         private System.Windows.Forms.ToolStripMenuItem TerugtoolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;

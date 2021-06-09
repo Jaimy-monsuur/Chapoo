@@ -18,6 +18,14 @@ namespace ChapooDAL
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
+
+        public List<Personeels_Lid> GetPersoneel_for_Order(int personeelNummer)
+        {
+            string query = $"SELECT [personeelnummer],[voornaam],[achternaam],[functie],[username],[password],[type] FROM [Personeel] WHERE [personeelnummer] = {personeelNummer}";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+        }
+
         public void Addpersonle(string voornaam, string achternaam,string functie,string username,string password,string type)
         {
             string query = $"INSERT INTO[Personeel] VALUES('{voornaam}', '{achternaam}', '{functie}', '{username}', '{password}', '{type}')";
@@ -37,13 +45,14 @@ namespace ChapooDAL
             foreach (DataRow dr in dataTable.Rows)
             {
                 Personeels_Lid p = new Personeels_Lid();
+                p.account = new Account();//het account van personeels lid
                 p.Nummer = (int)(dr["personeelnummer"]);
                 p.Voornaam = (String)(dr["voornaam"].ToString());
                 p.Achternaam = (String)(dr["achternaam"].ToString());
                 p.functie = (String)(dr["functie"].ToString());
-                p.UserName = (String)(dr["username"].ToString());
-                p.Password = (String)(dr["password"].ToString());
-                p.Type = (String)(dr["type"].ToString());
+                p.account.UserName = (String)(dr["username"].ToString());
+                p.account.Password = (String)(dr["password"].ToString());
+                p.account.Type = (String)(dr["type"].ToString());
 
                 personeels_Lid.Add(p);
             }

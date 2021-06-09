@@ -29,7 +29,9 @@ namespace ChapooUI
         public Order_Service Order_Service = new Order_Service();
         public Orderitems_Service Orderitems_Service = new Orderitems_Service();
         public int Tafelnummer { get; set; }
+        public int Ordernummer { get; set; }
         public string Status { get; set; }
+
         public Managetafel(int tafelnummer, string status)
         {
             InitializeComponent();
@@ -39,6 +41,7 @@ namespace ChapooUI
             //tafel gegevens
             this.Tafelnummer = tafelnummer;
             this.Status = status;
+            this.Ordernummer = 0;
             FormSetings();
         }
 
@@ -117,18 +120,22 @@ namespace ChapooUI
             LF_Orders.Columns.Add("Aantal:", 70);
 
             List<Order> orders = Order_Service.GetOrders();// verander naar voor tafel
-            foreach (Order order in orders)
+            if (orders != null)
             {
-                string[] item = new string[5];
-                foreach (Orderitems orderitem in order.orderItemList)
+                this.Ordernummer = orders[0].orderNummer;
+                foreach (Order order in orders)
                 {
-                    item[0] = orderitem.orderNummer.ToString();
-                    item[1] = orderitem.itemnummer.ToString();
-                    item[2] = orderitem.itemNaam;
-                    item[3] = orderitem.TotalPrice.ToString();
-                    item[4] = orderitem.aantal.ToString();
-                    ListViewItem li = new ListViewItem(item);
-                    LF_Orders.Items.Add(li);
+                    string[] item = new string[5];
+                    foreach (Orderitems orderitem in order.orderItemList)
+                    {
+                        item[0] = orderitem.orderNummer.ToString();
+                        item[1] = orderitem.menuItem.itemNummer.ToString();
+                        item[2] = orderitem.menuItem.naam;
+                        item[3] = orderitem.TotalPrice.ToString();
+                        item[4] = orderitem.aantal.ToString();
+                        ListViewItem li = new ListViewItem(item);
+                        LF_Orders.Items.Add(li);
+                    }
                 }
             }
         }
@@ -136,7 +143,8 @@ namespace ChapooUI
         private void BTN_ordertoevoegen_Click(object sender, EventArgs e)
         {
             this.Close();
-            Bestellingen bestellingen = new Bestellingen();
+
+            Bestellingen bestellingen = new Bestellingen(Ordernummer, Tafelnummer);
             bestellingen.ShowDialog();
             this.Show();
         }

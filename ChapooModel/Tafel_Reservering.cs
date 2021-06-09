@@ -10,7 +10,7 @@ namespace ChapooModel
     {
         public int reserveringsnummer;
         public string naam;
-        public int tafelnummer;
+        public Tafel tafel;
         public DateTime Datum;
         public TimeSpan startTijd;
         public TimeSpan eindTijd;

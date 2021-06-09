@@ -17,6 +17,8 @@ namespace ChapooUI
     {
         public string Type;
         public string Username;
+        public int reservedTables;
+        public int occupiedTables;
 
         //maakt form movable vanaf elk punt.
         private const int WM_NCHITTEST = 0x84;
@@ -52,60 +54,70 @@ namespace ChapooUI
 
         public void UpdateTafels()//status van tafels ophalen/updaten
         {
-            //voor table info;
-            DateTime ReservationTimeCheck = DateTime.Now.AddHours(-1);// Voor het controleren of er nog genoet tijd is om gasten teplaatsen voordat de tafel gereserveerd is.
-            int reservedTables = 0;
-            int occupiedTables = 0;
-
-            List<Tafel> tafels = Tafel_Service.Tafels();
-            List<Tafel_Reservering> reserveringen = tafel_Reservation_Service.Get_All_Table_reservationsfortoday();
-            for (int i = 0; i < TafelPanels.Count; i++)
+            CheckReservations();
+            CheckTableOccupation();
+            LBL_TableStats.Text = $"vrije tafels: {TafelPanels.Count - occupiedTables - reservedTables}\nGereserveerde tafels: {reservedTables}\ntafels in gebruik: {occupiedTables}";
+        }
+        public void CheckTableOccupation()
+        {
+            int tafelnummer;// de index voor de list
+            occupiedTables = 0;
+            List<Tafel> tafels = Tafel_Service.Tafels();//haalt de tafels op
+            foreach (Tafel t in tafels)
             {
-                foreach (Tafel_Reservering TF in reserveringen)//3 keer loop in elkaar. niet erg mooi.!!!!!
-                    {
-                    if (tafels[i].tafelnummer == TF.tafelnummer && TF.startTijd < ReservationTimeCheck.TimeOfDay && TF.eindTijd > DateTime.Now.TimeOfDay)
-                    {
-                        reservedTables++;
-                        TafelPanels[i].BackColor = Color.DarkOrange;
-                        foreach (Control c in TafelPanels[i].Controls)
-                        {
-                            if (c.Name == "LBL_tafel1" || c.Name == "LBL_tafel2" || c.Name == "LBL_tafel3" || c.Name == "LBL_tafel4" || c.Name == "LBL_tafel5" || c.Name == "LBL_tafel6" || c.Name == "LBL_tafel7" || c.Name == "LBL_tafel8" || c.Name == "LBL_tafel9" || c.Name == "LBL_tafel10")
-                            {
-                                c.Text = $"Gereserveerd:\n{TF.startTijd} tot {TF.eindTijd}";
-                                break;
-                            }
-                        }
-                    }
-                }
-                if (tafels[i].bezeting != 0)// tafel is bezet
+                tafelnummer = t.tafelnummer - 1;// de index voor de list
+                if (t.bezeting != 0)// tafel is bezet
                 {
                     occupiedTables++;
-                    TafelPanels[i].BackColor = Color.Red;
-                    foreach (Control c in TafelPanels[i].Controls)
+                    TafelPanels[tafelnummer].BackColor = Color.Red;
+                    foreach (Control c in TafelPanels[tafelnummer].Controls)
                     {
-                        if (c.Name == "LBL_tafel1" || c.Name == "LBL_tafel2" || c.Name == "LBL_tafel3" || c.Name == "LBL_tafel4" || c.Name == "LBL_tafel5" || c.Name == "LBL_tafel6" || c.Name == "LBL_tafel7" || c.Name == "LBL_tafel8" || c.Name == "LBL_tafel9" || c.Name == "LBL_tafel10")
+                        if (c.Name.Contains("_info"))
                         {
-                            c.Text = $"Tafelnummer: {tafels[i].tafelnummer}\nZitplaatsen: {tafels[1].zitplekken}\nBezetting: {tafels[i].bezeting}";
+                            c.Text = $"Tafelnummer: {t.tafelnummer}\nZitplaatsen: {t.zitplekken}\nBezetting: {t.bezeting}";
                             break;
                         }
                     }
                 }
-                else if (tafels[i].bezeting == 0 && TafelPanels[i].BackColor != Color.DarkOrange)
+                else if (t.bezeting == 0 && TafelPanels[tafelnummer].BackColor != Color.DarkOrange)
                 {
-                    TafelPanels[i].BackColor = Color.Green;
-                    foreach (Control c in TafelPanels[i].Controls)
+                    TafelPanels[tafelnummer].BackColor = Color.Green;
+                    foreach (Control c in TafelPanels[tafelnummer].Controls)
                     {
-                        if (c.Name == "LBL_tafel1" || c.Name == "LBL_tafel2" || c.Name == "LBL_tafel3" || c.Name == "LBL_tafel4" || c.Name == "LBL_tafel5" || c.Name == "LBL_tafel6" || c.Name == "LBL_tafel7" || c.Name == "LBL_tafel8" || c.Name == "LBL_tafel9" || c.Name == "LBL_tafel10")
+                        if (c.Name.Contains("_info"))
                         {
-                            c.Text = $"Tafelnummer: {tafels[i].tafelnummer}\nZitplaatsen: {tafels[1].zitplekken}\nBezeting: {tafels[i].bezeting}";
+                            c.Text = $"Tafelnummer: {t.tafelnummer}\nZitplaatsen: {t.zitplekken}\nBezeting: {t.bezeting}";
                             break;
                         }
                     }
                 }
             }
-            LBL_Tableinfo.Text = $"vrije tafels: {TafelPanels.Count - occupiedTables - reservedTables}\nGereserveerde tafels: {reservedTables}\ntafels in gebruik: {occupiedTables}";
         }
-
+        public void CheckReservations()
+        {
+            reservedTables = 0;
+            int tafelnummer;// de index voor de list
+            //voor table info;
+            DateTime ReservationTimeCheck = DateTime.Now.AddHours(-1);// Voor het controleren of er nog genoet tijd is om gasten teplaatsen voordat de tafel gereserveerd is.
+            List<Tafel_Reservering> reserveringen = tafel_Reservation_Service.Get_All_Table_reservationsfortoday();
+            foreach (Tafel_Reservering TF in reserveringen)//3 keer loop in elkaar. niet erg mooi.!!!!!
+            {
+                tafelnummer = TF.tafel.tafelnummer - 1;// de index voor de list
+                if (TF.startTijd < ReservationTimeCheck.TimeOfDay && TF.eindTijd > DateTime.Now.TimeOfDay)
+                {
+                    reservedTables++;
+                    TafelPanels[tafelnummer].BackColor = Color.DarkOrange;
+                    foreach (Control c in TafelPanels[tafelnummer].Controls)
+                    {
+                        if (c.Name.Contains("_info"))
+                        {
+                            c.Text = $"Gereserveerd:\n{TF.startTijd} tot {TF.eindTijd}";
+                            break;
+                        }
+                    }
+                }
+            }
+        }
         public void GroupBox_TO_tables()// tafels toevoegen aan lijst
         {
             TafelPanels.Add(PNL_tafel1);

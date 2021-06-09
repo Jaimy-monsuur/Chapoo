@@ -9,11 +9,9 @@ namespace ChapooModel
     public class Order
     {
         public List<Orderitems> orderItemList;
-        public int orderNummer;
-        public int tafelNummer;
-        public int personeelNummer;
+        public int orderNummer;        
         public string opmerking;
-        public bool gereed;
-
+        public Tafel tafel;
+        public Personeels_Lid personeel;
     }
 }

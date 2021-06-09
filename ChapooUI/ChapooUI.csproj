@@ -239,5 +239,17 @@
   <ItemGroup>
     <None Include="Resources\bar.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\groupPeople.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\box_5124.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imageonline-co-split-image.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\list.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
