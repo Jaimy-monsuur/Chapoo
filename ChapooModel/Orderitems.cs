@@ -12,6 +12,7 @@ namespace ChapooModel
         public int aantal;
         public Menuitems menuItem;
         public bool gereed;
+        public Order order;
 
         public decimal TotalPrice 
         {

@@ -166,7 +166,6 @@ namespace ChapooUI
             this.LBL_klokOr.Size = new System.Drawing.Size(38, 19);
             this.LBL_klokOr.TabIndex = 27;
             this.LBL_klokOr.Text = "klok";
-            this.LBL_klokOr.Click += new System.EventHandler(this.LBL_klok_Click);
             // 
             // btn_Uitlog
             // 

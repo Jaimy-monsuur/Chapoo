@@ -20,6 +20,13 @@ namespace ChapooDAL
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
 
+        public void DeleteMenuItem(int itemNummer)
+        {
+            string query = $"DELETE FROM [Voorraad] WHERE [itemnummer] = '{itemNummer}'";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            ExecuteEditQuery(query, sqlParameters);
+        }
+
         private List<Voorraad> ReadTables(DataTable dataTable)
         {
             List<Voorraad> voorraadItems = new List<Voorraad>();

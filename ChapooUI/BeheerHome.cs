@@ -48,7 +48,10 @@ namespace ChapooUI
 
         private void menuSelectBtn_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            MenuWijzigen Menu = new MenuWijzigen();
+            Menu.ShowDialog();
+            this.Show();
         }
 
         private void UitloggenToolStripMenuItem_Click_1(object sender, EventArgs e)
