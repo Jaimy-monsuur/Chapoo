@@ -109,7 +109,8 @@ namespace ChapooUI
 
         private void BTNtoevoegen_Click(object sender, EventArgs e)
         {
-
+            MenuitemToevoegen toevoegen = new MenuitemToevoegen();
+            toevoegen.ShowDialog();
         }
 
         private void Btn_VerwijderMenuItem_Click(object sender, EventArgs e)

@@ -112,7 +112,7 @@
             this.wijzigVoorraadBtn.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.wijzigVoorraadBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.wijzigVoorraadBtn.Location = new System.Drawing.Point(115, 526);
-            this.wijzigVoorraadBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.wijzigVoorraadBtn.Margin = new System.Windows.Forms.Padding(4);
             this.wijzigVoorraadBtn.Name = "wijzigVoorraadBtn";
             this.wijzigVoorraadBtn.Size = new System.Drawing.Size(188, 62);
             this.wijzigVoorraadBtn.TabIndex = 36;
@@ -123,10 +123,11 @@
             // nieuwAantalBox
             // 
             this.nieuwAantalBox.Location = new System.Drawing.Point(911, 526);
-            this.nieuwAantalBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nieuwAantalBox.Margin = new System.Windows.Forms.Padding(4);
             this.nieuwAantalBox.Name = "nieuwAantalBox";
             this.nieuwAantalBox.Size = new System.Drawing.Size(227, 22);
             this.nieuwAantalBox.TabIndex = 37;
+            this.nieuwAantalBox.Text = " ";
             this.nieuwAantalBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nieuwAantalBox_KeyPress);
             // 
             // nieuwAantalTxtLbl
