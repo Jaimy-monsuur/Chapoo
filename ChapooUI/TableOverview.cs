@@ -71,10 +71,13 @@ namespace ChapooUI
                 tafelnummer = o.tafel.tafelnummer - 1;// de index voor de list
                 foreach (Orderitems item in o.orderItemList)
                 {
-                    wachttijd = (DateTime.Now - item.time);
                     if (item.gereed == true)
                     {
                         finishedOrderItems++;
+                    }
+                    else
+                    {
+                        wachttijd = (DateTime.Now - item.time);
                     }
                 }
                 if (o.tafel.bezeting > 0)
