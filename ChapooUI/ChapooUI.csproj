@@ -53,12 +53,6 @@
     <Compile Include="AddCustomers.Designer.cs">
       <DependentUpon>AddCustomers.cs</DependentUpon>
     </Compile>
-    <Compile Include="BarBestelMenu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BarBestelMenu.Designer.cs">
-      <DependentUpon>BarBestelMenu.cs</DependentUpon>
-    </Compile>
     <Compile Include="BeheerHome.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,24 +70,6 @@
     </Compile>
     <Compile Include="ChapooUI.Designer.cs">
       <DependentUpon>ChapooUI.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ConfirmOngereedMelden.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ConfirmOngereedMelden.Designer.cs">
-      <DependentUpon>ConfirmOngereedMelden.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MenuitemToevoegen.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MenuitemToevoegen.Designer.cs">
-      <DependentUpon>MenuitemToevoegen.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MenuWijzigen.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MenuWijzigen.Designer.cs">
-      <DependentUpon>MenuWijzigen.cs</DependentUpon>
     </Compile>
     <Compile Include="NieuweWerknemer.cs">
       <SubType>Form</SubType>
@@ -166,9 +142,6 @@
     <EmbeddedResource Include="AddCustomers.resx">
       <DependentUpon>AddCustomers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BarBestelMenu.resx">
-      <DependentUpon>BarBestelMenu.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="BeheerHome.resx">
       <DependentUpon>BeheerHome.cs</DependentUpon>
     </EmbeddedResource>
@@ -177,15 +150,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ChapooUI.resx">
       <DependentUpon>ChapooUI.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ConfirmOngereedMelden.resx">
-      <DependentUpon>ConfirmOngereedMelden.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MenuitemToevoegen.resx">
-      <DependentUpon>MenuitemToevoegen.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MenuWijzigen.resx">
-      <DependentUpon>MenuWijzigen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NieuweWerknemer.resx">
       <DependentUpon>NieuweWerknemer.cs</DependentUpon>
@@ -256,6 +220,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\bar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\groupPeople.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\box_5124.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imageonline-co-split-image.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\list.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

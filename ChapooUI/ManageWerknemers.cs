@@ -63,9 +63,9 @@ namespace ChapooUI
                 item[1] = p.Voornaam;
                 item[2] = p.Achternaam;
                 item[3] = p.functie;
-                item[4] = p.UserName;
-                item[5] = p.Password;
-                item[6] = p.Type;
+                item[4] = p.account.UserName;
+                item[5] = p.account.Password;
+                item[6] = p.account.Type;
                 ListViewItem li = new ListViewItem(item);
                 LVW_Account.Items.Add(li);
             }

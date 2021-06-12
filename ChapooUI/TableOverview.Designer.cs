@@ -31,7 +31,7 @@ namespace ChapooUI
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TableOverview));
-            this.LBL_Tableinfo = new System.Windows.Forms.Label();
+            this.LBL_TableStats = new System.Windows.Forms.Label();
             this.LBL_klok = new System.Windows.Forms.Label();
             this.T_klok = new System.Windows.Forms.Timer(this.components);
             this.LBL_UserData = new System.Windows.Forms.Label();
@@ -46,34 +46,34 @@ namespace ChapooUI
             this.BTN_ManageReservations = new System.Windows.Forms.Button();
             this.PNL_tafel10 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
-            this.LBL_tafel10 = new System.Windows.Forms.Label();
+            this.LBL_tafel10_info = new System.Windows.Forms.Label();
             this.PNL_tafel8 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
-            this.LBL_tafel8 = new System.Windows.Forms.Label();
+            this.LBL_tafel8_info = new System.Windows.Forms.Label();
             this.PNL_tafel6 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
-            this.LBL_tafel6 = new System.Windows.Forms.Label();
+            this.LBL_tafel6_info = new System.Windows.Forms.Label();
             this.PNL_tafel4 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
-            this.LBL_tafel4 = new System.Windows.Forms.Label();
+            this.LBL_tafel4_info = new System.Windows.Forms.Label();
             this.PNL_tafel2 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
-            this.LBL_tafel2 = new System.Windows.Forms.Label();
+            this.LBL_tafel2_info = new System.Windows.Forms.Label();
             this.PNL_tafel9 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
-            this.LBL_tafel9 = new System.Windows.Forms.Label();
+            this.LBL_tafel9_info = new System.Windows.Forms.Label();
             this.PNL_tafel7 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
-            this.LBL_tafel7 = new System.Windows.Forms.Label();
+            this.LBL_tafel7_info = new System.Windows.Forms.Label();
             this.PNL_tafel5 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.LBL_tafel5 = new System.Windows.Forms.Label();
+            this.LBL_tafel5_info = new System.Windows.Forms.Label();
             this.PNL_tafel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.LBL_tafel3 = new System.Windows.Forms.Label();
+            this.LBL_tafel3_info = new System.Windows.Forms.Label();
             this.PNL_tafel1 = new System.Windows.Forms.Panel();
             this.label = new System.Windows.Forms.Label();
-            this.LBL_tafel1 = new System.Windows.Forms.Label();
+            this.LBL_tafel1_info = new System.Windows.Forms.Label();
             this.TUpdateTimer = new System.Windows.Forms.Timer(this.components);
             this.menuStrip2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -89,15 +89,15 @@ namespace ChapooUI
             this.PNL_tafel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // LBL_Tableinfo
+            // LBL_TableStats
             // 
-            this.LBL_Tableinfo.AutoSize = true;
-            this.LBL_Tableinfo.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBL_Tableinfo.Location = new System.Drawing.Point(0, 525);
-            this.LBL_Tableinfo.Name = "LBL_Tableinfo";
-            this.LBL_Tableinfo.Size = new System.Drawing.Size(88, 23);
-            this.LBL_Tableinfo.TabIndex = 22;
-            this.LBL_Tableinfo.Text = "table info";
+            this.LBL_TableStats.AutoSize = true;
+            this.LBL_TableStats.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LBL_TableStats.Location = new System.Drawing.Point(0, 525);
+            this.LBL_TableStats.Name = "LBL_TableStats";
+            this.LBL_TableStats.Size = new System.Drawing.Size(88, 23);
+            this.LBL_TableStats.TabIndex = 22;
+            this.LBL_TableStats.Text = "table info";
             // 
             // LBL_klok
             // 
@@ -231,7 +231,7 @@ namespace ChapooUI
             this.PNL_tafel10.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PNL_tafel10.BackgroundImage")));
             this.PNL_tafel10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.PNL_tafel10.Controls.Add(this.label9);
-            this.PNL_tafel10.Controls.Add(this.LBL_tafel10);
+            this.PNL_tafel10.Controls.Add(this.LBL_tafel10_info);
             this.PNL_tafel10.Location = new System.Drawing.Point(1030, 305);
             this.PNL_tafel10.Name = "PNL_tafel10";
             this.PNL_tafel10.Size = new System.Drawing.Size(250, 200);
@@ -252,14 +252,14 @@ namespace ChapooUI
             this.label9.TabIndex = 25;
             this.label9.Text = "10";
             // 
-            // LBL_tafel10
+            // LBL_tafel10_info
             // 
-            this.LBL_tafel10.AutoSize = true;
-            this.LBL_tafel10.Location = new System.Drawing.Point(11, 143);
-            this.LBL_tafel10.Name = "LBL_tafel10";
-            this.LBL_tafel10.Size = new System.Drawing.Size(51, 17);
-            this.LBL_tafel10.TabIndex = 28;
-            this.LBL_tafel10.Text = "tafel10";
+            this.LBL_tafel10_info.AutoSize = true;
+            this.LBL_tafel10_info.Location = new System.Drawing.Point(11, 143);
+            this.LBL_tafel10_info.Name = "LBL_tafel10_info";
+            this.LBL_tafel10_info.Size = new System.Drawing.Size(51, 17);
+            this.LBL_tafel10_info.TabIndex = 28;
+            this.LBL_tafel10_info.Text = "tafel10";
             // 
             // PNL_tafel8
             // 
@@ -267,7 +267,7 @@ namespace ChapooUI
             this.PNL_tafel8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PNL_tafel8.BackgroundImage")));
             this.PNL_tafel8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.PNL_tafel8.Controls.Add(this.label8);
-            this.PNL_tafel8.Controls.Add(this.LBL_tafel8);
+            this.PNL_tafel8.Controls.Add(this.LBL_tafel8_info);
             this.PNL_tafel8.Location = new System.Drawing.Point(774, 305);
             this.PNL_tafel8.Name = "PNL_tafel8";
             this.PNL_tafel8.Size = new System.Drawing.Size(250, 200);
@@ -288,14 +288,14 @@ namespace ChapooUI
             this.label8.TabIndex = 25;
             this.label8.Text = "8";
             // 
-            // LBL_tafel8
+            // LBL_tafel8_info
             // 
-            this.LBL_tafel8.AutoSize = true;
-            this.LBL_tafel8.Location = new System.Drawing.Point(18, 143);
-            this.LBL_tafel8.Name = "LBL_tafel8";
-            this.LBL_tafel8.Size = new System.Drawing.Size(43, 17);
-            this.LBL_tafel8.TabIndex = 28;
-            this.LBL_tafel8.Text = "tafel8";
+            this.LBL_tafel8_info.AutoSize = true;
+            this.LBL_tafel8_info.Location = new System.Drawing.Point(18, 143);
+            this.LBL_tafel8_info.Name = "LBL_tafel8_info";
+            this.LBL_tafel8_info.Size = new System.Drawing.Size(43, 17);
+            this.LBL_tafel8_info.TabIndex = 28;
+            this.LBL_tafel8_info.Text = "tafel8";
             // 
             // PNL_tafel6
             // 
@@ -303,7 +303,7 @@ namespace ChapooUI
             this.PNL_tafel6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PNL_tafel6.BackgroundImage")));
             this.PNL_tafel6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.PNL_tafel6.Controls.Add(this.label7);
-            this.PNL_tafel6.Controls.Add(this.LBL_tafel6);
+            this.PNL_tafel6.Controls.Add(this.LBL_tafel6_info);
             this.PNL_tafel6.Location = new System.Drawing.Point(518, 305);
             this.PNL_tafel6.Name = "PNL_tafel6";
             this.PNL_tafel6.Size = new System.Drawing.Size(250, 200);
@@ -324,14 +324,14 @@ namespace ChapooUI
             this.label7.TabIndex = 25;
             this.label7.Text = "6";
             // 
-            // LBL_tafel6
+            // LBL_tafel6_info
             // 
-            this.LBL_tafel6.AutoSize = true;
-            this.LBL_tafel6.Location = new System.Drawing.Point(22, 143);
-            this.LBL_tafel6.Name = "LBL_tafel6";
-            this.LBL_tafel6.Size = new System.Drawing.Size(43, 17);
-            this.LBL_tafel6.TabIndex = 28;
-            this.LBL_tafel6.Text = "tafel6";
+            this.LBL_tafel6_info.AutoSize = true;
+            this.LBL_tafel6_info.Location = new System.Drawing.Point(22, 143);
+            this.LBL_tafel6_info.Name = "LBL_tafel6_info";
+            this.LBL_tafel6_info.Size = new System.Drawing.Size(43, 17);
+            this.LBL_tafel6_info.TabIndex = 28;
+            this.LBL_tafel6_info.Text = "tafel6";
             // 
             // PNL_tafel4
             // 
@@ -339,7 +339,7 @@ namespace ChapooUI
             this.PNL_tafel4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PNL_tafel4.BackgroundImage")));
             this.PNL_tafel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.PNL_tafel4.Controls.Add(this.label6);
-            this.PNL_tafel4.Controls.Add(this.LBL_tafel4);
+            this.PNL_tafel4.Controls.Add(this.LBL_tafel4_info);
             this.PNL_tafel4.Location = new System.Drawing.Point(262, 305);
             this.PNL_tafel4.Name = "PNL_tafel4";
             this.PNL_tafel4.Size = new System.Drawing.Size(250, 200);
@@ -360,14 +360,14 @@ namespace ChapooUI
             this.label6.TabIndex = 25;
             this.label6.Text = "4";
             // 
-            // LBL_tafel4
+            // LBL_tafel4_info
             // 
-            this.LBL_tafel4.AutoSize = true;
-            this.LBL_tafel4.Location = new System.Drawing.Point(13, 143);
-            this.LBL_tafel4.Name = "LBL_tafel4";
-            this.LBL_tafel4.Size = new System.Drawing.Size(43, 17);
-            this.LBL_tafel4.TabIndex = 28;
-            this.LBL_tafel4.Text = "tafel4";
+            this.LBL_tafel4_info.AutoSize = true;
+            this.LBL_tafel4_info.Location = new System.Drawing.Point(13, 143);
+            this.LBL_tafel4_info.Name = "LBL_tafel4_info";
+            this.LBL_tafel4_info.Size = new System.Drawing.Size(43, 17);
+            this.LBL_tafel4_info.TabIndex = 28;
+            this.LBL_tafel4_info.Text = "tafel4";
             // 
             // PNL_tafel2
             // 
@@ -375,7 +375,7 @@ namespace ChapooUI
             this.PNL_tafel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PNL_tafel2.BackgroundImage")));
             this.PNL_tafel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.PNL_tafel2.Controls.Add(this.label5);
-            this.PNL_tafel2.Controls.Add(this.LBL_tafel2);
+            this.PNL_tafel2.Controls.Add(this.LBL_tafel2_info);
             this.PNL_tafel2.Location = new System.Drawing.Point(6, 305);
             this.PNL_tafel2.Name = "PNL_tafel2";
             this.PNL_tafel2.Size = new System.Drawing.Size(250, 200);
@@ -396,14 +396,14 @@ namespace ChapooUI
             this.label5.TabIndex = 25;
             this.label5.Text = "2";
             // 
-            // LBL_tafel2
+            // LBL_tafel2_info
             // 
-            this.LBL_tafel2.AutoSize = true;
-            this.LBL_tafel2.Location = new System.Drawing.Point(9, 143);
-            this.LBL_tafel2.Name = "LBL_tafel2";
-            this.LBL_tafel2.Size = new System.Drawing.Size(43, 17);
-            this.LBL_tafel2.TabIndex = 27;
-            this.LBL_tafel2.Text = "tafel2";
+            this.LBL_tafel2_info.AutoSize = true;
+            this.LBL_tafel2_info.Location = new System.Drawing.Point(9, 143);
+            this.LBL_tafel2_info.Name = "LBL_tafel2_info";
+            this.LBL_tafel2_info.Size = new System.Drawing.Size(43, 17);
+            this.LBL_tafel2_info.TabIndex = 27;
+            this.LBL_tafel2_info.Text = "tafel2";
             // 
             // PNL_tafel9
             // 
@@ -412,7 +412,7 @@ namespace ChapooUI
             this.PNL_tafel9.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PNL_tafel9.BackgroundImage")));
             this.PNL_tafel9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.PNL_tafel9.Controls.Add(this.label4);
-            this.PNL_tafel9.Controls.Add(this.LBL_tafel9);
+            this.PNL_tafel9.Controls.Add(this.LBL_tafel9_info);
             this.PNL_tafel9.Location = new System.Drawing.Point(1030, 99);
             this.PNL_tafel9.Name = "PNL_tafel9";
             this.PNL_tafel9.Size = new System.Drawing.Size(250, 200);
@@ -433,14 +433,14 @@ namespace ChapooUI
             this.label4.TabIndex = 25;
             this.label4.Text = "9";
             // 
-            // LBL_tafel9
+            // LBL_tafel9_info
             // 
-            this.LBL_tafel9.AutoSize = true;
-            this.LBL_tafel9.Location = new System.Drawing.Point(19, 141);
-            this.LBL_tafel9.Name = "LBL_tafel9";
-            this.LBL_tafel9.Size = new System.Drawing.Size(43, 17);
-            this.LBL_tafel9.TabIndex = 26;
-            this.LBL_tafel9.Text = "tafel9";
+            this.LBL_tafel9_info.AutoSize = true;
+            this.LBL_tafel9_info.Location = new System.Drawing.Point(19, 141);
+            this.LBL_tafel9_info.Name = "LBL_tafel9_info";
+            this.LBL_tafel9_info.Size = new System.Drawing.Size(43, 17);
+            this.LBL_tafel9_info.TabIndex = 26;
+            this.LBL_tafel9_info.Text = "tafel9";
             // 
             // PNL_tafel7
             // 
@@ -448,7 +448,7 @@ namespace ChapooUI
             this.PNL_tafel7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PNL_tafel7.BackgroundImage")));
             this.PNL_tafel7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.PNL_tafel7.Controls.Add(this.label3);
-            this.PNL_tafel7.Controls.Add(this.LBL_tafel7);
+            this.PNL_tafel7.Controls.Add(this.LBL_tafel7_info);
             this.PNL_tafel7.Location = new System.Drawing.Point(774, 99);
             this.PNL_tafel7.Name = "PNL_tafel7";
             this.PNL_tafel7.Size = new System.Drawing.Size(250, 200);
@@ -469,14 +469,14 @@ namespace ChapooUI
             this.label3.TabIndex = 26;
             this.label3.Text = "7";
             // 
-            // LBL_tafel7
+            // LBL_tafel7_info
             // 
-            this.LBL_tafel7.AutoSize = true;
-            this.LBL_tafel7.Location = new System.Drawing.Point(18, 141);
-            this.LBL_tafel7.Name = "LBL_tafel7";
-            this.LBL_tafel7.Size = new System.Drawing.Size(43, 17);
-            this.LBL_tafel7.TabIndex = 25;
-            this.LBL_tafel7.Text = "tafel7";
+            this.LBL_tafel7_info.AutoSize = true;
+            this.LBL_tafel7_info.Location = new System.Drawing.Point(18, 141);
+            this.LBL_tafel7_info.Name = "LBL_tafel7_info";
+            this.LBL_tafel7_info.Size = new System.Drawing.Size(43, 17);
+            this.LBL_tafel7_info.TabIndex = 25;
+            this.LBL_tafel7_info.Text = "tafel7";
             // 
             // PNL_tafel5
             // 
@@ -484,7 +484,7 @@ namespace ChapooUI
             this.PNL_tafel5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PNL_tafel5.BackgroundImage")));
             this.PNL_tafel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.PNL_tafel5.Controls.Add(this.label2);
-            this.PNL_tafel5.Controls.Add(this.LBL_tafel5);
+            this.PNL_tafel5.Controls.Add(this.LBL_tafel5_info);
             this.PNL_tafel5.Location = new System.Drawing.Point(518, 99);
             this.PNL_tafel5.Name = "PNL_tafel5";
             this.PNL_tafel5.Size = new System.Drawing.Size(250, 200);
@@ -505,14 +505,14 @@ namespace ChapooUI
             this.label2.TabIndex = 25;
             this.label2.Text = "5";
             // 
-            // LBL_tafel5
+            // LBL_tafel5_info
             // 
-            this.LBL_tafel5.AutoSize = true;
-            this.LBL_tafel5.Location = new System.Drawing.Point(22, 141);
-            this.LBL_tafel5.Name = "LBL_tafel5";
-            this.LBL_tafel5.Size = new System.Drawing.Size(43, 17);
-            this.LBL_tafel5.TabIndex = 24;
-            this.LBL_tafel5.Text = "tafel5";
+            this.LBL_tafel5_info.AutoSize = true;
+            this.LBL_tafel5_info.Location = new System.Drawing.Point(22, 141);
+            this.LBL_tafel5_info.Name = "LBL_tafel5_info";
+            this.LBL_tafel5_info.Size = new System.Drawing.Size(43, 17);
+            this.LBL_tafel5_info.TabIndex = 24;
+            this.LBL_tafel5_info.Text = "tafel5";
             // 
             // PNL_tafel3
             // 
@@ -520,7 +520,7 @@ namespace ChapooUI
             this.PNL_tafel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PNL_tafel3.BackgroundImage")));
             this.PNL_tafel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.PNL_tafel3.Controls.Add(this.label1);
-            this.PNL_tafel3.Controls.Add(this.LBL_tafel3);
+            this.PNL_tafel3.Controls.Add(this.LBL_tafel3_info);
             this.PNL_tafel3.Location = new System.Drawing.Point(262, 99);
             this.PNL_tafel3.Name = "PNL_tafel3";
             this.PNL_tafel3.Size = new System.Drawing.Size(250, 200);
@@ -541,14 +541,14 @@ namespace ChapooUI
             this.label1.TabIndex = 25;
             this.label1.Text = "3";
             // 
-            // LBL_tafel3
+            // LBL_tafel3_info
             // 
-            this.LBL_tafel3.AutoSize = true;
-            this.LBL_tafel3.Location = new System.Drawing.Point(13, 141);
-            this.LBL_tafel3.Name = "LBL_tafel3";
-            this.LBL_tafel3.Size = new System.Drawing.Size(43, 17);
-            this.LBL_tafel3.TabIndex = 23;
-            this.LBL_tafel3.Text = "tafel3";
+            this.LBL_tafel3_info.AutoSize = true;
+            this.LBL_tafel3_info.Location = new System.Drawing.Point(13, 141);
+            this.LBL_tafel3_info.Name = "LBL_tafel3_info";
+            this.LBL_tafel3_info.Size = new System.Drawing.Size(43, 17);
+            this.LBL_tafel3_info.TabIndex = 23;
+            this.LBL_tafel3_info.Text = "tafel3";
             // 
             // PNL_tafel1
             // 
@@ -556,7 +556,7 @@ namespace ChapooUI
             this.PNL_tafel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PNL_tafel1.BackgroundImage")));
             this.PNL_tafel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.PNL_tafel1.Controls.Add(this.label);
-            this.PNL_tafel1.Controls.Add(this.LBL_tafel1);
+            this.PNL_tafel1.Controls.Add(this.LBL_tafel1_info);
             this.PNL_tafel1.Location = new System.Drawing.Point(6, 99);
             this.PNL_tafel1.Name = "PNL_tafel1";
             this.PNL_tafel1.Size = new System.Drawing.Size(250, 200);
@@ -577,14 +577,14 @@ namespace ChapooUI
             this.label.TabIndex = 24;
             this.label.Text = "1";
             // 
-            // LBL_tafel1
+            // LBL_tafel1_info
             // 
-            this.LBL_tafel1.AutoSize = true;
-            this.LBL_tafel1.Location = new System.Drawing.Point(9, 141);
-            this.LBL_tafel1.Name = "LBL_tafel1";
-            this.LBL_tafel1.Size = new System.Drawing.Size(43, 17);
-            this.LBL_tafel1.TabIndex = 22;
-            this.LBL_tafel1.Text = "tafel1";
+            this.LBL_tafel1_info.AutoSize = true;
+            this.LBL_tafel1_info.Location = new System.Drawing.Point(9, 141);
+            this.LBL_tafel1_info.Name = "LBL_tafel1_info";
+            this.LBL_tafel1_info.Size = new System.Drawing.Size(43, 17);
+            this.LBL_tafel1_info.TabIndex = 22;
+            this.LBL_tafel1_info.Text = "tafel1";
             // 
             // TUpdateTimer
             // 
@@ -606,7 +606,7 @@ namespace ChapooUI
             this.Controls.Add(this.LBL_legenda1);
             this.Controls.Add(this.LBL_UserData);
             this.Controls.Add(this.LBL_klok);
-            this.Controls.Add(this.LBL_Tableinfo);
+            this.Controls.Add(this.LBL_TableStats);
             this.Controls.Add(this.PNL_tafel10);
             this.Controls.Add(this.PNL_tafel8);
             this.Controls.Add(this.PNL_tafel6);
@@ -656,21 +656,21 @@ namespace ChapooUI
         private System.Windows.Forms.Panel PNL_tafel5;
         private System.Windows.Forms.Panel PNL_tafel7;
         private System.Windows.Forms.Panel PNL_tafel9;
-        private System.Windows.Forms.Label LBL_tafel1;
-        private System.Windows.Forms.Label LBL_tafel3;
-        private System.Windows.Forms.Label LBL_tafel5;
-        private System.Windows.Forms.Label LBL_tafel7;
-        private System.Windows.Forms.Label LBL_tafel9;
-        private System.Windows.Forms.Label LBL_tafel2;
+        private System.Windows.Forms.Label LBL_tafel1_info;
+        private System.Windows.Forms.Label LBL_tafel3_info;
+        private System.Windows.Forms.Label LBL_tafel5_info;
+        private System.Windows.Forms.Label LBL_tafel7_info;
+        private System.Windows.Forms.Label LBL_tafel9_info;
+        private System.Windows.Forms.Label LBL_tafel2_info;
         private System.Windows.Forms.Panel PNL_tafel2;
         private System.Windows.Forms.Panel PNL_tafel4;
-        private System.Windows.Forms.Label LBL_tafel4;
+        private System.Windows.Forms.Label LBL_tafel4_info;
         private System.Windows.Forms.Panel PNL_tafel6;
-        private System.Windows.Forms.Label LBL_tafel6;
+        private System.Windows.Forms.Label LBL_tafel6_info;
         private System.Windows.Forms.Panel PNL_tafel8;
-        private System.Windows.Forms.Label LBL_tafel8;
+        private System.Windows.Forms.Label LBL_tafel8_info;
         private System.Windows.Forms.Panel PNL_tafel10;
-        private System.Windows.Forms.Label LBL_tafel10;
+        private System.Windows.Forms.Label LBL_tafel10_info;
         private System.Windows.Forms.Label label;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -681,7 +681,7 @@ namespace ChapooUI
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label LBL_Tableinfo;
+        private System.Windows.Forms.Label LBL_TableStats;
         private System.Windows.Forms.Label LBL_klok;
         private System.Windows.Forms.Timer T_klok;
         private System.Windows.Forms.Label LBL_UserData;

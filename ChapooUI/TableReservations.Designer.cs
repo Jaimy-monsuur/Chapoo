@@ -123,7 +123,7 @@ namespace ChapooUI
             // LBL_error
             // 
             this.LBL_error.AutoSize = true;
-            this.LBL_error.BackColor = System.Drawing.Color.Chocolate;
+            this.LBL_error.BackColor = System.Drawing.Color.Transparent;
             this.LBL_error.ForeColor = System.Drawing.Color.Red;
             this.LBL_error.Location = new System.Drawing.Point(225, 258);
             this.LBL_error.Name = "LBL_error";
