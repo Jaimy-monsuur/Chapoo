@@ -44,6 +44,7 @@ namespace ChapooUI
         {
             List<Order> orderList = orderService.GetOrders();
             List<Orderitems> orderitems = orderitemService.Db_Get_All_Orderitems();
+            List<Menuitems> menuitems = menuitemService.GetMenuitems();
 
             foreach (Order order in orderList)
             {
@@ -55,9 +56,7 @@ namespace ChapooUI
                         orderitems.Add(orderitem);
                     }
                 }
-            }
-
-            List<Menuitems> menuitems = menuitemService.GetMenuitems();
+            }            
 
             if (listName == "keuken")
             {                                              

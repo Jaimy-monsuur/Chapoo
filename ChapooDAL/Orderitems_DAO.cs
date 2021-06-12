@@ -24,7 +24,7 @@ namespace ChapooDAL
         public List<Orderitems> Db_Get_All_Orderitems()
         {
             // Hier staat de query die naar de database gaat voor het ophalen van de juiste gegevens
-            string query = $"SELECT ordernummer, itemnummer, aantal, gereed, Orders.besteltijd FROM Orderitems JOIN Orders ON Orders.ordernummer = Orderitems.ordernummer ORDER BY besteltijd DESC";
+            string query = $"SELECT Orderitems.ordernummer, Orderitems.itemnummer, Orderitems.aantal, Orderitems.gereed, Orders.besteltijd FROM Orderitems JOIN Orders ON Orders.ordernummer = Orderitems.ordernummer WHERE gereed = 0 ORDER BY besteltijd DESC";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
