@@ -36,6 +36,9 @@ namespace ChapooUI
         Order_Service orderService = new Order_Service();
         Orderitems_Service orderitemService = new Orderitems_Service();
         Menuitems_Service menuitemService = new Menuitems_Service();
+        
+        // Haal de current user op
+        CurrentUser currentUser;
 
         public void showListView(string listName) // Kan makkelijker met current user
         {
@@ -170,34 +173,13 @@ namespace ChapooUI
             {
                 int orderNummer = int.Parse(listViewKeukenBarOpenstaand.SelectedItems[0].Text);
                 orderitemService.MeldGereed(orderNummer);
-            }
-        }
-
-        private void annulerenKeukenBarBtn_Click(object sender, EventArgs e)
-        {
-            if (listViewKeukenBarOpenstaand.SelectedItems.Count != 0)
-            {
-                int orderNummer = int.Parse(listViewKeukenBarOpenstaand.SelectedItems[0].Text);
-                ConfirmOngereedMelden confirm = new ConfirmOngereedMelden();
-                confirm.ShowDialog();
-                if (confirm.confirmOngereed() == true)
-                {
-                    orderitemService.MeldOngereed(orderNummer);
-                }          
+                listViewKeukenBarOpenstaand.SelectedItems.Clear();
             }
         }
 
         private void terugKeukenBarBtn_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void maakOrderBarBtn_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            BarBestelMenu barBestelMenu = new BarBestelMenu();
-            barBestelMenu.ShowDialog();
-            this.Show();
         }
 
         private void TerugtoolStripMenuItem_Click(object sender, EventArgs e)

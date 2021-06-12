@@ -40,11 +40,5 @@ namespace ChapooLogic
             // Stuurt het itemnummer wat gereed gemeld moet worden naar de DAL laag
             orderitem_db.MeldGereed(orderNummer);
         }
-
-        public void MeldOngereed(int orderNummer)
-        {
-            // Stuurt het itemnummer wat ongereed gemeld moet worden naar de DAL laag
-            orderitem_db.MeldOngereed(orderNummer);
-        }
     }
 }
