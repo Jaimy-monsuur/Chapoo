@@ -18,7 +18,7 @@ namespace ChapooDAL
 
         public List<Order> GetOrders()
         {
-            string query = $"SELECT [ordernummer], [tafelnummer], [personeelnummer], [opmerking] FROM [Orders]";
+            string query = $"SELECT [ordernummer], [tafelnummer], [personeelnummer], [opmerking], [datum] FROM [Orders] WHERE datum >= CAST (GETDATE() AS DATE)";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             List<Order> orders = ReadTables(ExecuteSelectQuery(query, sqlParameters));
             foreach (Order O in orders)
@@ -29,12 +29,12 @@ namespace ChapooDAL
         }
         public List<Order> GetOrders_For_Table(int tafelnummer)
         {
-            string query = $"SELECT [ordernummer], [tafelnummer], [personeelnummer], [opmerking] FROM [Orders] WHERE [tafelnummer] = '{tafelnummer}'";
+            string query = $"SELECT [ordernummer], [tafelnummer], [personeelnummer], [opmerking], [datum] FROM [Orders] WHERE [tafelnummer] = '{tafelnummer}' AND datum >= CAST (GETDATE() AS DATE)";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             List<Order> orders = ReadTables(ExecuteSelectQuery(query, sqlParameters));
             foreach (Order O in orders)
             {
-                //O.orderItemList = Orderitems_DAO.
+                O.orderItemList = Orderitems_DAO.Db_Get_All_Orderitems_for_Order(O.orderNummer);
             }
             return orders;
         }
@@ -58,7 +58,8 @@ namespace ChapooDAL
                     orderNummer = (int)dr["ordernummer"],
                     opmerking = (string)dr["opmerking"],
                     personeel = Personeel,
-                    tafel = Tafel
+                    tafel = Tafel,
+                    datum = (DateTime)dr["datum"]
                 };
                 orders.Add(order);
             }

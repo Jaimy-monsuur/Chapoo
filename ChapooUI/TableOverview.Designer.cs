@@ -169,7 +169,7 @@ namespace ChapooUI
             this.MI_terug});
             this.menuStrip2.Location = new System.Drawing.Point(-1, 0);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(71, 30);
+            this.menuStrip2.Size = new System.Drawing.Size(69, 27);
             this.menuStrip2.TabIndex = 30;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -177,7 +177,7 @@ namespace ChapooUI
             // 
             this.MI_terug.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
             this.MI_terug.Name = "MI_terug";
-            this.MI_terug.Size = new System.Drawing.Size(61, 26);
+            this.MI_terug.Size = new System.Drawing.Size(61, 23);
             this.MI_terug.Text = "Terug";
             this.MI_terug.Click += new System.EventHandler(this.TerugToolStripMenuItem_Click);
             // 
@@ -189,9 +189,9 @@ namespace ChapooUI
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.afsluitenToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(1193, 0);
+            this.menuStrip1.Location = new System.Drawing.Point(1195, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(99, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(97, 27);
             this.menuStrip1.TabIndex = 29;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -199,7 +199,7 @@ namespace ChapooUI
             // 
             this.afsluitenToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
             this.afsluitenToolStripMenuItem.Name = "afsluitenToolStripMenuItem";
-            this.afsluitenToolStripMenuItem.Size = new System.Drawing.Size(89, 26);
+            this.afsluitenToolStripMenuItem.Size = new System.Drawing.Size(89, 23);
             this.afsluitenToolStripMenuItem.Text = "Uitloggen";
             this.afsluitenToolStripMenuItem.Click += new System.EventHandler(this.UitloggenToolStripMenuItem_Click);
             // 
