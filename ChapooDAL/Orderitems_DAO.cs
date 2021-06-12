@@ -68,6 +68,22 @@ namespace ChapooDAL
             ExecuteEditQuery(query, sqlParameters);
         }
 
+        /*public void AddDrinkOrderitem(Orderitems orderitem)
+        {
+            /*string query = $"SELECT Menuitems.itemnummer FROM Menuitems JOIN Menuitems ON {orderitem.itemNaam} = menuitems.naam"; // werkt niet
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            DataTable dataTable = ExecuteSelectQuery(query, sqlParameters);
+
+            int itemNummer = 0;
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                itemNummer = (int)dr["itemnummer"];
+            }
+
+            string query2 = $"INSERT INTO Orderitems (ordernummer, itemnummer, aantal) VALUES ({orderitem.orderNummer}, {itemNummer}), 1)";
+            SqlParameter[] sqlParameters2 = new SqlParameter[0];
+            ExecuteSelectQuery(query2, sqlParameters2);
+        }*/
         public void DeleteOrderitem(int ordernummer, int itemnummer)
         {
             string query = $"DELETE FROM [Orderitems] WHERE [ordernummer] = '{ordernummer}' AND itemnummer = '{itemnummer}'";
