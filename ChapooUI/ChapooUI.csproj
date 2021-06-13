@@ -71,6 +71,18 @@
     <Compile Include="ChapooUI.Designer.cs">
       <DependentUpon>ChapooUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="MenuitemToevoegen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuitemToevoegen.Designer.cs">
+      <DependentUpon>MenuitemToevoegen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuWijzigen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuWijzigen.Designer.cs">
+      <DependentUpon>MenuWijzigen.cs</DependentUpon>
+    </Compile>
     <Compile Include="NieuweWerknemer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,6 +162,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ChapooUI.resx">
       <DependentUpon>ChapooUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuitemToevoegen.resx">
+      <DependentUpon>MenuitemToevoegen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuWijzigen.resx">
+      <DependentUpon>MenuWijzigen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NieuweWerknemer.resx">
       <DependentUpon>NieuweWerknemer.cs</DependentUpon>

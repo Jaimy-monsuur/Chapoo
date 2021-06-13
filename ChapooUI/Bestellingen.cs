@@ -21,9 +21,31 @@ namespace ChapooUI
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         private static extern Int32 SendMessage(IntPtr hWnd, int msg, int wParam, [MarshalAs(UnmanagedType.LPWStr)] string lParam);
 
+        public int Tafelnummer { get; set; }
+        public int Ordernummer { get; set; }
+
         public Bestellingen(int Ordernummer, int tafelnummer)
         {
             InitializeComponent();
+            this.Tafelnummer = tafelnummer;
+            this.Ordernummer = Ordernummer;
+            lblTafelNummerIn.Text = Tafelnummer.ToString();
+
+            cb_Aantal.DisplayMember = '1'.ToString();
+            cb_Aantal.Items.Add('2');
+            cb_Aantal.Items.Add('3');
+            cb_Aantal.Items.Add('4');
+            cb_Aantal.Items.Add('5');
+            cb_Aantal.Items.Add('6');
+            cb_Aantal.Items.Add('7');
+            cb_Aantal.Items.Add('8');
+            cb_Aantal.Items.Add('9');
+            cb_Aantal.Items.Add("10");
+            cb_Aantal.Items.Add("11");
+            cb_Aantal.Items.Add("12");
+            cb_Aantal.Items.Add("13");
+            cb_Aantal.Items.Add("14");
+
 
             if (rBLunch.Checked)
             {
@@ -34,7 +56,7 @@ namespace ChapooUI
                 LvEtenMenu.View = View.Details;
                 foreach (ChapooModel.Menuitems menuitems in MenuMiddag)
                 {
-                    LvEtenMenu.Items.Add(new ListViewItem(new string[] { $"{menuitems.naam}", $"{menuitems.prijs}", $"{menuitems.type}" }));
+                    LvEtenMenu.Items.Add(new ListViewItem(new string[] { $"{menuitems.naam}", $"{menuitems.prijs}" }));
                 } 
             }
             else if (rBAvond.Checked)
@@ -46,7 +68,7 @@ namespace ChapooUI
                 LvEtenMenu.View = View.Details;
                 foreach (ChapooModel.Menuitems menuitems in MenuAvond)
                 {
-                    LvEtenMenu.Items.Add(new ListViewItem(new string[] { $"{menuitems.naam}", $"{menuitems.prijs}", $"{menuitems.type}" }));
+                    LvEtenMenu.Items.Add(new ListViewItem(new string[] { $"{menuitems.naam}", $"{menuitems.prijs}" }));
                 }
             }
             else
@@ -58,22 +80,22 @@ namespace ChapooUI
                 LvEtenMenu.View = View.Details;
                 foreach (ChapooModel.Menuitems menuitems in MenuDrank)
                 {
-                    LvEtenMenu.Items.Add(new ListViewItem(new string[] { $"{menuitems.naam}", $"{menuitems.prijs}", $"{menuitems.type}" }));
+                    LvEtenMenu.Items.Add(new ListViewItem(new string[] { $"{menuitems.naam}", $"{menuitems.prijs}" }));
                 }
             }
 
-            if (Ordernummer > 0)
+            if (Ordernummer >= 0)
             {
                 //Vul de listview met een order die al aanwezig is.
 
-                ChapooLogic.Order_Service OrderNummer = new ChapooLogic.Order_Service();
-                List<Order> ordernummer = OrderNummer.GetOrders();
+                ChapooLogic.Orderitems_Service Ordernr = new ChapooLogic.Orderitems_Service();
+                List<Orderitems> ordernummer = Ordernr.Db_Get_All_Orderitems_for_Order(Ordernummer);
 
                 LvOrderDetails.View = View.Details;
-                foreach (ChapooModel.Order OrdNumr in ordernummer)
+                foreach (ChapooModel.Orderitems OrdNumr in ordernummer)
                 {
                     
-                    LvEtenMenu.Items.Add(new ListViewItem(new string[] { $"{OrdNumr}", $"{OrdNumr.opmerking}" }));
+                    LvOrderDetails.Items.Add(new ListViewItem(new string[] { $"{OrdNumr.menuItem.naam}", $"{OrdNumr.opmerking}"}));
                 }
             }
             else
@@ -85,17 +107,17 @@ namespace ChapooUI
             //Zorgt voor een placeholder "Opmerking:" in de textbox opmerking.
 
             SendMessage(txtOpmerkingBestelling.Handle, EM_SETCUEBANNER, 0, "Opmerking:");
-         
-    }
+
+            CurrentUser user = CurrentUser.Getlnstance();
+            LBL_UserDataOr.Text = user.ToString();
+
+            LBL_klokOr.Text = DateTime.Now.ToString(("HH:mm:ss"));
+
+        }
         private void btn_Uitlog_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
             ConfirmLogout confirmLogout = new ConfirmLogout();
             confirmLogout.ShowDialog();
-        }
-
-        private void LBL_klok_Click(object sender, EventArgs e)
-        {
-           LBL_klokOr.Text = DateTime.Now.ToString(("HH:mm:ss"));
         }
 
         private void btnAddItem_Click(object sender, EventArgs e)
@@ -104,7 +126,7 @@ namespace ChapooUI
                 if (LvEtenMenu.SelectedItems.Count > 0)
                 {
                     //De opmerkingen aan de orderdetails toevoegen
-                    Order opmerking = new Order();
+                    Orderitems opmerking = new Orderitems();
 
                     opmerking.opmerking = txtOpmerkingBestelling.Text;
 

@@ -13,7 +13,7 @@ namespace ChapooModel
         public Menuitems menuItem;
         public bool gereed;
         public DateTime time;
-
+        public string opmerking;
         public decimal TotalPrice 
         {
             get { return menuItem.prijs * aantal; }
