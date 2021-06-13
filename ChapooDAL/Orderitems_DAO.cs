@@ -40,7 +40,7 @@ namespace ChapooDAL
                 Menuitems menuitem = menuitems[0];
 
                 Orderitems orderitem = new Orderitems();
-                    // Alle members van class order worden uit de database opgehaald uit de rijen
+                // Alle members van class order worden uit de database opgehaald uit de rijen
                 orderitem.orderNummer = (int)dr["ordernummer"];
                 orderitem.aantal = (int)dr["aantal"];
                 orderitem.gereed = (bool)dr["gereed"];

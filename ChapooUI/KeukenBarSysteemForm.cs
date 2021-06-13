@@ -88,25 +88,22 @@ namespace ChapooUI
                 {
                     foreach (Orderitems orderitem in orderitems)
                     {
-                        foreach (Menuitems menuitem in menuitems)
+                        if (orderitem.menuItem.type == "Avond" || orderitem.menuItem.type == "Middag")
                         {
-                            if (orderitem.menuItem.itemNummer == menuitem.itemNummer && (menuitem.type == "Avond" || menuitem.type == "Middag"))
-                            {
-                                // Zet de items, in dit geval de naam en prijs van de openstaande gerechten in de listview
-                                item[0] = orderitem.orderNummer.ToString();
-                                item[1] = order.tafel.tafelnummer.ToString();
-                                item[2] = menuitem.naam;
-                                item[3] = menuitem.prijs.ToString();
-                                item[4] = orderitem.aantal.ToString();
-                                ListViewItem li = new ListViewItem(item);
-                                listViewKeukenBarOpenstaand.Items.Add(li);
+                            // Zet de items, in dit geval de naam en prijs van de openstaande gerechten in de listview
+                            item[0] = orderitem.orderNummer.ToString();
+                            item[1] = order.time;
+                            item[2] = orderitem.menuItem.naam;
+                            item[3] = orderitem.menuItem.prijs.ToString();
+                            item[4] = orderitem.aantal.ToString();
+                            ListViewItem li = new ListViewItem(item);
+                            listViewKeukenBarOpenstaand.Items.Add(li);
 
-                                // Zet de opermkingen in de opmerkingen listview
-                                itemopmerkingen[0] = orderitem.orderNummer.ToString();
-                                itemopmerkingen[1] = orderitem.opmerking;
-                                ListViewItem li2 = new ListViewItem(itemopmerkingen);
-                                listViewKeukenBarOpmerkingen.Items.Add(li2);
-                            }
+                            // Zet de opermkingen in de opmerkingen listview
+                            itemopmerkingen[0] = orderitem.orderNummer.ToString();
+                            itemopmerkingen[1] = orderitem.opmerking;
+                            ListViewItem li2 = new ListViewItem(itemopmerkingen);
+                            listViewKeukenBarOpmerkingen.Items.Add(li2);
                         }
                     }
                 }
