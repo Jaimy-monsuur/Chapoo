@@ -54,7 +54,12 @@ namespace ChapooUI
 
         public void showListView()
         {
+            // Haal de orders op uit de database
             List<Order> orderList = orderService.GetOrders();
+
+            // Clear de gereed gemeld message
+            LBL_gereedGemeld.Text = "";
+
             // Maak grid
             listViewKeukenBarOpenstaand.Clear();
             listViewKeukenBarOpenstaand.View = View.Details;
@@ -152,6 +157,7 @@ namespace ChapooUI
                 int itemNummer = int.Parse(listViewKeukenBarOpenstaand.SelectedItems[0].SubItems[1].Text);
                 orderitemService.MeldGereed(orderNummer, itemNummer);
                 showListView();
+                LBL_gereedGemeld.Text = "Item gereed gemeld!";
             }
         }
 
