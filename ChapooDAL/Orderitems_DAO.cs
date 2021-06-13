@@ -33,11 +33,11 @@ namespace ChapooDAL
             string query = "";
             if (opmerking == "")
             {
-                query = $"INSERT INTO Orderitems (ordernummer, itemnummer, aantal, gereed, [time]) VALUES ({orderNummer}, {itemnummer}, {aantal}, 0, SYSDATETIMEOFFSET() AT TIME ZONE 'Central European Standard Time'))";
+                query = $"INSERT INTO Orderitems (ordernummer, itemnummer, aantal, gereed, [time]) VALUES ({orderNummer}, {itemnummer}, {aantal}, 0, SYSDATETIMEOFFSET() AT TIME ZONE 'Central European Standard Time')";
             }
             else
             {
-                query = $"INSERT INTO Orderitems VALUES ({orderNummer}, {itemnummer}, {aantal}, 0, SYSDATETIMEOFFSET() AT TIME ZONE 'Central European Standard Time'), '{opmerking})'";
+                query = $"INSERT INTO Orderitems VALUES ({orderNummer}, {itemnummer}, {aantal}, 0, SYSDATETIMEOFFSET() AT TIME ZONE 'Central European Standard Time', '{opmerking}')";
             }
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(query, sqlParameters);
