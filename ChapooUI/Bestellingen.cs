@@ -278,6 +278,9 @@ namespace ChapooUI
 
                 orderitems_Service.AddOrderitem(Ordernummer, menuitems.itemNummer, orderitems.aantal, orderitems.opmerking);
                 LvOrderDetails.Clear();
+
+                lblErrorBox.ForeColor = Color.Green;
+                lblErrorBox.Text = "Gelukt de order is opgeslagen!";
             }
         }
     }
