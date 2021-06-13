@@ -23,6 +23,10 @@ namespace ChapooLogic
         {
             return orderitem_db.Db_Get_All_Orderitems();
         }
+        public void AddOrderitem(int orderNummer, int itemnummer, int aantal, string opmerking)
+        {
+            orderitem_db.AddOrderitem(orderNummer, itemnummer, aantal, opmerking);
+        }
 
         public void DeleteOrderitem(int ordernummer, int itemnummer)
         {

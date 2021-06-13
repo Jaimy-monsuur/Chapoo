@@ -28,6 +28,20 @@ namespace ChapooDAL
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
+        public void AddOrderitem(int orderNummer,int itemnummer, int aantal,string opmerking)
+        {
+            string query = "";
+            if (opmerking == "")
+            {
+                query = $"INSERT INTO Orderitems (ordernummer, itemnummer, aantal, gereed, [time]) VALUES ({orderNummer}, {itemnummer}, {aantal}, 0, SYSDATETIMEOFFSET() AT TIME ZONE 'Central European Standard Time'))";
+            }
+            else
+            {
+                query = $"INSERT INTO Orderitems VALUES ({orderNummer}, {itemnummer}, {aantal}, 0, SYSDATETIMEOFFSET() AT TIME ZONE 'Central European Standard Time'), '{opmerking})'";
+            }
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            ExecuteEditQuery(query, sqlParameters);
+        }
 
         private List<Orderitems> ReadTables(DataTable dataTable)
         {
