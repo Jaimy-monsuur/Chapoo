@@ -21,7 +21,7 @@ namespace ChapooDAL
 
         public void AddCustomer(string naam, string achternaam, string email, string telefoonnummer)
         {
-            string query = "";
+            string query = "";// hier word gekeken naar de gegevens om te bebalen welke query ndoig is
             if (email == "" && telefoonnummer == "")
             {
                 query = $"INSERT INTO [klant] ([voornaam], [achternaam]) VALUES ('{naam}', '{achternaam}')";

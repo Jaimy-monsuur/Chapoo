@@ -20,11 +20,12 @@ namespace ChapooUI
         public AddCustomers()
         {
             InitializeComponent();
+            // haalt de border weg
             this.ControlBox = false;
             this.Text = "";
         }
 
-        public bool Valid()
+        public bool Valid()//kijkt of de gegevens valid zijn
         {
             if (txb_Anaam.Text != "" && txb_Vnaam.Text != "")
             {
@@ -72,15 +73,15 @@ namespace ChapooUI
             LBL_ERROR.Text = "Vul voor en achter naam in!";
             return false;
         }
-        private void BTN_terug_Click(object sender, EventArgs e)
+        private void BTN_terug_Click(object sender, EventArgs e)// sluit dit fomr
         {
             this.Close();
         }
 
-        private void BTN_Toevoegen_Click(object sender, EventArgs e)
+        private void BTN_Toevoegen_Click(object sender, EventArgs e)// voeft nieuwe klant toe
         {
             bool valid = Valid();
-            if (valid == true)
+            if (valid == true)// kijkt of de gegevens valid zijn
             {
                 Customer_Service.AddCustomer(txb_Vnaam.Text, txb_Anaam.Text,txb_email.Text,txb_nummer.Text);
             }

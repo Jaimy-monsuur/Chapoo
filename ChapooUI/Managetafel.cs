@@ -25,6 +25,7 @@ namespace ChapooUI
             if (m.Msg == WM_NCHITTEST)
                 m.Result = (IntPtr)(HT_CAPTION);
         }
+        //service laag
         public Tafel_Service Tafel_Service = new Tafel_Service();
         public Order_Service Order_Service = new Order_Service();
         public Orderitems_Service Orderitems_Service = new Orderitems_Service();
@@ -35,6 +36,7 @@ namespace ChapooUI
         public Managetafel(int tafelnummer, string status)
         {
             InitializeComponent();
+            //haalt border weg
             this.ControlBox = false;
             this.Text = "";
 
@@ -45,7 +47,7 @@ namespace ChapooUI
             FormSetings();
         }
 
-        public void FormSetings()
+        public void FormSetings()// de bassis van de form, voor de listvieuw en groupbox
         {
             LBL_tafelnummer.Text = "Tafelnummer: " + Tafelnummer.ToString();
             LBL_Tafelstatus.Text = "Tafel status: " + Status;
@@ -79,32 +81,32 @@ namespace ChapooUI
             CB_Aantalmensen.Items.Add("4");
         }
 
-        private void UitloggenToolStripMenuItem_Click(object sender, EventArgs e)
+        private void UitloggenToolStripMenuItem_Click(object sender, EventArgs e)// opent loguit scherm
         {
             ConfirmLogout confirmLogout = new ConfirmLogout();
             confirmLogout.ShowDialog();
         }
 
-        private void TerugtoolStripMenuItem_Click(object sender, EventArgs e)
+        private void TerugtoolStripMenuItem_Click(object sender, EventArgs e)// sluit form
         {
             this.Close();
         }
 
-        private void BTN_Eddit_Click_1(object sender, EventArgs e)
+        private void BTN_Eddit_Click_1(object sender, EventArgs e)// kijkt naade de tafel status en voer query uit
         {
             if (Status == "bezet")
             {
-                Tafel_Service.ClearTafel(Tafelnummer);
+                Tafel_Service.ClearTafel(Tafelnummer);//als de tafel bezet is clear de tafel
             }
-            else if (Status == "vrij" && CB_Aantalmensen.Text != "" || Status == "gereserveerd" && CB_Aantalmensen.Text != "")
+            else if (Status == "vrij" && CB_Aantalmensen.Text != "" || Status == "gereserveerd" && CB_Aantalmensen.Text != "")// else zet tafel naar bezet
             {
                 Tafel_Service.AlterBezetting(Tafelnummer, int.Parse(CB_Aantalmensen.Text));
+                Status = "bezet";
             }
-            Status = "bezet";
-            this.Close();
+            this.Close();// sluit form
         }
 
-        public void GetOrders()
+        public void GetOrders()// haalt alle order op
         {
            // Maak grid
             LF_Orders.Clear();
@@ -118,14 +120,15 @@ namespace ChapooUI
             LF_Orders.Columns.Add("Menu item:", 200);
             LF_Orders.Columns.Add("prijs:", 100);
             LF_Orders.Columns.Add("Aantal:", 70);
+            LF_Orders.Columns.Add("Gereed",50);
 
-            List<Order> orders = Order_Service.Db_Get_All_Orders_FORTable(Tafelnummer);
+            List<Order> orders = Order_Service.Db_Get_All_Orders_FORTable(Tafelnummer);// haalt de order voor de tafel
             if (orders != null)
             {
                 foreach (Order order in orders)
                 {
                     Ordernummer = order.orderNummer;
-                    string[] item = new string[5];
+                    string[] item = new string[6];
                     foreach (Orderitems orderitem in order.orderItemList)
                     {
                         item[0] = orderitem.orderNummer.ToString();
@@ -133,6 +136,7 @@ namespace ChapooUI
                         item[2] = orderitem.menuItem.naam;
                         item[3] = orderitem.TotalPrice.ToString();
                         item[4] = orderitem.aantal.ToString();
+                        item[5] = orderitem.gereed.ToString();
                         ListViewItem li = new ListViewItem(item);
                         LF_Orders.Items.Add(li);
                     }
@@ -140,18 +144,18 @@ namespace ChapooUI
             }
         }
 
-        private void BTN_ordertoevoegen_Click(object sender, EventArgs e)
+        private void BTN_ordertoevoegen_Click(object sender, EventArgs e)//opent bestel scherm
         {
-            this.Close();
-
+            this.Hide();
             Bestellingen bestellingen = new Bestellingen(Ordernummer, Tafelnummer);
             bestellingen.ShowDialog();
             this.Show();
+            GetOrders();
         }
 
-        private void BTN_Delete_reservation_Click(object sender, EventArgs e)
+        private void BTN_Delete_order_Click(object sender, EventArgs e)//verwijderd een order
         {
-            if (LF_Orders.SelectedItems.Count != 0)
+            if (LF_Orders.SelectedItems.Count != 0)//kijk of er iets geselecteerd is
             {
                 int ordernummer = int.Parse(LF_Orders.SelectedItems[0].SubItems[0].Text);
                 int itemnummer = int.Parse(LF_Orders.SelectedItems[0].SubItems[1].Text);

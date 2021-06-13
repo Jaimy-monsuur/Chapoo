@@ -179,7 +179,7 @@ namespace ChapooUI
             this.BTN_Delete_reservation.TabIndex = 4;
             this.BTN_Delete_reservation.Text = "Verwijder Item";
             this.BTN_Delete_reservation.UseVisualStyleBackColor = false;
-            this.BTN_Delete_reservation.Click += new System.EventHandler(this.BTN_Delete_reservation_Click);
+            this.BTN_Delete_reservation.Click += new System.EventHandler(this.BTN_Delete_order_Click);
             // 
             // LF_Orders
             // 

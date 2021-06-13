@@ -19,23 +19,24 @@ namespace ChapooUI
         public NieuweWerknemer()
         {
             InitializeComponent();
+            //haalt border weg
             this.ControlBox = false;
             this.Text = "";
-            tbx_wachtwoord.MaxLength = 4;
-            cb_type.Items.Add("keuken");
+            tbx_wachtwoord.MaxLength = 4;// set max lengte wachtwoord
+            cb_type.Items.Add("keuken");//combo box instelingen
             cb_type.Items.Add("restaurant");
             cb_type.Items.Add("bar");
             cb_type.Items.Add("admin");
         }
 
-        private void BTN_terug_Click(object sender, EventArgs e)
+        private void BTN_terug_Click(object sender, EventArgs e)//sluit form
         {
             this.Close();
         }
 
         private void BTN_Toevoegen_Click(object sender, EventArgs e)
         {
-            if (tbx_voornaam.Text != "" && tbx_achternaam.Text != "" && Tbx_functie.Text != "" && tbx_wachtwoord.Text != "" && cb_type.Text != "" && tbx_wachtwoord.Text.Length > 3)
+            if (tbx_voornaam.Text != "" && tbx_achternaam.Text != "" && Tbx_functie.Text != "" && tbx_wachtwoord.Text != "" && cb_type.Text != "" && tbx_wachtwoord.Text.Length > 3)//kijkt naar voorwaarden
             {
                 string voornaam = tbx_voornaam.Text;
                 string achternaam = tbx_achternaam.Text;
@@ -44,8 +45,9 @@ namespace ChapooUI
                 string password = tbx_wachtwoord.Text; 
                 string type = cb_type.Text;
                 personeel_Service.Addpersonle(voornaam, achternaam, functie, username, password, type);
+                this.Close();
             }
-            else
+            else//geeft error bricht
             {
                 LBL_error.Text = "Vul alle verden corect in!";
             }

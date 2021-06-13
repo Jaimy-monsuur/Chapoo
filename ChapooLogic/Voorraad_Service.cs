@@ -25,6 +25,11 @@ namespace ChapooLogic
             voorraad_db.ChangeVoorraad(itemNummer, nieuwAantal);
         }
 
+        public void Additem(int itemNummer)
+        {
+            voorraad_db.AddItem(itemNummer);
+        }
+
         public void DeleteMenuItem(int itemNummer)
         {
             voorraad_db.DeleteMenuItem(itemNummer);

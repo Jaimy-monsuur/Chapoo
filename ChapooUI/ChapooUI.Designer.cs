@@ -143,9 +143,10 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.afsluitenToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(1187, -1);
+            this.menuStrip1.Location = new System.Drawing.Point(1188, -1);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(97, 27);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(96, 27);
             this.menuStrip1.TabIndex = 18;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -161,8 +162,9 @@
             // 
             this.beheerHomeBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.beheerHomeBtn.Location = new System.Drawing.Point(543, 482);
+            this.beheerHomeBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.beheerHomeBtn.Name = "beheerHomeBtn";
-            this.beheerHomeBtn.Size = new System.Drawing.Size(198, 63);
+            this.beheerHomeBtn.Size = new System.Drawing.Size(197, 63);
             this.beheerHomeBtn.TabIndex = 19;
             this.beheerHomeBtn.Text = "Beheer";
             this.beheerHomeBtn.UseVisualStyleBackColor = true;

@@ -32,14 +32,15 @@ namespace ChapooUI
             this.lblInfo = new System.Windows.Forms.Label();
             this.BTN_terug = new System.Windows.Forms.Button();
             this.BTN_Toevoegen = new System.Windows.Forms.Button();
-            this.Tbx_functie = new System.Windows.Forms.TextBox();
-            this.tbx_achternaam = new System.Windows.Forms.TextBox();
+            this.Tbx_Prijs = new System.Windows.Forms.TextBox();
+            this.Tbx_Naam = new System.Windows.Forms.TextBox();
             this.lblPrijs = new System.Windows.Forms.Label();
             this.lblMenuitem = new System.Windows.Forms.Label();
             this.lblBtw = new System.Windows.Forms.Label();
             this.cb_Btw = new System.Windows.Forms.ComboBox();
             this.lblType = new System.Windows.Forms.Label();
             this.cb_TypeSelect = new System.Windows.Forms.ComboBox();
+            this.lblErrorBox = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblInfo
@@ -77,22 +78,22 @@ namespace ChapooUI
             this.BTN_Toevoegen.UseVisualStyleBackColor = false;
             this.BTN_Toevoegen.Click += new System.EventHandler(this.BTN_Toevoegen_Click);
             // 
-            // Tbx_functie
+            // Tbx_Prijs
             // 
-            this.Tbx_functie.Location = new System.Drawing.Point(151, 111);
-            this.Tbx_functie.Margin = new System.Windows.Forms.Padding(2);
-            this.Tbx_functie.Name = "Tbx_functie";
-            this.Tbx_functie.Size = new System.Drawing.Size(92, 20);
-            this.Tbx_functie.TabIndex = 21;
-            this.Tbx_functie.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Tbx_functie_KeyPress);
+            this.Tbx_Prijs.Location = new System.Drawing.Point(151, 111);
+            this.Tbx_Prijs.Margin = new System.Windows.Forms.Padding(2);
+            this.Tbx_Prijs.Name = "Tbx_Prijs";
+            this.Tbx_Prijs.Size = new System.Drawing.Size(92, 20);
+            this.Tbx_Prijs.TabIndex = 21;
+            this.Tbx_Prijs.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Tbx_functie_KeyPress);
             // 
-            // tbx_achternaam
+            // Tbx_Naam
             // 
-            this.tbx_achternaam.Location = new System.Drawing.Point(14, 61);
-            this.tbx_achternaam.Margin = new System.Windows.Forms.Padding(2);
-            this.tbx_achternaam.Name = "tbx_achternaam";
-            this.tbx_achternaam.Size = new System.Drawing.Size(229, 20);
-            this.tbx_achternaam.TabIndex = 20;
+            this.Tbx_Naam.Location = new System.Drawing.Point(14, 61);
+            this.Tbx_Naam.Margin = new System.Windows.Forms.Padding(2);
+            this.Tbx_Naam.Name = "Tbx_Naam";
+            this.Tbx_Naam.Size = new System.Drawing.Size(229, 20);
+            this.Tbx_Naam.TabIndex = 20;
             // 
             // lblPrijs
             // 
@@ -154,11 +155,20 @@ namespace ChapooUI
             this.cb_TypeSelect.Size = new System.Drawing.Size(92, 21);
             this.cb_TypeSelect.TabIndex = 30;
             // 
+            // lblErrorBox
+            // 
+            this.lblErrorBox.AutoSize = true;
+            this.lblErrorBox.Location = new System.Drawing.Point(16, 213);
+            this.lblErrorBox.Name = "lblErrorBox";
+            this.lblErrorBox.Size = new System.Drawing.Size(0, 13);
+            this.lblErrorBox.TabIndex = 31;
+            // 
             // MenuitemToevoegen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(257, 281);
+            this.Controls.Add(this.lblErrorBox);
             this.Controls.Add(this.cb_TypeSelect);
             this.Controls.Add(this.lblType);
             this.Controls.Add(this.cb_Btw);
@@ -166,10 +176,11 @@ namespace ChapooUI
             this.Controls.Add(this.lblInfo);
             this.Controls.Add(this.BTN_terug);
             this.Controls.Add(this.BTN_Toevoegen);
-            this.Controls.Add(this.Tbx_functie);
-            this.Controls.Add(this.tbx_achternaam);
+            this.Controls.Add(this.Tbx_Prijs);
+            this.Controls.Add(this.Tbx_Naam);
             this.Controls.Add(this.lblPrijs);
             this.Controls.Add(this.lblMenuitem);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "MenuitemToevoegen";
             this.Text = "MenuitemToevoegen";
             this.ResumeLayout(false);
@@ -181,13 +192,14 @@ namespace ChapooUI
         private System.Windows.Forms.Label lblInfo;
         private System.Windows.Forms.Button BTN_terug;
         private System.Windows.Forms.Button BTN_Toevoegen;
-        private System.Windows.Forms.TextBox Tbx_functie;
-        private System.Windows.Forms.TextBox tbx_achternaam;
+        private System.Windows.Forms.TextBox Tbx_Prijs;
+        private System.Windows.Forms.TextBox Tbx_Naam;
         private System.Windows.Forms.Label lblPrijs;
         private System.Windows.Forms.Label lblMenuitem;
         private System.Windows.Forms.Label lblBtw;
         private System.Windows.Forms.ComboBox cb_Btw;
         private System.Windows.Forms.Label lblType;
         private System.Windows.Forms.ComboBox cb_TypeSelect;
+        private System.Windows.Forms.Label lblErrorBox;
     }
 }

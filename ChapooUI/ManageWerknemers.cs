@@ -29,13 +29,14 @@ namespace ChapooUI
         public ManageWerknemers()
         {
             InitializeComponent();
+            //haalt de border weg
             this.ControlBox = false;
             this.Text = "";
 
             MakeGrid();
         }
 
-        public void MakeGrid()
+        public void MakeGrid()// insttellingen voor de list vieuw
         {
 
             // Maak grid
@@ -71,18 +72,18 @@ namespace ChapooUI
             }
         }
 
-        private void TerugtoolStripMenuItem_Click(object sender, EventArgs e)
+        private void TerugtoolStripMenuItem_Click(object sender, EventArgs e)// sluit form
         {
             this.Close();
         }
 
-        private void UitloggenToolStripMenuItem_Click(object sender, EventArgs e)
+        private void UitloggenToolStripMenuItem_Click(object sender, EventArgs e)// opent log uit scherm
         {
             ConfirmLogout confirmLogout = new ConfirmLogout();
             confirmLogout.ShowDialog();
         }
 
-        private void BTNverwijder_Click(object sender, EventArgs e)
+        private void BTNverwijder_Click(object sender, EventArgs e)//verwijderd een personeels lid
         {
             if (LVW_Account.SelectedItems.Count != 0)
             {
@@ -91,7 +92,7 @@ namespace ChapooUI
             }
         }
 
-        private void BTNtoevoegen_Click(object sender, EventArgs e)
+        private void BTNtoevoegen_Click(object sender, EventArgs e)// nieuwe personeels lid toevoegen, opent ander form
         {
             NieuweWerknemer nieuweWerknemer = new NieuweWerknemer();
             nieuweWerknemer.ShowDialog();

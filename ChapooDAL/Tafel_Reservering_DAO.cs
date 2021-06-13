@@ -13,7 +13,7 @@ namespace ChapooDAL
     public class Tafel_Reservering_DAO : Base
     {
         public Tafel_DAO Tafel_DAO = new Tafel_DAO();
-        public List<Tafel_Reservering> Get_All_Table_reservationsfortoday()
+        public List<Tafel_Reservering> Get_All_Table_reservationsfortoday()//haalt de reserveringen voor vandaag
         {
             string query = $"SELECT [reserveringsnummer],voornaam,achternaam,tafelnummer,datum,[vanaf(tijd)],[tot(tijd)] FROM TafelReservering JOIN Klant ON Klant.klantnummer = TafelReservering.klantnummer WHERE datum = CAST (GETDATE() AS DATE)"; 
             SqlParameter[] sqlParameters = new SqlParameter[0];
@@ -21,21 +21,21 @@ namespace ChapooDAL
             return reserveringen;
         }
 
-        public List<Tafel_Reservering> Get_Current_Futere_Reservations_ForTable(int tafelnummer)
+        public List<Tafel_Reservering> Get_Current_Futere_Reservations_ForTable(int tafelnummer)// haalt alle toekomstige reserveringen
         {
             string query = $"SELECT [reserveringsnummer],voornaam,achternaam,tafelnummer,datum,[vanaf(tijd)],[tot(tijd)] FROM TafelReservering JOIN Klant ON Klant.klantnummer = TafelReservering.klantnummer WHERE datum >= CAST (GETDATE() AS DATE) AND TafelReservering.tafelnummer = '{tafelnummer}'";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             List<Tafel_Reservering> reserveringen = ReadTables(ExecuteSelectQuery(query, sqlParameters));
             return reserveringen;
         }
-        public void Deletereservation(int reserveringsnummer)
+        public void Deletereservation(int reserveringsnummer)// verwijderd een reservering
         {
             string query = $"DELETE FROM [TafelReservering] WHERE [reserveringsnummer] = '{reserveringsnummer}'";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(query, sqlParameters);
         }
 
-        public void Newreseration(int Klantnummer, int tafelnummer, string date, string begin, string eind)
+        public void Newreseration(int Klantnummer, int tafelnummer, string date, string begin, string eind)//maakt een nieuwe reservering
         {
             string query = $"INSERT INTO [TafelReservering] VALUES(@KlantID, @TafelID, @Date, CAST(@Start AS smalldatetime), CAST(@Eind AS smalldatetime));;";
             SqlParameter[] sqlParameters = {
@@ -57,7 +57,7 @@ namespace ChapooDAL
 
                 Tafel_Reservering t = new Tafel_Reservering();
                 t.reserveringsnummer = (int)(dr["reserveringsnummer"]);
-                t.naam = (string)(dr["voornaam"]) + (string)(dr["achternaam"]);
+                t.naam = (string)(dr["voornaam"]) + "" + (string)(dr["achternaam"]);
                 t.tafel = Tafel_DAO.GetTafels_by_tablenumber(tafelnummer);
                 t.Datum = (DateTime)(dr["datum"]);
                 DateTime temp1 = (DateTime)(dr["vanaf(tijd)"]);

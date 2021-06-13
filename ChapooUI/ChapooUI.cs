@@ -66,7 +66,8 @@ namespace ChapooUI
         {
             this.Hide();
             KeukenBarSysteemForm keukenBarScherm = new KeukenBarSysteemForm();
-            keukenBarScherm.showListView("keuken");
+            keukenBarScherm.SetKnopType("keuken");
+            keukenBarScherm.showListView();
             keukenBarScherm.ShowDialog();
             this.Show();
         }
@@ -75,7 +76,8 @@ namespace ChapooUI
         {
             this.Hide();
             KeukenBarSysteemForm keukenBarScherm = new KeukenBarSysteemForm();
-            keukenBarScherm.showListView("bar");
+            keukenBarScherm.SetKnopType("bar");
+            keukenBarScherm.showListView();
             keukenBarScherm.ShowDialog();
             this.Show();
         }

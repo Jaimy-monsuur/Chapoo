@@ -48,7 +48,7 @@ namespace ChapooUI
             GetReservations();// haalt alle huidige en toekomstige reserveringen voor een tafel op
             GETcustomers();
         }
-        public void GETcustomers()
+        public void GETcustomers()// haalt alle klanten en stoot ze in combo box
         {
             CB_Klanten.Items.Clear();
             customers = Customer_Service.GetALLCUstomers();
@@ -75,7 +75,7 @@ namespace ChapooUI
             LF_Reservations.Columns.Add("Begin tijd",80);
             LF_Reservations.Columns.Add("Eind tijd",80);
 
-            List<Tafel_Reservering> reservations = tafel_Reservation_Service.Get_Current_Futere_Reservations_ForTable(Tafelnummer);
+            List<Tafel_Reservering> reservations = tafel_Reservation_Service.Get_Current_Futere_Reservations_ForTable(Tafelnummer);// service haalt reserveringen
             foreach (Tafel_Reservering t in reservations)
             {
                 string[] item = new string[5];
@@ -91,7 +91,7 @@ namespace ChapooUI
 
         }
 
-        private void BTN_Delete_reservation_Click(object sender, EventArgs e)
+        private void BTN_Delete_reservation_Click(object sender, EventArgs e)// verwijder reservering
         {
             if (LF_Reservations.SelectedItems.Count != 0)
             {
@@ -102,20 +102,20 @@ namespace ChapooUI
             }
         }
 
-        private void afsluitenToolStripMenuItem_Click(object sender, EventArgs e)
+        private void afsluitenToolStripMenuItem_Click(object sender, EventArgs e)// opent uitlog scherm
         {
             ConfirmLogout confirmLogout = new ConfirmLogout();
             confirmLogout.ShowDialog();
         }
 
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)// sluit form
         {
             this.Close();
         }
 
         private void BTN_ManageReservations_Click(object sender, EventArgs e)
         {
-            if (CB_Klanten.Text != "" && DateTime.Parse(RStarttimePicker.Text).TimeOfDay < DateTime.Parse(REndTimePicker.Text).TimeOfDay && CB_Klanten.Items.Contains(CB_Klanten.Text))
+            if (CB_Klanten.Text != "" && DateTime.Parse(RStarttimePicker.Text).TimeOfDay < DateTime.Parse(REndTimePicker.Text).TimeOfDay && CB_Klanten.Items.Contains(CB_Klanten.Text))// kijkt naar voorwaardes
             {
                 int klantennummer = 0;
                 string klantnaam = CB_Klanten.Text;
@@ -133,7 +133,7 @@ namespace ChapooUI
                 tafel_Reservation_Service.Newreseration(klantennummer,Tafelnummer,date,start,eind);
                 GetReservations();
             }
-            else if (DateTime.Parse(RStarttimePicker.Text).TimeOfDay > DateTime.Parse(REndTimePicker.Text).TimeOfDay)
+            else if (DateTime.Parse(RStarttimePicker.Text).TimeOfDay > DateTime.Parse(REndTimePicker.Text).TimeOfDay)// als de begint tijd later is dan eind tijd
             {
                 LBL_error.Text = "Begin tijd kan niet later zijn dan eind tijd!";
             }
@@ -144,7 +144,7 @@ namespace ChapooUI
 
         }
 
-        private void BTN_newcustomer_Click(object sender, EventArgs e)
+        private void BTN_newcustomer_Click(object sender, EventArgs e)// opent form voor het toevoegen van een nieuwe klant
         {
             AddCustomers addCustomers = new AddCustomers();
             addCustomers.ShowDialog();
