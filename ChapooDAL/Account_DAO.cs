@@ -14,7 +14,7 @@ namespace ChapooDAL
     public class Account_DAO : Base
     {
 
-        public Account DB_Login(string username, string password)
+        public Account DB_Login(string username, string password)// haalt de log in gegevens op. word gebruikt voor de curent user
         {
             string query = $"SELECT personeelnummer, username, password, type FROM [Personeel] WHERE username = '{username}' AND password = '{password}'";
             SqlParameter[] sqlParameters = new SqlParameter[0];

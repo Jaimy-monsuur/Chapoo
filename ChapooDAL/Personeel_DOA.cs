@@ -12,28 +12,28 @@ namespace ChapooDAL
 {
     public class Personeel_DOA : Base
     {
-        public List<Personeels_Lid> GetPersoneel()
+        public List<Personeels_Lid> GetPersoneel()// haalt al het personeel
         {
             string query = $"SELECT [personeelnummer],[voornaam],[achternaam],[functie],[username],[password],[type] FROM [Personeel]";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
 
-        public List<Personeels_Lid> GetPersoneel_for_Order(int personeelNummer)
+        public List<Personeels_Lid> GetPersoneel_for_Order(int personeelNummer) // haalt 1 personeels lis
         {
             string query = $"SELECT [personeelnummer],[voornaam],[achternaam],[functie],[username],[password],[type] FROM [Personeel] WHERE [personeelnummer] = {personeelNummer}";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
 
-        public void Addpersonle(string voornaam, string achternaam,string functie,string username,string password,string type)
+        public void Addpersonle(string voornaam, string achternaam,string functie,string username,string password,string type)// voegt nieuw personeels lid toe,
         {
             string query = $"INSERT INTO[Personeel] VALUES('{voornaam}', '{achternaam}', '{functie}', '{username}', '{password}', '{type}')";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(query, sqlParameters);
         }
 
-        public void DeletePersonel(int personeelnummer)
+        public void DeletePersonel(int personeelnummer)// verwijderd een personeels lid
         {
             string query = $"DELETE FROM [Personeel] WHERE [personeelnummer] = '{personeelnummer}'";
             SqlParameter[] sqlParameters = new SqlParameter[0];

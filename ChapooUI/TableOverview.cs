@@ -64,33 +64,33 @@ namespace ChapooUI
         {
             List<Order> orders = Order_Service.GetOrders();
             int tafelnummer;// de index voor de list
-            int finishedOrderItems = 0;
+            int finishedOrderItems = 0;// voor het berekenen van het aantal openstaande orderitems
             TimeSpan wachttijd = TimeSpan.Parse("00:00:00");
             foreach (Order o in orders)
             {
                 tafelnummer = o.tafel.tafelnummer - 1;// de index voor de list
                 foreach (Orderitems item in o.orderItemList)
                 {
-                    if (item.gereed == true)
+                    if (item.gereed == true)// als de tafel gereed is 
                     {
                         finishedOrderItems++;
                     }
-                    else
+                    else// kijkt naar de wacht tijd
                     {
                         wachttijd = (DateTime.Now - item.time);
                     }
                 }
-                if (o.tafel.bezeting > 0 && o.orderItemList.Count != 0)
+                if (o.tafel.bezeting > 0 && o.orderItemList.Count != 0)// als de tafel bezet is
                 {
                     foreach (Control c in TafelPanels[tafelnummer].Controls)
                     {
                         if (c.Name.Contains("_info"))
                         {
-                            if (finishedOrderItems == o.orderItemList.Count)
+                            if (finishedOrderItems == o.orderItemList.Count)// als er geen orders meer open staan
                             {
                                 c.Text = $"Alle order voor deze tafel zijn klaar\nBezetting: {o.tafel.bezeting}";
                             }
-                            else
+                            else// als er nog order open staan
                             {
                                 c.Text = $"{o.orderItemList.Count - finishedOrderItems} besteling(en) staan nog open\nBezetting: {o.tafel.bezeting}\nWacht al: {wachttijd.ToString(@"hh")} uur en {wachttijd.ToString(@"mm")} minuten";
                             }
@@ -102,12 +102,12 @@ namespace ChapooUI
                 wachttijd = TimeSpan.Parse("00:00:00");
             }
         }
-        public void CheckTableOccupation()
+        public void CheckTableOccupation()// kijk naat tafelbezetting per tafel
         {
             int tafelnummer;// de index voor de list
             occupiedTables = 0;
             List<Tafel> tafels = Tafel_Service.Tafels();//haalt de tafels op
-            foreach (Tafel t in tafels)
+            foreach (Tafel t in tafels)// kijk naar elke tafel
             {
                 tafelnummer = t.tafelnummer - 1;// de index voor de list
                 if (t.bezeting != 0)// tafel is bezet
@@ -123,7 +123,7 @@ namespace ChapooUI
                         }
                     }
                 }
-                else if (t.bezeting == 0 && TafelPanels[tafelnummer].BackColor != Color.DarkOrange)
+                else if (t.bezeting == 0 && TafelPanels[tafelnummer].BackColor != Color.DarkOrange)// alse tafel niet bezet is
                 {
                     TafelPanels[tafelnummer].BackColor = Color.Green;
                     foreach (Control c in TafelPanels[tafelnummer].Controls)
@@ -137,7 +137,7 @@ namespace ChapooUI
                 }
             }
         }
-        public void CheckReservations()
+        public void CheckReservations()// kijk naar reserveringen per tafel
         {
             reservedTables = 0;
             int tafelnummer;// de index voor de list
@@ -176,23 +176,23 @@ namespace ChapooUI
             TafelPanels.Add(PNL_tafel10);
         }
 
-        private void BTN_terug_Click(object sender, EventArgs e)
+        private void BTN_terug_Click(object sender, EventArgs e)// sluit form
         {
             this.Close();// sluit form
         }
 
-        private void Timer_klok_Tick(object sender, EventArgs e)
+        private void Timer_klok_Tick(object sender, EventArgs e)// de timer van de klok, update elke seconde
         {
             LBL_klok.Text = DateTime.Now.ToString(("HH:mm:ss"));
         }
 
-        private void BTN_Loguit_Click(object sender, EventArgs e)
+        private void BTN_Loguit_Click(object sender, EventArgs e)// opent log uit scherm
         {
             ConfirmLogout confirmLogout = new ConfirmLogout();
             confirmLogout.ShowDialog();
         }
 
-        public void Managetable(int tafelnummer, Panel p)
+        public void Managetable(int tafelnummer, Panel p)// opent tablemanagment form maar kijkt eerst naar status van de tafel.
         {
             string status;
             if (p.BackColor == Color.Green)
@@ -212,79 +212,79 @@ namespace ChapooUI
             UpdateTafels();
 ;        }
 
-        private void PNL_tafel1_Click(object sender, EventArgs e)
+        private void PNL_tafel1_Click(object sender, EventArgs e)// verwijst naar Managetable met tafelnummer en pnl nummer
         {
             Managetable(1, PNL_tafel1);
         }
 
-        private void PNL_tafel3_Click(object sender, EventArgs e)
+        private void PNL_tafel3_Click(object sender, EventArgs e)// verwijst naar Managetable met tafelnummer en pnl nummer
         {
             Managetable(3, PNL_tafel3);
         }
 
-        private void PNL_tafel2_Click(object sender, EventArgs e)
+        private void PNL_tafel2_Click(object sender, EventArgs e)// verwijst naar Managetable met tafelnummer en pnl nummer
         {
             Managetable(2, PNL_tafel2);
         }
 
-        private void PNL_tafel4_Click(object sender, EventArgs e)
+        private void PNL_tafel4_Click(object sender, EventArgs e)// verwijst naar Managetable met tafelnummer en pnl nummer
         {
             Managetable(4, PNL_tafel4);
         }
 
-        private void TerugToolStripMenuItem_Click(object sender, EventArgs e)
+        private void TerugToolStripMenuItem_Click(object sender, EventArgs e)// sluit form
         {
             this.Close();
         }
 
-        private void UitloggenToolStripMenuItem_Click(object sender, EventArgs e)
+        private void UitloggenToolStripMenuItem_Click(object sender, EventArgs e)// opent log uit scherm
         {
             ConfirmLogout confirmLogout = new ConfirmLogout();
             confirmLogout.ShowDialog();
         }
 
-        private void BTN_ManageReservations_Click(object sender, EventArgs e)//work in progress
+        private void BTN_ManageReservations_Click(object sender, EventArgs e)//gaat naar reservering form met select table als tussen stap
         {
             SelectTable selectTable = new SelectTable();
             selectTable.ShowDialog();
             UpdateTafels();
         }
 
-        private void BTN_Update_Click(object sender, EventArgs e)
+        private void BTN_Update_Click(object sender, EventArgs e)// update de lijst. dit gebeurt al elke minut
         {
             UpdateTafels();
         }
 
-        private void PNL_tafel5_Click(object sender, EventArgs e)
+        private void PNL_tafel5_Click(object sender, EventArgs e)// verwijst naar Managetable met tafelnummer en pnl nummer
         {
             Managetable(5, PNL_tafel5);
         }
 
-        private void PNL_tafel6_Click(object sender, EventArgs e)
+        private void PNL_tafel6_Click(object sender, EventArgs e)// verwijst naar Managetable met tafelnummer en pnl nummer
         {
             Managetable(6, PNL_tafel6);
         }
 
-        private void PNL_tafel7_Click(object sender, EventArgs e)
+        private void PNL_tafel7_Click(object sender, EventArgs e)// verwijst naar Managetable met tafelnummer en pnl nummer
         {
             Managetable(7, PNL_tafel7);
         }
 
-        private void PNL_tafel8_Click(object sender, EventArgs e)
+        private void PNL_tafel8_Click(object sender, EventArgs e)// verwijst naar Managetable met tafelnummer en pnl nummer
         {
             Managetable(8, PNL_tafel8);
         }
 
-        private void PNL_tafel9_Click(object sender, EventArgs e)
+        private void PNL_tafel9_Click(object sender, EventArgs e)// verwijst naar Managetable met tafelnummer en pnl nummer
         {
             Managetable(9, PNL_tafel9);
         }
 
-        private void PNL_tafel10_Click(object sender, EventArgs e)
+        private void PNL_tafel10_Click(object sender, EventArgs e)// verwijst naar Managetable met tafelnummer en pnl nummer
         {
             Managetable(10, PNL_tafel10);
         }
-        private void TUpdateTimer_Tick(object sender, EventArgs e)
+        private void TUpdateTimer_Tick(object sender, EventArgs e)// de timer voor het updaten. hij update elke minut
         {
             UpdateTafels();
         }
