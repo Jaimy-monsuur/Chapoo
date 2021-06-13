@@ -29,10 +29,10 @@ namespace ChapooLogic
             orderitem_db.DeleteOrderitem(ordernummer, itemnummer);
         }
 
-        public void MeldGereed(int orderNummer)
+        public void MeldGereed(int orderNummer, int itemNummer)
         {
             // Stuurt het itemnummer wat gereed gemeld moet worden naar de DAL laag
-            orderitem_db.MeldGereed(orderNummer);
+            orderitem_db.MeldGereed(orderNummer, itemNummer);
         }
     }
 }

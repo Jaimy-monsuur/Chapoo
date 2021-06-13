@@ -127,12 +127,6 @@
     <Compile Include="SelectTable.Designer.cs">
       <DependentUpon>SelectTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="SelectTableBar.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SelectTableBar.Designer.cs">
-      <DependentUpon>SelectTableBar.cs</DependentUpon>
-    </Compile>
     <Compile Include="TableOverview.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -196,9 +190,6 @@
     </Compile>
     <EmbeddedResource Include="SelectTable.resx">
       <DependentUpon>SelectTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SelectTableBar.resx">
-      <DependentUpon>SelectTableBar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TableReservations.resx">
       <DependentUpon>TableReservations.cs</DependentUpon>

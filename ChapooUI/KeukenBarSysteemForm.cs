@@ -30,35 +30,32 @@ namespace ChapooUI
             InitializeComponent();
             this.ControlBox = false;
             this.Text = "";
+
+            // Haal de current user op
+            CurrentUser user = CurrentUser.Getlnstance();
+
+            // Zet de current user en klok tijd in de labels
+            LBL_userdata.Text = user.ToString();
+            T_klok.Start();
         }
 
-        // Alle service references die nodig zijn
-        Order_Service orderService = new Order_Service();
-        Orderitems_Service orderitemService = new Orderitems_Service();
-        Menuitems_Service menuitemService = new Menuitems_Service();
-        
-        // Haal de current user op
-        CurrentUser currentUser;
+        // Knop type die op hoofdpagina in wordt gedrukt
+        private string knopType = "";
 
-        public void showListView(string listName) // Kan makkelijker met current user
+        // Alle service references die nodig zijn
+        private Order_Service orderService = new Order_Service();
+        private Orderitems_Service orderitemService = new Orderitems_Service();
+
+        public void SetKnopType(string knopType)// Krijg het type knop waar in het home menu is aangeklikt doorgestuurd
+        {
+            this.knopType = knopType;
+        }          
+
+        public void showListView()
         {
             List<Order> orderList = orderService.GetOrders();
-            List<Orderitems> orderitems = orderitemService.Db_Get_All_Orderitems();
-            List<Menuitems> menuitems = menuitemService.GetMenuitems();
 
-            foreach (Order order in orderList)
-            {
-                foreach (Orderitems orderitem in orderitems)
-                {
-                    if (orderitem.orderNummer == order.orderNummer)
-                    {
-                        // Sorteert de orderitems per order
-                        orderitems.Add(orderitem);
-                    }
-                }
-            }            
-
-            if (listName == "keuken")
+            if (knopType == "keuken")
             {                                              
                 // Maak grid
                 listViewKeukenBarOpenstaand.Clear();
@@ -68,9 +65,9 @@ namespace ChapooUI
 
                 // Voeg column header toe
                 listViewKeukenBarOpenstaand.Columns.Add("Ordernr:", 60);
-                listViewKeukenBarOpenstaand.Columns.Add("itemnummer HIDDEN:", 0);
+                listViewKeukenBarOpenstaand.Columns.Add("Itemnummer HIDDEN:", 0);
+                listViewKeukenBarOpenstaand.Columns.Add("Besteltijd:", 60);
                 listViewKeukenBarOpenstaand.Columns.Add("Gerecht:", 300);
-                listViewKeukenBarOpenstaand.Columns.Add("Totaal prijs:", 60);
                 listViewKeukenBarOpenstaand.Columns.Add("Aantal:", 60);
 
                 // Maak grid opmerkingen
@@ -82,33 +79,37 @@ namespace ChapooUI
                 listViewKeukenBarOpmerkingen.Columns.Add("Ordernr:", 50);
                 listViewKeukenBarOpmerkingen.Columns.Add("Opmerkingen:", 250);
 
+                // Maak een array voor de openstaande gerechten en opmerkingen listview om het erin te zetten
                 string[] item = new string[5];
                 string[] itemopmerkingen = new string[2];
                 foreach (Order order in orderList)
                 {
-                    foreach (Orderitems orderitem in orderitems)
+                    foreach (Orderitems orderitem in order.orderItemList)
                     {
-                        if (orderitem.menuItem.type == "Avond" || orderitem.menuItem.type == "Middag")
+                        if (orderitem.menuItem.type == "Lunch" || orderitem.menuItem.type == "Avond")
                         {
-                            // Zet de items, in dit geval de naam en prijs van de openstaande gerechten in de listview
+                            // Zet de items van de openstaande gerechten in de listview
                             item[0] = orderitem.orderNummer.ToString();
-                            item[1] = order.time;
-                            item[2] = orderitem.menuItem.naam;
-                            item[3] = orderitem.menuItem.prijs.ToString();
+                            item[1] = orderitem.menuItem.itemNummer.ToString();
+                            item[2] = orderitem.time.ToString("HH:mm");
+                            item[3] = orderitem.menuItem.naam;
                             item[4] = orderitem.aantal.ToString();
                             ListViewItem li = new ListViewItem(item);
                             listViewKeukenBarOpenstaand.Items.Add(li);
 
-                            // Zet de opermkingen in de opmerkingen listview
-                            itemopmerkingen[0] = orderitem.orderNummer.ToString();
-                            itemopmerkingen[1] = orderitem.opmerking;
-                            ListViewItem li2 = new ListViewItem(itemopmerkingen);
-                            listViewKeukenBarOpmerkingen.Items.Add(li2);
+                            // Zet de opmerkingen in de opmerkingen listview als het niet null of leeg is
+                            if (orderitem.opmerking != null && orderitem.opmerking != "")
+                            {
+                                itemopmerkingen[0] = orderitem.orderNummer.ToString();
+                                itemopmerkingen[1] = orderitem.opmerking;
+                                ListViewItem li2 = new ListViewItem(itemopmerkingen);
+                                listViewKeukenBarOpmerkingen.Items.Add(li2);
+                            }                            
                         }
                     }
                 }
             }
-            else if (listName == "bar")
+            else if (knopType == "bar")
             {              
 
                 // Maak grid
@@ -118,9 +119,9 @@ namespace ChapooUI
                 listViewKeukenBarOpenstaand.FullRowSelect = true;
                 // Voeg column header toe
                 listViewKeukenBarOpenstaand.Columns.Add("Ordernr:", 60);
-                listViewKeukenBarOpenstaand.Columns.Add("Tafelnr:", 60);
-                listViewKeukenBarOpenstaand.Columns.Add("Drank:", 300);
-                listViewKeukenBarOpenstaand.Columns.Add("Prijs:", 60);
+                listViewKeukenBarOpenstaand.Columns.Add("Itemnummer HIDDEN:", 0);
+                listViewKeukenBarOpenstaand.Columns.Add("Besteltijd:", 60);
+                listViewKeukenBarOpenstaand.Columns.Add("Gerecht:", 300);
                 listViewKeukenBarOpenstaand.Columns.Add("Aantal:", 60);
 
                 // Maak grid opmerkingen
@@ -132,26 +133,27 @@ namespace ChapooUI
                 listViewKeukenBarOpmerkingen.Columns.Add("Ordernr:", 50);
                 listViewKeukenBarOpmerkingen.Columns.Add("Opmerkingen:", 250);
 
+                // Maak een array voor de openstaande gerechten en opmerkingen listview om het erin te zetten
                 string[] item = new string[5];
                 string[] itemopmerkingen = new string[2];
                 foreach (Order order in orderList)
                 {
-                    foreach (Orderitems orderitem in orderitems)
+                    foreach (Orderitems orderitem in order.orderItemList)
                     {
-                        foreach (Menuitems menuitem in menuitems)
+                        if (orderitem.menuItem.type == "Drank")
                         {
-                            if (orderitem.menuItem.itemNummer == menuitem.itemNummer && (menuitem.type == "Drank"))
-                            {
-                                // Zet de items, in dit geval de naam en prijs van de openstaande gerechten in de listview
-                                item[0] = orderitem.orderNummer.ToString();
-                                item[1] = order.tafel.tafelnummer.ToString();
-                                item[2] = menuitem.naam;
-                                item[3] = menuitem.prijs.ToString();
-                                item[4] = orderitem.aantal.ToString();
-                                ListViewItem li = new ListViewItem(item);
-                                listViewKeukenBarOpenstaand.Items.Add(li);
+                            // Zet de items van de openstaande gerechten in de listview
+                            item[0] = orderitem.orderNummer.ToString();
+                            item[1] = orderitem.menuItem.itemNummer.ToString();
+                            item[2] = orderitem.time.ToString("HH:mm");
+                            item[3] = orderitem.menuItem.naam;
+                            item[4] = orderitem.aantal.ToString();
+                            ListViewItem li = new ListViewItem(item);
+                            listViewKeukenBarOpenstaand.Items.Add(li);
 
-                                // Zet de opermkingen in de opmerkingen listview
+                            // Zet de opmerkingen in de opmerkingen listview als het niet null of leeg is
+                            if (orderitem.opmerking != null && orderitem.opmerking != "")
+                            {
                                 itemopmerkingen[0] = orderitem.orderNummer.ToString();
                                 itemopmerkingen[1] = orderitem.opmerking;
                                 ListViewItem li2 = new ListViewItem(itemopmerkingen);
@@ -167,26 +169,37 @@ namespace ChapooUI
         {      
             if (listViewKeukenBarOpenstaand.SelectedItems.Count != 0)
             {
-                int orderNummer = int.Parse(listViewKeukenBarOpenstaand.SelectedItems[0].Text);
-                orderitemService.MeldGereed(orderNummer);
-                listViewKeukenBarOpenstaand.SelectedItems.Clear();
+                int orderNummer = int.Parse(listViewKeukenBarOpenstaand.SelectedItems[0].SubItems[0].Text);
+                int itemNummer = int.Parse(listViewKeukenBarOpenstaand.SelectedItems[0].SubItems[1].Text);
+                orderitemService.MeldGereed(orderNummer, itemNummer);
+                showListView();
             }
         }
 
-        private void terugKeukenBarBtn_Click(object sender, EventArgs e)
+        private void TerugtoolStripMenuItem_Click(object sender, EventArgs e)// Ga terug naar vorige scherm
         {
             this.Close();
         }
 
-        private void TerugtoolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void UitloggenToolStripMenuItem_Click(object sender, EventArgs e)
+        private void UitloggenToolStripMenuItem_Click(object sender, EventArgs e)// Knop om uit te loggen en naar inlog scherm te gaan
         {
             ConfirmLogout confirm = new ConfirmLogout();
             confirm.ShowDialog();
+        }
+
+        private void BTN_Update_Click(object sender, EventArgs e)// Knop om te updaten wanneer je dat wilt
+        {
+            showListView();
+        }
+
+        private void T_klok_Tick(object sender, EventArgs e)// Ren timer voor de klok. elke seconde
+        {
+            LBL_klok.Text = DateTime.Now.ToString(("HH:mm:ss"));
+        }
+
+        private void TUpdateTimer_Tick(object sender, EventArgs e)// Update de listview elke minuut
+        {
+            showListView();
         }
     }
 }
