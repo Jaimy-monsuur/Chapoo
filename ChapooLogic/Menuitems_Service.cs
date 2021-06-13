@@ -42,6 +42,13 @@ namespace ChapooLogic
             return menuAvondItems;
         }
 
+        public Menuitems MenuItemToevoegen(string naam, decimal prijs, int btw, string type)
+        {
+            Menuitems itemnummer = menuitem_db.ToevoegenMenuItem(naam, prijs, btw, type);
+            return itemnummer;
+
+        }
+
         public void DeleteMenuItem(int itemNummer)
         {
             menuitem_db.DeleteMenuItem(itemNummer);

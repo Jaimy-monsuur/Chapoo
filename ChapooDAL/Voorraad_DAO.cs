@@ -50,7 +50,7 @@ namespace ChapooDAL
         public void AddItem(int itemNummer)
         {
             // Verandert de voorraad in de database
-            string query = $"INSERT INTO Voorraad VALUES ({itemNummer}, 0):";
+            string query = $"INSERT INTO Voorraad VALUES ({itemNummer}, 0)";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(query, sqlParameters);
         }

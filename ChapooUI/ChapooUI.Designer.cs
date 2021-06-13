@@ -175,7 +175,7 @@
             this.barSelectBtn.BackgroundImage = global::ChapooUI.Properties.Resources.bar;
             this.barSelectBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.barSelectBtn.Location = new System.Drawing.Point(941, 159);
-            this.barSelectBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.barSelectBtn.Margin = new System.Windows.Forms.Padding(4);
             this.barSelectBtn.Name = "barSelectBtn";
             this.barSelectBtn.Size = new System.Drawing.Size(260, 235);
             this.barSelectBtn.TabIndex = 4;
@@ -187,7 +187,7 @@
             this.bedieningSelectBtn.BackgroundImage = global::ChapooUI.Properties.Resources.bediening_removebg_preview;
             this.bedieningSelectBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.bedieningSelectBtn.Location = new System.Drawing.Point(515, 159);
-            this.bedieningSelectBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bedieningSelectBtn.Margin = new System.Windows.Forms.Padding(4);
             this.bedieningSelectBtn.Name = "bedieningSelectBtn";
             this.bedieningSelectBtn.Size = new System.Drawing.Size(260, 235);
             this.bedieningSelectBtn.TabIndex = 3;
@@ -199,7 +199,7 @@
             this.keukenSelectBtn.BackgroundImage = global::ChapooUI.Properties.Resources.keuken;
             this.keukenSelectBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.keukenSelectBtn.Location = new System.Drawing.Point(85, 159);
-            this.keukenSelectBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.keukenSelectBtn.Margin = new System.Windows.Forms.Padding(4);
             this.keukenSelectBtn.Name = "keukenSelectBtn";
             this.keukenSelectBtn.Size = new System.Drawing.Size(260, 235);
             this.keukenSelectBtn.TabIndex = 2;
@@ -223,7 +223,7 @@
             this.Controls.Add(this.keukenSelectBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ChapooUI";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
