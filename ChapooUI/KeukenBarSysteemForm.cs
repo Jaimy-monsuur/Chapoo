@@ -37,6 +37,7 @@ namespace ChapooUI
             // Zet de current user en klok tijd in de labels
             LBL_userdata.Text = user.ToString();
             T_klok.Start();
+            TUpdateTimer.Start();
         }
 
         // Knop type die op hoofdpagina in wordt gedrukt
