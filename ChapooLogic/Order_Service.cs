@@ -20,10 +20,10 @@ namespace ChapooLogic
             return orders;
         }
 
-        /*public int NewOrder(Order order)
-        {          
-            return order_db.NewOrder(order);
-        }*/
+        public int NewOrder(int tafelnummer, int personeelsnummer)
+        {
+            return NewOrder(tafelnummer, personeelsnummer);
+        }
 
         public List<Order> Db_Get_All_Orders_FORTable(int tafelnummer)
         {

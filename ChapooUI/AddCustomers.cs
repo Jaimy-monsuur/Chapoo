@@ -84,6 +84,7 @@ namespace ChapooUI
             {
                 Customer_Service.AddCustomer(txb_Vnaam.Text, txb_Anaam.Text,txb_email.Text,txb_nummer.Text);
             }
+            this.Close();
         }
 
         private void txb_nummer_KeyPress(object sender, KeyPressEventArgs e)
