@@ -16,7 +16,7 @@ namespace ChapooDAL
         public List<Orderitems> Db_Get_All_Orderitems_for_Order(int ordernummer)
         {
             // Hier staat de query die naar de database gaat voor het ophalen van de juiste gegevens
-            string query = $"SELECT ordernummer, itemnummer, aantal, gereed, [time], Opmerking FROM Orderitems WHERE Orderitems.[ordernummer] = '{ordernummer}'";
+            string query = $"SELECT ordernummer, itemnummer, aantal, gereed, [time], Opmerking FROM Orderitems WHERE (Orderitems.[ordernummer] = '{ordernummer}' AND gereed = 0)";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -24,9 +24,23 @@ namespace ChapooDAL
         public List<Orderitems> Db_Get_All_Orderitems()
         {
             // Hier staat de query die naar de database gaat voor het ophalen van de juiste gegevens
-            string query = $"SELECT ordernummer, itemnummer, aantal, gereed, [time], Opmerking FROM Orderitems ORDER BY [time] DESC";
+            string query = $"SELECT ordernummer, itemnummer, aantal, gereed, [time], Opmerking FROM Orderitems WHERE gereed = 0 ORDER BY [time] DESC";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+        }
+        public void AddOrderitem(int orderNummer,int itemnummer, int aantal,string opmerking)
+        {
+            string query = "";
+            if (opmerking == "")
+            {
+                query = $"INSERT INTO Orderitems (ordernummer, itemnummer, aantal, gereed, [time]) VALUES ({orderNummer}, {itemnummer}, {aantal}, 0, SYSDATETIMEOFFSET() AT TIME ZONE 'Central European Standard Time'))";
+            }
+            else
+            {
+                query = $"INSERT INTO Orderitems VALUES ({orderNummer}, {itemnummer}, {aantal}, 0, SYSDATETIMEOFFSET() AT TIME ZONE 'Central European Standard Time'), '{opmerking})'";
+            }
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            ExecuteEditQuery(query, sqlParameters);
         }
 
         private List<Orderitems> ReadTables(DataTable dataTable)
@@ -40,7 +54,7 @@ namespace ChapooDAL
                 Menuitems menuitem = menuitems[0];
 
                 Orderitems orderitem = new Orderitems();
-                    // Alle members van class order worden uit de database opgehaald uit de rijen
+                // Alle members van class order worden uit de database opgehaald uit de rijen
                 orderitem.orderNummer = (int)dr["ordernummer"];
                 orderitem.aantal = (int)dr["aantal"];
                 orderitem.gereed = (bool)dr["gereed"];
@@ -56,19 +70,13 @@ namespace ChapooDAL
             return orderitems;
         }
 
-        public void MeldGereed(int orderNummer)
+        public void MeldGereed(int orderNummer, int itemNummer)
         {
-            string query = $"UPDATE Orderitems SET gereed = 1 WHERE Orderitems.ordernummer = {orderNummer}";
+            string query = $"UPDATE Orderitems SET gereed = 1 WHERE (Orderitems.ordernummer = {orderNummer} AND Orderitems.itemnummer = {itemNummer})";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(query, sqlParameters);
         }
 
-        public void MeldOngereed(int orderNummer)
-        {
-            string query = $"UPDATE Orders SET gereed = 0 WHERE Orders.ordernummer = {orderNummer}";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-            ExecuteEditQuery(query, sqlParameters);
-        }
         public void DeleteOrderitem(int ordernummer, int itemnummer)
         {
             string query = $"DELETE FROM [Orderitems] WHERE [ordernummer] = '{ordernummer}' AND itemnummer = '{itemnummer}'";

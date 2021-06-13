@@ -23,16 +23,20 @@ namespace ChapooLogic
         {
             return orderitem_db.Db_Get_All_Orderitems();
         }
+        public void AddOrderitem(int orderNummer, int itemnummer, int aantal, string opmerking)
+        {
+            orderitem_db.AddOrderitem(orderNummer, itemnummer, aantal, opmerking);
+        }
 
         public void DeleteOrderitem(int ordernummer, int itemnummer)
         {
             orderitem_db.DeleteOrderitem(ordernummer, itemnummer);
         }
 
-        public void MeldGereed(int orderNummer)
+        public void MeldGereed(int orderNummer, int itemNummer)
         {
             // Stuurt het itemnummer wat gereed gemeld moet worden naar de DAL laag
-            orderitem_db.MeldGereed(orderNummer);
+            orderitem_db.MeldGereed(orderNummer, itemNummer);
         }
     }
 }
