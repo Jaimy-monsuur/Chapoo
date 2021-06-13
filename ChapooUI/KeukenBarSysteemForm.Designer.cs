@@ -43,6 +43,7 @@ namespace ChapooUI
             this.LBL_klok = new System.Windows.Forms.Label();
             this.T_klok = new System.Windows.Forms.Timer(this.components);
             this.TUpdateTimer = new System.Windows.Forms.Timer(this.components);
+            this.LBL_gereedGemeld = new System.Windows.Forms.Label();
             this.menuStrip2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -176,11 +177,21 @@ namespace ChapooUI
             this.TUpdateTimer.Interval = 60000;
             this.TUpdateTimer.Tick += new System.EventHandler(this.TUpdateTimer_Tick);
             // 
+            // LBL_gereedGemeld
+            // 
+            this.LBL_gereedGemeld.AutoSize = true;
+            this.LBL_gereedGemeld.ForeColor = System.Drawing.Color.Green;
+            this.LBL_gereedGemeld.Location = new System.Drawing.Point(587, 472);
+            this.LBL_gereedGemeld.Name = "LBL_gereedGemeld";
+            this.LBL_gereedGemeld.Size = new System.Drawing.Size(0, 13);
+            this.LBL_gereedGemeld.TabIndex = 35;
+            // 
             // KeukenBarSysteemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(962, 505);
+            this.Controls.Add(this.LBL_gereedGemeld);
             this.Controls.Add(this.LBL_klok);
             this.Controls.Add(this.LBL_userdata);
             this.Controls.Add(this.BTN_Update);
@@ -216,5 +227,6 @@ namespace ChapooUI
         private System.Windows.Forms.Label LBL_klok;
         private System.Windows.Forms.Timer T_klok;
         private System.Windows.Forms.Timer TUpdateTimer;
+        private System.Windows.Forms.Label LBL_gereedGemeld;
     }
 }
