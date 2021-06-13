@@ -199,7 +199,7 @@ namespace ChapooUI
             LvEtenMenu.View = View.Details;
             foreach (ChapooModel.Menuitems menuitems in MenuMiddag)
             {
-                LvEtenMenu.Items.Add(new ListViewItem(new string[] { $"{menuitems.naam}", $"{menuitems.prijs}", $"{menuitems.type}" }));
+                LvEtenMenu.Items.Add(new ListViewItem(new string[] { $"{menuitems.itemNummer}", $"{menuitems.naam}", $"{menuitems.prijs}" }));
             }
         }
 
@@ -221,7 +221,7 @@ namespace ChapooUI
             LvEtenMenu.View = View.Details;
             foreach (ChapooModel.Menuitems menuitems in MenuAvond)
             {
-                LvEtenMenu.Items.Add(new ListViewItem(new string[] { $"{menuitems.itemNummer}", $"{menuitems.naam}", $"{menuitems.prijs}", $"{menuitems.type}" }));
+                LvEtenMenu.Items.Add(new ListViewItem(new string[] { $"{menuitems.itemNummer}", $"{menuitems.naam}", $"{menuitems.prijs}" }));
             }
         }
 
@@ -243,7 +243,7 @@ namespace ChapooUI
             LvEtenMenu.View = View.Details;
             foreach (ChapooModel.Menuitems menuitems in MenuDrank)
             {
-                LvEtenMenu.Items.Add(new ListViewItem(new string[] { $"{menuitems.itemNummer}", $"{menuitems.naam}", $"{menuitems.prijs}", $"{menuitems.type}" }));
+                LvEtenMenu.Items.Add(new ListViewItem(new string[] { $"{menuitems.itemNummer}", $"{menuitems.naam}", $"{menuitems.prijs}" }));
             }
         }
 
@@ -256,7 +256,28 @@ namespace ChapooUI
         {
             foreach (ListViewItem item in LvOrderDetails.Items)
             {
-                string test = item.SubItems[0].Text;
+                ChapooLogic.Orderitems_Service orderitems_Service = new ChapooLogic.Orderitems_Service();
+                
+
+                Orderitems orderitems = new Orderitems()
+                {                    
+                    aantal = int.Parse(item.SubItems[3].Text),
+                    opmerking = item.SubItems[2].Text,
+                };
+
+                Menuitems menuitems = new Menuitems()
+                {
+                    itemNummer = int.Parse(item.SubItems[0].Text),
+                };
+
+
+                if (orderitems.opmerking == null)
+                {
+                    orderitems.opmerking = "";
+                }
+
+                orderitems_Service.AddOrderitem(Ordernummer, menuitems.itemNummer, orderitems.aantal, orderitems.opmerking);
+                LvOrderDetails.Clear();
             }
         }
     }

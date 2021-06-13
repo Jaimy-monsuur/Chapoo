@@ -60,7 +60,7 @@ namespace ChapooDAL
                 adapter.InsertCommand = command;
                 command.ExecuteNonQuery();
             }
-            catch (SqlException )
+            catch (SqlException)
             {
                // Print.ErrorLog(e);
                 throw;
