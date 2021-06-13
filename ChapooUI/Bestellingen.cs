@@ -31,6 +31,22 @@ namespace ChapooUI
             this.Ordernummer = Ordernummer;
             lblTafelNummerIn.Text = Tafelnummer.ToString();
 
+            cb_Aantal.DisplayMember = '1'.ToString();
+            cb_Aantal.Items.Add('2');
+            cb_Aantal.Items.Add('3');
+            cb_Aantal.Items.Add('4');
+            cb_Aantal.Items.Add('5');
+            cb_Aantal.Items.Add('6');
+            cb_Aantal.Items.Add('7');
+            cb_Aantal.Items.Add('8');
+            cb_Aantal.Items.Add('9');
+            cb_Aantal.Items.Add("10");
+            cb_Aantal.Items.Add("11");
+            cb_Aantal.Items.Add("12");
+            cb_Aantal.Items.Add("13");
+            cb_Aantal.Items.Add("14");
+
+
             if (rBLunch.Checked)
             {
                 //Vul de listview met middag menu.
@@ -74,6 +90,7 @@ namespace ChapooUI
 
                 ChapooLogic.Orderitems_Service Ordernr = new ChapooLogic.Orderitems_Service();
                 List<Orderitems> ordernummer = Ordernr.Db_Get_All_Orderitems_for_Order(Ordernummer);
+
                 LvOrderDetails.View = View.Details;
                 foreach (ChapooModel.Orderitems OrdNumr in ordernummer)
                 {

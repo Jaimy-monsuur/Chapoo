@@ -56,6 +56,13 @@ namespace ChapooDAL
             ExecuteEditQuery(query, sqlParameters);
         }
 
+        //public void ToevoegenMenuItem(string MenuItem, int Prijs)
+        //{
+        //    string query = $"INSERT INTO [Voorraad] ()";
+        //    SqlParameter[] sqlParameters = new SqlParameter[0];
+        //    ExecuteEditQuery(query, sqlParameters);
+        //}
+
         private List<Menuitems> ReadTables(DataTable dataTable)
         {
             List<Menuitems> menuitems = new List<Menuitems>();

@@ -55,6 +55,9 @@ namespace ChapooUI
             this.rBLunch = new System.Windows.Forms.RadioButton();
             this.rBAvond = new System.Windows.Forms.RadioButton();
             this.rBDranken = new System.Windows.Forms.RadioButton();
+            this.cb_Aantal = new System.Windows.Forms.ComboBox();
+            this.lblAantal = new System.Windows.Forms.Label();
+            this.Aantal = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1.SuspendLayout();
             this.btn_Uitlog.SuspendLayout();
             this.menuStrip2.SuspendLayout();
@@ -142,7 +145,7 @@ namespace ChapooUI
             // 
             this.txtOpmerkingBestelling.Location = new System.Drawing.Point(74, 226);
             this.txtOpmerkingBestelling.Name = "txtOpmerkingBestelling";
-            this.txtOpmerkingBestelling.Size = new System.Drawing.Size(641, 20);
+            this.txtOpmerkingBestelling.Size = new System.Drawing.Size(543, 20);
             this.txtOpmerkingBestelling.TabIndex = 15;
             // 
             // LBL_UserDataOr
@@ -271,7 +274,8 @@ namespace ChapooUI
             // 
             this.LvOrderDetails.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.GererchtOrDe,
-            this.OpmerkingOrDe});
+            this.OpmerkingOrDe,
+            this.Aantal});
             this.LvOrderDetails.FullRowSelect = true;
             this.LvOrderDetails.GridLines = true;
             this.LvOrderDetails.HideSelection = false;
@@ -285,12 +289,12 @@ namespace ChapooUI
             // GererchtOrDe
             // 
             this.GererchtOrDe.Text = "Gerecht:";
-            this.GererchtOrDe.Width = 300;
+            this.GererchtOrDe.Width = 231;
             // 
             // OpmerkingOrDe
             // 
             this.OpmerkingOrDe.Text = "Opmerking:";
-            this.OpmerkingOrDe.Width = 135;
+            this.OpmerkingOrDe.Width = 144;
             // 
             // rBLunch
             // 
@@ -327,11 +331,37 @@ namespace ChapooUI
             this.rBDranken.UseVisualStyleBackColor = true;
             this.rBDranken.CheckedChanged += new System.EventHandler(this.rBDranken_CheckedChanged);
             // 
+            // cb_Aantal
+            // 
+            this.cb_Aantal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_Aantal.FormattingEnabled = true;
+            this.cb_Aantal.Location = new System.Drawing.Point(685, 226);
+            this.cb_Aantal.Margin = new System.Windows.Forms.Padding(2);
+            this.cb_Aantal.Name = "cb_Aantal";
+            this.cb_Aantal.Size = new System.Drawing.Size(30, 21);
+            this.cb_Aantal.TabIndex = 36;
+            // 
+            // lblAantal
+            // 
+            this.lblAantal.AutoSize = true;
+            this.lblAantal.Location = new System.Drawing.Point(623, 229);
+            this.lblAantal.Name = "lblAantal";
+            this.lblAantal.Size = new System.Drawing.Size(40, 13);
+            this.lblAantal.TabIndex = 37;
+            this.lblAantal.Text = "Aantal:";
+            // 
+            // Aantal
+            // 
+            this.Aantal.Text = "Aantal:";
+            this.Aantal.Width = 47;
+            // 
             // Bestellingen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblAantal);
+            this.Controls.Add(this.cb_Aantal);
             this.Controls.Add(this.rBDranken);
             this.Controls.Add(this.rBAvond);
             this.Controls.Add(this.rBLunch);
@@ -386,5 +416,8 @@ namespace ChapooUI
         private System.Windows.Forms.RadioButton rBDranken;
         private System.Windows.Forms.Label lblErrorBox;
         private System.Windows.Forms.Label lblErrorMenuBox;
+        private System.Windows.Forms.ComboBox cb_Aantal;
+        private System.Windows.Forms.Label lblAantal;
+        private System.Windows.Forms.ColumnHeader Aantal;
     }
 }

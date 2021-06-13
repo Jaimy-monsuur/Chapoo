@@ -20,6 +20,12 @@ namespace ChapooUI
         public MenuitemToevoegen()
         {
             InitializeComponent();
+            cb_Btw.Items.Add("6%");
+            cb_Btw.Items.Add("21%");
+            cb_TypeSelect.Items.Add("Lunch");
+            cb_TypeSelect.Items.Add("Avond");
+            cb_TypeSelect.Items.Add("Drank");
+
         }
 
         private void BTN_terug_Click(object sender, EventArgs e)
@@ -50,8 +56,8 @@ namespace ChapooUI
                 string menuitemNaam = lblMenuitem.Text;
                 int prijs = int.Parse(lblPrijs.Text);
 
-                voorraadAdd_Service.;
-                menuitemsAdd_Service.;
+                //voorraadAdd_Service.;
+               // menuitemsAdd_Service.;
                 
                 
             }
