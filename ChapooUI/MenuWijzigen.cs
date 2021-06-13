@@ -142,5 +142,11 @@ namespace ChapooUI
         {
             this.Close();
         }
+
+        private void UitloggenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConfirmLogout confirmLogout = new ConfirmLogout();
+            confirmLogout.ShowDialog();
+        }
     }
 }

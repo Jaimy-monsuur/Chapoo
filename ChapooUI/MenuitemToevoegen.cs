@@ -92,9 +92,8 @@ namespace ChapooUI
                                 };
 
                                 //De waardes doorsturen naar de Menuitems table van de database.
-                                Menuitems item = 
-                                menuitemsAdd_Service.MenuItemToevoegen(items.naam, items.prijs, items.btw, items.type);
-                                voorraadAdd_Service.Additem(item.itemNummer);
+                                Menuitems newitem = menuitemsAdd_Service.MenuItemToevoegen(items.naam, items.prijs, items.btw, items.type);
+                                voorraadAdd_Service.Additem(newitem.itemNummer);
                             }
                             else
                             {
