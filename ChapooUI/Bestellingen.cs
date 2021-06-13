@@ -33,7 +33,7 @@ namespace ChapooUI
             this.user = CurrentUser.Getlnstance();
             lblTafelNummerIn.Text = Tafelnummer.ToString();
 
-            cb_Aantal.DisplayMember = '1'.ToString();
+            cb_Aantal.Items.Add('1');
             cb_Aantal.Items.Add('2');
             cb_Aantal.Items.Add('3');
             cb_Aantal.Items.Add('4');
@@ -58,7 +58,7 @@ namespace ChapooUI
                 LvEtenMenu.View = View.Details;
                 foreach (ChapooModel.Menuitems menuitems in MenuMiddag)
                 {
-                    LvEtenMenu.Items.Add(new ListViewItem(new string[] { $"{menuitems.naam}", $"{menuitems.prijs}" }));
+                    LvEtenMenu.Items.Add(new ListViewItem(new string[] { $"{menuitems.itemNummer}", $"{menuitems.naam}", $"{menuitems.prijs}" }));
                 } 
             }
             else if (rBAvond.Checked)
@@ -70,7 +70,7 @@ namespace ChapooUI
                 LvEtenMenu.View = View.Details;
                 foreach (ChapooModel.Menuitems menuitems in MenuAvond)
                 {
-                    LvEtenMenu.Items.Add(new ListViewItem(new string[] { $"{menuitems.naam}", $"{menuitems.prijs}" }));
+                    LvEtenMenu.Items.Add(new ListViewItem(new string[] { $"{menuitems.itemNummer}", $"{menuitems.naam}", $"{menuitems.prijs}" }));
                 }
             }
             else
@@ -82,7 +82,7 @@ namespace ChapooUI
                 LvEtenMenu.View = View.Details;
                 foreach (ChapooModel.Menuitems menuitems in MenuDrank)
                 {
-                    LvEtenMenu.Items.Add(new ListViewItem(new string[] { $"{menuitems.naam}", $"{menuitems.prijs}" }));
+                    LvEtenMenu.Items.Add(new ListViewItem(new string[] { $"{menuitems.itemNummer}", $"{menuitems.naam}", $"{menuitems.prijs}" }));
                 }
             }
 
@@ -121,6 +121,8 @@ namespace ChapooUI
                     Orderitems opmerking = new Orderitems();
 
                     opmerking.opmerking = txtOpmerkingBestelling.Text;
+                    int CbAantal;
+                    CbAantal = cb_Aantal.SelectedIndex;
 
                     //listview geselecteerde items toevoegen aan de orderdetails
                     ListViewItem item = LvEtenMenu.SelectedItems[0];
@@ -131,9 +133,22 @@ namespace ChapooUI
                         prijs = decimal.Parse(item.SubItems[2].Text),
                     };
 
-                    LvOrderDetails.Items.Add(new ListViewItem(new string[] { $"{menuitem.itemNummer}", $"{menuitem.naam}", $"{opmerking.opmerking}" }));
+                    
 
-                    lblErrorMenuBox.Text = "";
+                    if (CbAantal > -1 && CbAantal <= 14)
+                    {
+                        opmerking.aantal = CbAantal + 1;
+
+                        LvOrderDetails.Items.Add(new ListViewItem(new string[] { $"{menuitem.itemNummer}", $"{menuitem.naam}", $"{opmerking.opmerking}", $"{opmerking.aantal}" }));
+
+                        lblErrorMenuBox.Text = "";
+                    }
+                    else
+                    {
+                    lblErrorMenuBox.Text = "Selecteer eerst een aantal!";
+                    }
+
+                
                 }
                 else
                 {
@@ -142,8 +157,10 @@ namespace ChapooUI
                     lblErrorMenuBox.Text = "Klik eerst een item aan in de menulijst!";
                 }
 
-                btnDeleteItem.Enabled = true;
+            btnDeleteItem.Enabled = true;
         }
+
+        
 
 
         private void btnDeleteItem_Click(object sender, EventArgs e)
@@ -204,7 +221,7 @@ namespace ChapooUI
             LvEtenMenu.View = View.Details;
             foreach (ChapooModel.Menuitems menuitems in MenuAvond)
             {
-                LvEtenMenu.Items.Add(new ListViewItem(new string[] { $"{menuitems.naam}", $"{menuitems.prijs}", $"{menuitems.type}" }));
+                LvEtenMenu.Items.Add(new ListViewItem(new string[] { $"{menuitems.itemNummer}", $"{menuitems.naam}", $"{menuitems.prijs}", $"{menuitems.type}" }));
             }
         }
 
@@ -226,7 +243,7 @@ namespace ChapooUI
             LvEtenMenu.View = View.Details;
             foreach (ChapooModel.Menuitems menuitems in MenuDrank)
             {
-                LvEtenMenu.Items.Add(new ListViewItem(new string[] { $"{menuitems.naam}", $"{menuitems.prijs}", $"{menuitems.type}" }));
+                LvEtenMenu.Items.Add(new ListViewItem(new string[] { $"{menuitems.itemNummer}", $"{menuitems.naam}", $"{menuitems.prijs}", $"{menuitems.type}" }));
             }
         }
 
