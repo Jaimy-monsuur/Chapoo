@@ -103,7 +103,6 @@ namespace ChapooUI
 
                                 // Zet de opermkingen in de opmerkingen listview
                                 itemopmerkingen[0] = order.orderNummer.ToString();
-                                itemopmerkingen[1] = order.opmerking;
                                 ListViewItem li2 = new ListViewItem(itemopmerkingen);
                                 listViewKeukenBarOpmerkingen.Items.Add(li2);
                             }
@@ -156,7 +155,6 @@ namespace ChapooUI
 
                                 // Zet de opermkingen in de opmerkingen listview
                                 itemopmerkingen[0] = order.orderNummer.ToString();
-                                itemopmerkingen[1] = order.opmerking;
                                 ListViewItem li2 = new ListViewItem(itemopmerkingen);
                                 listViewKeukenBarOpmerkingen.Items.Add(li2);
                             }

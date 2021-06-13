@@ -78,7 +78,7 @@ namespace ChapooUI
                 foreach (ChapooModel.Orderitems OrdNumr in ordernummer)
                 {
                     
-                    LvOrderDetails.Items.Add(new ListViewItem(new string[] { $"{OrdNumr.menuItem.naam}", $"{OrdNumr.order.tafel}"}));
+                    LvOrderDetails.Items.Add(new ListViewItem(new string[] { $"{OrdNumr.menuItem.naam}", $"{OrdNumr.opmerking}"}));
                 }
             }
             else
@@ -109,7 +109,7 @@ namespace ChapooUI
                 if (LvEtenMenu.SelectedItems.Count > 0)
                 {
                     //De opmerkingen aan de orderdetails toevoegen
-                    Order opmerking = new Order();
+                    Orderitems opmerking = new Orderitems();
 
                     opmerking.opmerking = txtOpmerkingBestelling.Text;
 

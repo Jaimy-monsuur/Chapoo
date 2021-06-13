@@ -39,6 +39,7 @@ namespace ChapooDAL
             return orders;
         }
 
+
         private List<Order> ReadTables(DataTable dataTable)
         {
             List<Order> orders = new List<Order>();
@@ -56,7 +57,6 @@ namespace ChapooDAL
                 {
                     // Alle members van class order worden uit de database opgehaald uit de rijen
                     orderNummer = (int)dr["ordernummer"],
-                    opmerking = (string)dr["opmerking"],
                     personeel = Personeel,
                     tafel = Tafel,
                     datum = (DateTime)dr["datum"]
