@@ -54,34 +54,35 @@ namespace ChapooUI
         public void showListView()
         {
             List<Order> orderList = orderService.GetOrders();
+            // Maak grid
+            listViewKeukenBarOpenstaand.Clear();
+            listViewKeukenBarOpenstaand.View = View.Details;
+            listViewKeukenBarOpenstaand.GridLines = true;
+            listViewKeukenBarOpenstaand.FullRowSelect = true;
+
+            // Voeg column header toe
+            listViewKeukenBarOpenstaand.Columns.Add("Ordernr:", 60);
+            listViewKeukenBarOpenstaand.Columns.Add("Itemnummer HIDDEN:", 0);
+            listViewKeukenBarOpenstaand.Columns.Add("Besteltijd:", 100);
+            listViewKeukenBarOpenstaand.Columns.Add("Gerecht:", 300);
+            listViewKeukenBarOpenstaand.Columns.Add("Aantal:", 60);
+
+            // Maak grid opmerkingen
+            listViewKeukenBarOpmerkingen.Clear();
+            listViewKeukenBarOpmerkingen.View = View.Details;
+            listViewKeukenBarOpmerkingen.GridLines = true;
+            listViewKeukenBarOpmerkingen.FullRowSelect = true;
+            // Voeg column header toe opmerkingen
+            listViewKeukenBarOpmerkingen.Columns.Add("Ordernr:", 50);
+            listViewKeukenBarOpmerkingen.Columns.Add("Gerecht:", 60);
+            listViewKeukenBarOpmerkingen.Columns.Add("Opmerkingen:", 250);
+
+            // Maak een array voor de openstaande gerechten en opmerkingen listview om het erin te zetten
+            string[] item = new string[5];
+            string[] itemopmerkingen = new string[3];
 
             if (knopType == "keuken")
-            {                                              
-                // Maak grid
-                listViewKeukenBarOpenstaand.Clear();
-                listViewKeukenBarOpenstaand.View = View.Details;
-                listViewKeukenBarOpenstaand.GridLines = true;
-                listViewKeukenBarOpenstaand.FullRowSelect = true;
-
-                // Voeg column header toe
-                listViewKeukenBarOpenstaand.Columns.Add("Ordernr:", 60);
-                listViewKeukenBarOpenstaand.Columns.Add("Itemnummer HIDDEN:", 0);
-                listViewKeukenBarOpenstaand.Columns.Add("Besteltijd:", 60);
-                listViewKeukenBarOpenstaand.Columns.Add("Gerecht:", 300);
-                listViewKeukenBarOpenstaand.Columns.Add("Aantal:", 60);
-
-                // Maak grid opmerkingen
-                listViewKeukenBarOpmerkingen.Clear();
-                listViewKeukenBarOpmerkingen.View = View.Details;
-                listViewKeukenBarOpmerkingen.GridLines = true;
-                listViewKeukenBarOpmerkingen.FullRowSelect = true;
-                // Voeg column header toe opmerkingen
-                listViewKeukenBarOpmerkingen.Columns.Add("Ordernr:", 50);
-                listViewKeukenBarOpmerkingen.Columns.Add("Opmerkingen:", 250);
-
-                // Maak een array voor de openstaande gerechten en opmerkingen listview om het erin te zetten
-                string[] item = new string[5];
-                string[] itemopmerkingen = new string[2];
+            {                                                       
                 foreach (Order order in orderList)
                 {
                     foreach (Orderitems orderitem in order.orderItemList)
@@ -101,7 +102,8 @@ namespace ChapooUI
                             if (orderitem.opmerking != null && orderitem.opmerking != "")
                             {
                                 itemopmerkingen[0] = orderitem.orderNummer.ToString();
-                                itemopmerkingen[1] = orderitem.opmerking;
+                                itemopmerkingen[1] = orderitem.menuItem.naam;
+                                itemopmerkingen[2] = orderitem.opmerking;
                                 ListViewItem li2 = new ListViewItem(itemopmerkingen);
                                 listViewKeukenBarOpmerkingen.Items.Add(li2);
                             }                            
@@ -111,31 +113,6 @@ namespace ChapooUI
             }
             else if (knopType == "bar")
             {              
-
-                // Maak grid
-                listViewKeukenBarOpenstaand.Clear();
-                listViewKeukenBarOpenstaand.View = View.Details;
-                listViewKeukenBarOpenstaand.GridLines = true;
-                listViewKeukenBarOpenstaand.FullRowSelect = true;
-                // Voeg column header toe
-                listViewKeukenBarOpenstaand.Columns.Add("Ordernr:", 60);
-                listViewKeukenBarOpenstaand.Columns.Add("Itemnummer HIDDEN:", 0);
-                listViewKeukenBarOpenstaand.Columns.Add("Besteltijd:", 60);
-                listViewKeukenBarOpenstaand.Columns.Add("Gerecht:", 300);
-                listViewKeukenBarOpenstaand.Columns.Add("Aantal:", 60);
-
-                // Maak grid opmerkingen
-                listViewKeukenBarOpmerkingen.Clear();
-                listViewKeukenBarOpmerkingen.View = View.Details;
-                listViewKeukenBarOpmerkingen.GridLines = true;
-                listViewKeukenBarOpmerkingen.FullRowSelect = true;
-                // Voeg column header toe opmerkingen
-                listViewKeukenBarOpmerkingen.Columns.Add("Ordernr:", 50);
-                listViewKeukenBarOpmerkingen.Columns.Add("Opmerkingen:", 250);
-
-                // Maak een array voor de openstaande gerechten en opmerkingen listview om het erin te zetten
-                string[] item = new string[5];
-                string[] itemopmerkingen = new string[2];
                 foreach (Order order in orderList)
                 {
                     foreach (Orderitems orderitem in order.orderItemList)
@@ -155,7 +132,8 @@ namespace ChapooUI
                             if (orderitem.opmerking != null && orderitem.opmerking != "")
                             {
                                 itemopmerkingen[0] = orderitem.orderNummer.ToString();
-                                itemopmerkingen[1] = orderitem.opmerking;
+                                itemopmerkingen[1] = orderitem.menuItem.naam;
+                                itemopmerkingen[2] = orderitem.opmerking;                               
                                 ListViewItem li2 = new ListViewItem(itemopmerkingen);
                                 listViewKeukenBarOpmerkingen.Items.Add(li2);
                             }

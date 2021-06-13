@@ -60,6 +60,7 @@ namespace ChapooUI
             CheckForOrdders();
             LBL_TableStats.Text = $"vrije tafels: {TafelPanels.Count - occupiedTables - reservedTables}\nGereserveerde tafels: {reservedTables}\ntafels in gebruik: {occupiedTables}";
         }
+
         public void CheckForOrdders()
         {
             List<Order> orders = Order_Service.GetOrders();
