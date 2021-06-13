@@ -74,7 +74,7 @@ namespace ChapooUI
             // Checken of de data fields zijn ingevuld en per regel zorgen dat er een andere error massage komt.
             if (Tbx_Naam.Text != "")
             {
-                if (Tbx_Naam.TextLength < 50)
+                if (Tbx_Naam.TextLength < 200)
                 {
                     if (Tbx_Prijs.Text != "")
                     {
