@@ -34,6 +34,7 @@ namespace ChapooUI
         //service
         public Tafel_Service Tafel_Service = new Tafel_Service();// service tafels
         public Tafel_Reservation_service tafel_Reservation_Service = new Tafel_Reservation_service();// tafel reservation service
+        public Order_Service Order_Service = new Order_Service();
         //lijst van tafels
         public List<Panel> TafelPanels = new List<Panel>();
         public TableOverview()
@@ -56,7 +57,50 @@ namespace ChapooUI
         {
             CheckReservations();
             CheckTableOccupation();
+            CheckForOrdders();
             LBL_TableStats.Text = $"vrije tafels: {TafelPanels.Count - occupiedTables - reservedTables}\nGereserveerde tafels: {reservedTables}\ntafels in gebruik: {occupiedTables}";
+        }
+        public void CheckForOrdders()
+        {
+            List<Order> orders = Order_Service.GetOrders();
+            int tafelnummer;// de index voor de list
+            int finishedOrderItems = 0;
+            TimeSpan wachttijd = TimeSpan.Parse("00:00:00");
+            foreach (Order o in orders)
+            {
+                tafelnummer = o.tafel.tafelnummer - 1;// de index voor de list
+                foreach (Orderitems item in o.orderItemList)
+                {
+                    if (item.gereed == true)
+                    {
+                        finishedOrderItems++;
+                    }
+                    else
+                    {
+                        wachttijd = (DateTime.Now - item.time);
+                    }
+                }
+                if (o.tafel.bezeting > 0)
+                {
+                    foreach (Control c in TafelPanels[tafelnummer].Controls)
+                    {
+                        if (c.Name.Contains("_info"))
+                        {
+                            if (finishedOrderItems == o.orderItemList.Count)
+                            {
+                                c.Text = $"Alle order voor deze tafel zijn klaar\nBezetting: {o.tafel.bezeting}";
+                            }
+                            else
+                            {
+                                c.Text = $"{o.orderItemList.Count - finishedOrderItems} besteling(en) staan nog open\nBezetting: {o.tafel.bezeting}\nWacht al: {wachttijd.ToString(@"hh")} uur en {wachttijd.ToString(@"mm")} minuten";
+                            }
+                            break;
+                        }
+                    }
+                }
+                finishedOrderItems = 0;
+                wachttijd = TimeSpan.Parse("00:00:00");
+            }
         }
         public void CheckTableOccupation()
         {

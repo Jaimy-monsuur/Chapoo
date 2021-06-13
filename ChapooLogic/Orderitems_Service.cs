@@ -24,12 +24,6 @@ namespace ChapooLogic
             return orderitem_db.Db_Get_All_Orderitems();
         }
 
-        public void AddDrinkOrderitem(Orderitems orderitem)
-        {
-            // Stuurt de aangevraagde dranken order naar de DAL laag
-            //orderitem_db.AddDrinkOrderitem(orderitem);
-        }
-
         public void DeleteOrderitem(int ordernummer, int itemnummer)
         {
             orderitem_db.DeleteOrderitem(ordernummer, itemnummer);
@@ -39,12 +33,6 @@ namespace ChapooLogic
         {
             // Stuurt het itemnummer wat gereed gemeld moet worden naar de DAL laag
             orderitem_db.MeldGereed(orderNummer);
-        }
-
-        public void MeldOngereed(int orderNummer)
-        {
-            // Stuurt het itemnummer wat ongereed gemeld moet worden naar de DAL laag
-            orderitem_db.MeldOngereed(orderNummer);
         }
     }
 }

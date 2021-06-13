@@ -119,10 +119,9 @@ namespace ChapooUI
             LF_Orders.Columns.Add("prijs:", 100);
             LF_Orders.Columns.Add("Aantal:", 70);
 
-            List<Order> orders = Order_Service.GetOrders();// verander naar voor tafel
+            List<Order> orders = Order_Service.Db_Get_All_Orders_FORTable(Tafelnummer);
             if (orders != null)
             {
-                this.Ordernummer = orders[0].orderNummer;
                 foreach (Order order in orders)
                 {
                     string[] item = new string[5];

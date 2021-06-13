@@ -13,5 +13,6 @@ namespace ChapooModel
         public string opmerking;
         public Tafel tafel;
         public Personeels_Lid personeel;
+        public DateTime datum;
     }
 }

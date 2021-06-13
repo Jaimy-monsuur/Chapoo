@@ -16,7 +16,7 @@ namespace ChapooDAL
         public List<Orderitems> Db_Get_All_Orderitems_for_Order(int ordernummer)
         {
             // Hier staat de query die naar de database gaat voor het ophalen van de juiste gegevens
-            string query = $"SELECT ordernummer, itemnummer, aantal, gereed FROM Orderitems WHERE Orderitems.[ordernummer] = '{ordernummer}'";
+            string query = $"SELECT ordernummer, itemnummer, aantal, gereed, [time] FROM Orderitems WHERE Orderitems.[ordernummer] = '{ordernummer}'";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -24,7 +24,7 @@ namespace ChapooDAL
         public List<Orderitems> Db_Get_All_Orderitems()
         {
             // Hier staat de query die naar de database gaat voor het ophalen van de juiste gegevens
-            string query = $"SELECT ordernummer, itemnummer, aantal, gereed, Orders.besteltijd FROM Orderitems JOIN Orders ON Orders.ordernummer = Orderitems.ordernummer ORDER BY besteltijd DESC";
+            string query = $"SELECT ordernummer, itemnummer, aantal, gereed, [time] FROM Orderitems JOIN Orders ON Orders.ordernummer = Orderitems.ordernummer ORDER BY besteltijd DESC";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -45,7 +45,8 @@ namespace ChapooDAL
                     orderNummer = (int)dr["ordernummer"],
                     aantal = (int)dr["aantal"],
                     gereed = (bool)dr["gereed"],
-                    menuItem = menuitem
+                    menuItem = menuitem,
+                    time = (DateTime)(dr["time"])
                 };
                 orderitems.Add(orderitem);
             }
