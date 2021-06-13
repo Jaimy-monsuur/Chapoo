@@ -57,7 +57,7 @@ namespace ChapooDAL
 
                 Tafel_Reservering t = new Tafel_Reservering();
                 t.reserveringsnummer = (int)(dr["reserveringsnummer"]);
-                t.naam = (string)(dr["voornaam"]) + (string)(dr["achternaam"]);
+                t.naam = (string)(dr["voornaam"]) + "" + (string)(dr["achternaam"]);
                 t.tafel = Tafel_DAO.GetTafels_by_tablenumber(tafelnummer);
                 t.Datum = (DateTime)(dr["datum"]);
                 DateTime temp1 = (DateTime)(dr["vanaf(tijd)"]);

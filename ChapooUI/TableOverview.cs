@@ -207,9 +207,11 @@ namespace ChapooUI
             {
                 status = "bezet";
             }
+            TUpdateTimer.Stop();
             Managetafel managetafel = new Managetafel(tafelnummer, status);
             managetafel.ShowDialog();
             UpdateTafels();
+            TUpdateTimer.Start();
 ;        }
 
         private void PNL_tafel1_Click(object sender, EventArgs e)// verwijst naar Managetable met tafelnummer en pnl nummer

@@ -150,6 +150,7 @@ namespace ChapooUI
             Bestellingen bestellingen = new Bestellingen(Ordernummer, Tafelnummer);
             bestellingen.ShowDialog();
             this.Show();
+            GetOrders();
         }
 
         private void BTN_Delete_order_Click(object sender, EventArgs e)//verwijderd een order

@@ -45,6 +45,7 @@ namespace ChapooUI
                 string password = tbx_wachtwoord.Text; 
                 string type = cb_type.Text;
                 personeel_Service.Addpersonle(voornaam, achternaam, functie, username, password, type);
+                this.Close();
             }
             else//geeft error bricht
             {
