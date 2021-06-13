@@ -41,5 +41,10 @@ namespace ChapooLogic
             List<Menuitems> menuAvondItems = menuitem_db.ReadMenuItemAvondMenu();
             return menuAvondItems;
         }
+
+        public void DeleteMenuItem(int itemNummer)
+        {
+            menuitem_db.DeleteMenuItem(itemNummer);
+        }
     }
 }

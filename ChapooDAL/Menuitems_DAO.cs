@@ -49,6 +49,20 @@ namespace ChapooDAL
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
 
+        public void DeleteMenuItem(int itemNummer)
+        {
+            string query = $"DELETE FROM [Menuitems] WHERE [itemnummer] = '{itemNummer}'";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            ExecuteEditQuery(query, sqlParameters);
+        }
+
+        //public void ToevoegenMenuItem(string MenuItem, int Prijs)
+        //{
+        //    string query = $"INSERT INTO [Voorraad] ()";
+        //    SqlParameter[] sqlParameters = new SqlParameter[0];
+        //    ExecuteEditQuery(query, sqlParameters);
+        //}
+
         private List<Menuitems> ReadTables(DataTable dataTable)
         {
             List<Menuitems> menuitems = new List<Menuitems>();

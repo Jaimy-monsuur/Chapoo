@@ -24,5 +24,11 @@ namespace ChapooLogic
             // Stuurt itemnummer en het nieuwe aantal door naar de DAL laag
             voorraad_db.ChangeVoorraad(itemNummer, nieuwAantal);
         }
+
+        public void DeleteMenuItem(int itemNummer)
+        {
+            voorraad_db.DeleteMenuItem(itemNummer);
+        }
+
     }
 }

@@ -57,10 +57,10 @@ namespace ChapooUI
         {
             CheckReservations();
             CheckTableOccupation();
-            CheckForOrdders();
+            CheckForOrders();
             LBL_TableStats.Text = $"vrije tafels: {TafelPanels.Count - occupiedTables - reservedTables}\nGereserveerde tafels: {reservedTables}\ntafels in gebruik: {occupiedTables}";
         }
-        public void CheckForOrdders()
+        public void CheckForOrders()
         {
             List<Order> orders = Order_Service.GetOrders();
             int tafelnummer;// de index voor de list
@@ -80,7 +80,7 @@ namespace ChapooUI
                         wachttijd = (DateTime.Now - item.time);
                     }
                 }
-                if (o.tafel.bezeting > 0)
+                if (o.tafel.bezeting > 0 && o.orderItemList.Count != 0)
                 {
                     foreach (Control c in TafelPanels[tafelnummer].Controls)
                     {
