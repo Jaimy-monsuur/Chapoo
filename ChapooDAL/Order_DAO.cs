@@ -18,7 +18,7 @@ namespace ChapooDAL
 
         public Order NewOrder(int tafelnummer, string personeelsnummer)
         {
-            string query = $"INSERT INTO Orders VALUEs ({tafelnummer}, {personeelsnummer}, SYSDATETIMEOFFSET() AT TIME ZONE 'Central European Standard Time'));";
+            string query = $"INSERT INTO Orders VALUEs ({tafelnummer}, {personeelsnummer}, SYSDATETIMEOFFSET() AT TIME ZONE 'Central European Standard Time');";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(query, sqlParameters);
             Order order = SelectNewOrder();
