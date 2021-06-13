@@ -56,12 +56,20 @@ namespace ChapooDAL
             ExecuteEditQuery(query, sqlParameters);
         }
 
-        //public void ToevoegenMenuItem(string MenuItem, int Prijs)
-        //{
-        //    string query = $"INSERT INTO [Voorraad] ()";
-        //    SqlParameter[] sqlParameters = new SqlParameter[0];
-        //    ExecuteEditQuery(query, sqlParameters);
-        //}
+        public Menuitems ToevoegenMenuItem(string naam, decimal prijs, int btw, string type)
+        {
+            string query = $"INSERT INTO [Voorraad] VALUES ({naam}, {prijs}, {btw}, {type})";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            ExecuteEditQuery(query, sqlParameters);
+            return GetMenuitemsByName(naam);
+        }
+        public Menuitems GetMenuitemsByName(string naam)
+        {
+            // Hier staat de query die naar de database gaat voor het ophalen van de juiste gegevens
+            string query = $"SELECT itemnummer, naam, prijs, btw, type FROM Menuitems WHERE naam = {naam}";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            return ReadTable(ExecuteSelectQuery(query, sqlParameters));
+        }
 
         private List<Menuitems> ReadTables(DataTable dataTable)
         {
@@ -82,6 +90,26 @@ namespace ChapooDAL
             }
 
             return menuitems;
+        }
+        private Menuitems ReadTable(DataTable dataTable)
+        {
+            Menuitems menuitem = new Menuitems();
+
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                Menuitems m = new Menuitems()
+                {
+                    // Alle members voor class menuitems worden uit de database opgehaald uit de rijen
+                    itemNummer = (int)dr["itemnummer"],
+                    naam = (string)dr["naam"],
+                    prijs = (decimal)dr["prijs"],
+                    btw = (int)dr["btw"],
+                    type = (string)dr["type"]
+                };
+                menuitem = m;
+            }
+
+            return menuitem;
         }
     }
 }
