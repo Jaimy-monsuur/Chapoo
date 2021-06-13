@@ -29,6 +29,7 @@ namespace ChapooUI
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.listViewKeukenBarOpenstaand = new System.Windows.Forms.ListView();
             this.listViewKeukenBarOpmerkingen = new System.Windows.Forms.ListView();
             this.gereedKeukenBarBtn = new System.Windows.Forms.Button();
@@ -37,6 +38,11 @@ namespace ChapooUI
             this.TerugtoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.UitloggenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.BTN_Update = new System.Windows.Forms.Button();
+            this.LBL_userdata = new System.Windows.Forms.Label();
+            this.LBL_klok = new System.Windows.Forms.Label();
+            this.T_klok = new System.Windows.Forms.Timer(this.components);
+            this.TUpdateTimer = new System.Windows.Forms.Timer(this.components);
             this.menuStrip2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -125,11 +131,59 @@ namespace ChapooUI
             this.UitloggenToolStripMenuItem.Text = "Uitloggen";
             this.UitloggenToolStripMenuItem.Click += new System.EventHandler(this.UitloggenToolStripMenuItem_Click);
             // 
+            // BTN_Update
+            // 
+            this.BTN_Update.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.BTN_Update.Location = new System.Drawing.Point(845, 462);
+            this.BTN_Update.Margin = new System.Windows.Forms.Padding(2);
+            this.BTN_Update.Name = "BTN_Update";
+            this.BTN_Update.Size = new System.Drawing.Size(106, 32);
+            this.BTN_Update.TabIndex = 32;
+            this.BTN_Update.Text = "Update";
+            this.BTN_Update.UseVisualStyleBackColor = false;
+            this.BTN_Update.Click += new System.EventHandler(this.BTN_Update_Click);
+            // 
+            // LBL_userdata
+            // 
+            this.LBL_userdata.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.LBL_userdata.AutoSize = true;
+            this.LBL_userdata.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LBL_userdata.Location = new System.Drawing.Point(52, 0);
+            this.LBL_userdata.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.LBL_userdata.Name = "LBL_userdata";
+            this.LBL_userdata.Size = new System.Drawing.Size(71, 19);
+            this.LBL_userdata.TabIndex = 33;
+            this.LBL_userdata.Text = "user data";
+            // 
+            // LBL_klok
+            // 
+            this.LBL_klok.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.LBL_klok.AutoSize = true;
+            this.LBL_klok.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LBL_klok.Location = new System.Drawing.Point(820, -1);
+            this.LBL_klok.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.LBL_klok.Name = "LBL_klok";
+            this.LBL_klok.Size = new System.Drawing.Size(38, 19);
+            this.LBL_klok.TabIndex = 34;
+            this.LBL_klok.Text = "klok";
+            // 
+            // T_klok
+            // 
+            this.T_klok.Tick += new System.EventHandler(this.T_klok_Tick);
+            // 
+            // TUpdateTimer
+            // 
+            this.TUpdateTimer.Interval = 60000;
+            this.TUpdateTimer.Tick += new System.EventHandler(this.TUpdateTimer_Tick);
+            // 
             // KeukenBarSysteemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(962, 505);
+            this.Controls.Add(this.LBL_klok);
+            this.Controls.Add(this.LBL_userdata);
+            this.Controls.Add(this.BTN_Update);
             this.Controls.Add(this.menuStrip2);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.openstaandeBestellingenTxtLbl);
@@ -157,5 +211,10 @@ namespace ChapooUI
         private System.Windows.Forms.ToolStripMenuItem TerugtoolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem UitloggenToolStripMenuItem;
+        private System.Windows.Forms.Button BTN_Update;
+        private System.Windows.Forms.Label LBL_userdata;
+        private System.Windows.Forms.Label LBL_klok;
+        private System.Windows.Forms.Timer T_klok;
+        private System.Windows.Forms.Timer TUpdateTimer;
     }
 }

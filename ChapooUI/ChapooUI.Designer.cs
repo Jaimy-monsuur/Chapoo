@@ -61,12 +61,12 @@
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(113, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(90, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(116, 26);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -74,10 +74,9 @@
             // 
             this.keukenSelectTxtLbl.AutoSize = true;
             this.keukenSelectTxtLbl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.keukenSelectTxtLbl.Location = new System.Drawing.Point(161, 411);
-            this.keukenSelectTxtLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.keukenSelectTxtLbl.Location = new System.Drawing.Point(121, 334);
             this.keukenSelectTxtLbl.Name = "keukenSelectTxtLbl";
-            this.keukenSelectTxtLbl.Size = new System.Drawing.Size(82, 28);
+            this.keukenSelectTxtLbl.Size = new System.Drawing.Size(67, 21);
             this.keukenSelectTxtLbl.TabIndex = 5;
             this.keukenSelectTxtLbl.Text = "Keuken";
             // 
@@ -85,10 +84,9 @@
             // 
             this.bedieningSelectTxtLbl.AutoSize = true;
             this.bedieningSelectTxtLbl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bedieningSelectTxtLbl.Location = new System.Drawing.Point(592, 411);
-            this.bedieningSelectTxtLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.bedieningSelectTxtLbl.Location = new System.Drawing.Point(444, 334);
             this.bedieningSelectTxtLbl.Name = "bedieningSelectTxtLbl";
-            this.bedieningSelectTxtLbl.Size = new System.Drawing.Size(107, 28);
+            this.bedieningSelectTxtLbl.Size = new System.Drawing.Size(88, 21);
             this.bedieningSelectTxtLbl.TabIndex = 6;
             this.bedieningSelectTxtLbl.Text = "Bediening";
             // 
@@ -96,10 +94,9 @@
             // 
             this.barSelectTxtLbl.AutoSize = true;
             this.barSelectTxtLbl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.barSelectTxtLbl.Location = new System.Drawing.Point(1049, 411);
-            this.barSelectTxtLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.barSelectTxtLbl.Location = new System.Drawing.Point(787, 334);
             this.barSelectTxtLbl.Name = "barSelectTxtLbl";
-            this.barSelectTxtLbl.Size = new System.Drawing.Size(44, 28);
+            this.barSelectTxtLbl.Size = new System.Drawing.Size(35, 21);
             this.barSelectTxtLbl.TabIndex = 7;
             this.barSelectTxtLbl.Text = "Bar";
             // 
@@ -109,8 +106,9 @@
             this.LBL_userdata.Dock = System.Windows.Forms.DockStyle.Top;
             this.LBL_userdata.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LBL_userdata.Location = new System.Drawing.Point(0, 0);
+            this.LBL_userdata.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LBL_userdata.Name = "LBL_userdata";
-            this.LBL_userdata.Size = new System.Drawing.Size(84, 23);
+            this.LBL_userdata.Size = new System.Drawing.Size(71, 19);
             this.LBL_userdata.TabIndex = 9;
             this.LBL_userdata.Text = "user data";
             // 
@@ -123,9 +121,10 @@
             this.LBL_klok.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.LBL_klok.AutoSize = true;
             this.LBL_klok.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBL_klok.Location = new System.Drawing.Point(1093, -1);
+            this.LBL_klok.Location = new System.Drawing.Point(820, -1);
+            this.LBL_klok.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LBL_klok.Name = "LBL_klok";
-            this.LBL_klok.Size = new System.Drawing.Size(45, 23);
+            this.LBL_klok.Size = new System.Drawing.Size(38, 19);
             this.LBL_klok.TabIndex = 10;
             this.LBL_klok.Text = "klok";
             // 
@@ -143,9 +142,10 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.afsluitenToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(1187, -1);
+            this.menuStrip1.Location = new System.Drawing.Point(886, -1);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(97, 27);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(77, 24);
             this.menuStrip1.TabIndex = 18;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -153,16 +153,17 @@
             // 
             this.afsluitenToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
             this.afsluitenToolStripMenuItem.Name = "afsluitenToolStripMenuItem";
-            this.afsluitenToolStripMenuItem.Size = new System.Drawing.Size(89, 23);
+            this.afsluitenToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.afsluitenToolStripMenuItem.Text = "Uitloggen";
             this.afsluitenToolStripMenuItem.Click += new System.EventHandler(this.afsluitenToolStripMenuItem_Click);
             // 
             // beheerHomeBtn
             // 
             this.beheerHomeBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.beheerHomeBtn.Location = new System.Drawing.Point(543, 482);
+            this.beheerHomeBtn.Location = new System.Drawing.Point(407, 392);
+            this.beheerHomeBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.beheerHomeBtn.Name = "beheerHomeBtn";
-            this.beheerHomeBtn.Size = new System.Drawing.Size(198, 63);
+            this.beheerHomeBtn.Size = new System.Drawing.Size(148, 51);
             this.beheerHomeBtn.TabIndex = 19;
             this.beheerHomeBtn.Text = "Beheer";
             this.beheerHomeBtn.UseVisualStyleBackColor = true;
@@ -172,10 +173,9 @@
             // 
             this.barSelectBtn.BackgroundImage = global::ChapooUI.Properties.Resources.bar;
             this.barSelectBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.barSelectBtn.Location = new System.Drawing.Point(941, 159);
-            this.barSelectBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.barSelectBtn.Location = new System.Drawing.Point(706, 129);
             this.barSelectBtn.Name = "barSelectBtn";
-            this.barSelectBtn.Size = new System.Drawing.Size(260, 235);
+            this.barSelectBtn.Size = new System.Drawing.Size(195, 191);
             this.barSelectBtn.TabIndex = 4;
             this.barSelectBtn.UseVisualStyleBackColor = true;
             this.barSelectBtn.Click += new System.EventHandler(this.barSelectBtn_Click);
@@ -184,10 +184,9 @@
             // 
             this.bedieningSelectBtn.BackgroundImage = global::ChapooUI.Properties.Resources.bediening_removebg_preview;
             this.bedieningSelectBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.bedieningSelectBtn.Location = new System.Drawing.Point(515, 159);
-            this.bedieningSelectBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.bedieningSelectBtn.Location = new System.Drawing.Point(386, 129);
             this.bedieningSelectBtn.Name = "bedieningSelectBtn";
-            this.bedieningSelectBtn.Size = new System.Drawing.Size(260, 235);
+            this.bedieningSelectBtn.Size = new System.Drawing.Size(195, 191);
             this.bedieningSelectBtn.TabIndex = 3;
             this.bedieningSelectBtn.UseVisualStyleBackColor = true;
             this.bedieningSelectBtn.Click += new System.EventHandler(this.bedieningSelectBtn_Click);
@@ -196,19 +195,18 @@
             // 
             this.keukenSelectBtn.BackgroundImage = global::ChapooUI.Properties.Resources.keuken;
             this.keukenSelectBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.keukenSelectBtn.Location = new System.Drawing.Point(85, 159);
-            this.keukenSelectBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.keukenSelectBtn.Location = new System.Drawing.Point(64, 129);
             this.keukenSelectBtn.Name = "keukenSelectBtn";
-            this.keukenSelectBtn.Size = new System.Drawing.Size(260, 235);
+            this.keukenSelectBtn.Size = new System.Drawing.Size(195, 191);
             this.keukenSelectBtn.TabIndex = 2;
             this.keukenSelectBtn.UseVisualStyleBackColor = true;
             this.keukenSelectBtn.Click += new System.EventHandler(this.keukenSelectBtn_Click);
             // 
             // ChapooUI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1283, 622);
+            this.ClientSize = new System.Drawing.Size(962, 505);
             this.Controls.Add(this.beheerHomeBtn);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.LBL_klok);
@@ -221,7 +219,6 @@
             this.Controls.Add(this.keukenSelectBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ChapooUI";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
