@@ -15,11 +15,24 @@ namespace ChapooUI
    
     public partial class Bestellingen : Form
     {
+        //maakt form movable vanaf elk punt.
+        private const int WM_NCHITTEST = 0x84;
+        private const int HT_CLIENT = 0x1;
+        private const int HT_CAPTION = 0x2;
+        protected override void WndProc(ref Message m)
+        {
+            base.WndProc(ref m);
+            if (m.Msg == WM_NCHITTEST)
+                m.Result = (IntPtr)(HT_CAPTION);
+        }
+
         //Code voor de placeholder.
 
         private const int EM_SETCUEBANNER = 0x1501;
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         private static extern Int32 SendMessage(IntPtr hWnd, int msg, int wParam, [MarshalAs(UnmanagedType.LPWStr)] string lParam);
+
+        // Order en tafelnummer ophalen, order_Service aanmaken en een user aanmaken
         public ChapooLogic.Order_Service Order_Service = new ChapooLogic.Order_Service();
         public int Tafelnummer;
         public int Ordernummer;
@@ -28,11 +41,19 @@ namespace ChapooUI
         public Bestellingen(int Ordernummer, int tafelnummer)
         {
             InitializeComponent();
+            //zorg er voor dat er geen border is
+            this.ControlBox = false;
+            this.Text = "";
+
+            //haalt de tafel -ordernummers op en een user in de constructor
             this.Tafelnummer = tafelnummer;
             this.Ordernummer = Ordernummer;
             this.user = CurrentUser.Getlnstance();
+
+            //laat het tafelnummer zien op de form.
             lblTafelNummerIn.Text = Tafelnummer.ToString();
 
+            //Vullen van waardes in de combobox 'Aantal'.
             cb_Aantal.Items.Add('1');
             cb_Aantal.Items.Add('2');
             cb_Aantal.Items.Add('3');
@@ -48,7 +69,7 @@ namespace ChapooUI
             cb_Aantal.Items.Add("13");
             cb_Aantal.Items.Add("14");
 
-
+            //Dit checked welke radio button er is geselcteerd bij het laden van de form. Dit zorgt ervoor dat niet het verkeerde menu wordt weergegeven.
             if (rBLunch.Checked)
             {
                 //Vul de listview met middag menu.
@@ -88,7 +109,7 @@ namespace ChapooUI
 
             if (this.Ordernummer == 0)
             {
-                // Maakt hij gewoon een nieuwe aan.
+                //Maakt een nieuwe order aan als deze er nog niet was.
                 string personeelNummer = this.user.personeelsNummer.ToString();
                 Order order = Order_Service.NewOrder(Tafelnummer, personeelNummer);
                 this.Ordernummer = order.orderNummer;
@@ -100,6 +121,7 @@ namespace ChapooUI
 
             SendMessage(txtOpmerkingBestelling.Handle, EM_SETCUEBANNER, 0, "Opmerking:");
 
+            //Stelt de klok in en laat zien welke user er is ingelogd.
             CurrentUser user = CurrentUser.Getlnstance();
             LBL_UserDataOr.Text = user.ToString();
 
@@ -108,6 +130,7 @@ namespace ChapooUI
         }
         private void btn_Uitlog_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
+            //uitlog
             ConfirmLogout confirmLogout = new ConfirmLogout();
             confirmLogout.ShowDialog();
         }
@@ -119,7 +142,8 @@ namespace ChapooUI
                 {
                     //De opmerkingen aan de orderdetails toevoegen
                     Orderitems opmerking = new Orderitems();
-
+                    
+                    //Aantal een waarde geven zodat er gechecked kan worden of er een optie is geselecteerd.
                     opmerking.opmerking = txtOpmerkingBestelling.Text;
                     int CbAantal;
                     CbAantal = cb_Aantal.SelectedIndex;
@@ -134,24 +158,25 @@ namespace ChapooUI
                     };
 
                     
-
+                    //Als er een aantal geselcteerd is dan wordt de listview gevuld
                     if (CbAantal > -1 && CbAantal <= 14)
                     {
                         opmerking.aantal = CbAantal + 1;
 
                         LvOrderDetails.Items.Add(new ListViewItem(new string[] { $"{menuitem.itemNummer}", $"{menuitem.naam}", $"{opmerking.opmerking}", $"{opmerking.aantal}" }));
-
+                        
+                        //Cleared de errorbox zodat je niet denk dat het nogsteeds niet lukt.
                         lblErrorMenuBox.Text = "";
                     }
                     else
                     {
-                    lblErrorMenuBox.Text = "Selecteer eerst een aantal!";
+                        //Error voor als je geen aantal invuld 
+                        lblErrorMenuBox.Text = "Selecteer eerst een aantal!";
                     }
-
-                
                 }
                 else
                 {
+                    //Als er geen item geslecteerd is zal de knop disabled worden en krijgt de gebruiker een error.
                     btnDeleteItem.Enabled = false;
 
                     lblErrorMenuBox.Text = "Klik eerst een item aan in de menulijst!";
@@ -160,19 +185,18 @@ namespace ChapooUI
             btnDeleteItem.Enabled = true;
         }
 
-        
-
-
         private void btnDeleteItem_Click(object sender, EventArgs e)
         {
             //Checked of er een item is geselecteerd zoniet dan geeft hij een waarschuwing
                 if (LvOrderDetails.SelectedItems.Count > 0)
                 {
+                    //Zorgt ervoor dat het geselecteerde item verwijderd wordt.
                     LvOrderDetails.Items.RemoveAt(LvOrderDetails.SelectedIndices[0]);
                     lblErrorBox.Text = "";
                 }
                 else
                 {
+                    //Als er geen item geslecteerd is zal de knop disabled worden en krijgt de gebruiker een error.
                     btnDeleteItem.Enabled = false;
 
                     lblErrorBox.Text = "Klik eerst een item aan in de orderlijst!";                    
@@ -249,34 +273,40 @@ namespace ChapooUI
 
         private void MI_terug_Click(object sender, EventArgs e)
         {
+            //Terug knop
             this.Close();
         }
 
         private void plaatsOrderBarBtn_Click(object sender, EventArgs e)
         {
+            //voor elk orderitem in de listview
             foreach (ListViewItem item in LvOrderDetails.Items)
             {
+                //Aanroepen service layer
                 ChapooLogic.Orderitems_Service orderitems_Service = new ChapooLogic.Orderitems_Service();
                 
-
+                //Een orderitems aanmaken om deze te kunnen vullen met de ingevulde benodigde velden.
                 Orderitems orderitems = new Orderitems()
                 {                    
                     aantal = int.Parse(item.SubItems[3].Text),
                     opmerking = item.SubItems[2].Text,
                 };
 
+                //Een menuitems aanmaken om deze te kunnen vullen met de ingevulde benodigde velden.
                 Menuitems menuitems = new Menuitems()
                 {
                     itemNummer = int.Parse(item.SubItems[0].Text),
                 };
 
-
+                //Zorgt ervoor dat er onderscheid komt tussen de opmerkingen omdat we 2 queries gebruiken, 1 met opmerkingen en 1 met lege opmerkingen.
                 if (orderitems.opmerking == null)
                 {
                     orderitems.opmerking = "";
                 }
-
+                //aanroepen van de query om de waardes in de database te zetten.
                 orderitems_Service.AddOrderitem(Ordernummer, menuitems.itemNummer, orderitems.aantal, orderitems.opmerking);
+
+                //De Listvview leegmaken en een melding geven dat het plaatsen van de order gelukt is.
                 LvOrderDetails.Clear();
 
                 lblErrorBox.ForeColor = Color.Green;

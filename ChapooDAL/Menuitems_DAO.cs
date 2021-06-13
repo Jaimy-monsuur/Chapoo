@@ -58,7 +58,7 @@ namespace ChapooDAL
 
         public Menuitems ToevoegenMenuItem(string naam, decimal prijs, int btw, string type)
         {
-            string query = $"INSERT INTO [Voorraad] VALUES ({naam}, {prijs}, {btw}, {type})";
+            string query = $"INSERT INTO [Menuitems] VALUES ('{naam}', '{prijs}', '{btw}', '{type}')";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(query, sqlParameters);
             return GetMenuitemsByName(naam);
@@ -66,7 +66,7 @@ namespace ChapooDAL
         public Menuitems GetMenuitemsByName(string naam)
         {
             // Hier staat de query die naar de database gaat voor het ophalen van de juiste gegevens
-            string query = $"SELECT itemnummer, naam, prijs, btw, type FROM Menuitems WHERE naam = {naam}";
+            string query = $"SELECT itemnummer, naam, prijs, btw, type FROM Menuitems WHERE naam = '{naam}'";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTable(ExecuteSelectQuery(query, sqlParameters));
         }

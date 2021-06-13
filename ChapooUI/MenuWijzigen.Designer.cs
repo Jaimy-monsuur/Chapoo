@@ -32,6 +32,9 @@ namespace ChapooUI
             this.Btn_VerwijderMenuItem = new System.Windows.Forms.Button();
             this.BTNtoevoegen = new System.Windows.Forms.Button();
             this.LV_MenuWijzig = new System.Windows.Forms.ListView();
+            this.itemNummer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.NaamMenu = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.PrijsMenu = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.TsMenuTerug = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -40,9 +43,6 @@ namespace ChapooUI
             this.rBAvond = new System.Windows.Forms.RadioButton();
             this.rBLunch = new System.Windows.Forms.RadioButton();
             this.lblErrorBox = new System.Windows.Forms.Label();
-            this.itemNummer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.NaamMenu = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.PrijsMenu = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuStrip2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -88,6 +88,20 @@ namespace ChapooUI
             this.LV_MenuWijzig.UseCompatibleStateImageBehavior = false;
             this.LV_MenuWijzig.View = System.Windows.Forms.View.Details;
             // 
+            // itemNummer
+            // 
+            this.itemNummer.Text = "ItemNummer";
+            this.itemNummer.Width = 78;
+            // 
+            // NaamMenu
+            // 
+            this.NaamMenu.Text = "Naam:";
+            this.NaamMenu.Width = 539;
+            // 
+            // PrijsMenu
+            // 
+            this.PrijsMenu.Text = "Prijs:";
+            // 
             // menuStrip2
             // 
             this.menuStrip2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
@@ -98,7 +112,7 @@ namespace ChapooUI
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
             this.menuStrip2.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip2.Size = new System.Drawing.Size(54, 24);
+            this.menuStrip2.Size = new System.Drawing.Size(174, 24);
             this.menuStrip2.TabIndex = 37;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -108,6 +122,7 @@ namespace ChapooUI
             this.TsMenuTerug.Name = "TsMenuTerug";
             this.TsMenuTerug.Size = new System.Drawing.Size(48, 20);
             this.TsMenuTerug.Text = "Terug";
+            this.TsMenuTerug.Click += new System.EventHandler(this.TsMenuTerug_Click);
             // 
             // menuStrip1
             // 
@@ -174,20 +189,6 @@ namespace ChapooUI
             this.lblErrorBox.Size = new System.Drawing.Size(0, 13);
             this.lblErrorBox.TabIndex = 44;
             // 
-            // itemNummer
-            // 
-            this.itemNummer.Text = "ItemNummer";
-            this.itemNummer.Width = 78;
-            // 
-            // NaamMenu
-            // 
-            this.NaamMenu.Text = "Naam:";
-            this.NaamMenu.Width = 539;
-            // 
-            // PrijsMenu
-            // 
-            this.PrijsMenu.Text = "Prijs:";
-            // 
             // MenuWijzigen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -202,6 +203,7 @@ namespace ChapooUI
             this.Controls.Add(this.LV_MenuWijzig);
             this.Controls.Add(this.menuStrip2);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "MenuWijzigen";
             this.Text = "MenuWijzigen";
             this.menuStrip2.ResumeLayout(false);

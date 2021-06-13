@@ -355,7 +355,7 @@ namespace ChapooUI
             this.cb_Aantal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_Aantal.FormattingEnabled = true;
             this.cb_Aantal.Location = new System.Drawing.Point(685, 226);
-            this.cb_Aantal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cb_Aantal.Margin = new System.Windows.Forms.Padding(2);
             this.cb_Aantal.Name = "cb_Aantal";
             this.cb_Aantal.Size = new System.Drawing.Size(30, 21);
             this.cb_Aantal.TabIndex = 36;
@@ -388,6 +388,7 @@ namespace ChapooUI
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblEtenTxt);
             this.Controls.Add(this.LvEtenMenu);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Bestellingen";
             this.Text = "Bestellingen";
             this.panel1.ResumeLayout(false);
