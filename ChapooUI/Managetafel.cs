@@ -124,6 +124,7 @@ namespace ChapooUI
             {
                 foreach (Order order in orders)
                 {
+                    Ordernummer = order.orderNummer;
                     string[] item = new string[5];
                     foreach (Orderitems orderitem in order.orderItemList)
                     {

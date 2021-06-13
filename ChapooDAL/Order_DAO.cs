@@ -16,17 +16,17 @@ namespace ChapooDAL
         Personeel_DOA personeel_db = new Personeel_DOA();
         Orderitems_DAO Orderitems_DAO = new Orderitems_DAO();
 
-        public Order NewOrder(int tafelnummer, int personeelsnummer)
+        public Order NewOrder(int tafelnummer, string personeelsnummer)
         {
-            string date = DateTime.Today.ToString("yyyy-MM-dd HH:mm:ss");
-            string query = $"INSERT INTO Orders VALUEs ({tafelnummer}, {personeelsnummer}, {date});";
+            string query = $"INSERT INTO Orders VALUEs ({tafelnummer}, {personeelsnummer}, GETDATE());";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(query, sqlParameters);
-            return SelectNewOrder();
+            Order order = SelectNewOrder();
+            return order;
         }
         public Order SelectNewOrder()
         {
-            string query = $"SELECT [ordernummer], [tafelnummer], [personeelnummer], [datum] FROM [Orders] WHERE [ordernummer] IN (SELECT MAX([ordernummer]) FROM Orders";
+            string query = $"SELECT [ordernummer], [tafelnummer], [personeelnummer], [datum] FROM [Orders] WHERE [ordernummer] IN (SELECT MAX([ordernummer]) FROM Orders)";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             Order order = ReadTable(ExecuteSelectQuery(query, sqlParameters));
             return order;

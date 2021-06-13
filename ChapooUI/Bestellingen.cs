@@ -20,15 +20,17 @@ namespace ChapooUI
         private const int EM_SETCUEBANNER = 0x1501;
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         private static extern Int32 SendMessage(IntPtr hWnd, int msg, int wParam, [MarshalAs(UnmanagedType.LPWStr)] string lParam);
-
-        public int Tafelnummer { get; set; }
-        public int Ordernummer { get; set; }
+        public ChapooLogic.Order_Service Order_Service = new ChapooLogic.Order_Service();
+        public int Tafelnummer;
+        public int Ordernummer;
+        public CurrentUser user;
 
         public Bestellingen(int Ordernummer, int tafelnummer)
         {
             InitializeComponent();
             this.Tafelnummer = tafelnummer;
             this.Ordernummer = Ordernummer;
+            this.user = CurrentUser.Getlnstance();
             lblTafelNummerIn.Text = Tafelnummer.ToString();
 
             cb_Aantal.DisplayMember = '1'.ToString();
@@ -84,24 +86,14 @@ namespace ChapooUI
                 }
             }
 
-            if (Ordernummer >= 0)
-            {
-                //Vul de listview met een order die al aanwezig is.
-
-                ChapooLogic.Orderitems_Service Ordernr = new ChapooLogic.Orderitems_Service();
-                List<Orderitems> ordernummer = Ordernr.Db_Get_All_Orderitems_for_Order(Ordernummer);
-
-                LvOrderDetails.View = View.Details;
-                foreach (ChapooModel.Orderitems OrdNumr in ordernummer)
-                {
-                    
-                    LvOrderDetails.Items.Add(new ListViewItem(new string[] { $"{OrdNumr.menuItem.naam}", $"{OrdNumr.opmerking}"}));
-                }
-            }
-            else
+            if (this.Ordernummer == 0)
             {
                 // Maakt hij gewoon een nieuwe aan.
+                string personeelNummer = this.user.personeelsNummer.ToString();
+                Order order = Order_Service.NewOrder(Tafelnummer, personeelNummer);
+                this.Ordernummer = order.orderNummer;
             }
+
 
             
             //Zorgt voor een placeholder "Opmerking:" in de textbox opmerking.
@@ -134,11 +126,12 @@ namespace ChapooUI
                     ListViewItem item = LvEtenMenu.SelectedItems[0];
                     Menuitems menuitem = new Menuitems()
                     {
-                        naam = item.SubItems[0].Text,
-                        prijs = decimal.Parse(item.SubItems[1].Text),
+                        itemNummer = int.Parse(item.SubItems[0].Text),
+                        naam = item.SubItems[1].Text,
+                        prijs = decimal.Parse(item.SubItems[2].Text),
                     };
 
-                    LvOrderDetails.Items.Add(new ListViewItem(new string[] { $"{menuitem.naam}", $"{opmerking.opmerking}" }));
+                    LvOrderDetails.Items.Add(new ListViewItem(new string[] { $"{menuitem.itemNummer}", $"{menuitem.naam}", $"{opmerking.opmerking}" }));
 
                     lblErrorMenuBox.Text = "";
                 }
@@ -244,7 +237,10 @@ namespace ChapooUI
 
         private void plaatsOrderBarBtn_Click(object sender, EventArgs e)
         {
-
+            foreach (ListViewItem item in LvOrderDetails.Items)
+            {
+                string test = item.SubItems[0].Text;
+            }
         }
     }
 }
