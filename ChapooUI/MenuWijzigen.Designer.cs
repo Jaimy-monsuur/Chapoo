@@ -50,10 +50,10 @@ namespace ChapooUI
             // Btn_VerwijderMenuItem
             // 
             this.Btn_VerwijderMenuItem.BackColor = System.Drawing.Color.LightCoral;
-            this.Btn_VerwijderMenuItem.Location = new System.Drawing.Point(695, 502);
-            this.Btn_VerwijderMenuItem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Btn_VerwijderMenuItem.Location = new System.Drawing.Point(521, 408);
+            this.Btn_VerwijderMenuItem.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Btn_VerwijderMenuItem.Name = "Btn_VerwijderMenuItem";
-            this.Btn_VerwijderMenuItem.Size = new System.Drawing.Size(163, 38);
+            this.Btn_VerwijderMenuItem.Size = new System.Drawing.Size(122, 31);
             this.Btn_VerwijderMenuItem.TabIndex = 40;
             this.Btn_VerwijderMenuItem.Text = "Verwijder menuitem";
             this.Btn_VerwijderMenuItem.UseVisualStyleBackColor = false;
@@ -62,10 +62,10 @@ namespace ChapooUI
             // BTNtoevoegen
             // 
             this.BTNtoevoegen.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.BTNtoevoegen.Location = new System.Drawing.Point(872, 502);
-            this.BTNtoevoegen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BTNtoevoegen.Location = new System.Drawing.Point(654, 408);
+            this.BTNtoevoegen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.BTNtoevoegen.Name = "BTNtoevoegen";
-            this.BTNtoevoegen.Size = new System.Drawing.Size(163, 38);
+            this.BTNtoevoegen.Size = new System.Drawing.Size(122, 31);
             this.BTNtoevoegen.TabIndex = 39;
             this.BTNtoevoegen.Text = "Nieuw menuitem";
             this.BTNtoevoegen.UseVisualStyleBackColor = false;
@@ -80,10 +80,10 @@ namespace ChapooUI
             this.LV_MenuWijzig.FullRowSelect = true;
             this.LV_MenuWijzig.GridLines = true;
             this.LV_MenuWijzig.HideSelection = false;
-            this.LV_MenuWijzig.Location = new System.Drawing.Point(97, 58);
-            this.LV_MenuWijzig.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.LV_MenuWijzig.Location = new System.Drawing.Point(73, 47);
+            this.LV_MenuWijzig.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.LV_MenuWijzig.Name = "LV_MenuWijzig";
-            this.LV_MenuWijzig.Size = new System.Drawing.Size(936, 404);
+            this.LV_MenuWijzig.Size = new System.Drawing.Size(703, 329);
             this.LV_MenuWijzig.TabIndex = 38;
             this.LV_MenuWijzig.UseCompatibleStateImageBehavior = false;
             this.LV_MenuWijzig.View = System.Windows.Forms.View.Details;
@@ -111,8 +111,8 @@ namespace ChapooUI
             this.TsMenuTerug});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip2.Size = new System.Drawing.Size(68, 27);
+            this.menuStrip2.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip2.Size = new System.Drawing.Size(54, 24);
             this.menuStrip2.TabIndex = 37;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -120,7 +120,7 @@ namespace ChapooUI
             // 
             this.TsMenuTerug.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
             this.TsMenuTerug.Name = "TsMenuTerug";
-            this.TsMenuTerug.Size = new System.Drawing.Size(61, 23);
+            this.TsMenuTerug.Size = new System.Drawing.Size(48, 20);
             this.TsMenuTerug.Text = "Terug";
             this.TsMenuTerug.Click += new System.EventHandler(this.TsMenuTerug_Click);
             // 
@@ -132,10 +132,10 @@ namespace ChapooUI
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.UitloggenToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(821, 0);
+            this.menuStrip1.Location = new System.Drawing.Point(723, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(246, 28);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(77, 24);
             this.menuStrip1.TabIndex = 36;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -143,7 +143,7 @@ namespace ChapooUI
             // 
             this.UitloggenToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
             this.UitloggenToolStripMenuItem.Name = "UitloggenToolStripMenuItem";
-            this.UitloggenToolStripMenuItem.Size = new System.Drawing.Size(89, 24);
+            this.UitloggenToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.UitloggenToolStripMenuItem.Text = "Uitloggen";
             this.UitloggenToolStripMenuItem.Click += new System.EventHandler(this.UitloggenToolStripMenuItem_Click);
             // 
@@ -151,10 +151,9 @@ namespace ChapooUI
             // 
             this.rBDranken.AutoSize = true;
             this.rBDranken.Checked = true;
-            this.rBDranken.Location = new System.Drawing.Point(16, 112);
-            this.rBDranken.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rBDranken.Location = new System.Drawing.Point(12, 91);
             this.rBDranken.Name = "rBDranken";
-            this.rBDranken.Size = new System.Drawing.Size(67, 21);
+            this.rBDranken.Size = new System.Drawing.Size(54, 17);
             this.rBDranken.TabIndex = 43;
             this.rBDranken.TabStop = true;
             this.rBDranken.Text = "Drank";
@@ -164,10 +163,9 @@ namespace ChapooUI
             // rBAvond
             // 
             this.rBAvond.AutoSize = true;
-            this.rBAvond.Location = new System.Drawing.Point(16, 84);
-            this.rBAvond.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rBAvond.Location = new System.Drawing.Point(12, 68);
             this.rBAvond.Name = "rBAvond";
-            this.rBAvond.Size = new System.Drawing.Size(69, 21);
+            this.rBAvond.Size = new System.Drawing.Size(56, 17);
             this.rBAvond.TabIndex = 42;
             this.rBAvond.Text = "Avond";
             this.rBAvond.UseVisualStyleBackColor = true;
@@ -176,10 +174,9 @@ namespace ChapooUI
             // rBLunch
             // 
             this.rBLunch.AutoSize = true;
-            this.rBLunch.Location = new System.Drawing.Point(16, 55);
-            this.rBLunch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rBLunch.Location = new System.Drawing.Point(12, 45);
             this.rBLunch.Name = "rBLunch";
-            this.rBLunch.Size = new System.Drawing.Size(68, 21);
+            this.rBLunch.Size = new System.Drawing.Size(55, 17);
             this.rBLunch.TabIndex = 41;
             this.rBLunch.Text = "Lunch";
             this.rBLunch.UseVisualStyleBackColor = true;
@@ -188,17 +185,16 @@ namespace ChapooUI
             // lblErrorBox
             // 
             this.lblErrorBox.AutoSize = true;
-            this.lblErrorBox.Location = new System.Drawing.Point(695, 480);
-            this.lblErrorBox.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblErrorBox.Location = new System.Drawing.Point(521, 390);
             this.lblErrorBox.Name = "lblErrorBox";
-            this.lblErrorBox.Size = new System.Drawing.Size(0, 17);
+            this.lblErrorBox.Size = new System.Drawing.Size(0, 13);
             this.lblErrorBox.TabIndex = 44;
             // 
             // MenuWijzigen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.lblErrorBox);
             this.Controls.Add(this.rBDranken);
             this.Controls.Add(this.rBAvond);
@@ -209,8 +205,8 @@ namespace ChapooUI
             this.Controls.Add(this.menuStrip2);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MenuWijzigen";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MenuWijzigen";
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();

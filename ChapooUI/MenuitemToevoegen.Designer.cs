@@ -182,6 +182,7 @@ namespace ChapooUI
             this.Controls.Add(this.lblMenuitem);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "MenuitemToevoegen";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "MenuitemToevoegen";
             this.ResumeLayout(false);
             this.PerformLayout();

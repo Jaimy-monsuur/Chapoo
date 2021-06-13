@@ -55,6 +55,7 @@ namespace ChapooUI
         {
             //Listview leegmaken
             LV_MenuWijzig.Items.Clear();
+            lblErrorBox.Text = "";
 
             //Vul de listview met middag menu.
 
@@ -75,6 +76,7 @@ namespace ChapooUI
         {
             //Listview leegmaken
             LV_MenuWijzig.Items.Clear();
+            lblErrorBox.Text = "";
 
             //Vul de listview met middag menu.
 
@@ -95,10 +97,11 @@ namespace ChapooUI
         {
             //Listview leegmaken
             LV_MenuWijzig.Items.Clear();
+            lblErrorBox.Text = "";
 
-           //Vul de listview met drank menu.
+            //Vul de listview met drank menu.
 
-                ChapooLogic.Menuitems_Service menuServDra = new ChapooLogic.Menuitems_Service();
+            ChapooLogic.Menuitems_Service menuServDra = new ChapooLogic.Menuitems_Service();
                 List<Menuitems> MenuDrank = menuServDra.GetMenuitems();
                 
                 LV_MenuWijzig.View = View.Details;

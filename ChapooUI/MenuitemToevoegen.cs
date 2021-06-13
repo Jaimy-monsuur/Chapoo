@@ -125,6 +125,8 @@ namespace ChapooUI
                 lblErrorBox.ForeColor = Color.Red;
                 lblErrorBox.Text = "Voer een naam voor het menuitem in!";
             }
+
+            this.Close();
         }
     }
 }
