@@ -67,11 +67,12 @@ namespace ChapooUI
             listViewKeukenBarOpenstaand.FullRowSelect = true;
 
             // Voeg column header toe
-            listViewKeukenBarOpenstaand.Columns.Add("Ordernr:", 60);
+            listViewKeukenBarOpenstaand.Columns.Add("Ordernr:", 50);
             listViewKeukenBarOpenstaand.Columns.Add("Itemnummer HIDDEN:", 0);
-            listViewKeukenBarOpenstaand.Columns.Add("Besteltijd:", 100);
+            listViewKeukenBarOpenstaand.Columns.Add("Tafelnr:", 50);
+            listViewKeukenBarOpenstaand.Columns.Add("Besteltijd:", 60);
             listViewKeukenBarOpenstaand.Columns.Add("Gerecht:", 300);
-            listViewKeukenBarOpenstaand.Columns.Add("Aantal:", 60);
+            listViewKeukenBarOpenstaand.Columns.Add("Aantal:", 50);
 
             // Maak grid opmerkingen
             listViewKeukenBarOpmerkingen.Clear();
@@ -84,7 +85,7 @@ namespace ChapooUI
             listViewKeukenBarOpmerkingen.Columns.Add("Opmerkingen:", 250);
 
             // Maak een array voor de openstaande gerechten en opmerkingen listview om het erin te zetten
-            string[] item = new string[5];
+            string[] item = new string[6];
             string[] itemopmerkingen = new string[3];
 
             if (knopType == "keuken")
@@ -98,9 +99,10 @@ namespace ChapooUI
                             // Zet de items van de openstaande gerechten in de listview
                             item[0] = orderitem.orderNummer.ToString();
                             item[1] = orderitem.menuItem.itemNummer.ToString();
-                            item[2] = orderitem.time.ToString("HH:mm");
-                            item[3] = orderitem.menuItem.naam;
-                            item[4] = orderitem.aantal.ToString();
+                            item[2] = order.tafel.tafelnummer.ToString();
+                            item[3] = orderitem.time.ToString("HH:mm");
+                            item[4] = orderitem.menuItem.naam;
+                            item[5] = orderitem.aantal.ToString();
                             ListViewItem li = new ListViewItem(item);
                             listViewKeukenBarOpenstaand.Items.Add(li);
 
@@ -128,9 +130,10 @@ namespace ChapooUI
                             // Zet de items van de openstaande gerechten in de listview
                             item[0] = orderitem.orderNummer.ToString();
                             item[1] = orderitem.menuItem.itemNummer.ToString();
-                            item[2] = orderitem.time.ToString("HH:mm");
-                            item[3] = orderitem.menuItem.naam;
-                            item[4] = orderitem.aantal.ToString();
+                            item[2] = order.tafel.tafelnummer.ToString();
+                            item[3] = orderitem.time.ToString("HH:mm");
+                            item[4] = orderitem.menuItem.naam;
+                            item[5] = orderitem.aantal.ToString();
                             ListViewItem li = new ListViewItem(item);
                             listViewKeukenBarOpenstaand.Items.Add(li);
 
