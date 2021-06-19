@@ -13,11 +13,17 @@ namespace ChapooLogic
     {
         Order_DAO order_db = new Order_DAO();
 
-        public List<Order> GetOrders()
+        public List<Order> GetOrders_ThatAreTrue()
         {
             // Vraagt de order lijst aan de DAL laag
-            List<Order> orders = order_db.GetOrders();
+            List<Order> orders = order_db.GetOrders_ThatAreTrue();
             return orders;
+        }
+        public List<Order> GetOrderss()
+        {
+            // Vraagt de order lijst aan de DAL laag
+
+            return order_db.GetOrders();
         }
 
         public Order NewOrder(int tafelnummer, string personeelsnummer)

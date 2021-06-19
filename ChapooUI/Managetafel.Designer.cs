@@ -79,7 +79,7 @@ namespace ChapooUI
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.UitloggenToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(691, 0);
+            this.menuStrip1.Location = new System.Drawing.Point(802, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(97, 27);
             this.menuStrip1.TabIndex = 25;
@@ -102,7 +102,7 @@ namespace ChapooUI
             this.GBX_verandeStatus.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.GBX_verandeStatus.Location = new System.Drawing.Point(17, 131);
             this.GBX_verandeStatus.Name = "GBX_verandeStatus";
-            this.GBX_verandeStatus.Size = new System.Drawing.Size(757, 196);
+            this.GBX_verandeStatus.Size = new System.Drawing.Size(868, 196);
             this.GBX_verandeStatus.TabIndex = 24;
             this.GBX_verandeStatus.TabStop = false;
             this.GBX_verandeStatus.Text = "Manage tafel";
@@ -154,7 +154,7 @@ namespace ChapooUI
             this.GBX_ViewOrders.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GBX_ViewOrders.Location = new System.Drawing.Point(17, 343);
             this.GBX_ViewOrders.Name = "GBX_ViewOrders";
-            this.GBX_ViewOrders.Size = new System.Drawing.Size(757, 373);
+            this.GBX_ViewOrders.Size = new System.Drawing.Size(868, 373);
             this.GBX_ViewOrders.TabIndex = 23;
             this.GBX_ViewOrders.TabStop = false;
             this.GBX_ViewOrders.Text = "Orders";
@@ -188,7 +188,7 @@ namespace ChapooUI
             this.LF_Orders.HideSelection = false;
             this.LF_Orders.Location = new System.Drawing.Point(14, 42);
             this.LF_Orders.Name = "LF_Orders";
-            this.LF_Orders.Size = new System.Drawing.Size(727, 250);
+            this.LF_Orders.Size = new System.Drawing.Size(840, 250);
             this.LF_Orders.TabIndex = 3;
             this.LF_Orders.UseCompatibleStateImageBehavior = false;
             // 
@@ -216,7 +216,7 @@ namespace ChapooUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(786, 794);
+            this.ClientSize = new System.Drawing.Size(897, 794);
             this.Controls.Add(this.menuStrip2);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.GBX_verandeStatus);

@@ -55,7 +55,7 @@ namespace ChapooUI
         public void showListView()
         {
             // Haal de orders op uit de database
-            List<Order> orderList = orderService.GetOrders();
+            List<Order> orderList = orderService.GetOrders_ThatAreTrue();
 
             // Clear de gereed gemeld message
             LBL_gereedGemeld.Text = "";

@@ -62,9 +62,10 @@ namespace ChapooUI
         }
         public void CheckForOrders()
         {
-            List<Order> orders = Order_Service.GetOrders();
+            List<Order> orders = Order_Service.GetOrderss();
             int tafelnummer;// de index voor de list
             int finishedOrderItems = 0;// voor het berekenen van het aantal openstaande orderitems
+            int servedOrders = 0;
             TimeSpan wachttijd = TimeSpan.Parse("00:00:00");
             foreach (Order o in orders)
             {
@@ -74,6 +75,11 @@ namespace ChapooUI
                     if (item.gereed == true)// als de tafel gereed is 
                     {
                         finishedOrderItems++;
+                    }
+                    else if (item.gereed = true && item.geserveerd == true)
+                    {
+                        finishedOrderItems++;
+                        servedOrders++;
                     }
                     else// kijkt naar de wacht tijd
                     {
@@ -92,9 +98,17 @@ namespace ChapooUI
                             }
                             else// als er nog order open staan
                             {
-                                c.Text = $"{o.orderItemList.Count - finishedOrderItems} besteling(en) staan nog open\nBezetting: {o.tafel.bezeting}\nWacht al: {wachttijd.ToString(@"hh")} uur en {wachttijd.ToString(@"mm")} minuten";
+                                c.Text = $"{o.orderItemList.Count - finishedOrderItems} besteling(en) staan nog open\nWacht al: {wachttijd.ToString(@"hh")} uur en {wachttijd.ToString(@"mm")} minuten";
                             }
-                            break;
+                        }
+                        else if (c.Name.Contains("LBL_Ready"))
+                        {
+                            if (finishedOrderItems - servedOrders != 0)
+                            {
+                                c.ForeColor = Color.Yellow;
+                                c.Font = new Font(c.Font,FontStyle.Bold);
+                                c.Text = $"{finishedOrderItems - servedOrders} staat bestelling klaar!";
+                            }
                         }
                     }
                 }
@@ -121,6 +135,10 @@ namespace ChapooUI
                             c.Text = $"Tafelnummer: {t.tafelnummer}\nZitplaatsen: {t.zitplekken}\nBezetting: {t.bezeting}";
                             break;
                         }
+                        else if (c.Name.Contains("LBL_Ready"))
+                        {
+                            c.Text = "";
+                        }
                     }
                 }
                 else if (t.bezeting == 0 && TafelPanels[tafelnummer].BackColor != Color.DarkOrange)// alse tafel niet bezet is
@@ -132,6 +150,10 @@ namespace ChapooUI
                         {
                             c.Text = $"Tafelnummer: {t.tafelnummer}\nZitplaatsen: {t.zitplekken}\nBezeting: {t.bezeting}";
                             break;
+                        }
+                        else if (c.Name.Contains("LBL_Ready"))
+                        {
+                            c.Text = "";
                         }
                     }
                 }
@@ -157,6 +179,10 @@ namespace ChapooUI
                         {
                             c.Text = $"Gereserveerd:\n{TF.startTijd} tot {TF.eindTijd}";
                             break;
+                        }
+                        else if (c.Name.Contains("LBL_Ready"))
+                        {
+                            c.Text = "";
                         }
                     }
                 }

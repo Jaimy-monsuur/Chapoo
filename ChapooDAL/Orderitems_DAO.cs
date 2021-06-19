@@ -13,10 +13,17 @@ namespace ChapooDAL
     {
         Menuitems_DAO menuitems_db = new Menuitems_DAO();
 
-        public List<Orderitems> Db_Get_All_Orderitems_for_Order(int ordernummer)
+        public List<Orderitems> Db_Get_All_Orderitems_for_Orde_TrueOnly(int ordernummer)
         {
             // Hier staat de query die naar de database gaat voor het ophalen van de juiste gegevens
-            string query = $"SELECT ordernummer, itemnummer, aantal, gereed, [time], Opmerking FROM Orderitems WHERE (Orderitems.[ordernummer] = '{ordernummer}' AND gereed = 0)";
+            string query = $"SELECT ordernummer, itemnummer, aantal, gereed, [time], Opmerking, geserveerd FROM Orderitems WHERE (Orderitems.[ordernummer] = '{ordernummer}' AND gereed = 0)";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+        }
+        public List<Orderitems> Db_Get_All_Orderitems_for_Order_TrueAndFalsse(int ordernummer)
+        {
+            // Hier staat de query die naar de database gaat voor het ophalen van de juiste gegevens
+            string query = $"SELECT ordernummer, itemnummer, aantal, gereed, [time], Opmerking, geserveerd FROM Orderitems WHERE (Orderitems.[ordernummer] = '{ordernummer}')";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -24,7 +31,7 @@ namespace ChapooDAL
         public List<Orderitems> Db_Get_All_Orderitems()
         {
             // Hier staat de query die naar de database gaat voor het ophalen van de juiste gegevens
-            string query = $"SELECT ordernummer, itemnummer, aantal, gereed, [time], Opmerking FROM Orderitems WHERE gereed = 0 ORDER BY [time] DESC";
+            string query = $"SELECT ordernummer, itemnummer, aantal, gereed, [time], Opmerking, geserveerd FROM Orderitems WHERE gereed = 0 ORDER BY [time] DESC";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -33,11 +40,11 @@ namespace ChapooDAL
             string query = "";
             if (opmerking == "")
             {
-                query = $"INSERT INTO Orderitems (ordernummer, itemnummer, aantal, gereed, [time]) VALUES ({orderNummer}, {itemnummer}, {aantal}, 0, SYSDATETIMEOFFSET() AT TIME ZONE 'Central European Standard Time')";
+                query = $"INSERT INTO Orderitems (ordernummer, itemnummer, aantal, gereed, [time], geserveerd) VALUES ({orderNummer}, {itemnummer}, {aantal}, 0, SYSDATETIMEOFFSET() AT TIME ZONE 'Central European Standard Time', 0)";
             }
             else
             {
-                query = $"INSERT INTO Orderitems VALUES ({orderNummer}, {itemnummer}, {aantal}, 0, SYSDATETIMEOFFSET() AT TIME ZONE 'Central European Standard Time', '{opmerking}')";
+                query = $"INSERT INTO Orderitems VALUES ({orderNummer}, {itemnummer}, {aantal}, 0, SYSDATETIMEOFFSET() AT TIME ZONE 'Central European Standard Time', '{opmerking}', 0)";
             }
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(query, sqlParameters);
@@ -58,6 +65,7 @@ namespace ChapooDAL
                 orderitem.orderNummer = (int)dr["ordernummer"];
                 orderitem.aantal = (int)dr["aantal"];
                 orderitem.gereed = (bool)dr["gereed"];
+                orderitem.geserveerd = (bool)dr["geserveerd"];
                 orderitem.menuItem = menuitem;
                 orderitem.time = (DateTime)dr["time"];
                 if (dr["Opmerking"] != DBNull.Value)

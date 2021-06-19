@@ -31,6 +31,17 @@ namespace ChapooDAL
             Order order = ReadTable(ExecuteSelectQuery(query, sqlParameters));
             return order;
         }
+        public List<Order> GetOrders_ThatAreTrue()
+        {
+            string query = $"SELECT [ordernummer], [tafelnummer], [personeelnummer], [datum] FROM [Orders] WHERE CAST (datum AS DATE) = CAST (GETDATE() AS DATE)";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            List<Order> orders = ReadTables(ExecuteSelectQuery(query, sqlParameters));
+            foreach (Order O in orders)
+            {
+              O.orderItemList = Orderitems_DAO.Db_Get_All_Orderitems_for_Orde_TrueOnly(O.orderNummer);
+            }
+            return orders;
+        }
         public List<Order> GetOrders()
         {
             string query = $"SELECT [ordernummer], [tafelnummer], [personeelnummer], [datum] FROM [Orders] WHERE CAST (datum AS DATE) = CAST (GETDATE() AS DATE)";
@@ -38,10 +49,11 @@ namespace ChapooDAL
             List<Order> orders = ReadTables(ExecuteSelectQuery(query, sqlParameters));
             foreach (Order O in orders)
             {
-              O.orderItemList = Orderitems_DAO.Db_Get_All_Orderitems_for_Order(O.orderNummer);
+                O.orderItemList = Orderitems_DAO.Db_Get_All_Orderitems_for_Order_TrueAndFalsse(O.orderNummer);
             }
             return orders;
         }
+
         public List<Order> GetOrders_For_Table(int tafelnummer)
         {
             string query = $"SELECT [ordernummer], [tafelnummer], [personeelnummer], [datum] FROM [Orders] WHERE [tafelnummer] = '{tafelnummer}' AND CAST (datum AS DATE) = CAST (GETDATE() AS DATE)";
@@ -49,7 +61,7 @@ namespace ChapooDAL
             List<Order> orders = ReadTables(ExecuteSelectQuery(query, sqlParameters));
             foreach (Order O in orders)
             {
-                O.orderItemList = Orderitems_DAO.Db_Get_All_Orderitems_for_Order(O.orderNummer);
+                O.orderItemList = Orderitems_DAO.Db_Get_All_Orderitems_for_Order_TrueAndFalsse(O.orderNummer);
             }
             return orders;
         }

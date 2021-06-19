@@ -121,6 +121,7 @@ namespace ChapooUI
             LF_Orders.Columns.Add("prijs:", 100);
             LF_Orders.Columns.Add("Aantal:", 70);
             LF_Orders.Columns.Add("Gereed",50);
+            LF_Orders.Columns.Add("Geserveerd", 50);
 
             List<Order> orders = Order_Service.Db_Get_All_Orders_FORTable(Tafelnummer);// haalt de order voor de tafel
             if (orders != null)
@@ -128,7 +129,7 @@ namespace ChapooUI
                 foreach (Order order in orders)
                 {
                     Ordernummer = order.orderNummer;
-                    string[] item = new string[6];
+                    string[] item = new string[7];
                     foreach (Orderitems orderitem in order.orderItemList)
                     {
                         item[0] = orderitem.orderNummer.ToString();
@@ -137,6 +138,7 @@ namespace ChapooUI
                         item[3] = orderitem.TotalPrice.ToString();
                         item[4] = orderitem.aantal.ToString();
                         item[5] = orderitem.gereed.ToString();
+                        item[6] = orderitem.geserveerd.ToString();
                         ListViewItem li = new ListViewItem(item);
                         LF_Orders.Items.Add(li);
                     }
