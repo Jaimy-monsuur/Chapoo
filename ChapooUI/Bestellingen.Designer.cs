@@ -46,6 +46,7 @@ namespace ChapooUI
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.MI_terug = new System.Windows.Forms.ToolStripMenuItem();
             this.GbOrderDetails = new System.Windows.Forms.GroupBox();
+            this.btn_Clear_List = new System.Windows.Forms.Button();
             this.lblErrorMenuBox = new System.Windows.Forms.Label();
             this.lblErrorBox = new System.Windows.Forms.Label();
             this.btnDeleteItem = new System.Windows.Forms.Button();
@@ -225,6 +226,7 @@ namespace ChapooUI
             // 
             // GbOrderDetails
             // 
+            this.GbOrderDetails.Controls.Add(this.btn_Clear_List);
             this.GbOrderDetails.Controls.Add(this.lblErrorMenuBox);
             this.GbOrderDetails.Controls.Add(this.lblErrorBox);
             this.GbOrderDetails.Controls.Add(this.btnDeleteItem);
@@ -237,6 +239,17 @@ namespace ChapooUI
             this.GbOrderDetails.TabIndex = 32;
             this.GbOrderDetails.TabStop = false;
             this.GbOrderDetails.Text = "Order Details";
+            // 
+            // btn_Clear_List
+            // 
+            this.btn_Clear_List.BackColor = System.Drawing.Color.LightCoral;
+            this.btn_Clear_List.Location = new System.Drawing.Point(6, 148);
+            this.btn_Clear_List.Name = "btn_Clear_List";
+            this.btn_Clear_List.Size = new System.Drawing.Size(73, 27);
+            this.btn_Clear_List.TabIndex = 21;
+            this.btn_Clear_List.Text = "Clear order";
+            this.btn_Clear_List.UseVisualStyleBackColor = false;
+            this.btn_Clear_List.Click += new System.EventHandler(this.btn_Clear_List_Click);
             // 
             // lblErrorMenuBox
             // 
@@ -390,6 +403,7 @@ namespace ChapooUI
             this.Controls.Add(this.LvEtenMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Bestellingen";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Bestellingen";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -436,5 +450,6 @@ namespace ChapooUI
         private System.Windows.Forms.ColumnHeader Gerechten;
         private System.Windows.Forms.ColumnHeader Prijs;
         private System.Windows.Forms.ColumnHeader ItemNummer2;
+        private System.Windows.Forms.Button btn_Clear_List;
     }
 }
