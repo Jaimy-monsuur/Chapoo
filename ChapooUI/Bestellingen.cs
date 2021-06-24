@@ -34,6 +34,7 @@ namespace ChapooUI
 
         // Order en tafelnummer ophalen, order_Service aanmaken en een user aanmaken
         public ChapooLogic.Order_Service Order_Service = new ChapooLogic.Order_Service();
+        public ChapooLogic.Voorraad_Service Voorraad_Service = new ChapooLogic.Voorraad_Service(); 
         public int Tafelnummer;
         public int Ordernummer;
         public CurrentUser user;
@@ -357,6 +358,8 @@ namespace ChapooUI
                 }
                 //aanroepen van de query om de waardes in de database te zetten.
                 orderitems_Service.AddOrderitem(Ordernummer, menuitems.itemNummer, orderitems.aantal, orderitems.opmerking);
+                Voorraad_Service.afschrijven(orderitems.aantal, menuitems.itemNummer);
+
 
                 //De Listvview leegmaken en een melding geven dat het plaatsen van de order gelukt is.
                 LvOrderDetails.Clear();
