@@ -373,5 +373,38 @@ namespace ChapooUI
         {
             LvOrderDetails.Items.Clear();
         }
+
+        private void BTN_plus_Click(object sender, EventArgs e)
+        {
+            if (LvOrderDetails.SelectedItems.Count != 0)
+            {
+                int value = int.Parse(LvOrderDetails.SelectedItems[0].SubItems[3].Text);
+                LvOrderDetails.SelectedItems[0].SubItems[3].Text = (value  + 1).ToString();
+            }
+            else
+            {
+                lblErrorBox.Text = "Klik eerst een item aan in de orderlijst!";
+            }
+        }
+
+        private void Btn_min_Click(object sender, EventArgs e)
+        {
+            if (LvOrderDetails.SelectedItems.Count != 0)
+            {
+                int value = int.Parse(LvOrderDetails.SelectedItems[0].SubItems[3].Text);
+                if (value - 1 > 0)
+                {
+                    LvOrderDetails.SelectedItems[0].SubItems[3].Text = (value - 1).ToString();
+                }
+                else
+                {
+                    lblErrorBox.Text = "Het is niet mogelijk om 0 van een item te bestellen.";
+                }
+            }
+            else
+            {
+                lblErrorBox.Text = "Klik eerst een item aan in de orderlijst!";
+            }
+        }
     }
 }
