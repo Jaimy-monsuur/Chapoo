@@ -133,6 +133,25 @@ namespace ChapooUI
             confirmLogout.ShowDialog();
         }
 
+        private bool IsInCollection(ListViewItem lvi)
+        {
+            bool contains = false;
+            foreach (ListViewItem item in LvOrderDetails.Items)
+            {
+                
+                for (int i = 0; i < lvi.SubItems.Count; i++)
+                {
+                    string sub1 = item.SubItems[i].Text;
+                    string sub2 = lvi.SubItems[i].Text;
+                    if (sub1 == sub2)
+                    {
+                        contains = true;
+                    }
+                }
+            }
+            return contains;
+        }
+
         private void btnAddItem_Click(object sender, EventArgs e)
         {
             //Checked of er een item is geselecteerd zoniet dan geeft hij een waarschuwing
@@ -147,26 +166,18 @@ namespace ChapooUI
                         prijs = decimal.Parse(item.SubItems[2].Text),
                     };
 
+                
+
+                item = new ListViewItem(new string[] { $"{menuitem.itemNummer}", $"{menuitem.naam}" });
+
                 //Als er een aantal geselcteerd is dan wordt de listview gevuld
                 if (cb_Aantal.SelectedIndex > -1)
                     {
-                        
-                             
                        if(LvOrderDetails.Items.Count > 0)
                        {
-                            if ((LvOrderDetails.Items[0].Text) != menuitem.itemNummer.ToString())
+                            if (IsInCollection(item) ==  true)
                             {
-                                //De opmerkingen en aantal aan de orderdetails toevoegen
-                                Orderitems opmerking = new Orderitems()
-                                {
-                                    opmerking = txtOpmerkingBestelling.Text,
-                                    aantal = int.Parse(cb_Aantal.Text)
-                                };
-                                LvOrderDetails.Items.Add(new ListViewItem(new string[] { $"{menuitem.itemNummer}", $"{menuitem.naam}", $"{opmerking.opmerking}", $"{opmerking.aantal}" }));
-                            }
-                            else
-                            {
-                                if (Convert.ToString(item.SubItems[0].Text) == menuitem.itemNummer.ToString())
+                                if (item.SubItems[0].Text == menuitem.itemNummer.ToString())
                                 {
                                     //De opmerkingen en aantal aan de orderdetails toevoegen
                                     Orderitems opmerking = new Orderitems()
@@ -175,12 +186,25 @@ namespace ChapooUI
                                         aantal = int.Parse(cb_Aantal.Text)
                                     };
 
-                                foreach (ListViewItem items in LvOrderDetails.Items)
+                                    foreach (ListViewItem items in LvOrderDetails.Items)
                                     {
-                                        items.SubItems[3].Text = Convert.ToString(Convert.ToInt32(opmerking.aantal.ToString()) + Convert.ToInt32(items.SubItems[3].Text));
-
+                                        if (items.SubItems[0].Text == menuitem.itemNummer.ToString())
+                                        {
+                                            items.SubItems[3].Text = Convert.ToString(Convert.ToInt32(opmerking.aantal.ToString()) + Convert.ToInt32(items.SubItems[3].Text));
+                                        }
                                     }
                                 }
+                           
+                            }
+                            else
+                            {
+                                //De opmerkingen en aantal aan de orderdetails toevoegen
+                                Orderitems opmerking = new Orderitems()
+                                {
+                                    opmerking = txtOpmerkingBestelling.Text,
+                                    aantal = int.Parse(cb_Aantal.Text)
+                                };
+                                LvOrderDetails.Items.Add(new ListViewItem(new string[] { $"{menuitem.itemNummer}", $"{menuitem.naam}", $"{opmerking.opmerking}", $"{opmerking.aantal}" }));
                             }
                        }
                     else
