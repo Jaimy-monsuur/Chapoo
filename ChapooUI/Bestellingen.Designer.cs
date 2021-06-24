@@ -70,18 +70,20 @@ namespace ChapooUI
             // lblEtenTxt
             // 
             this.lblEtenTxt.AutoSize = true;
-            this.lblEtenTxt.Location = new System.Drawing.Point(71, 26);
+            this.lblEtenTxt.Location = new System.Drawing.Point(95, 32);
+            this.lblEtenTxt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEtenTxt.Name = "lblEtenTxt";
-            this.lblEtenTxt.Size = new System.Drawing.Size(29, 13);
+            this.lblEtenTxt.Size = new System.Drawing.Size(37, 17);
             this.lblEtenTxt.TabIndex = 11;
             this.lblEtenTxt.Text = "Eten";
             // 
             // plaatsOrderBarBtn
             // 
             this.plaatsOrderBarBtn.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.plaatsOrderBarBtn.Location = new System.Drawing.Point(476, 125);
+            this.plaatsOrderBarBtn.Location = new System.Drawing.Point(635, 154);
+            this.plaatsOrderBarBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.plaatsOrderBarBtn.Name = "plaatsOrderBarBtn";
-            this.plaatsOrderBarBtn.Size = new System.Drawing.Size(142, 50);
+            this.plaatsOrderBarBtn.Size = new System.Drawing.Size(189, 62);
             this.plaatsOrderBarBtn.TabIndex = 10;
             this.plaatsOrderBarBtn.Text = "Plaats order";
             this.plaatsOrderBarBtn.UseVisualStyleBackColor = false;
@@ -97,9 +99,10 @@ namespace ChapooUI
             this.LvEtenMenu.FullRowSelect = true;
             this.LvEtenMenu.GridLines = true;
             this.LvEtenMenu.HideSelection = false;
-            this.LvEtenMenu.Location = new System.Drawing.Point(74, 42);
+            this.LvEtenMenu.Location = new System.Drawing.Point(99, 52);
+            this.LvEtenMenu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.LvEtenMenu.Name = "LvEtenMenu";
-            this.LvEtenMenu.Size = new System.Drawing.Size(641, 178);
+            this.LvEtenMenu.Size = new System.Drawing.Size(853, 218);
             this.LvEtenMenu.TabIndex = 7;
             this.LvEtenMenu.UseCompatibleStateImageBehavior = false;
             this.LvEtenMenu.View = System.Windows.Forms.View.Details;
@@ -123,9 +126,10 @@ namespace ChapooUI
             // 
             this.lblTafelnr.AutoSize = true;
             this.lblTafelnr.BackColor = System.Drawing.Color.Transparent;
-            this.lblTafelnr.Location = new System.Drawing.Point(3, 4);
+            this.lblTafelnr.Location = new System.Drawing.Point(4, 5);
+            this.lblTafelnr.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTafelnr.Name = "lblTafelnr";
-            this.lblTafelnr.Size = new System.Drawing.Size(43, 13);
+            this.lblTafelnr.Size = new System.Drawing.Size(57, 17);
             this.lblTafelnr.TabIndex = 13;
             this.lblTafelnr.Text = "Tafelnr.";
             // 
@@ -135,36 +139,38 @@ namespace ChapooUI
             this.panel1.Controls.Add(this.lblTafelNummerIn);
             this.panel1.Controls.Add(this.lblTafelnr);
             this.panel1.ForeColor = System.Drawing.Color.Black;
-            this.panel1.Location = new System.Drawing.Point(13, 24);
+            this.panel1.Location = new System.Drawing.Point(17, 30);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(52, 56);
+            this.panel1.Size = new System.Drawing.Size(69, 69);
             this.panel1.TabIndex = 14;
             // 
             // lblTafelNummerIn
             // 
             this.lblTafelNummerIn.AutoSize = true;
-            this.lblTafelNummerIn.Location = new System.Drawing.Point(4, 29);
+            this.lblTafelNummerIn.Location = new System.Drawing.Point(5, 36);
+            this.lblTafelNummerIn.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTafelNummerIn.Name = "lblTafelNummerIn";
-            this.lblTafelNummerIn.Size = new System.Drawing.Size(44, 13);
+            this.lblTafelNummerIn.Size = new System.Drawing.Size(59, 17);
             this.lblTafelNummerIn.TabIndex = 14;
             this.lblTafelNummerIn.Text = "nummer";
             this.lblTafelNummerIn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // txtOpmerkingBestelling
             // 
-            this.txtOpmerkingBestelling.Location = new System.Drawing.Point(74, 226);
+            this.txtOpmerkingBestelling.Location = new System.Drawing.Point(99, 278);
+            this.txtOpmerkingBestelling.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtOpmerkingBestelling.Name = "txtOpmerkingBestelling";
-            this.txtOpmerkingBestelling.Size = new System.Drawing.Size(543, 20);
+            this.txtOpmerkingBestelling.Size = new System.Drawing.Size(723, 22);
             this.txtOpmerkingBestelling.TabIndex = 15;
             // 
             // LBL_UserDataOr
             // 
             this.LBL_UserDataOr.AutoSize = true;
             this.LBL_UserDataOr.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBL_UserDataOr.Location = new System.Drawing.Point(356, 0);
-            this.LBL_UserDataOr.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.LBL_UserDataOr.Location = new System.Drawing.Point(475, 0);
             this.LBL_UserDataOr.Name = "LBL_UserDataOr";
-            this.LBL_UserDataOr.Size = new System.Drawing.Size(74, 19);
+            this.LBL_UserDataOr.Size = new System.Drawing.Size(88, 23);
             this.LBL_UserDataOr.TabIndex = 26;
             this.LBL_UserDataOr.Text = "User Data";
             // 
@@ -172,10 +178,9 @@ namespace ChapooUI
             // 
             this.LBL_klokOr.AutoSize = true;
             this.LBL_klokOr.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBL_klokOr.Location = new System.Drawing.Point(611, 0);
-            this.LBL_klokOr.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.LBL_klokOr.Location = new System.Drawing.Point(815, 0);
             this.LBL_klokOr.Name = "LBL_klokOr";
-            this.LBL_klokOr.Size = new System.Drawing.Size(38, 19);
+            this.LBL_klokOr.Size = new System.Drawing.Size(45, 23);
             this.LBL_klokOr.TabIndex = 27;
             this.LBL_klokOr.Text = "klok";
             // 
@@ -187,10 +192,10 @@ namespace ChapooUI
             this.btn_Uitlog.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.btn_Uitlog.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.afsluitenToolStripMenuItem});
-            this.btn_Uitlog.Location = new System.Drawing.Point(724, 0);
+            this.btn_Uitlog.Location = new System.Drawing.Point(972, 0);
             this.btn_Uitlog.Name = "btn_Uitlog";
-            this.btn_Uitlog.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.btn_Uitlog.Size = new System.Drawing.Size(77, 24);
+            this.btn_Uitlog.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.btn_Uitlog.Size = new System.Drawing.Size(96, 27);
             this.btn_Uitlog.TabIndex = 30;
             this.btn_Uitlog.Text = "Uitloggen";
             this.btn_Uitlog.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.btn_Uitlog_ItemClicked);
@@ -199,7 +204,7 @@ namespace ChapooUI
             // 
             this.afsluitenToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
             this.afsluitenToolStripMenuItem.Name = "afsluitenToolStripMenuItem";
-            this.afsluitenToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.afsluitenToolStripMenuItem.Size = new System.Drawing.Size(89, 23);
             this.afsluitenToolStripMenuItem.Text = "Uitloggen";
             // 
             // menuStrip2
@@ -209,10 +214,10 @@ namespace ChapooUI
             this.menuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MI_terug});
-            this.menuStrip2.Location = new System.Drawing.Point(-2, -2);
+            this.menuStrip2.Location = new System.Drawing.Point(-3, -2);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip2.Size = new System.Drawing.Size(54, 24);
+            this.menuStrip2.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.menuStrip2.Size = new System.Drawing.Size(68, 27);
             this.menuStrip2.TabIndex = 31;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -220,7 +225,7 @@ namespace ChapooUI
             // 
             this.MI_terug.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
             this.MI_terug.Name = "MI_terug";
-            this.MI_terug.Size = new System.Drawing.Size(48, 20);
+            this.MI_terug.Size = new System.Drawing.Size(61, 23);
             this.MI_terug.Text = "Terug";
             this.MI_terug.Click += new System.EventHandler(this.MI_terug_Click);
             // 
@@ -233,9 +238,11 @@ namespace ChapooUI
             this.GbOrderDetails.Controls.Add(this.btnAddItem);
             this.GbOrderDetails.Controls.Add(this.LvOrderDetails);
             this.GbOrderDetails.Controls.Add(this.plaatsOrderBarBtn);
-            this.GbOrderDetails.Location = new System.Drawing.Point(74, 256);
+            this.GbOrderDetails.Location = new System.Drawing.Point(99, 315);
+            this.GbOrderDetails.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.GbOrderDetails.Name = "GbOrderDetails";
-            this.GbOrderDetails.Size = new System.Drawing.Size(641, 192);
+            this.GbOrderDetails.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.GbOrderDetails.Size = new System.Drawing.Size(855, 236);
             this.GbOrderDetails.TabIndex = 32;
             this.GbOrderDetails.TabStop = false;
             this.GbOrderDetails.Text = "Order Details";
@@ -243,9 +250,10 @@ namespace ChapooUI
             // btn_Clear_List
             // 
             this.btn_Clear_List.BackColor = System.Drawing.Color.LightCoral;
-            this.btn_Clear_List.Location = new System.Drawing.Point(6, 148);
+            this.btn_Clear_List.Location = new System.Drawing.Point(8, 182);
+            this.btn_Clear_List.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_Clear_List.Name = "btn_Clear_List";
-            this.btn_Clear_List.Size = new System.Drawing.Size(73, 27);
+            this.btn_Clear_List.Size = new System.Drawing.Size(97, 33);
             this.btn_Clear_List.TabIndex = 21;
             this.btn_Clear_List.Text = "Clear order";
             this.btn_Clear_List.UseVisualStyleBackColor = false;
@@ -255,26 +263,29 @@ namespace ChapooUI
             // 
             this.lblErrorMenuBox.AutoSize = true;
             this.lblErrorMenuBox.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorMenuBox.Location = new System.Drawing.Point(443, 8);
+            this.lblErrorMenuBox.Location = new System.Drawing.Point(591, 10);
+            this.lblErrorMenuBox.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblErrorMenuBox.Name = "lblErrorMenuBox";
-            this.lblErrorMenuBox.Size = new System.Drawing.Size(0, 13);
+            this.lblErrorMenuBox.Size = new System.Drawing.Size(0, 17);
             this.lblErrorMenuBox.TabIndex = 20;
             // 
             // lblErrorBox
             // 
             this.lblErrorBox.AutoSize = true;
             this.lblErrorBox.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorBox.Location = new System.Drawing.Point(6, 161);
+            this.lblErrorBox.Location = new System.Drawing.Point(119, 190);
+            this.lblErrorBox.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblErrorBox.Name = "lblErrorBox";
-            this.lblErrorBox.Size = new System.Drawing.Size(0, 13);
+            this.lblErrorBox.Size = new System.Drawing.Size(0, 17);
             this.lblErrorBox.TabIndex = 19;
             // 
             // btnDeleteItem
             // 
             this.btnDeleteItem.BackColor = System.Drawing.Color.LightCoral;
-            this.btnDeleteItem.Location = new System.Drawing.Point(476, 69);
+            this.btnDeleteItem.Location = new System.Drawing.Point(635, 85);
+            this.btnDeleteItem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDeleteItem.Name = "btnDeleteItem";
-            this.btnDeleteItem.Size = new System.Drawing.Size(142, 39);
+            this.btnDeleteItem.Size = new System.Drawing.Size(189, 48);
             this.btnDeleteItem.TabIndex = 18;
             this.btnDeleteItem.Text = "Verwijderen";
             this.btnDeleteItem.UseVisualStyleBackColor = false;
@@ -283,9 +294,10 @@ namespace ChapooUI
             // btnAddItem
             // 
             this.btnAddItem.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btnAddItem.Location = new System.Drawing.Point(476, 24);
+            this.btnAddItem.Location = new System.Drawing.Point(635, 30);
+            this.btnAddItem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAddItem.Name = "btnAddItem";
-            this.btnAddItem.Size = new System.Drawing.Size(142, 39);
+            this.btnAddItem.Size = new System.Drawing.Size(189, 48);
             this.btnAddItem.TabIndex = 17;
             this.btnAddItem.Text = "Toevoegen";
             this.btnAddItem.UseVisualStyleBackColor = false;
@@ -301,9 +313,10 @@ namespace ChapooUI
             this.LvOrderDetails.FullRowSelect = true;
             this.LvOrderDetails.GridLines = true;
             this.LvOrderDetails.HideSelection = false;
-            this.LvOrderDetails.Location = new System.Drawing.Point(6, 25);
+            this.LvOrderDetails.Location = new System.Drawing.Point(8, 31);
+            this.LvOrderDetails.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.LvOrderDetails.Name = "LvOrderDetails";
-            this.LvOrderDetails.Size = new System.Drawing.Size(441, 111);
+            this.LvOrderDetails.Size = new System.Drawing.Size(587, 136);
             this.LvOrderDetails.TabIndex = 16;
             this.LvOrderDetails.UseCompatibleStateImageBehavior = false;
             this.LvOrderDetails.View = System.Windows.Forms.View.Details;
@@ -331,9 +344,10 @@ namespace ChapooUI
             // rBLunch
             // 
             this.rBLunch.AutoSize = true;
-            this.rBLunch.Location = new System.Drawing.Point(12, 97);
+            this.rBLunch.Location = new System.Drawing.Point(16, 119);
+            this.rBLunch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rBLunch.Name = "rBLunch";
-            this.rBLunch.Size = new System.Drawing.Size(55, 17);
+            this.rBLunch.Size = new System.Drawing.Size(68, 21);
             this.rBLunch.TabIndex = 33;
             this.rBLunch.Text = "Lunch";
             this.rBLunch.UseVisualStyleBackColor = true;
@@ -342,9 +356,10 @@ namespace ChapooUI
             // rBAvond
             // 
             this.rBAvond.AutoSize = true;
-            this.rBAvond.Location = new System.Drawing.Point(12, 120);
+            this.rBAvond.Location = new System.Drawing.Point(16, 148);
+            this.rBAvond.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rBAvond.Name = "rBAvond";
-            this.rBAvond.Size = new System.Drawing.Size(56, 17);
+            this.rBAvond.Size = new System.Drawing.Size(69, 21);
             this.rBAvond.TabIndex = 34;
             this.rBAvond.Text = "Avond";
             this.rBAvond.UseVisualStyleBackColor = true;
@@ -354,9 +369,10 @@ namespace ChapooUI
             // 
             this.rBDranken.AutoSize = true;
             this.rBDranken.Checked = true;
-            this.rBDranken.Location = new System.Drawing.Point(12, 143);
+            this.rBDranken.Location = new System.Drawing.Point(16, 176);
+            this.rBDranken.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rBDranken.Name = "rBDranken";
-            this.rBDranken.Size = new System.Drawing.Size(54, 17);
+            this.rBDranken.Size = new System.Drawing.Size(67, 21);
             this.rBDranken.TabIndex = 35;
             this.rBDranken.TabStop = true;
             this.rBDranken.Text = "Drank";
@@ -367,26 +383,27 @@ namespace ChapooUI
             // 
             this.cb_Aantal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_Aantal.FormattingEnabled = true;
-            this.cb_Aantal.Location = new System.Drawing.Point(685, 226);
-            this.cb_Aantal.Margin = new System.Windows.Forms.Padding(2);
+            this.cb_Aantal.Location = new System.Drawing.Point(913, 278);
+            this.cb_Aantal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cb_Aantal.Name = "cb_Aantal";
-            this.cb_Aantal.Size = new System.Drawing.Size(30, 21);
+            this.cb_Aantal.Size = new System.Drawing.Size(39, 24);
             this.cb_Aantal.TabIndex = 36;
             // 
             // lblAantal
             // 
             this.lblAantal.AutoSize = true;
-            this.lblAantal.Location = new System.Drawing.Point(623, 229);
+            this.lblAantal.Location = new System.Drawing.Point(831, 282);
+            this.lblAantal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAantal.Name = "lblAantal";
-            this.lblAantal.Size = new System.Drawing.Size(40, 13);
+            this.lblAantal.Size = new System.Drawing.Size(52, 17);
             this.lblAantal.TabIndex = 37;
             this.lblAantal.Text = "Aantal:";
             // 
             // Bestellingen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.lblAantal);
             this.Controls.Add(this.cb_Aantal);
             this.Controls.Add(this.rBDranken);
@@ -402,6 +419,7 @@ namespace ChapooUI
             this.Controls.Add(this.lblEtenTxt);
             this.Controls.Add(this.LvEtenMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Bestellingen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Bestellingen";

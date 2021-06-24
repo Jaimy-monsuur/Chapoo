@@ -44,6 +44,7 @@ namespace ChapooUI
             this.LF_Orders = new System.Windows.Forms.ListView();
             this.LBL_Tafelstatus = new System.Windows.Forms.Label();
             this.LBL_tafelnummer = new System.Windows.Forms.Label();
+            this.BTNServeer = new System.Windows.Forms.Button();
             this.menuStrip2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.GBX_verandeStatus.SuspendLayout();
@@ -148,6 +149,7 @@ namespace ChapooUI
             // 
             // GBX_ViewOrders
             // 
+            this.GBX_ViewOrders.Controls.Add(this.BTNServeer);
             this.GBX_ViewOrders.Controls.Add(this.BTN_ordertoevoegen);
             this.GBX_ViewOrders.Controls.Add(this.BTN_Delete_reservation);
             this.GBX_ViewOrders.Controls.Add(this.LF_Orders);
@@ -162,7 +164,7 @@ namespace ChapooUI
             // BTN_ordertoevoegen
             // 
             this.BTN_ordertoevoegen.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.BTN_ordertoevoegen.Location = new System.Drawing.Point(221, 315);
+            this.BTN_ordertoevoegen.Location = new System.Drawing.Point(419, 315);
             this.BTN_ordertoevoegen.Name = "BTN_ordertoevoegen";
             this.BTN_ordertoevoegen.Size = new System.Drawing.Size(186, 47);
             this.BTN_ordertoevoegen.TabIndex = 5;
@@ -212,6 +214,17 @@ namespace ChapooUI
             this.LBL_tafelnummer.TabIndex = 21;
             this.LBL_tafelnummer.Text = "Tafel nummer:";
             // 
+            // BTNServeer
+            // 
+            this.BTNServeer.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.BTNServeer.Location = new System.Drawing.Point(217, 315);
+            this.BTNServeer.Name = "BTNServeer";
+            this.BTNServeer.Size = new System.Drawing.Size(186, 47);
+            this.BTNServeer.TabIndex = 6;
+            this.BTNServeer.Text = "Serveer order";
+            this.BTNServeer.UseVisualStyleBackColor = false;
+            this.BTNServeer.Click += new System.EventHandler(this.BTNServeer_Click);
+            // 
             // Managetafel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -256,5 +269,6 @@ namespace ChapooUI
         private System.Windows.Forms.Label LBL_tafelnummer;
         private System.Windows.Forms.Button BTN_ordertoevoegen;
         private System.Windows.Forms.ComboBox CB_Aantalmensen;
+        private System.Windows.Forms.Button BTNServeer;
     }
 }

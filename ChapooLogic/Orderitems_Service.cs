@@ -38,5 +38,10 @@ namespace ChapooLogic
             // Stuurt het itemnummer wat gereed gemeld moet worden naar de DAL laag
             orderitem_db.MeldGereed(orderNummer, itemNummer);
         }
+
+        public void Serveer(int orderNummer, int itemNummer)
+        {
+            orderitem_db.Serveer(orderNummer, itemNummer);
+        }
     }
 }

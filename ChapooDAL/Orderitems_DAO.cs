@@ -85,6 +85,13 @@ namespace ChapooDAL
             ExecuteEditQuery(query, sqlParameters);
         }
 
+        public void Serveer(int orderNummer, int itemNummer)
+        {
+            string query = $"UPDATE Orderitems SET geserveerd = 1 WHERE (Orderitems.ordernummer = {orderNummer} AND Orderitems.itemnummer = {itemNummer} AND gereed = 1)";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            ExecuteEditQuery(query, sqlParameters);
+        }
+
         public void DeleteOrderitem(int ordernummer, int itemnummer)
         {
             string query = $"DELETE FROM [Orderitems] WHERE [ordernummer] = '{ordernummer}' AND itemnummer = '{itemnummer}'";

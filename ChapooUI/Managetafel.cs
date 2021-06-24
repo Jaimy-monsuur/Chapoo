@@ -120,8 +120,8 @@ namespace ChapooUI
             LF_Orders.Columns.Add("Menu item:", 200);
             LF_Orders.Columns.Add("prijs:", 100);
             LF_Orders.Columns.Add("Aantal:", 70);
-            LF_Orders.Columns.Add("Gereed",50);
-            LF_Orders.Columns.Add("Geserveerd", 50);
+            LF_Orders.Columns.Add("Gereed",70);
+            LF_Orders.Columns.Add("Geserveerd", 100);
 
             List<Order> orders = Order_Service.Db_Get_All_Orders_FORTable(Tafelnummer);// haalt de order voor de tafel
             if (orders != null)
@@ -164,6 +164,18 @@ namespace ChapooUI
                 Orderitems_Service.DeleteOrderitem(ordernummer, itemnummer);
             }
             GetOrders();
+        }
+
+        private void BTNServeer_Click(object sender, EventArgs e)
+        {
+            if (LF_Orders.SelectedItems.Count != 0 && LF_Orders.SelectedItems[0].SubItems[6].Text.ToLower() == "false")//kijk of er iets geselecteerd is
+            {
+                int ordernummer = int.Parse(LF_Orders.SelectedItems[0].SubItems[0].Text);
+                int itemnummer = int.Parse(LF_Orders.SelectedItems[0].SubItems[1].Text);
+                Orderitems_Service.Serveer(ordernummer, itemnummer);
+                GetOrders();
+            }
+
         }
     }
 }

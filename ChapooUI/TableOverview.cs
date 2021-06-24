@@ -72,7 +72,7 @@ namespace ChapooUI
                 tafelnummer = o.tafel.tafelnummer - 1;// de index voor de list
                 foreach (Orderitems item in o.orderItemList)
                 {
-                    if (item.gereed == true)// als de tafel gereed is 
+                    if (item.gereed == true && item.geserveerd == false)// als de tafel gereed is 
                     {
                         finishedOrderItems++;
                     }
@@ -94,7 +94,7 @@ namespace ChapooUI
                         {
                             if (finishedOrderItems == o.orderItemList.Count)// als er geen orders meer open staan
                             {
-                                c.Text = $"Alle order voor deze tafel zijn klaar\nBezetting: {o.tafel.bezeting}";
+                                c.Text = $"Alle orders voor deze tafel zijn klaar\nBezetting: {o.tafel.bezeting}";
                             }
                             else// als er nog order open staan
                             {
@@ -107,8 +107,21 @@ namespace ChapooUI
                             {
                                 c.ForeColor = Color.Yellow;
                                 c.Font = new Font(c.Font,FontStyle.Bold);
-                                c.Text = $"{finishedOrderItems - servedOrders} staat bestelling klaar!";
+                                if (finishedOrderItems - servedOrders == 1)
+                                {
+                                    c.Text = $"{finishedOrderItems - servedOrders} bestelling staat klaar!";
+                                }
+                                else
+                                {
+                                    c.Text = $"{finishedOrderItems - servedOrders} bestellingen staan klaar!";
+                                }
+
                             }
+                            else
+                            {
+                                c.Text = "";
+                            }
+
                         }
                     }
                 }
