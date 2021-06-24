@@ -34,6 +34,7 @@ namespace ChapooUI
 
         // Order en tafelnummer ophalen, order_Service aanmaken en een user aanmaken
         public ChapooLogic.Order_Service Order_Service = new ChapooLogic.Order_Service();
+        public ChapooLogic.Voorraad_Service Voorraad_Service = new ChapooLogic.Voorraad_Service(); 
         public int Tafelnummer;
         public int Ordernummer;
         public CurrentUser user;
@@ -115,8 +116,6 @@ namespace ChapooUI
                 this.Ordernummer = order.orderNummer;
             }
 
-
-            
             //Zorgt voor een placeholder "Opmerking:" in de textbox opmerking.
 
             SendMessage(txtOpmerkingBestelling.Handle, EM_SETCUEBANNER, 0, "Opmerking:");
@@ -135,19 +134,30 @@ namespace ChapooUI
             confirmLogout.ShowDialog();
         }
 
+        private bool IsInCollection(ListViewItem lvi)
+        {
+            bool contains = false;
+            foreach (ListViewItem item in LvOrderDetails.Items)
+            {
+                
+                for (int i = 0; i < lvi.SubItems.Count; i++)
+                {
+                    string sub1 = item.SubItems[i].Text;
+                    string sub2 = lvi.SubItems[i].Text;
+                    if (sub1 == sub2)
+                    {
+                        contains = true;
+                    }
+                }
+            }
+            return contains;
+        }
+
         private void btnAddItem_Click(object sender, EventArgs e)
         {
             //Checked of er een item is geselecteerd zoniet dan geeft hij een waarschuwing
-                if (LvEtenMenu.SelectedItems.Count > 0)
+            if (LvEtenMenu.SelectedItems.Count > 0)
                 {
-                    //De opmerkingen aan de orderdetails toevoegen
-                    Orderitems opmerking = new Orderitems();
-                    
-                    //Aantal een waarde geven zodat er gechecked kan worden of er een optie is geselecteerd.
-                    opmerking.opmerking = txtOpmerkingBestelling.Text;
-                    int CbAantal;
-                    CbAantal = cb_Aantal.SelectedIndex;
-
                     //listview geselecteerde items toevoegen aan de orderdetails
                     ListViewItem item = LvEtenMenu.SelectedItems[0];
                     Menuitems menuitem = new Menuitems()
@@ -157,14 +167,58 @@ namespace ChapooUI
                         prijs = decimal.Parse(item.SubItems[2].Text),
                     };
 
-                    
-                    //Als er een aantal geselcteerd is dan wordt de listview gevuld
-                    if (CbAantal > -1 && CbAantal <= 14)
-                    {
-                        opmerking.aantal = CbAantal + 1;
+                
 
+                item = new ListViewItem(new string[] { $"{menuitem.itemNummer}", $"{menuitem.naam}" });
+
+                //Als er een aantal geselcteerd is dan wordt de listview gevuld
+                if (cb_Aantal.SelectedIndex > -1)
+                    {
+                       if(LvOrderDetails.Items.Count > 0)
+                       {
+                            if (IsInCollection(item) ==  true)
+                            {
+                                if (item.SubItems[0].Text == menuitem.itemNummer.ToString())
+                                {
+                                    //De opmerkingen en aantal aan de orderdetails toevoegen
+                                    Orderitems opmerking = new Orderitems()
+                                    {
+                                        opmerking = txtOpmerkingBestelling.Text,
+                                        aantal = int.Parse(cb_Aantal.Text)
+                                    };
+
+                                    foreach (ListViewItem items in LvOrderDetails.Items)
+                                    {
+                                        if (items.SubItems[0].Text == menuitem.itemNummer.ToString())
+                                        {
+                                            items.SubItems[3].Text = Convert.ToString(Convert.ToInt32(opmerking.aantal.ToString()) + Convert.ToInt32(items.SubItems[3].Text));
+                                        }
+                                    }
+                                }
+                           
+                            }
+                            else
+                            {
+                                //De opmerkingen en aantal aan de orderdetails toevoegen
+                                Orderitems opmerking = new Orderitems()
+                                {
+                                    opmerking = txtOpmerkingBestelling.Text,
+                                    aantal = int.Parse(cb_Aantal.Text)
+                                };
+                                LvOrderDetails.Items.Add(new ListViewItem(new string[] { $"{menuitem.itemNummer}", $"{menuitem.naam}", $"{opmerking.opmerking}", $"{opmerking.aantal}" }));
+                            }
+                       }
+                    else
+                    {
+                        //De opmerkingen en aantal aan de orderdetails toevoegen
+                        Orderitems opmerking = new Orderitems()
+                        {
+                            opmerking = txtOpmerkingBestelling.Text,
+                            aantal = int.Parse(cb_Aantal.Text)
+                        };
                         LvOrderDetails.Items.Add(new ListViewItem(new string[] { $"{menuitem.itemNummer}", $"{menuitem.naam}", $"{opmerking.opmerking}", $"{opmerking.aantal}" }));
-                        
+                    }
+
                         //Cleared de errorbox zodat je niet denk dat het nogsteeds niet lukt.
                         lblErrorMenuBox.Text = "";
                     }
@@ -177,7 +231,6 @@ namespace ChapooUI
                 else
                 {
                     //Als er geen item geslecteerd is zal de knop disabled worden en krijgt de gebruiker een error.
-                    btnDeleteItem.Enabled = false;
 
                     lblErrorMenuBox.Text = "Klik eerst een item aan in de menulijst!";
                 }
@@ -305,6 +358,8 @@ namespace ChapooUI
                 }
                 //aanroepen van de query om de waardes in de database te zetten.
                 orderitems_Service.AddOrderitem(Ordernummer, menuitems.itemNummer, orderitems.aantal, orderitems.opmerking);
+                Voorraad_Service.afschrijven(orderitems.aantal, menuitems.itemNummer);
+
 
                 //De Listvview leegmaken en een melding geven dat het plaatsen van de order gelukt is.
                 LvOrderDetails.Clear();
@@ -312,6 +367,11 @@ namespace ChapooUI
                 lblErrorBox.ForeColor = Color.Green;
                 lblErrorBox.Text = "Gelukt de order is opgeslagen!";
             }
+        }
+
+        private void btn_Clear_List_Click(object sender, EventArgs e)
+        {
+            LvOrderDetails.Items.Clear();
         }
     }
 }

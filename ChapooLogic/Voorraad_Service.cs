@@ -29,6 +29,10 @@ namespace ChapooLogic
         {
             voorraad_db.AddItem(itemNummer);
         }
+        public void afschrijven(int aantal, int itemNummer)
+        {
+            voorraad_db.afschrijven(aantal, itemNummer);
+        }
 
         public void DeleteMenuItem(int itemNummer)
         {
